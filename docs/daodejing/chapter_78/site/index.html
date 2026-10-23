@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 78 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 78/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_77/site/index.html" title="第 77 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_79/site/index.html" title="第 79 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 78 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>天下莫柔弱于水，而攻坚强者莫之能胜，以其无以易之。弱之胜强，柔之胜刚，天下莫不知，莫能行。是以圣人云：受国之垢，是谓社稷主；受国不祥，是为天下王。正言若反。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 78 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章是老子最著名的&quot;水之颂&quot;。他先说天下没有比水更柔弱的东西，可它偏偏能攻破最坚硬的东西；接着说&quot;弱胜强、柔胜刚&quot;的道理人人都懂，却没人肯做。最妙的是最后两笔——真正能当&quot;社稷主&quot;&quot;天下王&quot;的人，恰恰是先肯为国家背屈辱、扛灾祸的人；而这一切听起来像反话，其实是真的。本章的收获是：老子把&quot;柔弱&quot;从一种策略提升为一种承担，让你重新审视什么才是真的&quot;强&quot;。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote><strong>如果</strong>你是一家公司的负责人，市场最差的季度你主动站出来担责、降薪，团队反而更稳——这算不算老子说的&quot;受国之垢&quot;？</blockquote>
+<p>&gt;</p>
+<blockquote><strong>如果</strong>&quot;柔能胜刚&quot;人人都懂，为什么公司、家庭、国际政治里，大家还是本能地选择硬碰硬？&quot;莫能行&quot;卡在了哪里？</blockquote>
+<p>&gt;</p>
+<blockquote><strong>如果</strong>你听到一句话觉得&quot;这不是反着说吗&quot;，是不是恰恰因为它说的才是真话？&quot;正言若反&quot;是否意味着：真话天生就冒犯常识？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote><strong>赫拉克利特</strong>：他也讲&quot;对立统一&quot;，说弓与琴的张力、生与死、醒与睡是一回事——和老子&quot;正言若反&quot;的辩证感相近，但赫拉克利特更强调&quot;斗争&quot;是万物之父，老子则把这股张力收束到&quot;柔弱&quot;上。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>韩非子</strong>：作为法家代表，他会直接反对——君主要握&quot;势&quot;、行&quot;法&quot;，靠的是明确赏罚与威权，把国家命运系于君主&quot;受垢&quot;的自我牺牲，在韩非看来既不现实也不可靠，是道德浪漫主义。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>黑格尔</strong>：他的辩证法里，&quot;否定性&quot;是推动精神前进的力量，柔弱与坚强在矛盾中互相转化，这与老子遥相呼应；但黑格尔把这种转化安放在&quot;绝对精神&quot;的自我展开里，老子则停在&quot;道&quot;的自然无为上，一个有终点，一个不设终点。</blockquote>
+<p>&gt;</p>
+<blockquote>（补一）：<strong>荀子</strong>曾批评&quot;老子有见于诎，无见于信&quot;——只看到退让的一面，看不到进取的一面。这条评语正好用来追问：老子的&quot;柔弱&quot;是不是也暗含了某种更深的&quot;进取&quot;？</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：先扫三个点——①&quot;水&quot;为什么被选作主角；②&quot;莫不知，莫能行&quot;这个反差，老子到底在惋惜什么；③最后一句&quot;正言若反&quot;是不是把前面所有话都&quot;翻&quot;了一遍。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：盯住两处论证。第一处是&quot;以其无以易之&quot;——水凭什么不可替代？不是因为水强，而是因为找不到第二个能&quot;以柔克刚&quot;的东西，这是逻辑上的独一性。第二处是&quot;受国之垢，是谓社稷主&quot;——从自然比喻突然跳到政治承担，这个跳跃不能略过：老子是不是说，真正的&quot;柔弱&quot;不是被动挨打，而是主动接住别人不愿接的东西？</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：留一个问题给你自己——&quot;正言若反&quot;如果成立，那本章自己说的&quot;柔弱胜刚强&quot;是不是也要反过来听？也就是说：老子讲的&quot;弱&quot;是不是根本就不是我们以为的那种&quot;弱&quot;？如果是，那这一整章到底是在教人退让，还是在教人一种更隐蔽的强？</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+    laozi["老子（作者）"]
+    case_water["案例：水攻坚强"]
+    p_water["命题：水至柔而攻坚强，无以易之"]
+    p_weak["命题：弱胜强，柔胜刚"]
+    p_ruler["命题：受国之垢与不祥者可为社稷主、天下王"]
+    p_zheng["命题：正言若反"]
+    c_rou["概念：柔弱胜刚强"]
+    c_shou["概念：受国之垢、受国不祥"]
+    c_zheng["概念：正言若反"]
+
+    case_water -- instance_of --> p_water
+    p_water -- supports --> p_weak
+    p_weak -- supports --> c_rou
+    p_water -- relates_to --> c_rou
+    p_ruler -- supports --> c_shou
+    p_ruler -- relates_to --> c_rou
+    p_zheng -- supports --> c_zheng
+    p_ruler -- supports --> p_zheng
+    laozi -- introduces --> p_weak
+    laozi -- introduces --> p_zheng
+    c_rou -- relates_to --> c_zheng
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章以水为喻，集中论述柔弱胜刚强、承担屈辱与不祥者可为社稷主与天下王，并以“正言若反”收束，具有总括性命题与辩证表达的特征。</div>
+<h3>📌 核心命题</h3><ol>
+<li>水是天下最柔弱的，却能攻克坚强之物，没有什么能替代它。</li>
+<li>弱能胜强、柔能胜刚，天下人都知道却少有人能实行。</li>
+<li>圣人说能承受国家屈辱和不祥的人，才可成为社稷之主、天下之王。</li>
+<li>正面的言论听起来好像反话。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>天下莫柔弱于水，而攻坚强者莫之能胜，以其无以易之。</li>
+<li>弱之胜强，柔之胜刚，天下莫不知，莫能行。</li>
+<li>受国之垢，是谓社稷主；受国不祥，是为天下王。</li>
+<li>正言若反。</li>
+</ol>
+<h3>📚 案例</h3>
+<h3>💡 新概念</h3>
+<details><summary><strong>柔弱胜刚强</strong></summary><div class="case-body">看似柔弱的事物，反而能胜过刚强的事物。</div></details>
+<details><summary><strong>正言若反</strong></summary><div class="case-body">真正正确的言论，表面上常像相反的话。</div></details>
+<details><summary><strong>受国之垢、受国不祥</strong></summary><div class="case-body">承担国家的屈辱与灾祸。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>柔弱胜刚强与正言若反的论述可能在第79章及后续继续展开。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```text</p>
+<p>我刚读完《{书名}》第 {章节号} 章「{章节标题}」。下面是我对本章主线的复述：</p>
+<br/>
+<p>{我的复述}</p>
+<br/>
+<p>请你做两件事：</p>
+<ol>
+<li>1. 主线提取：用 3–5 句话概括本章作者真正想建立的论点链条（前提→推论→结论），并指出我复述中遗漏或错置的环节。</li>
+<li>2. 关键概念检查：列出本章 3–5 个不可绕过的关键概念，逐个问我「它在本章中承担什么功能、与哪个概念对立或配套」，等我回答后再给出基于本章原文的校正。</li>
+</ol>
+<p>不要引入本章之外的文本，不要替我补写我没读到的内容。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```text</p>
+<p>你现在的角色是《{书名}》第 {章节号} 章「{章节标题}」的最强反方。我的立场是：</p>
+<br/>
+<p>{我对本章核心论点的接受版本}</p>
+<br/>
+<p>请从相反视角出发，构造 3 条最强的反驳：</p>
+<ol>
+<li>1. 一条针对本章的隐含前提（作者未明说但必须成立的东西）；</li>
+<li>2. 一条针对本章的推论步骤（哪一步跳得太快）；</li>
+<li>3. 一条针对本章结论的反例场景（在什么情况下结论会失效）。</li>
+</ol>
+<p>每条反驳都要说明「如果这条成立，本章哪个具体论断会倒下」。不要替我调和，先给我最难受的版本。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```text</p>
+<p>我刚读完《{书名}》第 {章节号} 章「{章节标题}」，本章我抓到的核心是：</p>
+<br/>
+<p>{一句话概括本章核心}</p>
+<br/>
+<p>请给我 3 个真实生活/工作场景（不要虚构文学情节，要具体到可操作）：</p>
+<ol>
+<li>1. 一个个人决策场景；</li>
+<li>2. 一个团队协作或沟通场景；</li>
+<li>3. 一个公共议题或行业现象场景。</li>
+</ol>
+<p>对每个场景，说明：本章的哪个概念在这里起作用、按本章逻辑应该怎么判断、以及这个判断在现实中可能卡在哪里。不要超出本章的思想资源去开药方。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```text</p>
+<p>《{书名}》第 {章节号} 章「{章节标题}」里最让我兴奋的一句话是：</p>
+<br/>
+<p>「{原句}」</p>
+<br/>
+<p>请围绕这句话做「那这样推下去还有什么？」的推演：</p>
+<ol>
+<li>1. 这句话在本章论证中原本承担什么角色（它是在回应谁、反对什么）？</li>
+<li>2. 如果把它从本章语境中抽出来、当作一个独立命题，它还能推出哪些本章没明说的结论？</li>
+<li>3. 这些延伸结论中，哪一条最可能反过来威胁本章自己的立场？</li>
+<li>4. 最后给我 2 个可以继续追的问题，标明它们是本章内部的裂缝还是外部的挑战。</li>
+</ol>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题</h2>
+<br/>
+<ol>
+<li>1. 这一章里你最没看懂的一个词或一句话是什么？——先别急着总结，把卡点原样标出来，卡点往往就是本章的关节。</li>
+<li>2. 作者在本章最想解决的一个问题是什么？——试着用「他在担心什么被搞错」来回答，而不是「他讲了什么」。</li>
+<li>3. 本章有没有一个例子、比喻或反例让你想到自己的经历？——把例子和你的经历并排放，看它们像在哪里、不像在哪里。</li>
+<li>4. 本章作者主要在跟谁争论？——找出被点名或明显被针对的立场，理解一章最快的方式是看它在打谁。</li>
+<li>5. 如果把本章的核心结论反过来讲，会发生什么？——反转练习能暴露你到底是真信还是只是记住了。</li>
+<li>6. 本章的论证是从哪一步开始变得不那么稳的？——允许自己怀疑，标出那个「跳了一下」的地方。</li>
+<li>7. 这一章放在你读过的哲学传统里，更像哪一路的做法？——先凭直觉归类，再看它是否真的符合那个传统的典型特征。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>柔弱胜刚强</td><td>看上去最软的东西，往往最后赢了最硬的东西。</td><td>老子以水、草木、婴儿为喻，说明&quot;柔弱&quot;并非软弱无力，而是不争、不折、能屈能伸的存在方式；&quot;刚强&quot;则因僵硬易折而先败。这是《老子》&quot;反者道之动&quot;、&quot;守柔曰强&quot;思想的集中表达，与第七十六章&quot;人之生也柔弱，其死也坚强&quot;一脉相承。</td><td>《老子》七十八章：&quot;天下莫柔弱于水，而攻坚强者莫之能胜。&quot;河上公注以&quot;水能灭火、能穿石&quot;解之，归于&quot;柔之胜刚，弱之胜强&quot;的养生保身之道；王弼注云&quot;以柔克刚，以静制动&quot;，将柔弱理解为&quot;不争而物自归&quot;的玄学本体之用，即&quot;无&quot;之无为而无不为。苏辙《老子解》则说&quot;水之性，无有不下&quot;，以&quot;顺&quot;释柔。</td><td>河上公一系（黄老、道教养生）把柔弱读作保身全生的技术，重在&quot;齿坚则折、舌柔则存&quot;；王弼贵无，把柔弱提升为本体论命题——唯有&quot;无&quot;（不执着于定形）才能容纳万物，柔弱即道的存在方式。郭象注《庄》主张&quot;独化&quot;，反对以柔弱为某种更高本体的属性，而视为各物自性自足的自然而然。佛学中观则以&quot;缘起性空&quot;解之：刚柔皆无自性，胜败亦假名，柔弱胜刚强只是破除执着的一方便。西方可参照海德格尔对&quot;泰然让之&quot;（Gelassenheit）的讨论——不强求、不摆置，任物自在，与&quot;柔弱之用&quot;有结构上的呼应，但海德格尔的非意志化来自对技术座架的批判，并非生成论意义上的&quot;以弱胜强&quot;。现代学者陈鼓应指出，老子此说属&quot;辩证法&quot;而非&quot;阴谋术&quot;，重在揭示&quot;物壮则老&quot;的规律。</td></tr>
+<tr><td>正言若反</td><td>真正对的话，听起来常常像是反话。</td><td>语出《老子》七十八章末句。意谓合于道的言论往往与世俗常识相反，如&quot;大直若屈&quot;&quot;大巧若拙&quot;&quot;明道若昧&quot;。《老子》全书大量使用这种&quot;若&quot;字句式，构成一种独特的表达方式。</td><td>王弼注：&quot;此乃正直之言，世人不知，以为反言。&quot;强调&quot;正言&quot;因其&quot;反常&quot;而不被俗众领受。苏辙《老子解》以&quot;反者道之动&quot;贯通，认为道之运行本与现象界相逆，故道之言辞必与常识相违。成玄英重玄学一系则把&quot;若反&quot;解为双遣：既遣&quot;正&quot;，亦遣&quot;反&quot;，非正非反，方为至言。</td><td>王弼从&quot;言不尽意&quot;出发，认为语言对&quot;无&quot;只能暗示不能定义，故&quot;正言&quot;必呈悖论形态；郭象则对语言与名教持更温和的态度，主张&quot;名当其实&quot;即可，不认为真理必须反俗。庄子《齐物论》言&quot;大辩不言&quot;，把&quot;正言若反&quot;推到极致：一切言说皆有限，真正的&quot;正&quot;在&quot;不言&quot;中。佛学中观以&quot;四句百非&quot;结构相类比——凡有所说皆落边见，故真理常显为对常识的否定（如&quot;色即是空&quot;）；禅宗&quot;说似一物即不中&quot;亦是同一语法。维特根斯坦在《逻辑哲学论》末尾主张&quot;对于不可说的东西必须保持沉默&quot;，与老子&quot;正言若反&quot;共享一个直觉：语言触及界限时会自我扭反。现代研究者刘笑敢认为，这种&quot;正言若反&quot;是老子自觉的修辞策略而非逻辑矛盾，其功能是打破读者既有的价值定式。</td></tr>
+<tr><td>受国之垢，是谓社稷主</td><td>肯替国家背黑锅、担灾祸的人，才配当国家的领导人。</td><td>语出《老子》七十八章：&quot;受国之垢，是谓社稷主；受国不祥，是为天下王。&quot;垢指屈辱、污垢，不祥指灾殃。意为真正的君主须承担全国的耻辱与祸患，这与七十七章&quot;损有余而补不足&quot;的天道观呼应，是老子政治哲学中&quot;为天下&quot;而非&quot;取天下&quot;的承担伦理。</td><td>河上公注以&quot;垢&quot;为&quot;浊辱&quot;，谓&quot;君能受国之浊辱，乃可以为社稷之主&quot;，归之于君德修养；王弼注：&quot;言能受国之垢秽，乃可以为社稷之主也。&quot;强调处下、不争、以身为天下。苏辙《老子解》指出这与&quot;知其荣，守其辱，为天下谷&quot;（二十八章）同义，即以卑下自处方能容众。</td><td>河上公—道教一系将此解为君主的修炼与忍辱之德，甚至引申为内丹&quot;以污浊之身受之&quot;的炼己工夫；王弼贵无，认为君主须&quot;无其身&quot;才能&quot;有天下&quot;，受垢即消解自我的执定。儒家（孟子）有类似的&quot;任&quot;的观念——&quot;天之将降大任于是人也，必先苦其心志&quot;，但孟子强调的是道德担当以成就德性，老子强调的是以卑弱姿态容纳天下，二者取向不同：孟子刚健，老子守柔。韩非《解老》《喻老》则从法家角度把&quot;受垢&quot;读作君主必须独自承担刑名之责、不与人分担权势，是政治技术而非德性。佛学中&quot;菩萨代众生受苦&quot;的愿力，与&quot;受国之不祥&quot;在结构上相似，但佛学的承担以轮回与慈悲为背景，老子的承担以&quot;社稷&quot;这一政治共同体为界。现代学者葛兆光提醒，此句在汉代常被用来论证君权的合法性——能受垢者方为真主，是一种对权力的道德约束话语，而非对权力的赞美。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">柔弱胜刚强</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">看上去最软的东西，往往最后赢了最硬的东西。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子以水、草木、婴儿为喻，说明&quot;柔弱&quot;并非软弱无力，而是不争、不折、能屈能伸的存在方式；&quot;刚强&quot;则因僵硬易折而先败。这是《老子》&quot;反者道之动&quot;、&quot;守柔曰强&quot;思想的集中表达，与第七十六章&quot;人之生也柔弱，其死也坚强&quot;一脉相承。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》七十八章：&quot;天下莫柔弱于水，而攻坚强者莫之能胜。&quot;河上公注以&quot;水能灭火、能穿石&quot;解之，归于&quot;柔之胜刚，弱之胜强&quot;的养生保身之道；王弼注云&quot;以柔克刚，以静制动&quot;，将柔弱理解为&quot;不争而物自归&quot;的玄学本体之用，即&quot;无&quot;之无为而无不为。苏辙《老子解》则说&quot;水之性，无有不下&quot;，以&quot;顺&quot;释柔。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公一系（黄老、道教养生）把柔弱读作保身全生的技术，重在&quot;齿坚则折、舌柔则存&quot;；王弼贵无，把柔弱提升为本体论命题——唯有&quot;无&quot;（不执着于定形）才能容纳万物，柔弱即道的存在方式。郭象注《庄》主张&quot;独化&quot;，反对以柔弱为某种更高本体的属性，而视为各物自性自足的自然而然。佛学中观则以&quot;缘起性空&quot;解之：刚柔皆无自性，胜败亦假名，柔弱胜刚强只是破除执着的一方便。西方可参照海德格尔对&quot;泰然让之&quot;（Gelassenheit）的讨论——不强求、不摆置，任物自在，与&quot;柔弱之用&quot;有结构上的呼应，但海德格尔的非意志化来自对技术座架的批判，并非生成论意义上的&quot;以弱胜强&quot;。现代学者陈鼓应指出，老子此说属&quot;辩证法&quot;而非&quot;阴谋术&quot;，重在揭示&quot;物壮则老&quot;的规律。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">正言若反</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">真正对的话，听起来常常像是反话。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》七十八章末句。意谓合于道的言论往往与世俗常识相反，如&quot;大直若屈&quot;&quot;大巧若拙&quot;&quot;明道若昧&quot;。《老子》全书大量使用这种&quot;若&quot;字句式，构成一种独特的表达方式。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;此乃正直之言，世人不知，以为反言。&quot;强调&quot;正言&quot;因其&quot;反常&quot;而不被俗众领受。苏辙《老子解》以&quot;反者道之动&quot;贯通，认为道之运行本与现象界相逆，故道之言辞必与常识相违。成玄英重玄学一系则把&quot;若反&quot;解为双遣：既遣&quot;正&quot;，亦遣&quot;反&quot;，非正非反，方为至言。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼从&quot;言不尽意&quot;出发，认为语言对&quot;无&quot;只能暗示不能定义，故&quot;正言&quot;必呈悖论形态；郭象则对语言与名教持更温和的态度，主张&quot;名当其实&quot;即可，不认为真理必须反俗。庄子《齐物论》言&quot;大辩不言&quot;，把&quot;正言若反&quot;推到极致：一切言说皆有限，真正的&quot;正&quot;在&quot;不言&quot;中。佛学中观以&quot;四句百非&quot;结构相类比——凡有所说皆落边见，故真理常显为对常识的否定（如&quot;色即是空&quot;）；禅宗&quot;说似一物即不中&quot;亦是同一语法。维特根斯坦在《逻辑哲学论》末尾主张&quot;对于不可说的东西必须保持沉默&quot;，与老子&quot;正言若反&quot;共享一个直觉：语言触及界限时会自我扭反。现代研究者刘笑敢认为，这种&quot;正言若反&quot;是老子自觉的修辞策略而非逻辑矛盾，其功能是打破读者既有的价值定式。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">受国之垢，是谓社稷主</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">肯替国家背黑锅、担灾祸的人，才配当国家的领导人。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》七十八章：&quot;受国之垢，是谓社稷主；受国不祥，是为天下王。&quot;垢指屈辱、污垢，不祥指灾殃。意为真正的君主须承担全国的耻辱与祸患，这与七十七章&quot;损有余而补不足&quot;的天道观呼应，是老子政治哲学中&quot;为天下&quot;而非&quot;取天下&quot;的承担伦理。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">河上公注以&quot;垢&quot;为&quot;浊辱&quot;，谓&quot;君能受国之浊辱，乃可以为社稷之主&quot;，归之于君德修养；王弼注：&quot;言能受国之垢秽，乃可以为社稷之主也。&quot;强调处下、不争、以身为天下。苏辙《老子解》指出这与&quot;知其荣，守其辱，为天下谷&quot;（二十八章）同义，即以卑下自处方能容众。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公—道教一系将此解为君主的修炼与忍辱之德，甚至引申为内丹&quot;以污浊之身受之&quot;的炼己工夫；王弼贵无，认为君主须&quot;无其身&quot;才能&quot;有天下&quot;，受垢即消解自我的执定。儒家（孟子）有类似的&quot;任&quot;的观念——&quot;天之将降大任于是人也，必先苦其心志&quot;，但孟子强调的是道德担当以成就德性，老子强调的是以卑弱姿态容纳天下，二者取向不同：孟子刚健，老子守柔。韩非《解老》《喻老》则从法家角度把&quot;受垢&quot;读作君主必须独自承担刑名之责、不与人分担权势，是政治技术而非德性。佛学中&quot;菩萨代众生受苦&quot;的愿力，与&quot;受国之不祥&quot;在结构上相似，但佛学的承担以轮回与慈悲为背景，老子的承担以&quot;社稷&quot;这一政治共同体为界。现代学者葛兆光提醒，此句在汉代常被用来论证君权的合法性——能受垢者方为真主，是一种对权力的道德约束话语，而非对权力的赞美。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 78 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 78 章]
+
+天下莫柔弱于水，而攻坚强者莫之能胜，以其无以易之。弱之胜强，柔之胜刚，天下莫不知，莫能行。是以圣人云：受国之垢，是谓社稷主；受国不祥，是为天下王。正言若反。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_78_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

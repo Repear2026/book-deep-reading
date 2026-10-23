@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 76 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 76/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_75/site/index.html" title="第 75 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_77/site/index.html" title="第 77 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 76 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>人之生也柔弱，其死也坚强。万物草木之生也柔脆，其死也枯槁。故坚强者死之徒，柔弱者生之徒。是以兵强则不胜，木强则折。强大处下，柔弱处上。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 76 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章老子从最直观的生死现象切入：人活着时身体柔软，死了就僵硬；草木生长时柔脆，枯死时干硬。由此他推出一个惊人结论——柔弱属于“生之徒”，坚强属于“死之徒”，并进一步落到军事与自然：“兵强则不胜，木强则折”。最后给出反直觉的位阶判断：强大处下，柔弱处上。有趣之处在于，老子把日常观察翻转成价值判断，挑战了“强即好”的常识。最重要的收获是：柔弱不是软弱，而是生命力的标志。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>1. 如果你注意到婴儿浑身柔软、老人身体日渐僵硬，你还会觉得“柔弱”是个贬义词吗？</blockquote>
+<blockquote>2. 如果一支军队追求“不可战胜”的绝对强大，它会不会反而因过度紧绷而失去应变弹性？</blockquote>
+<blockquote>3. 如果一棵树长得又高又硬、不肯弯腰，遇大风时它比柔韧的小草更安全吗？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote>- <strong>荀子</strong>：主张“制天命而用之”，强调人应以刚强进取改造自然，与老子以柔弱为生命本相的看法形成鲜明对立——荀子会说，柔弱只是尚未用力，不是价值所在。</blockquote>
+<blockquote>- <strong>韩非</strong>：在《解老》《喻老》中把老子的柔弱读作一种“术”——君主以柔顺姿态隐藏意图、驾驭群臣，将宇宙论命题转化为政治操作手册，抽掉了其中的生命哲学意味。</blockquote>
+<blockquote>- <strong>罗素</strong>：在《西方哲学史》中论及道家时，认为老子的柔弱学说是一种“以退为进”的生存智慧，但他也批评这种态度可能导致消极不争，与西方科学进取精神相悖。</blockquote>
+<blockquote>- <strong>福柯</strong>：从身体与权力的关系看，“柔软—僵硬”的对立可读作规训机制的两极——权力既通过使身体柔韧可塑来塑造主体，也通过使身体僵硬固化来实施控制，这与老子将柔弱单向度地肯定为“生”有所不同。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：关注三个点——第一，老子从“人”到“草木”的类比链条是怎么搭起来的；第二，“死之徒”与“生之徒”这对概念如何把描述变成价值判断；第三，结尾“强大处下，柔弱处上”这个反常识的位阶排序，看老子如何从军事（兵强）和自然（木强）两个例子推出普遍结论。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：必看两个论证。其一，“人之生也柔弱，其死也坚强。万物草木之生也柔脆，其死也枯槁”——这是全章的类比基础，注意老子用的是“生/死”这个不可反驳的经验事实来为“柔弱/坚强”赋值，论证力全在这个观察的普遍性上。其二，“兵强则不胜，木强则折”——从生命现象过渡到军事与自然领域，看老子如何把“坚强→死”的原则具体化为“强→败”的因果推断，这里的“强”指什么、为什么“强”反而“不胜”，值得逐字推敲。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：一个该追问的开放问题——老子说“柔弱处上”，但如果一个人或一个国家刻意追求“柔弱”的姿态，这种“追求”本身是否已经是一种“坚强”？换言之，“柔弱”到底是自然呈现的生命状态，还是可以刻意经营的策略？如果是后者，它与老子所批判的“坚强”还有本质区别吗？</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+    p1["命题：柔弱是生命的特征，坚强是死亡的征兆"]
+    p2["命题：兵强则不胜，木强则折，强大处下，柔弱处上"]
+    a1["论据：人之生也柔弱，其死也坚强"]
+    a2["论据：万物草木之生也柔脆，其死也枯槁"]
+    a3["论据：坚强者死之徒，柔弱者生之徒"]
+    a4["论据：兵强则不胜，木强则折"]
+    a5["论据：强大处下，柔弱处上"]
+    c1["案例：以兵强、木强为喻说明坚强致败"]
+    n1["概念：柔弱"]
+    n2["概念：坚强"]
+    n3["概念：死之徒"]
+    n4["概念：生之徒"]
+    n5["概念：强大处下"]
+    n6["概念：柔弱处上"]
+    laozi["作者：老子"]
+    ch77["事件：第77章继续探讨柔弱胜刚强"]
+
+    a1 -->|supports| p1
+    a2 -->|supports| p1
+    a3 -->|supports| p1
+    a4 -->|supports| p2
+    a5 -->|supports| p2
+    c1 -->|instance_of| p2
+    p1 -->|relates_to| p2
+    n1 -->|relates_to| p1
+    n2 -->|relates_to| p1
+    n3 -->|relates_to| p1
+    n4 -->|relates_to| p1
+    n5 -->|relates_to| p2
+    n6 -->|relates_to| p2
+    laozi -->|relates_to| p1
+    p2 -->|relates_to| ch77
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章以人之生死、草木枯荣为喻，论证柔弱是生命与生机的特征，坚强是死亡与衰败的征兆，并由此推出兵强不胜、木强则折以及“强大处下，柔弱处上”的结论，是老子柔弱胜刚强思想的核心章节之一。</div>
+<h3>📌 核心命题</h3><ol>
+<li>柔弱是生命的特征，坚强是死亡的征兆。</li>
+<li>兵强则不胜，木强则折，强大处于下位，柔弱处于上位。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>人之生也柔弱，其死也坚强。</li>
+<li>万物草木之生也柔脆，其死也枯槁。</li>
+<li>故坚强者死之徒，柔弱者生之徒。</li>
+<li>是以兵强则不胜，木强则折。</li>
+<li>强大处下，柔弱处上。</li>
+</ol>
+<h3>📚 案例</h3>
+<details><summary><strong>以兵强、木强为喻说明坚强致败（无具体人物案例）</strong></summary><div class="case-body"></div></details>
+<p>以兵强、木强为喻说明坚强致败（无具体人物案例）</p>
+<h3>💡 新概念</h3>
+<details><summary><strong>柔弱：指生命体柔软脆弱的状态，象征生机。</strong></summary><div class="case-body"></div></details>
+<details><summary><strong>坚强：指生命体僵硬强固的状态，象征死亡。</strong></summary><div class="case-body"></div></details>
+<details><summary><strong>死之徒：属于走向死亡的一类。</strong></summary><div class="case-body"></div></details>
+<details><summary><strong>生之徒：属于保有生机的一类。</strong></summary><div class="case-body"></div></details>
+<details><summary><strong>强大处下：强盛刚硬的事物反而处于下位。</strong></summary><div class="case-body"></div></details>
+<details><summary><strong>柔弱处上：柔软弱小的事物反而处于上位。</strong></summary><div class="case-body"></div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>可能在第77章继续讨论柔弱胜刚强的道理。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《{书名}》第 {章节号} 章「{章节标题}」。下面是我对这一章主线的复述，请你当检查者：</p>
+<br/>
+<p>我的复述：{我的复述}</p>
+<br/>
+<p>请做三件事：</p>
+<ol>
+<li>1. 对照本章实际内容，指出我复述中遗漏的关键环节（尤其是论证的中间步骤，不只是结论）；</li>
+<li>2. 列出本章 3–5 个关键概念，逐个检查我的复述是否用对、有没有含混或偷换；</li>
+<li>3. 对我复述里出现的每一个断言，标注&quot;本章明确说了 / 本章暗示但未展开 / 本章没有说，是我加的&quot;。第 3 类请重点标出。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>我读完《{书名}》第 {章节号} 章「{章节标题}」，我目前的立场是：{我接受的核心主张}。</p>
+<br/>
+<p>请你扮演最强反方，不要客气：</p>
+<ol>
+<li>1. 先把这个主张重述成它最有说服力的版本（避免打稻草人）；</li>
+<li>2. 然后给出你认为最致命的反驳——最好是{作者名}同时代人或对立阵营会提出的那种，而不是现代人才想得到的；</li>
+<li>3. 指出我在接受这个主张时，最可能在哪个环节上&quot;太快点头&quot;了（某个未加检验的前提、某个被偷渡的类比、某个只被举了一个例子就通过的归纳）；</li>
+<li>4. 最后告诉我：如果我要继续守住这个立场，最低限度需要补上什么论证。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《{书名}》第 {章节号} 章「{章节标题}」，核心思想我理解为：{一句话概括}。</p>
+<br/>
+<p>请给我 3 个真实场景，把这章的思想用起来：</p>
+<p>场景 A：{生活场景，如&quot;和同事争执谁该背锅&quot;}</p>
+<p>场景 B：{工作场景，如&quot;上级给了一个我认为错误的决策&quot;}</p>
+<p>场景 C：{一个跨领域场景，如&quot;刷到一条让我愤怒的短视频&quot;}</p>
+<br/>
+<p>对每个场景：</p>
+<ul>
+<li>- 先用本章的概念框架重新描述这个场景（换一套词汇看它，会看到什么不一样的东西）；</li>
+<li>- 再指出按本章思路&quot;应该怎么想&quot;，以及这样做会付出什么代价（不要只说好处）；</li>
+<li>- 最后说明：本章思想在这个场景里哪里会失灵、哪里需要别的资源补位。</li>
+</ul>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>《{书名}》第 {章节号} 章「{章节标题}」里，最让我兴奋的一句话是：</p>
+<br/>
+<p>「{原文句子}」</p>
+<br/>
+<p>请围绕这句往下推：</p>
+<ol>
+<li>1. 这句话在原文的论证里承担什么功能？它是前提、结论，还是一个过渡性的断言？</li>
+<li>2. 如果把这句当真并推到极致，会得出哪些作者本人未必愿意接受的结论？（&quot;那这样推下去还有什么？&quot;）</li>
+<li>3. 这句话如果成立，它会连带否定掉什么？谁会最反对它？</li>
+<li>4. 历史上有没有人真的沿着这个方向推下去过？如果有，推到了哪里、撞上了什么？</li>
+<li>5. 给我 2 个可以继续追问的问题，作为下一步阅读或思考的入口。</li>
+</ol>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题</h2>
+<br/>
+<ol>
+<li>1. 这一章里，作者最想让我相信的那一句话是什么？——先别管论证，只找靶心，一句话说得出来才算读到了。</li>
+<li>2. 这一章有没有一个词反复出现、但我说不清它到底什么意思？——把那个词抄下来，它就是这章的钥匙。</li>
+<li>3. 作者在这一章是在反驳谁？——哲学文本几乎都是对着某个对手写的，找到对手，论证的方向就清楚了。</li>
+<li>4. 这一章的结论，和我原来以为的常识相比，哪里不一样？——差异点就是这一章真正的&quot;信息量&quot;所在。</li>
+<li>5. 作者举的那个例子，真的能支持他的结论吗？——试着把例子换成一个反例，看论证会不会塌。</li>
+<li>6. 这一章的论证依赖哪个没有明说的前提？——找出这个前提，你就找到了可以真正发问的地方。</li>
+<li>7. 如果我完全接受这一章，我关于{相关领域}的看法需要改动多少？——把这一章接进你已有的信念网络，检验它的连带后果。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>柔弱</td><td>柔软、脆弱、有弹性的状态，像婴儿的胳膊、新长的枝条，看着不硬，却最有活力。</td><td>老子用以标示生命活力的状态。《老子》第七十六章以人身体验为喻：“人之生也柔弱，其死也坚强”，草木亦然，生时柔脆，死时枯槁。柔弱并非软弱无力，而是含藏生机、能屈能伸的存在方式，与“坚强”构成生死对照的一对范畴。</td><td>帛书甲乙本作“柔弱”对应“坚强者死之徒”，王弼注“柔弱者生之徒”，以“柔弱”为“生之徒”的规定性。陈鼓应《老子今注今译》释为“柔软脆弱”，指生命体富有弹性的状态；刘笑敢指出老子以“柔弱”为“无为”在存在论上的隐喻表达，属“正言若反”的吊诡式价值命题。</td><td>河上公《道德经章句》以养生解之，谓“柔弱”是“和气”存于身，人当“去坚强、就柔弱”以全生；王弼以“无”为本，认为柔弱近于“无”之用、“冲气以为和”，刚强则是有为之极而失其本；成玄英重玄学则谓柔弱是“遣执”之方，连柔弱之念亦不可执；韩非《解老》从术势角度读为“圣人去坚强者，去其刚强之形”，将其转为君人南面之术；海德格尔论“柔”与“让”（Gelassenheit）时被部分比较哲学研究者（如张祥龙）引为与老子相通，但海氏之“让”是存在之敞开，非老子的生成论范畴。</td></tr>
+<tr><td>坚强</td><td>僵硬、板结、死硬的状态，像枯枝、尸体，看着强，其实已经没有生气了。</td><td>老子用以标示死亡状态的概念。《老子》第七十六章：“其死也坚强”“万物草木之生也柔脆，其死也枯槁”，故“坚强者死之徒”。坚强指失去弹性与生机的僵固，非褒义的力量之强，与“柔弱”相对而立。</td><td>王弼注：“坚强则死之徒也。”苏辙《老子解》谓“坚强”是“物之死也，其形必刚”，以形气之凝滞释之。陈鼓应释为“僵硬”，并指出老子此章“是就生命力而言，非就道德品格而言”。刘笑敢强调老子方法上“消极说”与“积极说”并用，此章以生死现象反推价值取向，属“自然之证”。</td><td>河上公以“坚强”为“死气”所聚，戒人勿“积刚强”以伤和气；王弼从贵无论出发，谓刚强是“有”之极，极则有碍，故“处下”；郭象注《庄》不取此对立，主张“独化”，认为柔与刚各安其性分，不必以柔为高；《列子·黄帝》亦有“天下有常胜之道，有不常胜之道”之说，常胜之道为柔，与老子互为呼应；王夫之以“气化”释之，谓刚强是气之“凝滞而不通”，柔弱是气之“流行而不息”，故生死之分即气之通塞之分。</td></tr>
+<tr><td>生之徒</td><td>属于“活着、有生机、能继续成长”的那一类。</td><td>语出《老子》第七十六章：“故坚强者死之徒，柔弱者生之徒。”徒，类、属之意。生之徒即归入保有生机、趋向生存的一类。老子由“人之生也柔弱”这一经验观察，归纳出柔弱与生存的关联，作为其贵柔思想的经验依据。</td><td>河上公注：“柔弱者，生之徒也”，以“徒”为“类”。王弼注以“生之徒”与“死之徒”对举，将之纳入本末体用之辨。陈鼓应指出“徒”义为“类”，此句是以“柔弱”“坚强”分判生死两类。楼宇烈《王弼集校释》于此章注中辨析王弼以“柔弱”近“无”、以“坚强”近“有”的义理结构。</td><td>河上公从养生内修立说，谓人能体柔弱则“与道同体”，是长生久视之途；王弼则将此命题本体化：柔弱之所以为“生之徒”，在于其近于“无”而能顺自然，非为求长生；成玄英以重玄双遣解之，谓“生之徒”亦是假名，执生则反失；苏辙以“未尝有己”释柔弱，认为“生之徒”即“不自有其生者”；现代研究者葛兆光指出，此类命题在战国秦汉思想中被进一步转化为养生方术与政治权谋两种读法，含义已不限于老子原义。</td></tr>
+<tr><td>死之徒</td><td>属于“走向僵硬、枯槁、死亡”的那一类。</td><td>语出《老子》第七十六章：“坚强者死之徒。”与“生之徒”相对，指归入趋向死亡一类者。老子以人及草木生死之际的形体变化为据：生则柔，死则坚，故以“坚强”归入“死之徒”，引出“强大处下，柔弱处上”的结论。</td><td>河上公注：“坚强者，死之徒也。”苏辙《老子解》以“刚强则不能自胜”释其为死类。陈鼓应注本将此句与上句连读，指出这是老子“以柔弱胜刚强”主张的生理经验论证。刘笑敢称此为“事实陈述”与“价值判断”的混合命题，是《老子》中典型的“由天道推人事”的论证方式。</td><td>韩非《解老》以“理”释之，谓“万物之理”皆“盛极则衰”，坚强正盛极而近死，故圣人“去甚去泰”；王弼以“有”之穷释“死之徒”，与“无”之生相对；郭象不承认这种二分，以为柔与刚皆“性分”所安，柔弱不必贵、坚强不必贱，此为郭注与《老子》立场的分歧点；道教内丹学（如《周易参同契》一系）则把“死之徒”解为“顺行”之路、“生之徒”解为“逆行”之途，将此章转化为内丹修炼的顺逆之说，已与老子原意相去甚远。</td></tr>
+<tr><td>强大处下</td><td>那些争强、坚硬、一味求大的一方，最终反而会落到下风、居于下位。</td><td>语出《老子》第七十六章：“强大处下，柔弱处上。”指强盛刚硬之物反而居于下位。老子以草木为喻：生长中柔脆的枝叶在上，枯槁坚硬的枝干在下；又及兵事，“兵强则灭，木强则折”，以见刚强的结局是居下、是败亡。</td><td>王弼注：“强大则处下。”苏辙谓“物之坚强，其势必下”。陈鼓应译为“凡是强大的，总是处于下位”，并指出此语“以柔弱的反语出之”。刘笑敢将其归入老子“悖论式命题”（paradoxical assertion），即表面违背常识、实为老子对“反者道之动”的具体运用。</td><td>河上公以“处下”为“为万物所压”，从政治角度劝人君“损强大、守谦卑”；王弼从贵无论解为“有”之卒归于无，故强大终“处下”；《庄子·天下》评关尹、老聃“以濡弱谦下为表，以空虚不毁万物为实”，正是此句在道家内部的回响；法家韩非把它读成“势”之戒，谓君主不可以强大自恃而失“术”；现代比较哲学中，有研究者（如安乐哲 Roger Ames、郝大维）将此与怀特海过程哲学对“权力”与“影响”的区分对读，认为老子以“处下”标示的是影响力而非支配力。</td></tr>
+<tr><td>柔弱处上</td><td>柔软、退让、不争的一方，反而会处在有利的、上面的位置。</td><td>语出《老子》第七十六章：“强大处下，柔弱处上。”指软弱之物反而居于上位。老子以草木生死之形作据：生枝叶柔脆而据上，死枝干枯槁而居下，故柔弱为“处上”。此句是本章结论，与“柔弱者生之徒”同属贵柔思想的表述。</td><td>王弼注：“柔弱则处上。”河上公以“处上”为“为天下所尊”。陈鼓应译为“凡是柔弱的，反而居于上位”。楼宇烈在王弼注校释中提示，此句应连“兵强则灭，木强则折”并读，方见老子“戒刚”之旨。</td><td>河上公从内修解，谓修身者当“常为天下之下”，柔弱自居则“神明佑之”；王弼从体用解，谓柔弱近于“无”，无则能“通”，故“处上”；郭象虽主独化，注《庄》时亦认可“柔弱者生之质”，但不以“上下”为价值等级；苏辙引“涉于形则刚强，刚强则死”为说，把“处上”解为“不自有其形”；尼采在一处笔记中把《老子》此语讥为“弱者把失败解释成美德”的道德转译，与儒家荀子批评“老子有见于诎，无见于信”（《天论》）同属外部批评路径，是理解此章时常用的对照意见。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">柔弱</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">柔软、脆弱、有弹性的状态，像婴儿的胳膊、新长的枝条，看着不硬，却最有活力。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子用以标示生命活力的状态。《老子》第七十六章以人身体验为喻：“人之生也柔弱，其死也坚强”，草木亦然，生时柔脆，死时枯槁。柔弱并非软弱无力，而是含藏生机、能屈能伸的存在方式，与“坚强”构成生死对照的一对范畴。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">帛书甲乙本作“柔弱”对应“坚强者死之徒”，王弼注“柔弱者生之徒”，以“柔弱”为“生之徒”的规定性。陈鼓应《老子今注今译》释为“柔软脆弱”，指生命体富有弹性的状态；刘笑敢指出老子以“柔弱”为“无为”在存在论上的隐喻表达，属“正言若反”的吊诡式价值命题。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公《道德经章句》以养生解之，谓“柔弱”是“和气”存于身，人当“去坚强、就柔弱”以全生；王弼以“无”为本，认为柔弱近于“无”之用、“冲气以为和”，刚强则是有为之极而失其本；成玄英重玄学则谓柔弱是“遣执”之方，连柔弱之念亦不可执；韩非《解老》从术势角度读为“圣人去坚强者，去其刚强之形”，将其转为君人南面之术；海德格尔论“柔”与“让”（Gelassenheit）时被部分比较哲学研究者（如张祥龙）引为与老子相通，但海氏之“让”是存在之敞开，非老子的生成论范畴。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">坚强</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">僵硬、板结、死硬的状态，像枯枝、尸体，看着强，其实已经没有生气了。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子用以标示死亡状态的概念。《老子》第七十六章：“其死也坚强”“万物草木之生也柔脆，其死也枯槁”，故“坚强者死之徒”。坚强指失去弹性与生机的僵固，非褒义的力量之强，与“柔弱”相对而立。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“坚强则死之徒也。”苏辙《老子解》谓“坚强”是“物之死也，其形必刚”，以形气之凝滞释之。陈鼓应释为“僵硬”，并指出老子此章“是就生命力而言，非就道德品格而言”。刘笑敢强调老子方法上“消极说”与“积极说”并用，此章以生死现象反推价值取向，属“自然之证”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以“坚强”为“死气”所聚，戒人勿“积刚强”以伤和气；王弼从贵无论出发，谓刚强是“有”之极，极则有碍，故“处下”；郭象注《庄》不取此对立，主张“独化”，认为柔与刚各安其性分，不必以柔为高；《列子·黄帝》亦有“天下有常胜之道，有不常胜之道”之说，常胜之道为柔，与老子互为呼应；王夫之以“气化”释之，谓刚强是气之“凝滞而不通”，柔弱是气之“流行而不息”，故生死之分即气之通塞之分。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">生之徒</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">属于“活着、有生机、能继续成长”的那一类。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第七十六章：“故坚强者死之徒，柔弱者生之徒。”徒，类、属之意。生之徒即归入保有生机、趋向生存的一类。老子由“人之生也柔弱”这一经验观察，归纳出柔弱与生存的关联，作为其贵柔思想的经验依据。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">河上公注：“柔弱者，生之徒也”，以“徒”为“类”。王弼注以“生之徒”与“死之徒”对举，将之纳入本末体用之辨。陈鼓应指出“徒”义为“类”，此句是以“柔弱”“坚强”分判生死两类。楼宇烈《王弼集校释》于此章注中辨析王弼以“柔弱”近“无”、以“坚强”近“有”的义理结构。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公从养生内修立说，谓人能体柔弱则“与道同体”，是长生久视之途；王弼则将此命题本体化：柔弱之所以为“生之徒”，在于其近于“无”而能顺自然，非为求长生；成玄英以重玄双遣解之，谓“生之徒”亦是假名，执生则反失；苏辙以“未尝有己”释柔弱，认为“生之徒”即“不自有其生者”；现代研究者葛兆光指出，此类命题在战国秦汉思想中被进一步转化为养生方术与政治权谋两种读法，含义已不限于老子原义。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">死之徒</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">属于“走向僵硬、枯槁、死亡”的那一类。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第七十六章：“坚强者死之徒。”与“生之徒”相对，指归入趋向死亡一类者。老子以人及草木生死之际的形体变化为据：生则柔，死则坚，故以“坚强”归入“死之徒”，引出“强大处下，柔弱处上”的结论。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">河上公注：“坚强者，死之徒也。”苏辙《老子解》以“刚强则不能自胜”释其为死类。陈鼓应注本将此句与上句连读，指出这是老子“以柔弱胜刚强”主张的生理经验论证。刘笑敢称此为“事实陈述”与“价值判断”的混合命题，是《老子》中典型的“由天道推人事”的论证方式。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">韩非《解老》以“理”释之，谓“万物之理”皆“盛极则衰”，坚强正盛极而近死，故圣人“去甚去泰”；王弼以“有”之穷释“死之徒”，与“无”之生相对；郭象不承认这种二分，以为柔与刚皆“性分”所安，柔弱不必贵、坚强不必贱，此为郭注与《老子》立场的分歧点；道教内丹学（如《周易参同契》一系）则把“死之徒”解为“顺行”之路、“生之徒”解为“逆行”之途，将此章转化为内丹修炼的顺逆之说，已与老子原意相去甚远。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">强大处下</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">那些争强、坚硬、一味求大的一方，最终反而会落到下风、居于下位。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第七十六章：“强大处下，柔弱处上。”指强盛刚硬之物反而居于下位。老子以草木为喻：生长中柔脆的枝叶在上，枯槁坚硬的枝干在下；又及兵事，“兵强则灭，木强则折”，以见刚强的结局是居下、是败亡。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“强大则处下。”苏辙谓“物之坚强，其势必下”。陈鼓应译为“凡是强大的，总是处于下位”，并指出此语“以柔弱的反语出之”。刘笑敢将其归入老子“悖论式命题”（paradoxical assertion），即表面违背常识、实为老子对“反者道之动”的具体运用。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以“处下”为“为万物所压”，从政治角度劝人君“损强大、守谦卑”；王弼从贵无论解为“有”之卒归于无，故强大终“处下”；《庄子·天下》评关尹、老聃“以濡弱谦下为表，以空虚不毁万物为实”，正是此句在道家内部的回响；法家韩非把它读成“势”之戒，谓君主不可以强大自恃而失“术”；现代比较哲学中，有研究者（如安乐哲 Roger Ames、郝大维）将此与怀特海过程哲学对“权力”与“影响”的区分对读，认为老子以“处下”标示的是影响力而非支配力。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">柔弱处上</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">柔软、退让、不争的一方，反而会处在有利的、上面的位置。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第七十六章：“强大处下，柔弱处上。”指软弱之物反而居于上位。老子以草木生死之形作据：生枝叶柔脆而据上，死枝干枯槁而居下，故柔弱为“处上”。此句是本章结论，与“柔弱者生之徒”同属贵柔思想的表述。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“柔弱则处上。”河上公以“处上”为“为天下所尊”。陈鼓应译为“凡是柔弱的，反而居于上位”。楼宇烈在王弼注校释中提示，此句应连“兵强则灭，木强则折”并读，方见老子“戒刚”之旨。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公从内修解，谓修身者当“常为天下之下”，柔弱自居则“神明佑之”；王弼从体用解，谓柔弱近于“无”，无则能“通”，故“处上”；郭象虽主独化，注《庄》时亦认可“柔弱者生之质”，但不以“上下”为价值等级；苏辙引“涉于形则刚强，刚强则死”为说，把“处上”解为“不自有其形”；尼采在一处笔记中把《老子》此语讥为“弱者把失败解释成美德”的道德转译，与儒家荀子批评“老子有见于诎，无见于信”（《天论》）同属外部批评路径，是理解此章时常用的对照意见。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 76 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 76 章]
+
+人之生也柔弱，其死也坚强。万物草木之生也柔脆，其死也枯槁。故坚强者死之徒，柔弱者生之徒。是以兵强则不胜，木强则折。强大处下，柔弱处上。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_76_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

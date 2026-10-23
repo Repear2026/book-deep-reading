@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 48 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 48/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_47/site/index.html" title="第 47 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_49/site/index.html" title="第 49 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 48 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>为学日益，为道日损。损之又损，以至于无为。无为而无不为。取天下常以无事，及其有事，不足以取天下。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 48 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章只有四句话，却像一把双刃刀：一边说“为学日益”——求学要一天天增加；一边说“为道日损”——求道要一天天减损。减了再减，减到“无为”，反而“无不为”。最后老子把这个道理落到政治上：想取得天下，靠的是“无事”，一旦多事生事，就不足以取天下。最有趣的悖论是：越减越多，越不干事越能成事。最重要的收获，是理解“损”不是失去，而是去掉多余的人为造作。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>1. 如果你每天拼命学新技能、囤新知识，却发现离自己真正想要的状态越来越远，会怎样？</blockquote>
+<blockquote>2. 如果“无为”不是躺平，而是把人为的、多余的造作一层层剥掉，会怎样？</blockquote>
+<blockquote>3. 如果治理一个团队或管好自己生活的秘诀是“不制造事端”，而不是“多办事”，会怎样？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote>- <strong>荀子</strong>：主张“化性起伪”，强调后天学习与礼义法度的“加法”才能成就秩序，与老子“为道日损”的减法路线形成鲜明对照——荀子认为不加建构，人性只会流向混乱。</blockquote>
+<blockquote>- <strong>王阳明</strong>：讲“减得一分人欲，便复得一分天理”，与“损之又损”高度同构：良知不是增加什么，而是去除遮蔽，功夫在“减”不在“增”。</blockquote>
+<blockquote>- <strong>维特根斯坦</strong>（早期）：认为哲学的任务不是建构新知识，而是“澄清”语言混淆——哲学不增加命题，而是消除误解，这与“为道日损”的减法思维有某种呼应。</blockquote>
+<blockquote>- <strong>福柯</strong>：对“知识积累”与权力规训的关系持批判态度，他晚期讨论的“自我技术”强调通过自我削减与修炼来重塑自身，与“损之又损”可作对照阅读。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）：</strong> 关注三个点——① “日益”与“日损”的对比结构；② “损之又损”的递进节奏；③ “无为”与“无不为”之间的因果跳跃。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）：</strong> 必看两个论证——① “为学日益，为道日损”：为什么“学”和“道”被放在相反的方向上？这背后预设了“道”不是可积累的对象；② “无为而无不为”：从“不造作”到“没有不能成就”，中间的逻辑链条是什么？老子没有展开，正是需要你追问的地方。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）：</strong> 该追问的开放问题——“日损”到底损什么？损的是知识本身，还是知识带来的执着与造作？如果损的是执着，那“为学”本身并不被否定，只是需要被“损”的功夫重新安置——这个读法能否成立？</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+P1["为学日益，为道日损"]
+P2["损之又损，以至于无为"]
+P3["无为而无不为"]
+P4["取天下常以无事，及其有事，不足以取天下"]
+C_weixue["为学日益"]
+C_weidao["为道日损"]
+C_sun["损之又损"]
+C_wuwei["无为"]
+C_wubuwu["无不为"]
+C_qutianxia["取天下"]
+C_wushi["无事"]
+C_youshi["有事"]
+C_weixue -->|supports| P1
+C_weidao -->|supports| P1
+C_sun -->|supports| P2
+C_wuwei -->|supports| P3
+C_wubuwu -->|supports| P3
+C_wushi -->|supports| P4
+C_youshi -->|supports| P4
+P1 -->|supports| P2
+P2 -->|supports| P3
+P3 -->|supports| P4
+C_weixue -->|relates_to| C_weidao
+C_sun -->|relates_to| C_wuwei
+C_wuwei -->|relates_to| C_wubuwu
+C_qutianxia -->|relates_to| P4
+C_wushi -->|relates_to| C_youshi
+C_qutianxia -->|relates_to| C_wushi
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章集中辨析“为学”与“为道”的方向差异，提出通过不断减损达到“无为”，并由“无为”通向“无不为”，最后将“无事”与“有事”同“取天下”相联系。</div>
+<h3>📌 核心命题</h3><ol>
+<li>为学日益，为道日损。</li>
+<li>损之又损，以至于无为。</li>
+<li>无为而无不为。</li>
+<li>取天下常以无事，及其有事，不足以取天下。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>为学日益，为道日损。</li>
+<li>损之又损，以至于无为。</li>
+<li>无为而无不为。</li>
+<li>取天下常以无事，及其有事，不足以取天下。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>为学日益</strong></summary><div class="case-body">求学一天天增加。</div></details>
+<details><summary><strong>为道日损</strong></summary><div class="case-body">求道一天天减损。</div></details>
+<details><summary><strong>损之又损</strong></summary><div class="case-body">减损再减损。</div></details>
+<details><summary><strong>无为</strong></summary><div class="case-body">不再人为造作的状态。</div></details>
+<details><summary><strong>无不为</strong></summary><div class="case-body">在无为之后没有不能成就的。</div></details>
+<details><summary><strong>取天下</strong></summary><div class="case-body">取得天下。</div></details>
+<details><summary><strong>无事</strong></summary><div class="case-body">不制造事端、不以事扰攘。</div></details>
+<details><summary><strong>有事</strong></summary><div class="case-body">多事、生事。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>可能在第49章继续展开“无为”与“取天下”的关系。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《{书名}》第 {48} 章（{章节标题}）。以下是我自己写的一段复述，请你做两件事：</p>
+<br/>
+<p>【我的复述】</p>
+<p>{粘贴你的一段话，200–400 字，说明这一章在讲什么}</p>
+<br/>
+<p>【请做】</p>
+<ol>
+<li>1. 主线提取：用 3–5 条列出本章的论证主线（如果我的复述漏掉了某条，明确指出漏在哪）。</li>
+<li>2. 关键概念检查：挑出本章 {3–5} 个关键概念/术语，逐个问我&quot;它在本章中的确切含义是什么、它和相邻概念的区别在哪&quot;，等我回答后再判定对错，并指出我混淆的地方。</li>
+<li>3. 最后给一句总评：我的复述是&quot;抓住了骨架&quot;&quot;只抓到枝叶&quot;还是&quot;跑偏了&quot;，并说明依据。</li>
+</ul>
+<br/>
+<p>要求：只依据本章原文与我提供的复述，不要引入本章之外的内容；如果本章没有明确交代某点，直接说&quot;本章未说明&quot;，不要替我补。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>请你扮演本章最强硬的反方，不是抬杠，而是&quot;{与作者立场相反的学派或立场，例如：认为该论证前提不成立的经验主义者}&quot;。</p>
+<br/>
+<p>【我的立场】</p>
+<p>我读完第 {48} 章后，倾向于接受作者的这个主张：{用一两句话写出你接受的那个论点}。</p>
+<br/>
+<p>【请做】</p>
+<ol>
+<li>1. 用最强形式重述我的立场（比我说的更好），确认你理解了我在接受什么。</li>
+<li>2. 从相反视角发起 {3} 轮攻击，每轮只打一个点：{前提是否可疑 / 推理是否有跳跃 / 反例是否存在 / 结论的代价是否被掩盖}。</li>
+<li>3. 每轮攻击后停下来，让我回应；我回应后你再决定是加固攻击还是承认这一点被挡住。</li>
+<li>4. 最后给出裁决：我这边的立场在哪些点上守住了、哪些点上确实需要修正。</li>
+</ul>
+<br/>
+<p>要求：攻击必须针对本章文本可定位的语句，请引用或指向具体段落，不要泛泛而谈&quot;这种观点太理想化&quot;。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《{书名}》第 {48} 章（{章节标题}），想把它的思想用到实处。</p>
+<br/>
+<p>【我的三个场景】</p>
+<ol>
+<li>1. {场景一：工作场景，例如：团队里两个人对同一份方案给出相反结论}</li>
+<li>2. {场景二：生活场景，例如：和家人争论一件&quot;到底谁更有道理&quot;的事}</li>
+<li>3. {场景三：自我场景，例如：我在某个决定上反复摇摆}</li>
+</ul>
+<br/>
+<p>【请做】</p>
+<p>对每个场景：</p>
+<ol>
+<li>1. 指出本章哪个概念/区分在这里真正起作用（指名道姓，不要笼统说&quot;要有批判性思维&quot;）。</li>
+<li>2. 给出具体做法：照着本章的思路，我下一步该说什么、问什么、判断什么。</li>
+<li>3. 诚实标注适用边界：这个场景里本章的思想可能失效或过度延伸的地方是什么。</li>
+</ul>
+<br/>
+<p>要求：如果某个场景其实用不上本章，请直接说&quot;这章对这个场景没有帮助&quot;，不要硬套。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 {48} 章里最让我兴奋的一句话是：</p>
+<br/>
+<p>「{原文摘录}」</p>
+<br/>
+<p>【请做】围绕这一句做&quot;那这样推下去还有什么？&quot;的四步深挖：</p>
+<ol>
+<li>1. 拆解：这句话里有哪些词是承重的？换掉其中任何一个，意思会怎么变？</li>
+<li>2. 就近推：如果这句成立，同一章里紧接着应该成立什么？作者自己有没有推到那一步？</li>
+<li>3. 远处推：推到本章之外、推到极端情形，会得出什么反直觉的结论？这个结论作者会接受吗？</li>
+<li>4. 追问：这句话背后预设了什么没被说出的前提？如果那个前提不成立，这句话还剩下多少？</li>
+</ul>
+<br/>
+<p>最后给我一个&quot;值得继续追的问题&quot;，以及在本章里能找到线索的段落位置。</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. 这一章你读的时候，哪一段让你停下来重读了一遍？——先别管懂不懂，从&quot;卡住的地方&quot;开始最省力。</li>
+<li>2. 用一句大白话说：作者在这一章里想说服你相信什么？——能说出这句，说明你摸到了论点，而不是只记住了词。</li>
+<li>3. 这一章出现了哪些反复出现的词？把它们圈出来。——反复出现的词通常就是本章的关键概念，先收集再理解。</li>
+<li>4. 作者在这一章里，是在反驳谁？——弄清&quot;对手是谁&quot;，论证的锋利处才会显形。</li>
+<li>5. 如果这一章的核心主张是错的，世界会有什么不同？——用反事实测试你对论点的把握程度。</li>
+<li>6. 这一章的论证，和上一章是承接、转折还是修补？——把单章放回全书链条，才知道它为什么在这里。</li>
+<li>7. 你愿意为这一章的哪个主张辩护？又在哪个点上仍然不服？——能同时说出&quot;接受什么&quot;和&quot;不服什么&quot;，才算真正读完一章。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>为学日益</td><td>学知识，一天比一天多。</td><td>老子把&quot;为学&quot;与&quot;为道&quot;对举：&quot;为学&quot;是向外积累见闻、技艺、礼乐政教之知，其方向是&quot;益&quot;，即不断增益。老子并非一般反对学习，而是指出知识层累与体道方向相反。</td><td>王弼注：&quot;为学日益，务欲进其所能，益其所习。&quot;以&quot;益&quot;状&quot;为学&quot;，以&quot;日&quot;标出时间性的累积；&quot;学&quot;在此非泛指认知，而指名教闻见之知的层累。</td><td>儒家取径相反：荀子《劝学》主张&quot;学不可以已&quot;，积善成德；《论语》尚&quot;多闻多见&quot;。王弼以&quot;贵无&quot;解此章，认为所益者不过&quot;所能&quot;&quot;所习&quot;，属名教末事；郭象则谓损非灭知，而是去其所累。今人陈鼓应强调这是对经验知识的反省，不等于反智。</td></tr>
+<tr><td>为道日损</td><td>求道，要一天比一天减少。</td><td>与&quot;为学&quot;相反，&quot;为道&quot;的方向是减法：减损欲望、成见、造作与文饰，日益贴近本真。老子以&quot;损&quot;字概括体道工夫，与&quot;益&quot;构成对文。</td><td>河上公注：&quot;道，谓自然之道也。日损者，情欲文饰，日以消损。&quot;王弼则以&quot;反虚无&quot;解损，损其所执之名与分。工夫论上，&quot;损&quot;是负的方法，与&quot;为学&quot;的正的方法相对。</td><td>河上公《老子道德经注》以养生解，损指节情欲以全生；王弼以&quot;崇本息末&quot;解，所损者末与名；成玄英重玄学以&quot;双遣&quot;释损，遣有遣无；佛学中观以缘起性空破执而不立一法，与&quot;损&quot;的否定性相通。刘笑敢指出这是价值取向上的减法，非知识论上的反知。</td></tr>
+<tr><td>损之又损</td><td>减了再减，减到无可再减。</td><td>损不是一次完成的，而是层层剥落、不断递进，直到无所可损，才至于无为。此语强调工夫的彻底性与连续性，&quot;又&quot;字标出过程性。</td><td>王弼注：&quot;损之而又损之，至于无为。&quot;重玄家以&quot;遣&quot;释&quot;损&quot;，遣执遣遣，双遣三翻；老子以否定之否定的句式，把&quot;损&quot;推向无对象可损的境地。</td><td>成玄英重玄学以&quot;损之又损&quot;即&quot;遣之又遣&quot;，遣有、遣无、遣遣，终至&quot;重玄&quot;；王弼则将损归于&quot;无&quot;，无为即无之名；郭象主&quot;独化&quot;，谓损至无可损即&quot;任其自尔&quot;，不必另立一&quot;无&quot;作归宿。冯友兰以之为&quot;负的方法&quot;的典型表述。</td></tr>
+<tr><td>无为</td><td>不硬来，不妄加造作。</td><td>不再人为造作的状态。非什么都不做，而是不以私意强作、顺任自然。本章以&quot;损之又损&quot;为达到无为的工夫路径。</td><td>王弼注：&quot;无为，不造也。&quot;老子之&quot;无为&quot;是&quot;顺自然&quot;的否定式表达，与&quot;为&quot;（人为、伪）相对；学界通常区分&quot;不妄为&quot;与&quot;任物自为&quot;两层。</td><td>王弼以&quot;无&quot;为本，无为即崇本息末；河上公以&quot;无所施为&quot;而&quot;神气自满&quot;，偏于养生；郭象《庄子注》以无为即&quot;各任其性&quot;，反对悬一&quot;无&quot;以制有；黄老学派（《管子》四篇）以&quot;静因之道&quot;言君无为而臣有为；韩非《解老》《喻老》则以&quot;术&quot;解无为，君主虚静以察臣。</td></tr>
+<tr><td>无不为</td><td>不硬来，反而没有做不成的事。</td><td>无为之后的效果：因不妄作，万物各遂其性，于是&quot;没有不能成就的&quot;。老子以&quot;无为而无不为&quot;构成体用相即的表述。</td><td>王弼注：&quot;有为则有所不为，无为则无不为。&quot;以无为为体、无不为为用；&quot;无不为&quot;非万能，而是顺物之情、使物自为。</td><td>王弼以&quot;崇本息末&quot;解，本立则末自举；郭象以&quot;各安其分&quot;解，物各自为即无不为；黄老与法家以&quot;君无为而臣有为&quot;解，《韩非子·主道》谓&quot;明君无为于上，群臣竦惧乎下&quot;；朱熹《朱子语类》则批评老子之无为实为&quot;自私自利&quot;的权术，是儒家立场的典型反评。</td></tr>
+<tr><td>取天下</td><td>取得天下、治理天下。</td><td>本章&quot;取天下&quot;非以兵争取，而是&quot;常以无事&quot;——不扰攘、不生事，天下自然归附。与全书&quot;以正治国，以奇用兵&quot;的语境相连。</td><td>王弼注&quot;取天下&quot;为不以威力取之；苏辙《老子解》以&quot;取其自然&quot;解&quot;取&quot;。老子把&quot;取&quot;的前提从手段问题转为治术问题：能否取，系于有事无事。</td><td>河上公以爱民全生解；王弼以崇本不扰解；韩非以&quot;势&quot;言取天下，正与老子相反；孟子以&quot;仁政&quot;王天下，取径亦异。陈鼓应指出&quot;取天下&quot;在先秦语汇中即&quot;治天下&quot;，不宜解作&quot;夺取&quot;，此说可纠旧读之偏。</td></tr>
+<tr><td>无事</td><td>不折腾、不没事找事。</td><td>不制造事端、不以政令扰攘天下。是对统治者行为方式的规定，与&quot;有事&quot;相对，是&quot;无为&quot;在政治层面的具体化。</td><td>王弼注：&quot;无事，犹不为也。&quot;即不以政烦民，与&quot;法令滋彰，盗贼多有&quot;同一批判脉络；&quot;无事&quot;非废事，而是不增事。</td><td>黄老学派以&quot;清静无为&quot;为治国纲领，《管子·心术》言&quot;静因之道&quot;；河上公以&quot;不扰民&quot;解无事；儒家的礼乐刑政之学恰成对照。刘笑敢区分&quot;无为&quot;的政治义与境界义，认为本章偏于政治义；葛兆光《中国思想史》视之为对战国&quot;有为&quot;政治的反命题。</td></tr>
+<tr><td>有事</td><td>多事、瞎折腾，反而办不成。</td><td>多事、生事，政令繁苛、以私意扰民。老子断言&quot;及其有事，不足以取天下&quot;，与&quot;无事&quot;构成反衬，说明&quot;取天下&quot;之败不在力不足，而在多事。</td><td>王弼注：&quot;有事，则不足以取天下。&quot;有事即&quot;为&quot;之极致——以己意造作天下，故失之；与&quot;为者败之，执者失之&quot;同一逻辑。</td><td>荀子主张&quot;制天命而用之&quot;、积极有为，法家韩非以法、术、势治天下，皆为&quot;有事&quot;之典型；王弼以&quot;崇本息末&quot;评之，谓有事则末盛而本衰；郭象则谓&quot;有事&quot;之病在有以外加，非在事本身。今人楼宇烈释王弼&quot;以无为本&quot;，正以此章为&quot;息末&quot;之证。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">为学日益</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">学知识，一天比一天多。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子把&quot;为学&quot;与&quot;为道&quot;对举：&quot;为学&quot;是向外积累见闻、技艺、礼乐政教之知，其方向是&quot;益&quot;，即不断增益。老子并非一般反对学习，而是指出知识层累与体道方向相反。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;为学日益，务欲进其所能，益其所习。&quot;以&quot;益&quot;状&quot;为学&quot;，以&quot;日&quot;标出时间性的累积；&quot;学&quot;在此非泛指认知，而指名教闻见之知的层累。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">儒家取径相反：荀子《劝学》主张&quot;学不可以已&quot;，积善成德；《论语》尚&quot;多闻多见&quot;。王弼以&quot;贵无&quot;解此章，认为所益者不过&quot;所能&quot;&quot;所习&quot;，属名教末事；郭象则谓损非灭知，而是去其所累。今人陈鼓应强调这是对经验知识的反省，不等于反智。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">为道日损</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">求道，要一天比一天减少。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">与&quot;为学&quot;相反，&quot;为道&quot;的方向是减法：减损欲望、成见、造作与文饰，日益贴近本真。老子以&quot;损&quot;字概括体道工夫，与&quot;益&quot;构成对文。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">河上公注：&quot;道，谓自然之道也。日损者，情欲文饰，日以消损。&quot;王弼则以&quot;反虚无&quot;解损，损其所执之名与分。工夫论上，&quot;损&quot;是负的方法，与&quot;为学&quot;的正的方法相对。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公《老子道德经注》以养生解，损指节情欲以全生；王弼以&quot;崇本息末&quot;解，所损者末与名；成玄英重玄学以&quot;双遣&quot;释损，遣有遣无；佛学中观以缘起性空破执而不立一法，与&quot;损&quot;的否定性相通。刘笑敢指出这是价值取向上的减法，非知识论上的反知。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">损之又损</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">减了再减，减到无可再减。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">损不是一次完成的，而是层层剥落、不断递进，直到无所可损，才至于无为。此语强调工夫的彻底性与连续性，&quot;又&quot;字标出过程性。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;损之而又损之，至于无为。&quot;重玄家以&quot;遣&quot;释&quot;损&quot;，遣执遣遣，双遣三翻；老子以否定之否定的句式，把&quot;损&quot;推向无对象可损的境地。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">成玄英重玄学以&quot;损之又损&quot;即&quot;遣之又遣&quot;，遣有、遣无、遣遣，终至&quot;重玄&quot;；王弼则将损归于&quot;无&quot;，无为即无之名；郭象主&quot;独化&quot;，谓损至无可损即&quot;任其自尔&quot;，不必另立一&quot;无&quot;作归宿。冯友兰以之为&quot;负的方法&quot;的典型表述。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">无为</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不硬来，不妄加造作。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">不再人为造作的状态。非什么都不做，而是不以私意强作、顺任自然。本章以&quot;损之又损&quot;为达到无为的工夫路径。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;无为，不造也。&quot;老子之&quot;无为&quot;是&quot;顺自然&quot;的否定式表达，与&quot;为&quot;（人为、伪）相对；学界通常区分&quot;不妄为&quot;与&quot;任物自为&quot;两层。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，无为即崇本息末；河上公以&quot;无所施为&quot;而&quot;神气自满&quot;，偏于养生；郭象《庄子注》以无为即&quot;各任其性&quot;，反对悬一&quot;无&quot;以制有；黄老学派（《管子》四篇）以&quot;静因之道&quot;言君无为而臣有为；韩非《解老》《喻老》则以&quot;术&quot;解无为，君主虚静以察臣。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">无不为</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不硬来，反而没有做不成的事。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">无为之后的效果：因不妄作，万物各遂其性，于是&quot;没有不能成就的&quot;。老子以&quot;无为而无不为&quot;构成体用相即的表述。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;有为则有所不为，无为则无不为。&quot;以无为为体、无不为为用；&quot;无不为&quot;非万能，而是顺物之情、使物自为。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;崇本息末&quot;解，本立则末自举；郭象以&quot;各安其分&quot;解，物各自为即无不为；黄老与法家以&quot;君无为而臣有为&quot;解，《韩非子·主道》谓&quot;明君无为于上，群臣竦惧乎下&quot;；朱熹《朱子语类》则批评老子之无为实为&quot;自私自利&quot;的权术，是儒家立场的典型反评。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">取天下</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">取得天下、治理天下。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">本章&quot;取天下&quot;非以兵争取，而是&quot;常以无事&quot;——不扰攘、不生事，天下自然归附。与全书&quot;以正治国，以奇用兵&quot;的语境相连。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注&quot;取天下&quot;为不以威力取之；苏辙《老子解》以&quot;取其自然&quot;解&quot;取&quot;。老子把&quot;取&quot;的前提从手段问题转为治术问题：能否取，系于有事无事。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以爱民全生解；王弼以崇本不扰解；韩非以&quot;势&quot;言取天下，正与老子相反；孟子以&quot;仁政&quot;王天下，取径亦异。陈鼓应指出&quot;取天下&quot;在先秦语汇中即&quot;治天下&quot;，不宜解作&quot;夺取&quot;，此说可纠旧读之偏。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">无事</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不折腾、不没事找事。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">不制造事端、不以政令扰攘天下。是对统治者行为方式的规定，与&quot;有事&quot;相对，是&quot;无为&quot;在政治层面的具体化。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;无事，犹不为也。&quot;即不以政烦民，与&quot;法令滋彰，盗贼多有&quot;同一批判脉络；&quot;无事&quot;非废事，而是不增事。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">黄老学派以&quot;清静无为&quot;为治国纲领，《管子·心术》言&quot;静因之道&quot;；河上公以&quot;不扰民&quot;解无事；儒家的礼乐刑政之学恰成对照。刘笑敢区分&quot;无为&quot;的政治义与境界义，认为本章偏于政治义；葛兆光《中国思想史》视之为对战国&quot;有为&quot;政治的反命题。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">有事</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">多事、瞎折腾，反而办不成。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">多事、生事，政令繁苛、以私意扰民。老子断言&quot;及其有事，不足以取天下&quot;，与&quot;无事&quot;构成反衬，说明&quot;取天下&quot;之败不在力不足，而在多事。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;有事，则不足以取天下。&quot;有事即&quot;为&quot;之极致——以己意造作天下，故失之；与&quot;为者败之，执者失之&quot;同一逻辑。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">荀子主张&quot;制天命而用之&quot;、积极有为，法家韩非以法、术、势治天下，皆为&quot;有事&quot;之典型；王弼以&quot;崇本息末&quot;评之，谓有事则末盛而本衰；郭象则谓&quot;有事&quot;之病在有以外加，非在事本身。今人楼宇烈释王弼&quot;以无为本&quot;，正以此章为&quot;息末&quot;之证。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 48 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 48 章]
+
+为学日益，为道日损。损之又损，以至于无为。无为而无不为。取天下常以无事，及其有事，不足以取天下。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_48_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

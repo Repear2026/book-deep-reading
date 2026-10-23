@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 39 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 39/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_38/site/index.html" title="第 38 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_40/site/index.html" title="第 40 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 39 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>昔之得一者，天得一以清，地得一以宁，神得一以灵，谷得一以盈，万物得一以生，侯王得一以为天下正。其致之，天无以清将恐裂，地无以宁将恐废，神无以灵将恐歇，谷无以盈将恐竭，万物无以生将恐灭，侯王无以贵高将恐蹶。故贵以贱为本，高以下为基。是以侯王自称孤、寡、不谷。此非以贱为本邪？非乎？故致誉无誉，不欲琭琭如玉，珞珞如石。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 39 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>本章说：天清、地宁、神灵、谷盈、万物生、侯王正，全靠“得一”——守住“道”这个根本。反过来，一旦失“一”，天要裂、地要废、神要歇、谷要竭、万物要灭、侯王要栽。由此老子推出两句政治箴言：“贵以贱为本，高以下为基”，并夸侯王自称“孤、寡、不谷”正是这个道理。最后落到人格理想：最高的荣誉是不求荣誉，不做光鲜美玉，宁做质朴坚石。有趣之处在于：它把宇宙论和政治伦理用同一个“一”串起来。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>如果一座高楼的地基被悄悄抽走，楼上的人多久才会察觉？</blockquote>
+<blockquote>如果所有头衔、荣誉突然被收回，你还剩下什么可称之为“你”？</blockquote>
+<blockquote>如果一个领导者不再需要“下面的人”，他还能维持“上面”吗？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote><strong>荀子</strong>：主张“礼”与“群居和一”，同样重视秩序赖以成立的根本，但他把根本落在人为的礼义制度，而非老子那个不可名的“一”。</blockquote>
+<blockquote><strong>韩非</strong>：读“贵以贱为本”会点头——但他从中推出的是法与势的操控术，君主自谦只是姿态，骨子里是“术”。</blockquote>
+<blockquote><strong>涂尔干</strong>：社会靠集体欢腾与象征维系整合，与老子“万物得一以生”可对照：他说的“一”是社会的道德共识，不是宇宙本源。</blockquote>
+<blockquote><strong>维特根斯坦</strong>：会追问“得一”这个词在什么语言游戏里才有意义——老子的话像格言，其力量来自用法而非可证伪的命题。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：三个关注点——①六个“得一以……”的排比：天、地、神、谷、万物、侯王各得什么属性；②紧接的六个“将恐……”反转句：一一对应地写出失“一”的后果；③末尾从宇宙论拐向政治和人格的两处转折。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：必看两个论证——①“故贵以贱为本，高以下为基”如何从前面天地的排比中被推出来：请注意老子是把“侯王”放进天、地、神、谷、万物的同一序列里，贵贱关系因此被说成一种存在论结构，而不只是道德劝告；②“侯王自称孤、寡、不谷”这个例证：老子用反问“此非以贱为本邪？非乎？”来逼读者自己确认，这里的论证靠的反问式认同，而非演绎。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：值得追问的开放问题——“致誉无誉”是否自相矛盾？如果最高的荣誉就是不要荣誉，那么“不要荣誉”本身会不会变成另一种更隐蔽的求誉？老子用“琭琭如玉”对“珞珞如石”作结，这个比喻是在消解荣誉，还是在悄悄重建一种“以不争为争”的更高荣誉？</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+  deyi["得一"]
+  p1["天地神谷万物侯王因得一而显清宁灵盈生正"]
+  p2["失一则天裂地废神歇谷竭物灭侯王蹶"]
+  p3["贵以贱为本，高以下为基"]
+  p4["侯王自称孤寡不谷，以贱为本"]
+  p5["致誉无誉，珞珞如石"]
+  c1["孤、寡、不谷"]
+  case1["侯王自称"]
+  deyi -->|relates_to| p1
+  deyi -->|relates_to| p2
+  p1 -->|supports| p3
+  p2 -->|supports| p3
+  p3 -->|supports| p4
+  p3 -->|relates_to| p5
+  p4 -->|supports| p5
+  c1 -->|relates_to| p4
+  case1 -->|instance_of| p4
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章从“得一”正面阐明道作为万物存在与正常属性的根据，又以“失一”的后果反证之，继而引出“贵以贱为本，高以下为基”的政治伦理，并收束于“致誉无誉”的谦卑人格理想。</div>
+<h3>📌 核心命题</h3><ol>
+<li>天、地、神、谷、万物、侯王都因“得一”而具有各自属性：清、宁、灵、盈、生、正。</li>
+<li>失去“一”则天裂、地废、神歇、谷竭、万物灭、侯王蹶。</li>
+<li>贵以贱为本，高以下为基。</li>
+<li>侯王自称孤、寡、不谷，体现以贱为本。</li>
+<li>最高的荣誉是无誉，不追求琭琭如玉，而愿珞珞如石。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>天得一以清，地得一以宁，神得一以灵，谷得一以盈，万物得一以生，侯王得一以为天下正。</li>
+<li>其致之：天无以清将恐裂，地无以宁将恐废，神无以灵将恐歇，谷无以盈将恐竭，万物无以生将恐灭，侯王无以贵高将恐蹶。</li>
+<li>故贵以贱为本，高以下为基。</li>
+<li>是以侯王自称孤、寡、不谷。此非以贱为本邪？非乎？</li>
+<li>故致誉无誉，不欲琭琭如玉，珞珞如石。</li>
+</ol>
+<h3>📚 案例</h3>
+<h3>💡 新概念</h3>
+<details><summary><strong>得一</strong></summary><div class="case-body">万物获得并守住“一”（道）才能存在并呈现其正常属性。</div></details>
+<details><summary><strong>孤、寡、不谷</strong></summary><div class="case-body">侯王用的谦称，表示自己以贱为本、以下为基。</div></details>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 39 章。下面是我对本章主线的一段复述，请你做两件事：</p>
+<br/>
+<p>【我的复述】</p>
+<p>{我的一段复述：我认为本章在论证什么、从什么出发、得出什么}</p>
+<br/>
+<p>【请你输出】</p>
+<ol>
+<li>1. 主线提取：把我这段话压缩成 3–5 个步骤的论证链条（前提 → 推进 → 结论），标出我漏掉或颠倒的环节。</li>
+<li>2. 关键概念检查：列出本章的 {3–5 个核心概念}，逐个问我&quot;你能不能用一句话说清它在本章里承担什么工作&quot;，并指出我复述里对这些概念的用法是否偏离了本章原意（是宽了、窄了，还是换了对象）。</li>
+<li>3. 最后只给我一个反问，指向我复述中最薄弱的那一环，不要替我补答案。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>请你扮演第 39 章最强硬的反方，不要客气。</p>
+<br/>
+<p>【我接受本章的哪一点】</p>
+<p>{我读完本章后最认同的一个论断，用一句话写出}</p>
+<br/>
+<p>【你的任务】</p>
+<ol>
+<li>1. 先把这个论断重述得比我自己说得更精确（避免打稻草人）。</li>
+<li>2. 然后从相反视角发起攻击，至少给三条独立的反驳路径：</li>
+<li>   - 一条针对它的前提（这个前提是否必要？能否被替换？）</li>
+<li>   - 一条针对它的推理（从前提走到结论，中间哪一步是跳过去的？）</li>
+<li>   - 一条针对它的后果（如果照这个论断推到底，会不会推出连作者自己也不愿接受的东西？）</li>
+<li>3. 每条反驳都要说明：什么样的证据或反例能真正伤到它。</li>
+<li>4. 最后告诉我：在这三条里，哪一条是&quot;即使作者在世也必须认真回应&quot;的，哪一条只是立场差异。</li>
+</ul>
+<br/>
+<p>不要替我和解，也不要替我下结论。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>请把第 39 章的思想落到我自己的处境里，不要泛泛举例。</p>
+<br/>
+<p>【本章我抓到的核心】</p>
+<p>{一句话：本章最核心的那个主张}</p>
+<br/>
+<p>【我的三个场景】</p>
+<ol>
+<li>1. {场景一：具体到人物、情境、我正在做的决定}</li>
+<li>2. {场景二：……}</li>
+<li>3. {场景三：……}</li>
+</ul>
+<br/>
+<p>【请你对每个场景输出】</p>
+<ul>
+<li>- 本章会怎么&quot;看&quot;这个场景：它会先把哪一点挑出来当作关键？</li>
+<li>- 它会给出什么具体建议？建议必须可执行到&quot;我明天可以做什么&quot;。</li>
+<li>- 这个建议在我的场景里最可能失效的地方是什么（本章的解释力边界在哪）？</li>
+<li>- 如果换成本章明确反对的那种做法，结果会有什么不同？</li>
+</ul>
+<br/>
+<p>三个场景之间不要重复同一个论点。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 39 章里最让我兴奋的一句话是：</p>
+<br/>
+<p>「{原句或尽可能准确的摘引}」</p>
+<br/>
+<p>请你围绕这一句，只做&quot;往前推&quot;，不做总结：</p>
+<br/>
+<ol>
+<li>1. 这句话在第 39 章内部的上下文里，承担的是什么功能？（它是前提、是转折、还是结论？作者为什么非要在那个位置说它？）</li>
+<li>2. 如果把它当作一个独立命题认真对待，它还能推出哪些作者没写出来的东西？给我 3 个递进的推论，每条注明&quot;这条推论需要额外补上什么假设才成立&quot;。</li>
+<li>3. 推到第 3 条时，它是否已经开始和本章其他部分冲突？如果冲突在哪，说明作者在这里留了一个口子还是留了一个裂缝？</li>
+<li>4. 最后给我一个可以顺着这条线继续读下去的问题（指向书中其他章节或别的作者），只要问题，不要答案。</li>
+</ol>
+<p>```</p>
+<br/>
+<hr/>
+<br/>
+<h2>2）新手引导问题</h2>
+<br/>
+<ol>
+<li>1. 本章标题里的关键词，作者有没有给出自己的定义？如果有，把他的定义抄下来，和你在日常里用这个词的意思比一比，差在哪？</li>
+</ol>
+<p>　— 提示：多数误读都发生在&quot;以为大家都用同一个意思&quot;的地方。</p>
+<br/>
+<ol>
+<li>2. 本章作者主要在反对谁？或者反对哪一种说法？把那个&quot;对手&quot;用一句话写出来。</li>
+</ol>
+<p>　— 提示：哲学文本常常是对话，不找出对手，就听不见它在跟谁说话。</p>
+<br/>
+<ol>
+<li>3. 本章里有没有一句话让你觉得&quot;这不显然啊&quot;？把它圈出来，先别判断对错，只问：作者凭什么这么说？</li>
+</ol>
+<p>　— 提示：让你卡住的地方，通常是论证真正吃劲的地方。</p>
+<br/>
+<ol>
+<li>4. 作者举了什么例子？如果把这个例子换成一个反例，本章的论点还站得住吗？</li>
+</ol>
+<p>　— 提示：例子不是装饰，它在替论证干活，试试把它拆掉。</p>
+<br/>
+<ol>
+<li>5. 本章的结论，是&quot;描述我们本来就这样&quot;还是&quot;要求我们应该这样&quot;？这两者作者有没有混着用？</li>
+</ol>
+<p>　— 提示：从&quot;是&quot;滑到&quot;应当&quot;，是最常见也最难察觉的一步。</p>
+<br/>
+<ol>
+<li>6. 如果把本章的论点推到极端，会推出什么荒唐结论？作者有现成的防线吗，还是他根本没料到这一步？</li>
+</ol>
+<p>　— 提示：归谬法是最省力的检验工具，先自己用一遍。</p>
+<br/>
+<ol>
+<li>7. 本章的说服力，是靠论证，还是靠某个他默认接受、但没论证的前提？那个前提如果换掉，整章会变成什么样？</li>
+</ol>
+<p>　— 提示：读到这一层，你已经在问&quot;这套理论的边界在哪&quot;，而不只是&quot;它说了什么&quot;。</p>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>得一</td><td>天、地、神、谷、万物、侯王都是因为守住了那个最根本的“一”，才成其为天、地、神、谷、万物、侯王；丢了“一”就会崩坏。</td><td>“一”在《老子》中常被用作“道”的代称。“得一”指万物从道那里获得自身存在的根据，从而能显现其德性（如天得之以清、地得之以宁）。第39章以“昔之得一者”起首，列举天、地、神、谷、万物、侯王六者，说明“一”是它们各自成立的条件；随后以“其致之”转折，指出若失“一”则天裂、地废、神歇、谷竭、万物灭、侯王蹶，从正反两面确立“道”作为存在根据的绝对性。</td><td>王弼注：“一，数之始而物之极也。”以“一”为万物之极、无为之本；“昔之得一者”即“各以其一得”其性。河上公注则把“一”解为“道之所生，太和之精气”，倾向养生与元气论。成玄英《道德经义疏》以重玄双遣解之，谓“一”亦不可执。陈鼓应认为此章“一”即“道”的别名，“得一”即“得道”，是老子对道与万物关系的具体化表达；刘笑敢指出“得一”体现老子“以道为万物存在依据”的生成论结构。</td><td>王弼以“无”为本，认为“一”是数的起点也是万物的极致，万物所以能成其为自己，正因禀受了这个“无”之本，故主张“崇本息末”；郭象注《庄》主张“独化”，认为万物“块然自生”“无待而自足”，不需要一个更高的“一”作根据，与老子“得一”的生成论结构形成对立；河上公与道教内丹传统则把“一”读作“气”“精”“神”，将“得一”转化为守一存神的修炼工夫，如《太平经》“守一”之法；苏辙《老子解》以“理”言“一”，谓万物各得其一以为其性，近于理学化的解读；海德格尔论“根据”（Grund）时说，存在者之存在总已在其根据中被给予，与老子“得一”所言“存在者因道而成立”有结构上的可比较性，但海氏拒绝把根据再实体化为一个“最高存在者”，恰与王弼“以无为本”而非“以一为物”的取向相通。</td></tr>
+<tr><td>孤、寡、不谷</td><td>君王自称“孤家”“寡人”“不谷”，不是谦虚客套，而是表示自己站在最低、最贱的位置上，因为“贵以贱为本，高以下为基”。</td><td>“孤”“寡”“不谷”皆为古代君主自谦之称。“孤”谓孤独无德，“寡”谓寡德，“不谷”即“不善”（谷，善也）。《老子》第39章云：“故贵以贱为本，高以下为基。是以侯王自称孤、寡、不谷。此非以贱为本邪？非乎？”老子指出侯王以此自称，正是“以贱为本”的体现，并以“故致数舆无舆”（一说“至誉无誉”）说明最高的称誉反倒不需称誉，由此批评世俗对“贵”“高”的执着。</td><td>王弼注：“可得而名，故曰孤、寡、不谷也。”谓侯王处尊而自称贱，是“以贱为本”的名言层面的体现；河上公注把“孤寡”解为“孤寡孤独”之人，强调人君当哀怜孤弱；成玄英则从重玄角度说“非誉非不誉”，连“以贱为本”亦不执。陈鼓应释此章为老子对侯王的告诫，指出“贵以贱为本”是老子辩证法的具体运用，与“反者道之动”一脉相承；楼宇烈强调此节体现老子“处下”“守柔”的政治伦理。</td><td>儒家对“名”的态度与老子形成对照：孔子主张“必也正名乎”，荀子《正名》篇论“名定而实辨”，认为名分秩序是社会治理的基础，而老子恰恰认为侯王自贬其名（孤、寡、不谷）才合于道，二者在“名”的功能上取向相反；韩非《解老》《喻老》则以“术”解此章，把“贵以贱为本”读作君主治国必须“以贱为基”、借卑下之姿控驭臣下的权术，与老子的本体论意涵分道；庄子“齐物”认为贵贱之分本无定准，“以道观之，物无贵贱”，把老子的“以贱为本”推向消解贵贱对待的层面；王夫之《老子衍》以“气化”言道，认为贵贱高下只是气之聚散升降的相对名相，不可以为实体。西方方面，维特根斯坦论语言中的“界限”时指出，某些位置（如“最低”）只有在整套比较系统内才有意义，侯王自称“孤寡”正是通过在名号系统内自我降格来确立其位，这与老子“高以下为基”的辩证结构可相互照明。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">得一</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">天、地、神、谷、万物、侯王都是因为守住了那个最根本的“一”，才成其为天、地、神、谷、万物、侯王；丢了“一”就会崩坏。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">“一”在《老子》中常被用作“道”的代称。“得一”指万物从道那里获得自身存在的根据，从而能显现其德性（如天得之以清、地得之以宁）。第39章以“昔之得一者”起首，列举天、地、神、谷、万物、侯王六者，说明“一”是它们各自成立的条件；随后以“其致之”转折，指出若失“一”则天裂、地废、神歇、谷竭、万物灭、侯王蹶，从正反两面确立“道”作为存在根据的绝对性。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“一，数之始而物之极也。”以“一”为万物之极、无为之本；“昔之得一者”即“各以其一得”其性。河上公注则把“一”解为“道之所生，太和之精气”，倾向养生与元气论。成玄英《道德经义疏》以重玄双遣解之，谓“一”亦不可执。陈鼓应认为此章“一”即“道”的别名，“得一”即“得道”，是老子对道与万物关系的具体化表达；刘笑敢指出“得一”体现老子“以道为万物存在依据”的生成论结构。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，认为“一”是数的起点也是万物的极致，万物所以能成其为自己，正因禀受了这个“无”之本，故主张“崇本息末”；郭象注《庄》主张“独化”，认为万物“块然自生”“无待而自足”，不需要一个更高的“一”作根据，与老子“得一”的生成论结构形成对立；河上公与道教内丹传统则把“一”读作“气”“精”“神”，将“得一”转化为守一存神的修炼工夫，如《太平经》“守一”之法；苏辙《老子解》以“理”言“一”，谓万物各得其一以为其性，近于理学化的解读；海德格尔论“根据”（Grund）时说，存在者之存在总已在其根据中被给予，与老子“得一”所言“存在者因道而成立”有结构上的可比较性，但海氏拒绝把根据再实体化为一个“最高存在者”，恰与王弼“以无为本”而非“以一为物”的取向相通。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">孤、寡、不谷</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">君王自称“孤家”“寡人”“不谷”，不是谦虚客套，而是表示自己站在最低、最贱的位置上，因为“贵以贱为本，高以下为基”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">“孤”“寡”“不谷”皆为古代君主自谦之称。“孤”谓孤独无德，“寡”谓寡德，“不谷”即“不善”（谷，善也）。《老子》第39章云：“故贵以贱为本，高以下为基。是以侯王自称孤、寡、不谷。此非以贱为本邪？非乎？”老子指出侯王以此自称，正是“以贱为本”的体现，并以“故致数舆无舆”（一说“至誉无誉”）说明最高的称誉反倒不需称誉，由此批评世俗对“贵”“高”的执着。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“可得而名，故曰孤、寡、不谷也。”谓侯王处尊而自称贱，是“以贱为本”的名言层面的体现；河上公注把“孤寡”解为“孤寡孤独”之人，强调人君当哀怜孤弱；成玄英则从重玄角度说“非誉非不誉”，连“以贱为本”亦不执。陈鼓应释此章为老子对侯王的告诫，指出“贵以贱为本”是老子辩证法的具体运用，与“反者道之动”一脉相承；楼宇烈强调此节体现老子“处下”“守柔”的政治伦理。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">儒家对“名”的态度与老子形成对照：孔子主张“必也正名乎”，荀子《正名》篇论“名定而实辨”，认为名分秩序是社会治理的基础，而老子恰恰认为侯王自贬其名（孤、寡、不谷）才合于道，二者在“名”的功能上取向相反；韩非《解老》《喻老》则以“术”解此章，把“贵以贱为本”读作君主治国必须“以贱为基”、借卑下之姿控驭臣下的权术，与老子的本体论意涵分道；庄子“齐物”认为贵贱之分本无定准，“以道观之，物无贵贱”，把老子的“以贱为本”推向消解贵贱对待的层面；王夫之《老子衍》以“气化”言道，认为贵贱高下只是气之聚散升降的相对名相，不可以为实体。西方方面，维特根斯坦论语言中的“界限”时指出，某些位置（如“最低”）只有在整套比较系统内才有意义，侯王自称“孤寡”正是通过在名号系统内自我降格来确立其位，这与老子“高以下为基”的辩证结构可相互照明。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 39 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 39 章]
+
+昔之得一者，天得一以清，地得一以宁，神得一以灵，谷得一以盈，万物得一以生，侯王得一以为天下正。其致之，天无以清将恐裂，地无以宁将恐废，神无以灵将恐歇，谷无以盈将恐竭，万物无以生将恐灭，侯王无以贵高将恐蹶。故贵以贱为本，高以下为基。是以侯王自称孤、寡、不谷。此非以贱为本邪？非乎？故致誉无誉，不欲琭琭如玉，珞珞如石。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_39_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

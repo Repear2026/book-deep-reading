@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 56 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 56/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_55/site/index.html" title="第 55 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_57/site/index.html" title="第 57 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 56 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>知者不言，言者不知。塞其兑，闭其门，挫其锐，解其纷，和其光，同其尘，是谓玄同。故不可得而亲，不可得而疏；不可得而利，不可得而害；不可得而贵，不可得而贱，故为天下贵。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 56 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章只说了两件事：真懂“道”的人不夸夸其谈，夸夸其谈的人其实没懂；而真懂的人，是通过“塞兑闭门、挫锐解纷、和光同尘”走到“玄同”的——一种不再被亲疏、利害、贵贱切割的境界。它有趣的地方在于一个悖论：老子一边说“知者不言”，一边写下五千言。最重要的收获，是把“玄同”理解为一种<strong>消解分别</strong>的状态，而不是某种神秘体验。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>1. 如果你真的想通了一件大事，你会忍不住到处讲，还是反而沉默？沉默是懂了，还是怕了？</blockquote>
+<blockquote>2. 如果你对谁都既不亲近也不疏远、既不利用也不伤害，别人会觉得你高明，还是觉得你冷漠？</blockquote>
+<blockquote>3. 如果一个人彻底不受利害贵贱的牵动，他还剩下什么动力去做事？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote>- <strong>维特根斯坦</strong>：《逻辑哲学论》末尾说“凡不可言说的，应当保持沉默”。他和老子都在语言边界上停步，但维特根斯坦是划出可说的范围，老子是判断说者的资格。</blockquote>
+<blockquote>- <strong>庄子</strong>：《外物》讲“得意忘言”，《寓言》讲“言无言”——他比老子更愿意用大量的言说去演示“不言”，可视为对“知者不言”的展开而非重复。</blockquote>
+<blockquote>- <strong>荀子</strong>：《正名》主张“名定而实辨”，认为社会秩序恰恰依赖清晰的言说与分辨。这是对老子“塞兑闭门”最直接的反对：不辨，则亲疏利害贵贱全乱。</blockquote>
+<blockquote>- <strong>韩非</strong>：《主道》说“道在不可见，用在不可知”，把“塞其兑、闭其门”读成君主不露声色的统治术，是老子文本在法家手里的另一种用法。</blockquote>
+<blockquote>- <strong>福柯</strong>：认为“说什么、谁能说”本身由话语结构决定。这提醒我们，“知者不言”背后也可能有一种关于谁有资格言说的隐性秩序。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：关注三处——开头的“知者不言，言者不知”这个判断句；中间六个动词（塞、闭、挫、解、和、同）连成的动作序列；结尾三个“不可得而”的排比。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：必看两个论证。一是“知者不言，言者不知”——注意它是双向否定，既否定“言者”，也把“知”与“言”设成互斥关系，追问它凭什么成立。二是“挫其锐，解其纷，和其光，同其尘，是谓玄同”——这六句不是并列的修行清单，而是一条从“收敛自己”到“混同于物”的递进链，看清“玄同”是结果而非手段。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：该追问的开放问题是——“知者不言”这句话本身是不是“言”？如果老子说得对，他就该沉默；如果他不沉默，他是在示范“言者不知”，还是在示范“言”可以不落于“不知”？这个自反困境，是本章最值得你合上书自己想的地方。</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+p1["命题：知者不言，言者不知"]
+p2["命题：塞兑闭门、挫锐解纷、和光同尘可致玄同"]
+p3["命题：玄同者超越亲疏利害贵贱，故为天下贵"]
+a1["论据：真正知\"道\"者不妄言，夸夸其谈者不真知"]
+a2["论据：塞其兑，闭其门，挫其锐，解其纷，和其光，同其尘"]
+a3["论据：不可得而亲疏、利害、贵贱，故为天下贵"]
+c1["概念：玄同"]
+c2["概念：和光同尘"]
+c3["概念：塞兑闭门"]
+a1 -->|supports| p1
+a2 -->|supports| p2
+a3 -->|supports| p3
+c3 -->|relates_to| a2
+c2 -->|relates_to| a2
+c1 -->|relates_to| p2
+c1 -->|relates_to| p3
+p1 -->|relates_to| p2
+p2 -->|relates_to| p3
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>论述真知与言说的关系，提出通过塞兑闭门、挫锐解纷、和光同尘达到“玄同”，并说明玄同者超越亲疏、利害、贵贱分别，故为天下所贵。</div>
+<h3>📌 核心命题</h3><ol>
+<li>真正知“道”的人不妄言，夸夸其谈的人并不真知。</li>
+<li>通过塞兑闭门、挫锐解纷、和光同尘，可以达到“玄同”。</li>
+<li>达到玄同的人超越亲疏、利害、贵贱的分别，因此为天下所贵。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>知者不言，言者不知。</li>
+<li>塞其兑，闭其门，挫其锐，解其纷，和其光，同其尘，是谓玄同。</li>
+<li>故不可得而亲，不可得而疏；不可得而利，不可得而害；不可得而贵，不可得而贱，故为天下贵。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>玄同</strong></summary><div class="case-body">与万物玄妙齐同、不显亲疏利害贵贱分别的境界。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>第57章可能继续展开“不言”与“玄同”在处世或治理上的意涵。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《{书名}》第 {章号} 章「{章节标题}」。</p>
+<br/>
+<p>这是我自己写的一段复述：</p>
+<p>「{我的复述}」</p>
+<br/>
+<p>请你做两件事：</p>
+<ol>
+<li>1. 先不看我的复述，用 3-5 句话给出你理解的本章主线（论证是怎么一步步推进的，不要只列结论）。</li>
+<li>2. 然后把我的复述和你的主线对比，指出：</li>
+<li>   - 我漏掉了哪些关键环节（是作者论证链条上不可省的一环，而不是细节）；</li>
+<li>   - 我对哪个关键概念的使用是模糊或跑偏的（指出本章里该概念被定义/使用的原句位置，并说明我把它换成了什么意思）；</li>
+<li>   - 我有没有把作者的观点说成比他实际主张的更强或更弱。</li>
+</ul>
+<br/>
+<p>最后给我一个「如果只能记住一句话」的版本。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>我读完《{书名}》第 {章号} 章「{章节标题}」，我的基本接受态度是：{我的立场，一句话}。</p>
+<br/>
+<p>现在请你扮演这一章最强的反方。要求：</p>
+<ol>
+<li>1. 不要反驳我，要反驳<strong>作者</strong>——找出本章论证最脆弱的那个前提，说明为什么一个聪明的对手会拒绝它。</li>
+<li>2. 给出至少两条独立的攻击路线（例如：一条攻击其前提，一条攻击其推理，或一条指出该论证若成立会推出作者自己也不愿接受的结论）。</li>
+<li>3. 每条攻击都要具体到本章的哪一段/哪个论点，不许泛泛说「过于抽象」「忽视现实」。</li>
+<li>4. 最后：作者可能怎样回应？这个回应能不能挡住攻击？给出你的判断，不要和稀泥。</li>
+</ul>
+<br/>
+<p>不要替我辩护，也不要预设作者是对的。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我读完了《{书名}》第 {章号} 章「{章节标题}」，本章我抓到的核心是：{一句话概括}。</p>
+<br/>
+<p>请给我 3 个具体场景，帮我把这一章用起来：</p>
+<ol>
+<li>1. 一个<strong>日常人际/家庭</strong>场景；</li>
+<li>2. 一个<strong>工作/组织决策</strong>场景；</li>
+<li>3. 一个<strong>公共议题或新闻</strong>场景。</li>
+</ul>
+<br/>
+<p>每个场景要求：</p>
+<ul>
+<li>- 先用 2-3 句把场景写具体（有具体的人、具体的冲突、具体的两难），不要抽象成「当你在职场遇到……」；</li>
+<li>- 然后说明本章的哪个概念/区分能在这个场景里起作用，怎么起作用；</li>
+<li>- 最后指出：这一章在这个场景里<strong>解释不了或解决不了</strong>的部分是什么——即它的适用边界。</li>
+</ul>
+<br/>
+<p>如果某个场景其实用不上这一章，请直接说「这一章在这里不适用」，并说明为什么，不要硬套。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>《{书名}》第 {章号} 章「{章节标题}」里，最让我兴奋的一句话是：</p>
+<br/>
+<p>「{原句}」</p>
+<br/>
+<p>请围绕这句话做一次推演式深挖：</p>
+<ol>
+<li>1. 先精读这句：它在原文语境里承担什么功能？作者说这句话是在回应什么？</li>
+<li>2. 然后问「那这样推下去还有什么？」——即：如果这句话成立，作者是否被逼着接受某些他本章没有明说的结论？列出 2-3 个这样的延伸推论，并标注哪些是作者本人会认的，哪些是作者可能会抵赖的。</li>
+<li>3. 这些延伸推论里，哪一个与本章其他段落、或与全书其他部分存在张力？</li>
+<li>4. 最后给我一个「沿着这句话继续读」的线索：书的后面哪一章/哪个概念值得我带着这句话去读。</li>
+</ul>
+<br/>
+<p>请区分清楚：哪些是你的推演，哪些是书中原文。不要把推演写成作者的原话。</p>
+<p>```</p>
+<br/>
+<hr/>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. 这一章里，作者想说服你相信的那<strong>一件事</strong>是什么？用一句你自己的话说出来。（提示：别复述标题，找一个「他希望你读完以后改变看法」的点。）</li>
+</ul>
+<br/>
+<ol>
+<li>2. 这一章有没有出现你看不懂但反复出现的词？把它们抄下来。（提示：术语第一次出现的地方，作者通常会顺手给一个界定，只是很多人读快了会跳过。）</li>
+</ul>
+<br/>
+<ol>
+<li>3. 作者是怎么从开头走到结论的？把中间那几步列出来。（提示：注意「因此」「所以」「由此可见」这类词，它们是论证的路标。）</li>
+</ul>
+<br/>
+<ol>
+<li>4. 这一章有没有提出一个反对意见，然后自己把它驳掉？（提示：找到「有人会说……」「也许有人反驳……」这类句式，看作者是认真处理还是轻轻带过。）</li>
+</ul>
+<br/>
+<ol>
+<li>5. 你能想到一个<strong>具体例子</strong>来支持这一章的主张吗？再想一个<strong>反例</strong>。（提示：反例不必推翻全章，只要说明这一章的适用范围没它自己暗示的那么大。）</li>
+</ul>
+<br/>
+<ol>
+<li>6. 这一章的主张，和你已经接受的某个信念冲突吗？冲突在哪一点上？（提示：不要笼统说「有点不同意」，要定位到具体那句话。）</li>
+</ul>
+<br/>
+<ol>
+<li>7. 如果让你给这一章的作者写一封短信，指出他论证中最站不住的一步，你会指哪一步？为什么？（提示：这是读哲学的看家本领——不是问「他说得对不对」，而是问「他这个结论是被论证撑住的，还是被修辞撑住的」。）</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>玄同</td><td>不把自己和万物分成亲的、疏的、有利的、有害的、贵的、贱的，而是与万物奇妙地融为一体。</td><td>“玄同”出自《老子》第56章“和其光，同其尘，是谓玄同”，指一种消解亲疏、利害、贵贱等一切对待分别，与万物玄妙齐同的境界。它是“挫其锐，解其纷，和其光，同其尘”之后达到的状态，也是老子对理想人格（圣人）与“道”相合境界的概括。</td><td>原文语境为“知者不言，言者不知。塞其兑，闭其门，挫其锐，解其纷，和其光，同其尘，是谓玄同。故不可得而亲，不可得而疏；不可得而利，不可得而害；不可得而贵，不可得而贱，故为天下贵。”“玄同”之“玄”取自“玄之又玄”的深微义，“同”非混同，而是超越对待之别后的齐同；其否定式表述（不可得而亲、疏、利、害、贵、贱）表明玄同不是某种可被占有的关系项，而是对一切关系性规定的解构。</td><td>王弼以“无”为本，注“玄同”为“无所特显，则物无所偏争”，强调因不立分别而无争，与其“崇本息末”的贵无论一致；河上公则从修身养生角度解释“塞其兑，闭其门”为闭目塞耳、爱精固气，把玄同落在治身长生上；郭象注《庄》主“独化”，反对有一个高于万物的本体，其思路可推至玄同即万物各安其分而自得，无须外在齐同。庄子“齐物论”以“道通为一”消解是非彼此，可与玄同互训，但庄子更重“逍遥”的个体解放，老子更重“为天下贵”的政治—人格意涵；佛学中观以缘起性空破一切自性见，与“不可得而亲疏利害贵贱”结构相近，但中观以“空”为究竟，老子仍保留“道”的生成意味；禅宗“无心”“平常心是道”与玄同的即世而超然亦有呼应。现代研究中，陈鼓应多从“玄同”见老子反异化、反对立的人生态度，刘笑敢则强调老子“无为”与“自然”两个向度中玄同属“自然”境界的表达。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">玄同</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不把自己和万物分成亲的、疏的、有利的、有害的、贵的、贱的，而是与万物奇妙地融为一体。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">“玄同”出自《老子》第56章“和其光，同其尘，是谓玄同”，指一种消解亲疏、利害、贵贱等一切对待分别，与万物玄妙齐同的境界。它是“挫其锐，解其纷，和其光，同其尘”之后达到的状态，也是老子对理想人格（圣人）与“道”相合境界的概括。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文语境为“知者不言，言者不知。塞其兑，闭其门，挫其锐，解其纷，和其光，同其尘，是谓玄同。故不可得而亲，不可得而疏；不可得而利，不可得而害；不可得而贵，不可得而贱，故为天下贵。”“玄同”之“玄”取自“玄之又玄”的深微义，“同”非混同，而是超越对待之别后的齐同；其否定式表述（不可得而亲、疏、利、害、贵、贱）表明玄同不是某种可被占有的关系项，而是对一切关系性规定的解构。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，注“玄同”为“无所特显，则物无所偏争”，强调因不立分别而无争，与其“崇本息末”的贵无论一致；河上公则从修身养生角度解释“塞其兑，闭其门”为闭目塞耳、爱精固气，把玄同落在治身长生上；郭象注《庄》主“独化”，反对有一个高于万物的本体，其思路可推至玄同即万物各安其分而自得，无须外在齐同。庄子“齐物论”以“道通为一”消解是非彼此，可与玄同互训，但庄子更重“逍遥”的个体解放，老子更重“为天下贵”的政治—人格意涵；佛学中观以缘起性空破一切自性见，与“不可得而亲疏利害贵贱”结构相近，但中观以“空”为究竟，老子仍保留“道”的生成意味；禅宗“无心”“平常心是道”与玄同的即世而超然亦有呼应。现代研究中，陈鼓应多从“玄同”见老子反异化、反对立的人生态度，刘笑敢则强调老子“无为”与“自然”两个向度中玄同属“自然”境界的表达。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 56 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 56 章]
+
+知者不言，言者不知。塞其兑，闭其门，挫其锐，解其纷，和其光，同其尘，是谓玄同。故不可得而亲，不可得而疏；不可得而利，不可得而害；不可得而贵，不可得而贱，故为天下贵。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_56_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

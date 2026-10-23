@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 52 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 52/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_51/site/index.html" title="第 51 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_53/site/index.html" title="第 53 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 52 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>天下有始，以为天下母。既得其母，以知其子，既知其子，复守其母，没身不殆。塞其兑，闭其门，终身不勤。开其兑，济其事，终身不救。见小曰明，守柔曰强。用其光，复归其明，无遗身殃，是为习常。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 52 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章把“道”比作母亲，把万物比作子女：先认清万物从哪里来，再回头守住那个根源，人就终身不会陷入危险。老子给出了两条相反的做法：堵住感官的孔窍、关紧欲望的门户，终身省力；反过来，敞开感官去应付外事，终身不可救药。能察见细微叫“明”，能守住柔弱叫“强”；用光而不被光晃花眼，回归内在的清明，就不会给自己招祸，这就叫“习常”。最重要收获：守根不是逃避世界，而是先有根，再看世界。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote><strong>如果</strong>你把全部注意力都投向外部的信息与人际，从不回头问“我这些念头从哪来”，<strong>会</strong>怎样？</blockquote>
+<p>&gt;</p>
+<blockquote><strong>如果</strong>“塞兑闭门”不是闭眼不看，而是对输入设一道门槛，<strong>会</strong>改变你对“开放”的看法吗？</blockquote>
+<p>&gt;</p>
+<blockquote><strong>如果</strong>“见小”比“见大”更难，<strong>会</strong>不会你日常追的大事件，恰恰遮住了真正重要的细微征兆？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote><strong>庄子</strong>（《养生主》《人间世》）延续“保身全生”的思路，但他更强调“缘督以为经”、顺着中道走，而不是单纯关门拒斥，守根在他那里更像是“不用之用”。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>荀子</strong>（《解蔽》）会说“塞兑闭门”还不够：他主张“虚壹而静”，关键不在关不关感官，而在心能否不被一隅之见蒙蔽；他反对“蔽于一曲”，与老子“开兑济事则终身不救”正好可以对照。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>王阳明</strong>讲“心外无物”“致良知”，把“母”收进心里：守母不是守一个外在的宇宙根源，而是守住自己那颗未被私欲遮蔽的本心；他大概会把“用其光复归其明”读成“明明德”。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>维特根斯坦</strong>（《逻辑哲学论》5.6 前后）说“世界的界限即语言的界限”，与“塞其兑，闭其门”形成有趣的紧张：一个说界限不可越，一个说界限要靠主动关门来维持，问题是“门”究竟在语言里还是在欲望里。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>福柯</strong>则会提醒：把感官当作需要管束的门户，本身就是一种“自我技术”的建构；他未必反对这种做法，但会追问：谁在制定“该关哪扇门”的标准？</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：先抓三个关注点——第一，“母—子—复守母”这个三步结构，注意它是循环而非单向；第二，“塞兑闭门”与“开兑济事”这一对正反对照，看老子如何用身体隐喻讲修养；第三，结尾“见小曰明，守柔曰强”“用其光，复归其明”，看“明”字在一章里如何两次出现、意思有无变化。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：重点看两个论证。一是“既得其母，以知其子，既知其子，复守其母，没身不殆”，注意它先说“知子”再“守母”，顺序不能颠倒：认识世界是必经环节，不是被否定的；二是“用其光，复归其明”，这里“光”向外照、“明”向内藏，是一个“发出—收回”的动作，而非单纯的收敛。把这两处读通，全章就不是“消极闭关”，而是“有根地开放”。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：值得追问的开放问题是——老子说“塞其兑，闭其门，终身不勤”，但知识、情感、他人，恰恰都要通过“兑”和“门”才进得来；那么“守母”与“知子”之间的平衡点由谁判定？如果判定标准本身也要靠“开兑”才能获得，这个体系会不会自相矛盾？</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+P_start["天下有始，以为天下母"]
+P_guard["得母知子，复守其母，没身不殆"]
+P_close["塞兑闭门，终身不勤"]
+P_open["开兑济事，终身不救"]
+P_ming["见小曰明，守柔曰强"]
+P_light["用光复归明，无遗身殃，是为习常"]
+C_mu["母：天下万物所由出的根源"]
+C_zi["子：由母所生并可被认知的具体万物"]
+C_dui["兑：感官或与外相接的孔窍入口"]
+C_men["门：感官或与外相接的门户"]
+C_xichang["习常：承袭、实践常道"]
+P_start -->|supports| P_guard
+P_close -->|supports| P_guard
+P_ming -->|supports| P_guard
+P_light -->|supports| P_guard
+P_close -->|relates_to| P_open
+P_ming -->|supports| P_light
+P_start -->|relates_to| C_mu
+P_start -->|relates_to| C_zi
+C_mu -->|relates_to| C_zi
+P_close -->|relates_to| C_dui
+P_close -->|relates_to| C_men
+P_open -->|relates_to| C_dui
+P_open -->|relates_to| C_men
+P_light -->|relates_to| C_xichang
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章从根源与派生的关系立论，提出由母知子、复守其母的修养路径，并以塞兑闭门与开兑济事相对照，说明见小守柔、用光归明方可无殃而习常。</div>
+<h3>📌 核心命题</h3><ol>
+<li>天下有始，可视为天下万物之母。</li>
+<li>既得母并能知子，又复守母，则终身不殆。</li>
+<li>塞兑闭门，可终身不勤。</li>
+<li>开兑济事，则终身不救。</li>
+<li>见小称为明，守柔称为强。</li>
+<li>用其光而复归其明，可无遗身殃，这称为习常。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>天下有始，以为天下母。</li>
+<li>既得其母，以知其子，既知其子，复守其母，没身不殆。</li>
+<li>塞其兑，闭其门，终身不勤。</li>
+<li>开其兑，济其事，终身不救。</li>
+<li>见小曰明，守柔曰强。</li>
+<li>用其光，复归其明，无遗身殃，是为习常。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>母</strong></summary><div class="case-body">本章以“天下有始”为“天下母”，指天下万物所由出的根源。</div></details>
+<details><summary><strong>子</strong></summary><div class="case-body">由“母”所生并可被认知的具体万物。</div></details>
+<details><summary><strong>兑</strong></summary><div class="case-body">文中与“门”并举，指感官或与外相接的孔窍入口。</div></details>
+<details><summary><strong>门</strong></summary><div class="case-body">文中与“兑”并举，指感官或与外相接的门户。</div></details>
+<details><summary><strong>习常</strong></summary><div class="case-body">文中“是为习常”，指承袭、实践常道。</div></details>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>模板 A｜理解检查（读完立刻用）</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《{书名}》第 {章节号} 章「{章节标题}」。</p>
+<br/>
+<p>这是我自己写的一段复述：</p>
+<br/>
+<p>&quot;&quot;&quot;</p>
+<p>{我的复述}</p>
+<p>&quot;&quot;&quot;</p>
+<br/>
+<p>请你做两件事，不要客套：</p>
+<br/>
+<ol>
+<li>1. 主线提取：用不超过 5 条，列出本章论证/叙述的主线骨架（谁在回应谁、从哪一步推到哪一步）。</li>
+</ol>
+<p>   然后指出我的复述里漏掉了哪一条，或者把哪一条的因果顺序讲反了。</p>
+<br/>
+<ol>
+<li>2. 关键概念检查：从本章挑出 {3-5} 个关键概念/术语，逐个问我：</li>
+<li>   - 它在*这一章里*的用法是什么（不要给词典定义，要贴着原文语境）；</li>
+<li>   - 我在复述里对这个词的使用，和原文是否一致；如果不一致，差在哪里。</li>
+</ul>
+<br/>
+<p>最后给我一个判定：我的复述属于「读懂主线」「抓住局部丢了框架」「用别的框架替换了作者的框架」中的哪一种，并说明依据。</p>
+<p>```</p>
+<br/>
+<h3>模板 B｜强反驳（防止一味接受）</h3>
+<br/>
+<p>```</p>
+<p>你现在的任务不是帮我理解《{书名}》第 {章节号} 章，而是尽最大努力反驳它。</p>
+<br/>
+<p>我读完这一章后，接受的核心论断是：</p>
+<br/>
+<p>&quot;&quot;&quot;</p>
+<p>{我接受的论断}</p>
+<p>&quot;&quot;&quot;</p>
+<br/>
+<p>我接受它的理由是：</p>
+<br/>
+<p>&quot;&quot;&quot;</p>
+<p>{我的理由}</p>
+<p>&quot;&quot;&quot;</p>
+<br/>
+<p>请按以下要求反驳：</p>
+<br/>
+<ol>
+<li>1. 先重构：用比作者更锋利的方式把这个论断重述一遍（如果重述后它变得更容易被攻击，说明你重构对了）。</li>
+<li>2. 然后从「相反视角」全力攻击：{可选：指定视角，如经验论/实在论/现象学/实用主义/女性主义/认知科学实验证据/纯逻辑内部矛盾}。至少给出 3 条独立的攻击线，每条要说清：攻击的是哪个前提、用什么反例或反论证、作者可能怎么回应、这个回应够不够。</li>
+<li>3. 最后诚实收尾：在这些攻击里，哪一条是作者真的难以招架的？哪几条其实是作者已经预先处理过的？</li>
+</ul>
+<br/>
+<p>不许和稀泥，不许最后说「双方都有道理」。如果你认为这一章在这个视角下确实站得住，就明说哪一条攻击失败了、为什么失败。</p>
+<p>```</p>
+<br/>
+<h3>模板 C｜连现实（把章节思想放到自己的场景里）</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《{书名}》第 {章节号} 章。请只用这一章的思想资源，解释下面三个真实场景，不要引入这一章之外的框架：</p>
+<br/>
+<p>场景一：{场景一：具体到人、事、冲突点}</p>
+<p>场景二：{场景二}</p>
+<p>场景三：{场景三}</p>
+<br/>
+<p>对每个场景，请给出：</p>
+<br/>
+<ul>
+<li>- 这一章里哪个概念/区分，正好能切开这个场景的混乱？（指出它在原文中的位置和原意）</li>
+<li>- 用这个概念看，我原来大概率会误判成什么？正确的看法是什么？</li>
+<li>- 概念落地后的具体动作：我明天可以做的一件可观察的事，或者一句可以照着说的话。</li>
+<li>- 这个概念在这个场景里会失效的边界在哪里（别把它用成万能钥匙）。</li>
+</ul>
+<br/>
+<p>三个场景回答完后，追加一句：这三个场景中，哪一个其实超出了本章能解释的范围？说明原因。</p>
+<p>```</p>
+<br/>
+<h3>模板 D｜深挖（从一句话往下推）</h3>
+<br/>
+<p>```</p>
+<p>《{书名}》第 {章节号} 章里，最让我兴奋的一句话是：</p>
+<br/>
+<p>&quot;&quot;&quot;</p>
+<p>{原句}</p>
+<p>&quot;&quot;&quot;</p>
+<br/>
+<p>围绕这句话，请你做四层展开：</p>
+<br/>
+<ol>
+<li>1. 定位：这句话在本章论证中承担什么功能？它是前提、推论、还是对某个反对意见的回应？把它前面的三步和后面的两步补出来。</li>
+<li>2. 字面推演：如果这句话字面成立，那它「这样推下去」还必须承认什么？给我至少 3 个逻辑上紧随其后的命题，并标注每个命题的风险（作者本人敢不敢承认？）。</li>
+<li>3. 张力检测：这句话和本章其他地方、以及全书 {前文某章/后文某章} 的说法，有没有潜在冲突？如果有，作者是靠什么（区分、限定、还是直接跳过）维持住的？</li>
+<li>4. 我的下一步：基于这句话，给我 2 个可以继续追问的方向，一个朝文本内部（回到原文细读哪一段），一个朝文本外部（去读谁、查什么概念史）。</li>
+</ul>
+<br/>
+<p>注意：第 2 步允许你走得比作者远，但要标明哪些是「作者明说的」、哪些是「我顺着推的」。</p>
+<p>```</p>
+<br/>
+<hr/>
+<br/>
+<h2>2）新手引导问题（从零基础到进阶）</h2>
+<br/>
+<ol>
+<li>1. <strong>这一章如果只能说一句话，作者最想让读者记住的是什么？</strong></li>
+</ol>
+<p>   提示：先别管论证细节，找那句「作者不惜篇幅也要你同意」的话；说不出就说明还没读完。</p>
+<br/>
+<ol>
+<li>2. <strong>这一章里有没有哪个词，作者用得和日常说话不一样？把那个词圈出来。</strong></li>
+</ol>
+<p>   提示：哲学章节的入口往往是术语变形——同一个词，作者赋予了新用法，这就是本章的「门把手」。</p>
+<br/>
+<ol>
+<li>3. <strong>作者在这一章里，主要在跟谁吵架？他反对的那个立场，你会怎么替它辩护一句？</strong></li>
+</ol>
+<p>   提示：找到「反对者/有人认为/通常的看法」这类信号词；能替反方说一句好话，才算真读懂正方。</p>
+<br/>
+<ol>
+<li>4. <strong>这一章的中心论断，是「描述性的」还是「规范性的」？它在解决一个什么问题，那个问题不解决会怎样？</strong></li>
+</ol>
+<p>   提示：分清「事情是怎样的」和「事情应该怎样」；再问这个问题的紧迫性从哪来。</p>
+<br/>
+<ol>
+<li>5. <strong>如果作者的核心论断是错的，世界上会多出/少掉什么？这个代价你能接受吗？</strong></li>
+</ol>
+<p>   提示：这是成本检验——一个论断的意义，往往体现在否定它的后果里；用它来测自己到底是「懂了」还是「记住了」。</p>
+<br/>
+<ol>
+<li>6. <strong>本章的论证在哪一步最依赖某个未经证明的前提？作者为什么不证它？</strong></li>
+</ol>
+<p>   提示：找「显然」「自然」「当然」「无需赘述」这些地方，那里通常是承重墙也是薄弱点。</p>
+<br/>
+<ol>
+<li>7. <strong>把这一章放回它所在的哲学传统：它是在回应哪条旧路线？后来的研究者主要从哪几个方向反驳或修正它？</strong></li>
+</ol>
+<p>   提示：需要一点思想史背景了——先确认本章的对手是谁（哪一学派/哪一位前人），再去查二手文献里对它的标准批评清单。</p>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><p><strong>第 52 章：本章的概念清单为空，无法生成四层表。</strong></p>
+<br/>
+<p>收到的 <code>notes</code> 中有 5 条记录，但 <code>concept</code> 字段全为 <code>null</code>，<code>explanation</code> 为空字符串。没有术语就无法进行 L0–L3 翻译：从我现有依据中提不出任何词语，任何填写都会是编造。</p>
+<br/>
+<p>请补充以下任一内容，我会立刻按表输出：</p>
+<br/>
+<table class="tbl"><thead><tr>
+<th>需要的信息</th><th>说明</th>
+</tr></thead><tbody>
+<tr><td>五个术语的名称</td><td>至少给出本章出现的原文关键语汇（如“天下有始”“既得其母”等）</td></tr>
+<tr><td>术语所在的原句</td><td>便于在 L1/L2 锁定学术义项，避免歧义</td></tr>
+<tr><td>各术语的初步释义</td><td>无需精炼，我据此对接注家传统与现代研究</td></tr>
+</table>
+<br/>
+<p>补充说明：若本章属于《老子》通行本第 52 章（“天下有始，以为天下母……塞其兑，闭其门……”），常见的候选概念包括“母与子”“兑与门”“袭常”“见小曰明”“守柔曰强”等；但这只是根据章节序号所作的推测，我并未把它当作你的笔记内容，因此不会据此生成表格，以免把不属于本章的概念当作依据。</p></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 52 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 52 章]
+
+天下有始，以为天下母。既得其母，以知其子，既知其子，复守其母，没身不殆。塞其兑，闭其门，终身不勤。开其兑，济其事，终身不救。见小曰明，守柔曰强。用其光，复归其明，无遗身殃，是为习常。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_52_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

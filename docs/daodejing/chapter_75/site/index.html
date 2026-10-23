@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 75 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 75/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_74/site/index.html" title="第 74 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_76/site/index.html" title="第 76 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 75 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>民之饥，以其上食税之多，是以饥。民之难治，以其上之有为，是以难治。民之轻死，以其求生之厚，是以轻死。夫唯无以生为者，是贤于贵生。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 75 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章只讲一件事：百姓的苦难，根子在统治者身上。老子摆出三个因果链条——百姓挨饿，因为统治者收税太多；百姓难管，因为统治者政令繁苛、妄加作为；百姓不怕死，因为统治者太贪图厚养自己。最后一句翻转价值：不刻意厚养自身的人，比看重厚养自身的人更高明。有趣之处在于，它把“社会问题”从百姓身上挪回权力顶端，是一份极简的统治问责书。最重要的收获是：看清“上有为”如何转化为“民之难治”。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>如果一项政策让执行者疲于奔命、百姓怨声载道，问题该归咎于“民难治”，还是归咎于政策本身太多？</blockquote>
+<p>&gt;</p>
+<blockquote>如果上位者把“养好自己”当作理所当然的追求，底层为此付出的代价会以什么形式显现？</blockquote>
+<p>&gt;</p>
+<blockquote>如果一个人连死都不怕了，通常不是勇敢，而是已被逼到没有退路——那么“轻死”该被谴责，还是该被追问成因？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote><strong>荀子</strong>：主张“君者，舟也；庶人者，水也”，同样把治乱系于上位者，但他走向礼义教化与制度建构，与老子“少作为”的路径相反。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>韩非</strong>：也批判苛政耗费民力，但他认为出路是严明法度、考核官吏，而非减少统治者的作为——同诊异方。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>福柯</strong>：权力不只靠镇压，更通过税收、行政、人口管理等微观技术塑造人的处境；老子的“食税之多”“上有为”可读作对这种治理技术的早期警觉。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>罗素</strong>：在讨论社会权力时指出，掌权者常把自身利益包装成公共秩序；这与老子“求生之厚”而民轻死的洞察可相互印证。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<br/>
+<p><strong>（1）第一遍（速览）</strong>：抓三个关注点——① 三个“是以”构成的因果句式（民之饥、难治、轻死各自的原因）；② 三处主语都落在“其上”，即问题源头始终指向统治者；③ 末句从“现象批判”跳到“价值判断”，是全章转折。</p>
+<br/>
+<p><strong>（2）第二遍（细抠）</strong>：必看两处论证。一是“民之难治，以其上之有为”——注意“有为”在此不是褒义的努力，而是指政令繁苛、妄加干预，理解这一层，全章才不别扭。二是“以其求生之厚，是以轻死”——这里的“求生之厚”指上位者厚养自身，而非百姓贪生；正因上层过度自养，底层才被逼到轻死，逻辑链条要顺过来读。</p>
+<br/>
+<p><strong>（3）第三遍（思辨）</strong>：末句“无以生为者，是贤于贵生”——若一个人完全不把厚养自身当追求，这是更高的德性，还是另一种逃避？在什么条件下，“不贵生”是统治者的美德，在什么条件下又会变成对自身责任的推卸？这个追问可以把本章从政治批判延伸到人生价值层面。</p>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+p1["百姓饥饿，因统治者赋税过多"]
+p2["百姓难治，因统治者妄加作为"]
+p3["百姓轻死，因统治者过度厚养自身"]
+p4["无以生为者贤于贵生"]
+c1["食税之多"]
+c2["上之有为"]
+c3["求生之厚"]
+c4["无以生为"]
+c5["贵生"]
+c1 -->|supports| p1
+c2 -->|supports| p2
+c3 -->|supports| p3
+c4 -->|supports| p4
+c5 -->|relates_to| p4
+c4 -->|relates_to| c5
+c1 -->|relates_to| c2
+c2 -->|relates_to| c3
+p1 -->|relates_to| p2
+p2 -->|relates_to| p3
+p3 -->|relates_to| p4
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>全章由百姓饥饿、难治、轻死三种现象切入，追溯其根源在于统治者食税多、妄加作为、过度厚养自身，最后以“无以生为”高于“贵生”作结，形成对统治者行为与价值取向的批判性总结。</div>
+<h3>📌 核心命题</h3><ol>
+<li>百姓饥饿，是因为统治者征收的赋税太多，所以百姓才挨饿。</li>
+<li>百姓难以治理，是因为统治者妄加作为，所以百姓才难治。</li>
+<li>百姓轻生冒死，是因为统治者过度追求厚养自身，所以百姓才轻死。</li>
+<li>不把厚养自身当作追求的人，比看重厚养自身的人更高明。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>民之饥，以其上食税之多，是以饥。</li>
+<li>民之难治，以其上之有为，是以难治。</li>
+<li>民之轻死，以其求生之厚，是以轻死。</li>
+<li>夫唯无以生为者，是贤于贵生。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>食税之多</strong></summary><div class="case-body">指统治者征收的赋税过多。</div></details>
+<details><summary><strong>上之有为</strong></summary><div class="case-body">指统治者妄加作为、政令繁苛。</div></details>
+<details><summary><strong>求生之厚</strong></summary><div class="case-body">指统治者过度追求厚养自身。</div></details>
+<details><summary><strong>无以生为</strong></summary><div class="case-body">不把厚养自身当作追求。</div></details>
+<details><summary><strong>贵生</strong></summary><div class="case-body">看重厚养自身。</div></details>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 Prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 75 章。下面是我自己写的一段复述，请你做两件事：</p>
+<br/>
+<p>【我的复述】</p>
+<p>{我的一段话复述}</p>
+<br/>
+<p>【请你】</p>
+<ol>
+<li>1. 主线提取：用不超过 5 条，列出本章论证/叙述的主干（谁在主张什么、依据是什么、结论是什么）。若我的复述漏掉主干中的任何一条，明确指出漏了哪条。</li>
+<li>2. 关键概念检查：挑出本章 3–5 个关键概念（{可留空，由你判断}），逐一说明：作者在本章用它指什么、它和相邻概念（易混淆的那个）的区别在哪、我的复述里对这些概念的用法是否有偏差。</li>
+<li>3. 最后给一句总评：我的复述属于「抓住主线」「抓了支线丢了主线」「只是复述情节/例子」中的哪一种，并说明理由。</li>
+</ul>
+<br/>
+<p>要求：只依据本章原文与笔记，不要引入本章之外的引申；如果你不确定某点是否在原文中出现，请标注「需回原文核对」。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>请你扮演本章最强反方，目标不是补充说明，而是让「接受本章观点」这件事变得困难。</p>
+<br/>
+<p>【我目前的接受度】</p>
+<p>{我对本章的立场，例如：我基本认同 X 观点 / 我半信半疑 / 我认同结论但不认同论证}</p>
+<br/>
+<p>【请你】</p>
+<ol>
+<li>1. 先复述我认同的那个立场，确认你没有打稻草人。</li>
+<li>2. 给出 3 条最强反驳，按杀伤力从高到低排列。每条须包含：</li>
+<li>   - 反驳的靶心（针对的是结论、前提，还是推理步骤）</li>
+<li>   - 反驳本身（可引用对立学派/历代注家的代表性立场，须写明是谁的说法）</li>
+<li>   - 一个具体的反例或思想实验</li>
+<li>3. 指出本章作者最可能如何回应，以及这个回应能否挡住第 1 条反驳。</li>
+<li>4. 最后用一句话说明：如果第 1 条反驳成立，本章哪个结论必须先放弃。</li>
+</ul>
+<br/>
+<p>要求：不要替我调和，不要给「双方都有道理」的和稀泥结尾。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 75 章。请把本章思想落到现实，给我 3 个具体场景的解释。</p>
+<br/>
+<p>【我的背景】</p>
+<p>{我的职业/生活处境，例如：产品经理，带 6 人团队 / 大四学生准备考研 / 创业公司创始人}</p>
+<br/>
+<p>【三个场景（由我给出，或你基于我的背景生成）】</p>
+<ol>
+<li>1. {场景一}</li>
+<li>2. {场景二}</li>
+<li>3. {场景三}</li>
+</ul>
+<br/>
+<p>【请你对每个场景】</p>
+<ul>
+<li>- 用本章的一个具体概念或区分来重新描述这个场景（不是泛泛地说「要有批判性思维」）；</li>
+<li>- 说明：按本章的逻辑，这里最容易被忽略的一步是什么；</li>
+<li>- 给出一个可执行动作（本周内能做的），并说明它为什么是从本章推出来的，而不是通用的建议；</li>
+<li>- 指出本章思想在这个场景里「不够用」的地方。</li>
+</ul>
+<br/>
+<p>要求：概念必须来自本章原文；如果某个场景其实用不上本章，直接说用不上，不要硬套。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 75 章里最让我兴奋的一句话是：</p>
+<br/>
+<p>「{原文句子}」</p>
+<br/>
+<p>请围绕这一句做连锁推演，我要的是「那这样推下去还有什么」。</p>
+<br/>
+<p>【请你】</p>
+<ol>
+<li>1. 拆解这句话：它在字面上断言了什么？其中哪个词是承重的（换掉它整句就塌了）？</li>
+<li>2. 顺着推：如果这句成立，作者还欠我们什么？列出 3 个必须跟着成立的后续命题。</li>
+<li>3. 反向推：如果这句不成立，本章还有哪些论断会一起倒掉？</li>
+<li>4. 边界：这句话的适用范围在哪结束？举一个它明显失效的情形。</li>
+<li>5. 脉络：思想史上谁说过类似的话、谁明确反对过（写明人名与立场，不确定就说不确定）。</li>
+<li>6. 给我 3 个可以继续追问的问题，难度递增。</li>
+</ul>
+<br/>
+<p>要求：第 1–4 步严格基于本章；第 5 步才允许引入本章之外的思想史材料，且须标明来源人物。</p>
+<p>```</p>
+<br/>
+<hr/>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. 这一章里，作者最想让我相信的那一句话是什么？—— 先别管论证，只找出「主张」本身，把它抄成一句你自己的话。</li>
+<li>2. 本章出现了哪些我不认识的词？作者有没有在第一次用到时给出定义？—— 列出 3 个，回原文找它们的定义位置，找不到就说明作者默认你懂了。</li>
+<li>3. 作者在这一章主要在跟谁吵架（反对谁的观点）？—— 弄清「靶子」往往比弄清「主张」更能抓住一章的动机。</li>
+<li>4. 本章用了哪个例子或故事？这个例子真的能撑起结论，还是只是听起来顺？—— 试着把例子换成一个反例，看结论还站不站得住。</li>
+<li>5. 本章的结论，是「描述世界是什么样」还是「规定我们该怎么做」？—— 这两类主张的举证责任完全不同，混淆它们是新手最常见的失误。</li>
+<li>6. 如果我完全接受这一章，我会在什么事情上改变做法？如果我不接受，代价是什么？—— 把抽象立场换算成具体代价，才能检验自己是不是真信。</li>
+<li>7. 这一章和前几章是什么关系：接续、修正，还是推翻？作者在这里有没有偷偷改变某个词的用法？—— 到这一层，读的就不只是「一章」，而是一条论证线。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>民之饥，以其上食税之多（赋税过多）</td><td>老百姓吃不饱饭，是因为统治者收的税太重、拿得太多。</td><td>出自《老子》第七十五章：&quot;民之饥，以其上食税之多，是以饥。&quot;老子指出民生困苦的根源不在天灾，而在统治者聚敛无度。这是对当时苛政的批判，也是&quot;无为而治&quot;主张的现实依据。</td><td>河上公《老子道德经章句》题此章为&quot;贪损&quot;，注&quot;食税之多&quot;为&quot;赋敛之烦&quot;，以&quot;损上益下&quot;解之；王弼注第四十八章&quot;损之又损&quot;与此章相承，以&quot;无为&quot;为治国之本，认为征敛繁多正是有为过甚之弊。</td><td>儒家并不否认赋税，但主张&quot;薄税敛&quot;（《孟子·尽心上》&quot;易其田畴，薄其税敛，民可使富也&quot;），荀子更提出&quot;下贫则上贫，下富则上富&quot;（《荀子·富国》），与老子同样看到横征暴敛会自毁统治基础，但儒家把解决之道寄托于礼制与仁政，老子则指向减少政府的作为本身。法家韩非在《五蠹》中反对&quot;修士文学&quot;与&quot;轻赋&quot;之说，认为富国在于刑赏耕战，与老子的&quot;少取&quot;取向根本不同。现代学者陈鼓应《老子今注今译》认为此章&quot;表现了老子对政治现实的强烈批判精神&quot;，是其民本思想的直接体现。</td></tr>
+<tr><td>上之有为（政令繁苛，指统治者妄加作为）</td><td>统治者管得太多、政策太杂，反而把老百姓折腾坏了。</td><td>本章&quot;民之难治，以其上之有为，是以难治&quot;。老子认为百姓难治不是因为百姓刁，而是因为统治者政令繁苛、妄加干预。这是老子&quot;无为而无不为&quot;政治哲学的直接反面例证。</td><td>《老子》第五十七章&quot;法令滋彰，盗贼多有&quot;可与此互训。河上公注&quot;有为&quot;为&quot;多欲&quot;，成玄英以重玄义解之，谓&quot;有为&quot;者&quot;滞于有为&quot;，与&quot;无为&quot;相对而生分别。王弼第四十八章注云&quot;有为而累者，事也&quot;，认为以有为之心治事，反为事所困。</td><td>郭象注《庄子》持&quot;独化&quot;之说，虽不否认&quot;治&quot;，但认为万物各自独化，君王若以为可以凭一己之作为塑造天下，即是&quot;以己制物&quot;；成玄英本重玄双遣，既遣&quot;有为&quot;亦遣&quot;无为&quot;，认为执着于&quot;无为&quot;之名同样是病。儒家荀子则正面主张&quot;制天命而用之&quot;（《荀子·天论》），认为人君须主动制作礼义法度，这与老子&quot;有为则难治&quot;的判断构成直接对立。刘笑敢《老子古今》指出，老子此处&quot;有为&quot;特指&quot;强作妄为&quot;，并非一概否定一切人为努力。</td></tr>
+<tr><td>上之求生之厚（过度追求厚养自身）</td><td>统治者太在意自己活得舒坦、养得丰厚，把资源都往自己身上堆。</td><td>本章&quot;民之轻死，以其上求生之厚，是以轻死&quot;。统治者过度奉养自己，民不堪命，于是轻死犯上。&quot;求生之厚&quot;是老子对统治者贪生的批判。</td><td>河上公注以&quot;养生&quot;为解，与此章养生之讥形成张力；王弼第四十八章&quot;为学日益，为道日损&quot;注&quot;务欲反虚无也&quot;，其反对&quot;厚&quot;与&quot;多&quot;，正以&quot;无&quot;为本。苏辙《老子解》释此句为&quot;上求以自厚，则下必至于自薄&quot;。</td><td>道教内丹一系（如《周易参同契》以来传统）重&quot;厚养其身&quot;，追求长生久视，与老子此处对&quot;求生之厚&quot;的批评形成尖锐对照；后世注家多以&quot;厚养&quot;指&quot;厚其口腹声色&quot;而言，不指养生炼形，以此调和二者。庄子《养生主》&quot;缘督以为经，可以保身，可以全生&quot;虽言养生，却以&quot;庖丁解牛&quot;之&quot;依乎天理&quot;为养生，与老子反对&quot;贪求&quot;实相通。列子《杨朱》篇主张&quot;且趣当生&quot;，纵情厚养，正是老子此句所戒。现代学者楼宇烈指出，老子反对的不是正常的&quot;生&quot;，而是&quot;自厚其生&quot;的自我膨胀。</td></tr>
+<tr><td>无以生为（不把厚养自身当作追求）</td><td>不刻意把养生、保养自己当作人生目标，反而活得更好。</td><td>本章&quot;夫唯无以生为者，是贤于贵生&quot;。不刻意经营、厚养其生的人，胜过一味贵生的人。老子以&quot;无心于生&quot;为养生之极致。</td><td>王弼第七十五章注：&quot;言民之所以僻，治之所以乱，皆由上，不由其下也。&quot;其&quot;无以生为&quot;与第四十八章&quot;无为而无不为&quot;之义相承，以&quot;不存于生&quot;为&quot;善养生&quot;。</td><td>王弼以&quot;无&quot;为本，认为&quot;无以生为&quot;即&quot;不以生为念&quot;，因&quot;无&quot;而生用自足；郭象则主张&quot;独化&quot;，认为不必求所谓更高原则，只须随顺而无所执。庄子《达生》&quot;养形必先之以物，物有余而形不养者有之矣&quot;，指出过度求养反失所养，与&quot;无以生为&quot;同调。禅宗以&quot;无心&quot;为大用（如《六祖坛经》&quot;无念为宗，无相为体，无住为本&quot;），可与此句对读：不逐于生，生乃安然。西方对照，海德格尔以&quot;向死而在&quot;（Sein-zum-Tode）揭示对存在者的执着反遮蔽本真，与老子&quot;无以生为&quot;之间可有跨传统的对话。</td></tr>
+<tr><td>贵生（看重厚养自身）</td><td>把养自己的命看得过重、过度看重。</td><td>本章&quot;夫唯无以生为者，是贤于贵生&quot;。&quot;贵生&quot;指过分看重自身生命、厚自奉养。老子区分&quot;贤于贵生&quot;与&quot;贵生&quot;两者，认为前者高于后者。</td><td>河上公《老子道德经章句》以养生为解，注&quot;贵生&quot;多与&quot;厚养&quot;相涉；王弼以&quot;贵&quot;为病，以&quot;无&quot;为药，认为&quot;贵生&quot;者心有所滞；成玄英以重玄双遣解之，谓&quot;贵生&quot;之名亦当遣。</td><td>王弼&quot;崇本息末&quot;，以&quot;贵生&quot;为&quot;末&quot;、以&quot;无&quot;为&quot;本&quot;，主张&quot;不贵其生而自全&quot;；郭象&quot;独化&quot;说则认为并无一个&quot;本&quot;可崇，只须随顺日用，贵生与不贵生皆是执名。道教道教养生家（如葛洪《抱朴子·内篇》&quot;我命在我不在天&quot;）重&quot;贵生&quot;，主张延年，与老子此章&quot;贤于贵生&quot;的取向有所分歧，后世道门多以&quot;善养生者不厚养&quot;调停之。佛教中观一系以&quot;缘起性空&quot;观生命，既不落&quot;贵生&quot;之执，也不落&quot;轻生&quot;之断，与老子&quot;无以生为&quot;的&quot;双遣&quot;意趣可相比附。儒家孟子以&quot;生亦我所欲也，义亦我所欲也，二者不可得兼，舍生而取义者也&quot;（《孟子·告子上》）定位生命价值，义高于生，与老子对&quot;贵生&quot;的贬抑取向又不同。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">民之饥，以其上食税之多（赋税过多）</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">老百姓吃不饱饭，是因为统治者收的税太重、拿得太多。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">出自《老子》第七十五章：&quot;民之饥，以其上食税之多，是以饥。&quot;老子指出民生困苦的根源不在天灾，而在统治者聚敛无度。这是对当时苛政的批判，也是&quot;无为而治&quot;主张的现实依据。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">河上公《老子道德经章句》题此章为&quot;贪损&quot;，注&quot;食税之多&quot;为&quot;赋敛之烦&quot;，以&quot;损上益下&quot;解之；王弼注第四十八章&quot;损之又损&quot;与此章相承，以&quot;无为&quot;为治国之本，认为征敛繁多正是有为过甚之弊。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">儒家并不否认赋税，但主张&quot;薄税敛&quot;（《孟子·尽心上》&quot;易其田畴，薄其税敛，民可使富也&quot;），荀子更提出&quot;下贫则上贫，下富则上富&quot;（《荀子·富国》），与老子同样看到横征暴敛会自毁统治基础，但儒家把解决之道寄托于礼制与仁政，老子则指向减少政府的作为本身。法家韩非在《五蠹》中反对&quot;修士文学&quot;与&quot;轻赋&quot;之说，认为富国在于刑赏耕战，与老子的&quot;少取&quot;取向根本不同。现代学者陈鼓应《老子今注今译》认为此章&quot;表现了老子对政治现实的强烈批判精神&quot;，是其民本思想的直接体现。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">上之有为（政令繁苛，指统治者妄加作为）</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">统治者管得太多、政策太杂，反而把老百姓折腾坏了。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">本章&quot;民之难治，以其上之有为，是以难治&quot;。老子认为百姓难治不是因为百姓刁，而是因为统治者政令繁苛、妄加干预。这是老子&quot;无为而无不为&quot;政治哲学的直接反面例证。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》第五十七章&quot;法令滋彰，盗贼多有&quot;可与此互训。河上公注&quot;有为&quot;为&quot;多欲&quot;，成玄英以重玄义解之，谓&quot;有为&quot;者&quot;滞于有为&quot;，与&quot;无为&quot;相对而生分别。王弼第四十八章注云&quot;有为而累者，事也&quot;，认为以有为之心治事，反为事所困。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">郭象注《庄子》持&quot;独化&quot;之说，虽不否认&quot;治&quot;，但认为万物各自独化，君王若以为可以凭一己之作为塑造天下，即是&quot;以己制物&quot;；成玄英本重玄双遣，既遣&quot;有为&quot;亦遣&quot;无为&quot;，认为执着于&quot;无为&quot;之名同样是病。儒家荀子则正面主张&quot;制天命而用之&quot;（《荀子·天论》），认为人君须主动制作礼义法度，这与老子&quot;有为则难治&quot;的判断构成直接对立。刘笑敢《老子古今》指出，老子此处&quot;有为&quot;特指&quot;强作妄为&quot;，并非一概否定一切人为努力。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">上之求生之厚（过度追求厚养自身）</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">统治者太在意自己活得舒坦、养得丰厚，把资源都往自己身上堆。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">本章&quot;民之轻死，以其上求生之厚，是以轻死&quot;。统治者过度奉养自己，民不堪命，于是轻死犯上。&quot;求生之厚&quot;是老子对统治者贪生的批判。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">河上公注以&quot;养生&quot;为解，与此章养生之讥形成张力；王弼第四十八章&quot;为学日益，为道日损&quot;注&quot;务欲反虚无也&quot;，其反对&quot;厚&quot;与&quot;多&quot;，正以&quot;无&quot;为本。苏辙《老子解》释此句为&quot;上求以自厚，则下必至于自薄&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">道教内丹一系（如《周易参同契》以来传统）重&quot;厚养其身&quot;，追求长生久视，与老子此处对&quot;求生之厚&quot;的批评形成尖锐对照；后世注家多以&quot;厚养&quot;指&quot;厚其口腹声色&quot;而言，不指养生炼形，以此调和二者。庄子《养生主》&quot;缘督以为经，可以保身，可以全生&quot;虽言养生，却以&quot;庖丁解牛&quot;之&quot;依乎天理&quot;为养生，与老子反对&quot;贪求&quot;实相通。列子《杨朱》篇主张&quot;且趣当生&quot;，纵情厚养，正是老子此句所戒。现代学者楼宇烈指出，老子反对的不是正常的&quot;生&quot;，而是&quot;自厚其生&quot;的自我膨胀。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">无以生为（不把厚养自身当作追求）</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不刻意把养生、保养自己当作人生目标，反而活得更好。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">本章&quot;夫唯无以生为者，是贤于贵生&quot;。不刻意经营、厚养其生的人，胜过一味贵生的人。老子以&quot;无心于生&quot;为养生之极致。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼第七十五章注：&quot;言民之所以僻，治之所以乱，皆由上，不由其下也。&quot;其&quot;无以生为&quot;与第四十八章&quot;无为而无不为&quot;之义相承，以&quot;不存于生&quot;为&quot;善养生&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，认为&quot;无以生为&quot;即&quot;不以生为念&quot;，因&quot;无&quot;而生用自足；郭象则主张&quot;独化&quot;，认为不必求所谓更高原则，只须随顺而无所执。庄子《达生》&quot;养形必先之以物，物有余而形不养者有之矣&quot;，指出过度求养反失所养，与&quot;无以生为&quot;同调。禅宗以&quot;无心&quot;为大用（如《六祖坛经》&quot;无念为宗，无相为体，无住为本&quot;），可与此句对读：不逐于生，生乃安然。西方对照，海德格尔以&quot;向死而在&quot;（Sein-zum-Tode）揭示对存在者的执着反遮蔽本真，与老子&quot;无以生为&quot;之间可有跨传统的对话。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">贵生（看重厚养自身）</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">把养自己的命看得过重、过度看重。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">本章&quot;夫唯无以生为者，是贤于贵生&quot;。&quot;贵生&quot;指过分看重自身生命、厚自奉养。老子区分&quot;贤于贵生&quot;与&quot;贵生&quot;两者，认为前者高于后者。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">河上公《老子道德经章句》以养生为解，注&quot;贵生&quot;多与&quot;厚养&quot;相涉；王弼以&quot;贵&quot;为病，以&quot;无&quot;为药，认为&quot;贵生&quot;者心有所滞；成玄英以重玄双遣解之，谓&quot;贵生&quot;之名亦当遣。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼&quot;崇本息末&quot;，以&quot;贵生&quot;为&quot;末&quot;、以&quot;无&quot;为&quot;本&quot;，主张&quot;不贵其生而自全&quot;；郭象&quot;独化&quot;说则认为并无一个&quot;本&quot;可崇，只须随顺日用，贵生与不贵生皆是执名。道教道教养生家（如葛洪《抱朴子·内篇》&quot;我命在我不在天&quot;）重&quot;贵生&quot;，主张延年，与老子此章&quot;贤于贵生&quot;的取向有所分歧，后世道门多以&quot;善养生者不厚养&quot;调停之。佛教中观一系以&quot;缘起性空&quot;观生命，既不落&quot;贵生&quot;之执，也不落&quot;轻生&quot;之断，与老子&quot;无以生为&quot;的&quot;双遣&quot;意趣可相比附。儒家孟子以&quot;生亦我所欲也，义亦我所欲也，二者不可得兼，舍生而取义者也&quot;（《孟子·告子上》）定位生命价值，义高于生，与老子对&quot;贵生&quot;的贬抑取向又不同。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 75 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 75 章]
+
+民之饥，以其上食税之多，是以饥。民之难治，以其上之有为，是以难治。民之轻死，以其求生之厚，是以轻死。夫唯无以生为者，是贤于贵生。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_75_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 12 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 12/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_11/site/index.html" title="第 11 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_13/site/index.html" title="第 13 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 12 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>五色令人目盲，五音令人耳聋，五味令人口爽，驰骋畋猎令人心发狂，难得之货令人行妨。是以圣人为腹不为目，故去彼取此。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 12 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章是老子对感官欲望最直白的一次&quot;泼冷水&quot;：缤纷色彩让人眼花，纷杂音声让人耳背，浓烈滋味让人失味，纵马打猎让人心狂，稀有财货让人行为出格。老子由此提出&quot;为腹不为目&quot;的取舍——只求安饱，不逐声色。有趣之处在于，它像是两千多年前就写好的&quot;过度刺激警示书&quot;。最重要的收获：把&quot;需要&quot;和&quot;想要&quot;分开，是身心安顿的起点。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>如果每天被短视频、游戏特效和消费广告轮番轰炸，你的感官会变敏锐还是变迟钝？</blockquote>
+<p>&gt;</p>
+<blockquote>如果&quot;想要&quot;并不等于&quot;需要&quot;，你人生里多少追逐其实是空转？</blockquote>
+<p>&gt;</p>
+<blockquote>如果满足基本需求之后，多出来的追逐反而伤了身体和心神，你还愿意追吗？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote><strong>荀子</strong>：主张&quot;人生而有欲&quot;，不赞成简单减欲，而主张以礼义&quot;养人之求&quot;，使欲望与资源相持而长——与老子&quot;去彼取此&quot;形成&quot;调节&quot;与&quot;减损&quot;的对照。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>王阳明</strong>：讲&quot;致良知&quot;、&quot;心外无物&quot;，修养不假外求，与老子&quot;为腹不为目&quot;的内在取向有呼应，但阳明更强调道德本心的扩充，而非感官节制。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>福柯</strong>：在《性史》中分析古希腊&quot;自我技术&quot;，认为节制品味快感是塑造自由主体的一种实践，可与老子&quot;去彼取此&quot;的自我修养对读。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>罗素</strong>：在《幸福之路》里指出，过度追逐外在刺激反致疲惫与空虚，真正的幸福来自内在兴趣与适度节制——与老子诊断相近，但罗素不主张退回&quot;为腹&quot;。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>吉登斯</strong>：论现代性中的&quot;自我反思&quot;，认为消费社会把感官刺激制度化，个体需靠反思性规划抵抗外在规训——可与&quot;难得之货令人行妨&quot;对看。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<br/>
+<blockquote><strong>（1）第一遍（速览）：抓三个关注点。</strong> ① 五色、五音、五味三句排比，各自对应哪一感官、造成什么后果；② &quot;驰骋畋猎&quot;与&quot;难得之货&quot;如何从感官层面上升到心神与行为层面；③ 结尾&quot;为腹不为目&quot;和&quot;去彼取此&quot;究竟在&quot;取&quot;什么、&quot;去&quot;什么。</blockquote>
+<br/>
+<blockquote><strong>（2）第二遍（细抠）：看两个必读论证。</strong> ① &quot;过度刺激反致感官失灵&quot;的逻辑——注意&quot;令&quot;字，老子不是说对象本身坏，而是说无节制的追逐使感官丧失辨察力（&quot;口爽&quot;即味觉差失）。② &quot;为腹不为目&quot;的取舍结构——&quot;腹&quot;代表基本、内在、可满足的需求，&quot;目&quot;代表无尽、外在、越追越渴的欲望，两者不是并列选项，而是有先后本末。</blockquote>
+<br/>
+<blockquote><strong>（3）第三遍（思辨）：追问一个开放问题。</strong> 老子是否把&quot;为腹&quot;与&quot;为目&quot;对立得过于干净？在基本安饱已不成问题的今天，审美、音乐、游戏等感官之娱是否必然导向&quot;目盲耳聋&quot;，还是说关键在于&quot;度&quot;与&quot;主客关系&quot;？换句话说：我们能不能既&quot;为腹&quot;又不废&quot;目&quot;？</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+  P1["命题：五色令人目盲，过度视觉刺激损害视觉"]
+  P2["命题：五音令人耳聋，过度听觉刺激损害听觉"]
+  P3["命题：五味令人口爽，过度滋味败坏口味"]
+  P4["命题：驰骋畋猎令人心发狂，纵情打猎使心神狂乱"]
+  P5["命题：难得之货令人行妨，稀有财货妨害行为"]
+  P6["命题：圣人为腹不为目，去彼取此"]
+  C_wuse["概念：五色"]
+  C_wuyin["概念：五音"]
+  C_wuwei["概念：五味"]
+  C_koushuang["概念：口爽"]
+  C_nande["概念：难得之货"]
+  C_weifu["概念：为腹不为目"]
+  C_qubi["概念：去彼取此"]
+  C_wuse -->|relates_to| P1
+  C_wuyin -->|relates_to| P2
+  C_wuwei -->|relates_to| P3
+  C_koushuang -->|relates_to| P3
+  C_nande -->|relates_to| P5
+  C_weifu -->|relates_to| P6
+  C_qubi -->|relates_to| P6
+  P1 -->|supports| P6
+  P2 -->|supports| P6
+  P3 -->|supports| P6
+  P4 -->|supports| P6
+  P5 -->|supports| P6
+  C_weifu -->|relates_to| C_qubi
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章从过度感官刺激与外在物欲入手，指出五色、五音、五味、畋猎和难得之货对视觉、听觉、口味、心神与行为的损害，进而提出圣人“为腹不为目”的价值取舍，是全书关于欲望节制、身心修养与行为准则的重要章节。</div>
+<h3>📌 核心命题</h3><ol>
+<li>过度追求缤纷色彩会损害人的视觉。</li>
+<li>过度追求纷杂音声会损害人的听觉。</li>
+<li>过度追求丰富滋味会败坏人的口味。</li>
+<li>纵情驰骋打猎会使人心神狂乱。</li>
+<li>稀有难得的财货会妨害人的行为。</li>
+<li>圣人只求安饱而不追逐声色，因此舍弃外物诱惑而选取内在安足。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>五色令人目盲。</li>
+<li>五音令人耳聋。</li>
+<li>五味令人口爽。</li>
+<li>驰骋畋猎令人心发狂。</li>
+<li>难得之货令人行妨。</li>
+<li>是以圣人为腹不为目，故去彼取此。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>五色</strong></summary><div class="case-body">指青、黄、赤、白、黑等缤纷色彩，泛指过度的视觉刺激。</div></details>
+<details><summary><strong>五音</strong></summary><div class="case-body">指宫、商、角、徵、羽等纷杂音声，泛指过度的听觉刺激。</div></details>
+<details><summary><strong>五味</strong></summary><div class="case-body">指酸、苦、甘、辛、咸等丰富滋味，泛指过度的味觉刺激。</div></details>
+<details><summary><strong>口爽</strong></summary><div class="case-body">指口味败坏、味觉差失，即过度滋味反使口不能辨味。</div></details>
+<details><summary><strong>难得之货</strong></summary><div class="case-body">指稀有难得的财货，容易诱使人行为失范。</div></details>
+<details><summary><strong>为腹不为目</strong></summary><div class="case-body">只求饱腹安身，不追逐耳目声色之娱。</div></details>
+<details><summary><strong>去彼取此</strong></summary><div class="case-body">舍弃外在的声色货利，选取内在的安饱知足。</div></details>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完 {书名} 第 12 章（{本章标题}）。以下是我自己写的一段概括，请你帮我做两件事：主线提取 + 关键概念检查。</p>
+<br/>
+<p>我的概括：</p>
+<p>「{我的一段话概括}」</p>
+<br/>
+<p>请按下面格式回复：</p>
+<ol>
+<li>1. 主线提取：把我的概括压缩成 3 条以内，标出哪一条是本章的论证主干、哪些只是铺垫或例子。</li>
+<li>2. 关键概念检查：列出本章真正承重的 3—5 个概念，逐个问我一句&quot;你能用自己的话说出它在本章中承担什么工作吗&quot;，并指出我在概括里漏掉或含糊带过的概念。</li>
+<li>3. 偏差点：指出我的概括与本章原意可能不一致的地方，说明是&quot;读漏了&quot;还是&quot;读歪了&quot;，并给出原文对应的位置线索（章节小节标题或论证环节，不要凭空编造页码）。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>请你扮演 {书名} 第 12 章（{本章标题}）最强的反方。</p>
+<br/>
+<p>我在读完这一章后形成的接受态度是：「{我接受/怀疑的立场，一句话}」</p>
+<br/>
+<p>要求：</p>
+<ol>
+<li>1. 先不准攻击我的表述，而是重构本章最核心的那个主张，把它讲成它最强的版本（steel-man）。</li>
+<li>2. 然后从相反视角出发，给出 3 条反击，按杀伤力从弱到强排列；每条都要说明它攻击的是本章的哪个前提，而不是泛泛而谈。</li>
+<li>3. 对每条反击，替本章作者写一句最有力的回应。</li>
+<li>4. 最后告诉我：在我给出的立场下，哪一条反击是我最难回应的，为什么。</li>
+</ol>
+<p>禁止把反驳写成&quot;有人认为……也有人认为……&quot;的和稀泥式综述。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我读完了 {书名} 第 12 章（{本章标题}），本章我抓到的核心是：「{一句话核心}」</p>
+<br/>
+<p>请给我 3 个真实生活/工作场景，说明这一章的思想如何应用。</p>
+<p>约束：</p>
+<ul>
+<li>- 场景必须具体到可操作：说清&quot;谁、在什么处境下、面对什么选择&quot;。</li>
+<li>- 每个场景按三步写：① 用本章的哪个概念/区分来重新描述这个处境；② 这个视角会让人做出什么与常识不同的判断；③ 这个应用在哪里会失效——即本章思想不该被硬套的边界。</li>
+<li>- 三个场景的领域要不同（例如：个人决策 / 团队协作与沟通 / 公共或职业伦理）。</li>
+<li>- 不要励志化，不要给&quot;行动清单&quot;，重点是&quot;看问题的方式变了&quot;。</li>
+</ul>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>在 {书名} 第 12 章（{本章标题}）里，最让我兴奋的一句话是：</p>
+<br/>
+<p>「{原文摘录或我的转述}」</p>
+<br/>
+<p>请你围绕这句话做推演，分四步：</p>
+<ol>
+<li>1. 定位：这句话在本章论证中处在什么位置？它是前提、推论，还是一个过渡性的断言？</li>
+<li>2. 拆解：这句话里最吃重的词是哪个？如果把它换成一个近义词，这句话的力度会怎么变？</li>
+<li>3. 往外推：如果这句话成立，那么&quot;那这样推下去还有什么？&quot;——请给出 3 个本章没有明说、但逻辑上被这句话逼出来的结论，并标注每个结论的推测强度（强蕴含 / 弱暗示 / 只是联想）。</li>
+<li>4. 反推：这句话如果在它的反面成立，本章还剩下什么？作者为什么必须站在这边？</li>
+</ol>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题</h2>
+<br/>
+<ol>
+<li>1. 这一章你到底在讲一件什么事？请用一句不带术语的话说清。— 提示：如果你说不出来，说明你记住的是词，而不是论证。</li>
+<li>2. 这一章里哪个词出现得最多、又最没被解释清楚？— 提示：高频词往往就是作者默认你懂、但其实最需要追问的地方。</li>
+<li>3. 作者在这一章里，最想反驳的是谁、或哪种说法？— 提示：搞清敌人的样子，往往比记住主张更快读懂一章。</li>
+<li>4. 本章有没有一个例子？它想证明什么？把例子拿掉，论证还站得住吗？— 提示：例子是论证的拐杖还是骨架，这决定了这一章的硬度。</li>
+<li>5. 这一章的结论，跟我读之前本来以为的常识，差别在哪？— 提示：找不出差别，要么你本来就同意，要么你还没读懂。</li>
+<li>6. 如果这一章只能保留一个区分（A 与 B 的不同），你会保留哪个？为什么？— 提示：好的哲学章节通常靠一个区分支撑整体。</li>
+<li>7. 这一章跟上一章、下一章是什么关系？它是修补、推进，还是转向？— 提示：把这一章放回全书的论证链条，是区分&quot;读懂一段&quot;和&quot;读懂一本书&quot;的分界线。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>五色</td><td>花花绿绿的颜色看太多，反而让人眼花，辨不清东西。</td><td>五色指青、黄、赤、白、黑，泛指缤纷色彩；《老子》第十二章以“五色令人目盲”说明过度视觉刺激伤害感官与心性。</td><td>原文“五色令人目盲”之“目盲”非生理失明，而是逐物而“失性”；王弼注以“崇本息末”解，谓不以声色乱其真；陈鼓应释为对贵族奢侈感官生活的批判。</td><td>河上公《老子道德经河上公章句》从养生解，认为五色乱目、伤精神，主张守中；王弼《老子注》以“无”为本，强调不逐末而全其真；郭象《庄子注》主“适性”“独化”，不主绝色，而主张物各当其分、不以外物易性。</td></tr>
+<tr><td>五音</td><td>各种声音听太多，反而让人耳朵不灵，听不出真正的声音。</td><td>五音指宫、商、角、徵、羽，泛指纷杂音声；《老子》以“五音令人耳聋”喻过度听觉刺激使人失其听觉之正。</td><td>原文“五音令人耳聋”；“聋”喻逐声而失聪；王弼注以“顺性”“不以妄动”说耳之正，逐声则失本；陈鼓应释为反对纵情声色。</td><td>河上公以养生解，谓五音乱耳、伤精，主张守中；王弼以“崇本息末”说声色皆末，逐末则失本；庄子《齐物论》以“天籁”对照人为声律，主张不滞于声；龙树《中论》缘起性空说声尘无自性，不应执取。</td></tr>
+<tr><td>五味</td><td>各种味道吃太多，反而让口味败坏，吃不出真味。</td><td>五味指酸、苦、甘、辛、咸，泛指丰富滋味；《老子》以“五味令人口爽”说明过度味觉刺激使口失其正。</td><td>原文“五味令人口爽”；“爽”为差失、败坏，非现代“爽快”；河上公注以“口失其味”解，王弼注以逐味失本为说；陈鼓应取“差失”义。</td><td>河上公从养生解，谓五味伤口、嗜味无厌则失味，主张甘淡；王弼以“崇本息末”说味为末，逐味反失其本；郭象《庄子注》主“适性”，不主张绝味，而主张各适其分、不可淫；道教内丹亦重淡味养气。</td></tr>
+<tr><td>口爽</td><td>嘴里吃得太杂太重，反而吃不出味道，口味变坏。</td><td>口爽指口味败坏、味觉差失；《老子》说“五味令人口爽”，即过度滋味反使口不能辨味。</td><td>注家多训“爽”为差失、败坏，非“爽快”；河上公以“口失其味”解，王弼以逐味则失味为说；陈鼓应《老子今注今译》取“差失”义。</td><td>河上公训“爽”为失，强调嗜味无厌则口失其味；王弼以“崇本息末”说逐味反失味；成玄英《道德经义疏》以重玄双遣解，主张不滞于味；佛学中观以味尘缘起无自性，不应执味。</td></tr>
+<tr><td>难得之货</td><td>稀罕值钱的东西，容易让人动歪心、干坏事。</td><td>难得之货指稀有难得的财货；《老子》说“难得之货令人行妨”，即珍贵财货诱使人行为失范、妨害德行。</td><td>原文“难得之货令人行妨”；“妨”为妨碍、伤害；王弼注以贪欲生争为说；韩非《解老》从治乱说财货启争；陈鼓应释为对稀有财货引发盗争的批判。</td><td>河上公从养生解，谓难得之货乱人心志；王弼以“贵无”说货为末，贪货则失本；韩非《解老》从治法解，认为难得之货启争乱法，主张明法禁；庄子“齐物”视货财无高下以消争。</td></tr>
+<tr><td>为腹不为目</td><td>只求吃饱安身，不追求眼花缭乱的享乐。</td><td>为腹不为目指只求饱腹安身，不追逐耳目声色之娱；《老子》以此说圣人取舍在内在安足而非外在刺激。</td><td>原文“圣人为腹不为目”；王弼注“为腹者以物养己，为目者以物役己”，以“养己/役己”分内外本末；陈鼓应释为“只求安饱，不求声色”。</td><td>河上公以养生解，腹为内、目为外，主张守内不逐外；王弼以“崇本息末”说为腹是崇本、为目是逐末；郭象《庄子注》主“适性”，不以物役己；儒家荀子则从“礼制养欲”说，与老子“去彼取此”的节欲路径不同。</td></tr>
+<tr><td>去彼取此</td><td>丢掉外面那些诱人的东西，选择安饱知足的生活。</td><td>去彼取此指舍弃外在声色货利，选取内在安饱知足；是《老子》第十二章的取舍结论。</td><td>原文“故去彼取此”；王弼注以“去彼”为去“目”之欲、“取此”为取“腹”之养，体现“崇本息末”；陈鼓应释为摒弃物欲诱惑、保持安饱知足。</td><td>河上公以养生解，去外欲取内养；王弼以“贵无”说去末取本；成玄英《道德经义疏》以重玄双遣解，虽言取舍而不滞于取舍；苏辙《老子解》以去妄取真为说。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">五色</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">花花绿绿的颜色看太多，反而让人眼花，辨不清东西。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">五色指青、黄、赤、白、黑，泛指缤纷色彩；《老子》第十二章以“五色令人目盲”说明过度视觉刺激伤害感官与心性。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文“五色令人目盲”之“目盲”非生理失明，而是逐物而“失性”；王弼注以“崇本息末”解，谓不以声色乱其真；陈鼓应释为对贵族奢侈感官生活的批判。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公《老子道德经河上公章句》从养生解，认为五色乱目、伤精神，主张守中；王弼《老子注》以“无”为本，强调不逐末而全其真；郭象《庄子注》主“适性”“独化”，不主绝色，而主张物各当其分、不以外物易性。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">五音</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">各种声音听太多，反而让人耳朵不灵，听不出真正的声音。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">五音指宫、商、角、徵、羽，泛指纷杂音声；《老子》以“五音令人耳聋”喻过度听觉刺激使人失其听觉之正。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文“五音令人耳聋”；“聋”喻逐声而失聪；王弼注以“顺性”“不以妄动”说耳之正，逐声则失本；陈鼓应释为反对纵情声色。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以养生解，谓五音乱耳、伤精，主张守中；王弼以“崇本息末”说声色皆末，逐末则失本；庄子《齐物论》以“天籁”对照人为声律，主张不滞于声；龙树《中论》缘起性空说声尘无自性，不应执取。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">五味</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">各种味道吃太多，反而让口味败坏，吃不出真味。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">五味指酸、苦、甘、辛、咸，泛指丰富滋味；《老子》以“五味令人口爽”说明过度味觉刺激使口失其正。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文“五味令人口爽”；“爽”为差失、败坏，非现代“爽快”；河上公注以“口失其味”解，王弼注以逐味失本为说；陈鼓应取“差失”义。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公从养生解，谓五味伤口、嗜味无厌则失味，主张甘淡；王弼以“崇本息末”说味为末，逐味反失其本；郭象《庄子注》主“适性”，不主张绝味，而主张各适其分、不可淫；道教内丹亦重淡味养气。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">口爽</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">嘴里吃得太杂太重，反而吃不出味道，口味变坏。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">口爽指口味败坏、味觉差失；《老子》说“五味令人口爽”，即过度滋味反使口不能辨味。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">注家多训“爽”为差失、败坏，非“爽快”；河上公以“口失其味”解，王弼以逐味则失味为说；陈鼓应《老子今注今译》取“差失”义。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公训“爽”为失，强调嗜味无厌则口失其味；王弼以“崇本息末”说逐味反失味；成玄英《道德经义疏》以重玄双遣解，主张不滞于味；佛学中观以味尘缘起无自性，不应执味。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">难得之货</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">稀罕值钱的东西，容易让人动歪心、干坏事。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">难得之货指稀有难得的财货；《老子》说“难得之货令人行妨”，即珍贵财货诱使人行为失范、妨害德行。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文“难得之货令人行妨”；“妨”为妨碍、伤害；王弼注以贪欲生争为说；韩非《解老》从治乱说财货启争；陈鼓应释为对稀有财货引发盗争的批判。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公从养生解，谓难得之货乱人心志；王弼以“贵无”说货为末，贪货则失本；韩非《解老》从治法解，认为难得之货启争乱法，主张明法禁；庄子“齐物”视货财无高下以消争。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">为腹不为目</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">只求吃饱安身，不追求眼花缭乱的享乐。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">为腹不为目指只求饱腹安身，不追逐耳目声色之娱；《老子》以此说圣人取舍在内在安足而非外在刺激。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文“圣人为腹不为目”；王弼注“为腹者以物养己，为目者以物役己”，以“养己/役己”分内外本末；陈鼓应释为“只求安饱，不求声色”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以养生解，腹为内、目为外，主张守内不逐外；王弼以“崇本息末”说为腹是崇本、为目是逐末；郭象《庄子注》主“适性”，不以物役己；儒家荀子则从“礼制养欲”说，与老子“去彼取此”的节欲路径不同。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">去彼取此</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">丢掉外面那些诱人的东西，选择安饱知足的生活。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">去彼取此指舍弃外在声色货利，选取内在安饱知足；是《老子》第十二章的取舍结论。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文“故去彼取此”；王弼注以“去彼”为去“目”之欲、“取此”为取“腹”之养，体现“崇本息末”；陈鼓应释为摒弃物欲诱惑、保持安饱知足。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以养生解，去外欲取内养；王弼以“贵无”说去末取本；成玄英《道德经义疏》以重玄双遣解，虽言取舍而不滞于取舍；苏辙《老子解》以去妄取真为说。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 12 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 12 章]
+
+五色令人目盲，五音令人耳聋，五味令人口爽，驰骋畋猎令人心发狂，难得之货令人行妨。是以圣人为腹不为目，故去彼取此。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_12_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

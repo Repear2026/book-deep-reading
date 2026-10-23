@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 55 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 55/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_54/site/index.html" title="第 54 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_56/site/index.html" title="第 56 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 55 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>含德之厚，比于赤子。毒虫不螫，猛兽不据，攫鸟不搏。骨弱筋柔而握固。未知牝牡之合而朘作，精之至也。终日号而不嗄，和之至也。知和曰常，知常曰明，益生曰祥，心使气曰强。物壮则老，谓之不道，不道早已。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 55 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>本章把&quot;含德之厚&quot;的人比作赤子：骨弱筋柔却握得紧，不知男女之事却精气充盈，终日号哭却嗓音不哑——柔弱的外表下是&quot;精之至&quot;&quot;和之至&quot;。由此老子提出&quot;知和曰常，知常曰明&quot;，随即转向警示：刻意&quot;益生&quot;、以心&quot;使气&quot;，看似强，实则是&quot;物壮则老&quot;的不道，不道则早已。读它的收获是：老子讲的&quot;柔&quot;不是软弱，而是一种不走极端的、可持续的生机状态。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>如果&quot;精之至&quot;&quot;和之至&quot;是婴儿无意识的天然状态，那么成年人靠努力&quot;复归&quot;它，还算是同一种&quot;和&quot;吗？</blockquote>
+<p>&gt;</p>
+<blockquote>如果&quot;物壮则老&quot;成立，那么任何巅峰（事业、身体、盛世）是否都自带衰败倒计时？人还该不该追求&quot;强&quot;？</blockquote>
+<p>&gt;</p>
+<blockquote>如果&quot;益生曰祥&quot;是在警告刻意增益生命，那今天的健身、保养、延寿产业，究竟是在养生还是在&quot;不道&quot;？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote><strong>孟子</strong>（《孟子·离娄下》）：&quot;大人者，不失其赤子之心者也。&quot;——同样珍视&quot;赤子&quot;，但孟子说的是道德本心不被遮蔽，老子说的是精气和谐，落点不同。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>荀子</strong>（《荀子·性恶》）：&quot;人之性恶，其善者伪也。&quot;——正面反驳&quot;赤子天然即圆满&quot;：若本性待改造，则含德不是&quot;保存&quot;而是&quot;制作&quot;。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>韩非</strong>（《韩非子》重势、法、术）：其学以&quot;强&quot;与&quot;势&quot;为治道核心，恰与&quot;心使气曰强&quot;的贬抑相反，可视作对老子柔弱政治观的最直接反调。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>王阳明</strong>（致良知说）：良知不假外求，看似近于&quot;赤子&quot;；但阳明强调&quot;事上磨炼&quot;，认为良知须在事功中呈现——这就对&quot;回到婴儿&quot;提出了工夫论上的质疑。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>维特根斯坦</strong>（《逻辑哲学论》）：&quot;对于不可言说的东西，必须保持沉默。&quot;——可借来反问&quot;知常曰明&quot;：这种&quot;知&quot;是命题性的知识，还是一种只能显示、无法说出的东西？</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：关注三点——①&quot;赤子&quot;这个比喻到底承担了什么论证任务（它是例证还是理想状态本身？）；②&quot;精之至&quot;&quot;和之至&quot;这两个&quot;至&quot;字，标出的是一种什么性质的状态；③从&quot;知和曰常&quot;到&quot;物壮则老&quot;的转折是怎么发生的，前后语气为什么突然由描述变为警告。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：必看两处论证。一是&quot;骨弱筋柔而握固&quot;——用&quot;弱&quot;的外形与&quot;固&quot;的功能形成反差，这是本章最精巧的经验观察，它要证明的不是婴儿有力，而是柔弱本身含有内聚之力。二是&quot;益生曰祥，心使气曰强&quot;——注意这里&quot;强&quot;是贬义，&quot;祥&quot;在本章语境中也带警示意味；老子把&quot;刻意增益&quot;与&quot;心志驱迫精气&quot;并列，二者共同点都是用人為去加速、去催逼，因而顺接下句&quot;物壮则老&quot;。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：该追问——&quot;物壮则老，谓之不道&quot;是否意味着凡&quot;壮&quot;皆不道？那么老子自己的&quot;含德之厚&quot;是否也是一种&quot;壮&quot;？如果答案是&quot;赤子之壮与时人之壮不同&quot;，那么区分二者的标准是什么：是结果（是否早亡）、是动机（是否有意），还是过程（是否&quot;心使气&quot;）？把这个问题压住不放，你就摸到了全章最脆弱、也最有意思的一环。</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+P1["命题：含德深厚的人可比于赤子"]
+P2["命题：赤子不受毒虫、猛兽、攫鸟伤害"]
+P3["命题：赤子骨弱筋柔却能握固"]
+P4["命题：赤子未知男女之事而朘作，是精气至极"]
+P5["命题：赤子终日啼哭而不沙哑，是和谐至极"]
+P6["命题：知和叫作常，知常叫作明"]
+P7["命题：益生叫作祥，心使气叫作强"]
+P8["命题：物壮则老叫作不道，不道就会早亡"]
+C1["概念：赤子"]
+C2["概念：精之至"]
+C3["概念：和之至"]
+C4["概念：知和曰常"]
+C5["概念：知常曰明"]
+C6["概念：益生曰祥"]
+C7["概念：心使气曰强"]
+C8["概念：物壮则老"]
+C9["概念：不道早已"]
+K1["案例：赤子喻"]
+K1 -->|instance_of| P1
+P2 -->|supports| P1
+P3 -->|supports| P1
+P4 -->|supports| P1
+P5 -->|supports| P1
+P5 -->|supports| P6
+P6 -->|supports| P7
+P7 -->|supports| P8
+C1 -->|relates_to| P1
+C2 -->|relates_to| P4
+C3 -->|relates_to| P5
+C4 -->|relates_to| P6
+C5 -->|relates_to| P6
+C6 -->|relates_to| P7
+C7 -->|relates_to| P7
+C8 -->|relates_to| P8
+C9 -->|relates_to| P8
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章以赤子为喻，说明含德深厚者所呈现的精气充足、和谐柔弱状态，并由“知和”“知常”引出对“益生”“心使气”的警示，最终以“物壮则老”“不道早已”收束，强调合道而行、避免强作妄为。</div>
+<h3>📌 核心命题</h3><ol>
+<li>含德深厚的人可比于赤子。</li>
+<li>赤子不受毒虫、猛兽、攫鸟伤害。</li>
+<li>赤子骨弱筋柔却能握固。</li>
+<li>赤子未知男女之事而朘作，是精气至极。</li>
+<li>赤子终日啼哭而不沙哑，是和谐至极。</li>
+<li>知和叫作常，知常叫作明。</li>
+<li>益生叫作祥，心使气叫作强。</li>
+<li>物壮则老叫作不道，不道就会早亡。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>含德之厚，比于赤子。</li>
+<li>毒虫不螫，猛兽不据，攫鸟不搏。</li>
+<li>骨弱筋柔而握固。</li>
+<li>未知牝牡之合而朘作，精之至也。</li>
+<li>终日号而不嗄，和之至也。</li>
+<li>知和曰常，知常曰明。</li>
+<li>益生曰祥，心使气曰强。</li>
+<li>物壮则老，谓之不道，不道早已。</li>
+</ol>
+<h3>📚 案例</h3>
+<details><summary><strong>含德之厚者比于赤子，毒虫不螫、猛兽不据、攫鸟不搏，骨弱筋柔而</strong></summary><div class="case-body">含德之厚者比于赤子，毒虫不螫、猛兽不据、攫鸟不搏，骨弱筋柔而握固。</div></details>
+<h3>💡 新概念</h3>
+<details><summary><strong>赤子</strong></summary><div class="case-body">婴儿，本章用来比喻含德深厚、精气和谐的状态。</div></details>
+<details><summary><strong>精之至</strong></summary><div class="case-body">精气充沛到极点。</div></details>
+<details><summary><strong>和之至</strong></summary><div class="case-body">和谐柔和到极点。</div></details>
+<details><summary><strong>知和曰常</strong></summary><div class="case-body">懂得和谐就叫作常。</div></details>
+<details><summary><strong>知常曰明</strong></summary><div class="case-body">懂得常道就叫作明。</div></details>
+<details><summary><strong>益生曰祥</strong></summary><div class="case-body">刻意增益生命被称为祥，在本章语境中含警示意味。</div></details>
+<details><summary><strong>心使气曰强</strong></summary><div class="case-body">心志驱使精气叫作强。</div></details>
+<details><summary><strong>物壮则老</strong></summary><div class="case-body">事物壮盛就会走向衰老。</div></details>
+<details><summary><strong>不道早已</strong></summary><div class="case-body">不合于道就会早早终止。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>「知和曰常，知常曰明」可能在后续章节继续展开，或与第16章「复命曰常，知常曰明」的表述相呼应。</li>
+<li>「物壮则老，谓之不道，不道早已」可能在后续章节再次出现，或与第30章相近表述相呼应。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 55 章。下面是我的复述，请你只做检查、不做补充：</p>
+<br/>
+<p>我的复述：{我的复述}</p>
+<br/>
+<p>请分三步反馈：</p>
+<p>1）主线提取：把这段复述拆成「作者在回答什么问题 → 他给出的答案 → 他依赖的关键概念」三层，指出我漏掉或顺序错乱的环节。</p>
+<p>2）关键概念检查：我在这段复述里用到但没有定义的术语有 {我用到的术语}。逐个追问我「你用它的时候具体指什么」，如果我答不上来，告诉我第 55 章哪一处对它做了界定（引原句 + 位置）。</p>
+<p>3）缺口清单：列出我复述里「说了但没支撑」的地方，只标位置，不要替我论证。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>你扮演第 55 章最强的反方，不要中立、不要总结。</p>
+<br/>
+<p>我对本章的接受点是：{我接受的那个论断}</p>
+<p>我接受它的理由是：{我的理由}</p>
+<br/>
+<p>请依次给出：</p>
+<p>1）三个反驳，其中至少一个必须使用作者本人也会承认的前提（内部反驳），并明确指出「他的论证在什么条件下失效」。</p>
+<p>2）判断我这个接受点属于「我理解了」还是「我被说服了」，并说明判断依据。</p>
+<p>3）如果我仍想守住这个立场，我必须付出什么代价、放弃什么。</p>
+<p>最后用一句话给出我目前最难回应的那个点，不要替我化解。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>第 55 章我读到的核心是：{一句话概括本章核心}</p>
+<br/>
+<p>请用这一章的框架分析下面三个真实场景：</p>
+<p>场景 A：{场景A}</p>
+<p>场景 B：{场景B}</p>
+<p>场景 C：{场景C}</p>
+<br/>
+<p>每个场景给三段：</p>
+<p>1）用本章的概念说明这里究竟发生了什么（明确点名用了哪个概念）；</p>
+<p>2）该框架在此场景下解释不了、或会误导的部分；</p>
+<p>3）一个我在明天就能执行的具体动作。</p>
+<p>三个场景的结论不许雷同。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 55 章最让我兴奋的一句是：「{原句}」（位置：{页码/段落}）</p>
+<br/>
+<p>请只围绕这一句往下推：</p>
+<p>1）这句话如果为真，它否定了哪几种常见看法？逐条列出。</p>
+<p>2）把它推到极端，会得出什么明显荒谬的结论（归谬）？</p>
+<p>3）作者在本章里有没有为这个极端设限？如果有，引原句；如果没有，说明这是否是本章的漏洞。</p>
+<p>4）这句话与本章其他论断是否冲突？指出张力所在。</p>
+<p>不要引入第 55 章之外的文本作为依据。</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. 读完这一章，你能用一句话说出「作者想让我相信什么」吗？——先只抓结论，别管论证，说不出来就说明第一遍读散了。</li>
+<li>2. 这一章里重复出现最多的词是哪一个？——翻回去数一数，术语密度往往就是主题所在。</li>
+<li>3. 作者在这一章里主要在反对谁、反对什么？——专找「但是」「然而」「并非」后面的句子。</li>
+<li>4. 如果把这一章整章删掉，全书会缺掉什么？——用位置感代替理解，先弄清它承担什么功能。</li>
+<li>5. 你能举一个自己的亲身经验，是这一章能解释、而常识解释不了的？——例子越具体越好，抽象例子等于没举例。</li>
+<li>6. 这一章的论证里，哪一步是「没证明就滑过去」的？——重点找作者写「显然」「当然」「不难看出」的地方。</li>
+<li>7. 如果你是这一章的审稿人，你会要求作者补写哪一段？——注意区分「我不同意他」和「他没论证够」，后者才是审稿意见。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>赤子</td><td>刚出生的婴儿，谁也没教他，他却会哭会笑、筋骨柔软、精气充足，古人用这个状态比喻一个人&quot;德&quot;养得极厚的样子。</td><td>&quot;赤子&quot;原指初生婴儿，因新生儿肤色赤红得名。老子以婴儿为喻，形容含&quot;德&quot;深厚之人：骨弱筋柔而握力牢固，未知男女之事而生殖器官勃起，终日号哭而不沙哑。老子借此说明一种未经后天造作、精气和谐饱满的生命状态，是&quot;含德之厚&quot;的形象化表达，并非主张人真的回到婴儿。</td><td>王弼注：&quot;赤子，无求无欲，不犯众物，故毒螫之物无犯之也。&quot;以&quot;无欲&quot;释赤子，落在&quot;贵无&quot;的本体—心性框架内。河上公注则从养生立论，强调&quot;含德之厚&quot;者&quot;和气不伤&quot;。苏辙《老子解》以&quot;无心&quot;解之，近于释老互摄。陈鼓应《老子注译及评介》指出此章&quot;赤子&quot;是比喻而非实指，重点在&quot;精之至&quot;&quot;和之至&quot;两句。</td><td>王弼以&quot;无&quot;为本，把赤子读成&quot;无欲&quot;的心性境界，德是&quot;无&quot;在生命上的自然发用；河上公一系（黄老、早期道教）把它读成养生修炼的生理状态，&quot;含德&quot;即保精气、却病延年，后来内丹家更把赤子讲成&quot;元婴&quot;&quot;返婴&quot;的功夫次第。郭象注《庄》主张&quot;独化&quot;，反对有一个高于万物的本根，若顺此思路，赤子的&quot;厚德&quot;不是复归某个源头，而是当下生命自足自成的饱满。佛学一系（如以中观缘起解老）则批评&quot;复归婴儿&quot;隐含一个&quot;本初—失落—复归&quot;的实体化叙事，认为赤子之德同样缘起性空，不可执为究竟。海德格尔论&quot;存在&quot;的被遮蔽与开显，与老子&quot;含德&quot;的&quot;不显而厚&quot;可相参，但他拒绝任何&quot;返回原初状态&quot;的目的论，与老子&quot;复归于朴&quot;的生成论方向并不相同。</td></tr>
+<tr><td>精之至</td><td>婴儿身上那股精气足到了极点，所以哭一天嗓子也不哑。</td><td>&quot;精&quot;指精气、生命力，&quot;至&quot;为极至。本章&quot;精之至也&quot;与&quot;和之至也&quot;并列，解释赤子&quot;终日号而不嗄&quot;的原因：不是靠力气，而是精气充沛到极处、内在和谐到极处，故能久用而不损。老子以此说明&quot;含德之厚&quot;者不是用力维持，而是本然充足。</td><td>王弼注：&quot;赤子……精子之至也。&quot;以&quot;自然&quot;释之，强调非造作所致。河上公注：&quot;赤子从朝至暮啼号而不嗄者，和气之所致也。&quot;将&quot;精&quot;与&quot;和&quot;并置于气化养生脉络中。成玄英《老子义疏》以重玄双遣解之，谓&quot;精&quot;与&quot;和&quot;皆不可执。刘笑敢《老子古今》指出本章&quot;精&quot;&quot;和&quot;是老子少见的正面描述生命充盈的语汇，与其&quot;反者道之动&quot;的循环观互为补充。</td><td>河上公与道教养生传统把&quot;精&quot;实化为可宝可炼之物（精气神三宝之说由此衍出），&quot;精之至&quot;成为内丹&quot;炼精化气&quot;的经典依据；王弼则把它虚化为&quot;自然&quot;的发用，反对在&quot;精&quot;上更添一分人为把捉。王夫之以&quot;气化&quot;立论，认为&quot;精&quot;只是气之凝聚状态，无所谓独立自存之&quot;精&quot;，与道教实体化的读法相左。现代研究者（如楼宇烈《王弼集校释》所呈现的脉络）多强调王弼注的&quot;崇本息末&quot;立场，提醒读者不要把老子的&quot;精&quot;直接等同于后世内丹术语。</td></tr>
+<tr><td>和之至</td><td>婴儿身上的柔和协调到了极点，所以能长久而不受伤。</td><td>&quot;和&quot;指阴阳、血气、身心之间的和谐协调；&quot;至&quot;为极至。本章&quot;和之至也&quot;与&quot;精之至也&quot;对举，说明赤子之所以&quot;终日号而不嗄&quot;在于内在和谐，不是靠强撑。由此引出下文&quot;知和曰常&quot;，把&quot;和&quot;提升为&quot;常道&quot;的内容。</td><td>王弼注以&quot;无争&quot;&quot;不犯物&quot;释和，落在&quot;无&quot;的本体论上。河上公注：&quot;和气之所致也。&quot;以&quot;和气&quot;为宇宙与身体共通的介质。苏辙以&quot;无心而和&quot;解，近禅。成玄英重玄一系则谓&quot;和&quot;亦遣，不落两边。陈鼓应指出老子&quot;和&quot;字兼含&quot;阴阳冲和&quot;与&quot;生命和谐&quot;二义，本章偏重后者但不离前者。</td><td>儒家《中庸》以&quot;中和&quot;为天下之大本达道，把&quot;和&quot;伦理化、宇宙论化（&quot;致中和，天地位焉，万物育焉&quot;），与老子在生命体上言&quot;和&quot;路径不同；荀子批评庄子&quot;蔽于天而不知人&quot;，若移评老子，也会说这种&quot;和&quot;缺少礼义之节的维度。王弼把&quot;和&quot;收归&quot;无&quot;，郭象以&quot;独化&quot;抹去一个统摄性的&quot;和&quot;之源，二者都反对把&quot;和&quot;当成可追求的对象。佛学中观以&quot;缘起即空&quot;解&quot;和&quot;，谓和合假立、无自性，警惕把&quot;和&quot;实体化为宇宙元气；禅宗则以&quot;无心&quot;为和，近苏辙而远河上公。</td></tr>
+<tr><td>知和曰常</td><td>懂得什么是真正的和谐，就叫作懂得了&quot;常&quot;，也就是万物运行的恒常道理。</td><td>本章由赤子的&quot;和之至&quot;推出认识论命题：&quot;知和曰常。&quot;意为体认到阴阳和合、生命和谐之理，才算把握了恒常之道。老子在此把&quot;和&quot;从生命状态提升为道的规律性内容，与&quot;复命曰常&quot;（第十六章）&quot;知常曰明&quot;构成同一组概念链。</td><td>王弼注：&quot;物以和为常，故知和则得常也。&quot;以&quot;和&quot;为物之常理，落在&quot;崇本&quot;的理路。河上公注：&quot;人能知和气之柔弱有益于人者，则为知道之常也。&quot;苏辙以&quot;和&quot;为&quot;性之自然&quot;。成玄英重玄：常与无常俱遣，&quot;知常&quot;亦不可执。刘笑敢指出老子&quot;常&quot;字兼具&quot;恒常规律&quot;与&quot;常态&quot;二义，本章偏前者。</td><td>王弼以&quot;和&quot;为&quot;常&quot;，把认识论收摄于本体论，&quot;知&quot;不是积累知识而是体认本根；郭象注《庄》&quot;独化&quot;，反对有一个恒常的&quot;和&quot;可&quot;知&quot;，一切只是各安其分、当下自尔，与王弼的&quot;得常&quot;说相左。韩非《解老》以&quot;理&quot;释&quot;常&quot;，把&quot;知和曰常&quot;读成把握事物法则以治世，走向法家的理路。佛学中观以&quot;常&quot;为戏论，龙树《中论》破&quot;常&quot;&quot;断&quot;二边，&quot;知常曰明&quot;在中观看来仍是执取，须以&quot;缘起性空&quot;再遣一层——这正是成玄英&quot;重玄&quot;取径的来路。现代新儒家（如牟宗三）则以此章为据，论道家&quot;境界形态的形而上学&quot;，认为&quot;常&quot;是主观境界而非客观实体，与西方实体形而上学判然有别。</td></tr>
+<tr><td>知常曰明</td><td>懂得恒常之道，就叫作&quot;明&quot;，即真正的明白、通透。</td><td>老子认识论的核心命题之一，见本章及第十六章&quot;复命曰常，知常曰明&quot;。意为把握恒常之道才称得上&quot;明&quot;；反之&quot;不知常，妄作凶&quot;。&quot;明&quot;在老子中兼指智慧的通透与不被现象所惑的洞察力，与&quot;明&quot;字在先秦思想中&quot;照察&quot;的义项相通。</td><td>王弼注：&quot;不学而能，何以明之？&quot;意在&quot;明&quot;非积学所得，是体&quot;无&quot;而自照。河上公以&quot;明&quot;为&quot;知道&quot;之效验。苏辙以&quot;明&quot;为&quot;无心之照&quot;。成玄英谓&quot;明&quot;亦遣，不立&quot;明&quot;相。陈鼓应指出老子&quot;明&quot;字与&quot;光而不耀&quot;（第五十八章）呼应，是&quot;内照&quot;而非外炫。楼宇烈《王弼集校释》强调王弼注以&quot;明&quot;为&quot;崇本&quot;之知，与&quot;为学日益&quot;相对。</td><td>儒家以&quot;明&quot;为&quot;明德&quot;（《大学》&quot;在明明德&quot;），是道德心性的朗现，与老子&quot;知常&quot;的自然之明不同路；荀子《解蔽》以&quot;大清明&quot;言心之虚壹而静，形式上最近老子之&quot;明&quot;，但归宿是礼义之统，非&quot;复命&quot;。王弼把&quot;明&quot;内在化为体无之照，郭象则谓&quot;明&quot;只是各自独化中的自得，无须一个统摄性的&quot;常&quot;作对象。佛学中观以&quot;明&quot;与&quot;无明&quot;相对而皆空，禅宗更以&quot;明&quot;为病（&quot;明头来明头打&quot;），与老子以&quot;明&quot;为正面境界适成对照。海德格尔论&quot;真理&quot;为&quot;无蔽&quot;（aletheia），其&quot;照亮&quot;结构与老子&quot;明&quot;可相参，但他拒绝一个可&quot;知&quot;的恒常秩序，这是与老子&quot;知常&quot;最根本的分歧。</td></tr>
+<tr><td>益生曰祥</td><td>刻意去给生命加码、硬要增益，古书里叫&quot;祥&quot;，但这里其实是警告：这不是好事。</td><td>&quot;益生&quot;指人为地增益生命、过度求生厚养；&quot;祥&quot;在此非吉庆之义，而是&quot;妖祥&quot;之祥，指反常之兆、灾异。本章&quot;益生曰祥&quot;紧接&quot;知常曰明&quot;之后，与&quot;心使气曰强&quot;对举，构成对&quot;不知常而妄作&quot;的具体指摘：刻意厚生反成祸端。</td><td>王弼注：&quot;生不可益，益之则夭也。&quot;直截以&quot;益生&quot;为伤生。河上公注则以&quot;祥&quot;为&quot;长&quot;或&quot;善&quot;，注家于此分歧明显。苏辙以&quot;祥&quot;为&quot;妖&quot;，与王弼同调。成玄英重玄一系则谓&quot;益生&quot;与&quot;不益生&quot;俱遣。陈鼓应、楼宇烈均从王弼说，读&quot;祥&quot;为&quot;妖祥&quot;&quot;不祥&quot;。刘笑敢提醒此字歧解直接影响全章立论方向。</td><td>王弼以&quot;生不可益&quot;立论，背后是&quot;贵无&quot;&quot;自然&quot;的立场：一切增益皆是&quot;有为&quot;，违逆自然则伤生。河上公一系养生家恰恰主张&quot;益&quot;，把&quot;祥&quot;读作吉善，遂与王弼分道——这实际是&quot;自然无为&quot;与&quot;导引服食&quot;两种道家形态的分歧。郭象&quot;独化&quot;论若用于此，会否认有一个&quot;当益不当益&quot;的尺度，各适其性即足，不需要&quot;益生&quot;也不需要&quot;不益生&quot;的戒律。道教内丹虽重&quot;炼养&quot;，但严格区分&quot;顺则成人、逆则成仙&quot;的&quot;逆修&quot;与世俗&quot;厚生&quot;，可说是在另一层回应&quot;益生曰祥&quot;的警告。现代研究中，陈鼓应明确以王弼读法为据，认为本章是一篇&quot;戒滥用生命力&quot;的警语，与后世神仙家言不可混同。</td></tr>
+<tr><td>心使气曰强</td><td>用意念、意志去驱使身上那股精气，看着很强，其实是硬撑。</td><td>&quot;心&quot;指心志、意念，&quot;气&quot;指精气、血气，&quot;使&quot;为驱使、役使。&quot;强&quot;在此非褒义，指刚强、逞强。全句意为：以心志强行支配精气，看似有力，实为消耗、违逆自然，与赤子&quot;精之至&quot;&quot;和之至&quot;的自然充盈正相对照，也与下文&quot;物壮则老&quot;相承。</td><td>王弼注：&quot;心使气则强，强则物壮，物壮则老，故不道早已。&quot;将&quot;强&quot;直接接入&quot;壮—老—不道&quot;的链条。河上公注从养生言&quot;心&quot;与&quot;气&quot;的关系，强调&quot;气&quot;当自然调顺。成玄英以重玄双遣解&quot;心&quot;&quot;气&quot;二执。陈鼓应指出老子全书对&quot;强&quot;多取贬义（如&quot;强梁者不得其死&quot;），此章&quot;强&quot;亦当如是读。</td><td>王弼以&quot;自然&quot;为本，把&quot;心使气&quot;判为有为造作，其&quot;强&quot;必归于&quot;老&quot;。道教内丹一系则对&quot;心&quot;&quot;气&quot;关系别有讲法：主张&quot;以神驭气&quot;而非&quot;以心使气&quot;，强调&quot;勿忘勿助&quot;，可说是在工夫层面回应老子的警告，却仍保留一个可修炼的&quot;气&quot;实体，与王弼的&quot;贵无&quot;取径不同。郭象&quot;独化&quot;则根本不设&quot;心&quot;与&quot;气&quot;的统属问题，各安其分即无&quot;使&quot;之病。儒家中，孟子讲&quot;志至焉，气次焉&quot;&quot;持其志，无暴其气&quot;，与老子同样警惕&quot;暴其气&quot;，但孟子以&quot;浩然之气&quot;配&quot;义与道&quot;，把心志放在道德主导地位，恰是老子所戒的&quot;心使气&quot;方向，二者构成有趣的对照。佛学禅宗以&quot;无心&quot;为宗，反对任何&quot;使&quot;的主体，与老子&quot;不使气&quot;表面相近而理路不同：老子是保生命之和，禅宗是破能所之执。</td></tr>
+<tr><td>物壮则老</td><td>任何东西到了最强壮、最鼎盛的时候，接下来就要衰老了。</td><td>老子辩证法的经典表述，见本章及第三十章。意为事物发展到壮盛之极便转向衰败，故&quot;壮&quot;不足恃。本章承&quot;心使气曰强&quot;而言：逞强使气正是&quot;壮&quot;，其结果必是&quot;老&quot;；第三十章则以&quot;物壮则老，是谓不道，不道早已&quot;戒兵威之盛。此语体现了老子&quot;反者道之动&quot;的循环观。</td><td>王弼注：&quot;物壮则老，故不道早已。&quot;以&quot;不道&quot;释&quot;壮&quot;，谓壮非道之常。河上公注以&quot;天道&quot;言盛极必衰。苏辙以&quot;理之自然&quot;解。成玄英重玄一系则谓&quot;壮&quot;&quot;老&quot;俱遣，不落生灭二边。陈鼓应指出此句是老子&quot;守柔&quot;&quot;去甚去奢去泰&quot;主张的理论根据。刘笑敢将之归入老子&quot;反—复&quot;的辩证结构。</td><td>王弼把&quot;壮—老&quot;归为&quot;不道&quot;，即不合&quot;无&quot;之本，故必早已；郭象注《庄》则以&quot;独化&quot;消解这种必然循环，认为生死壮老只是各物自尔的变化，没有一个&quot;道&quot;在背后规定盛极必衰。儒家《易》学以&quot;亢龙有悔&quot;&quot;日中则昃&quot;言盛极之戒，与老子形式相近，但《易》学以&quot;生生&quot;为德，衰而复生，不停留在&quot;早已&quot;的悲观收束，这是儒道的重要分野。佛学中观以&quot;缘起&quot;解壮老，谓无自性故无实壮实老，龙树破&quot;生住灭&quot;三相，比老子更彻底地取消&quot;壮—老&quot;的实体性。怀特海过程哲学以&quot;现实实有&quot;的生成与&quot;客观不朽&quot;言变化，承认一切达至完成即转入过去，形式上近&quot;物壮则老&quot;，但他不设&quot;不道早已&quot;的价值判词，与老子的规范意味不同。韩非《解老》则从&quot;理&quot;与&quot;势&quot;解此句，把它读成治国的权势规律，走向法家。</td></tr>
+<tr><td>不道早已</td><td>不合于道的做法，很快就会自己完蛋。</td><td>&quot;不道&quot;指不合于道、违背自然；&quot;早已&quot;即早亡、及早终止。本章承&quot;物壮则老&quot;而言：壮盛即衰，是因为它不合于道，所以早早终止。第三十章末句同此，用以戒&quot;以兵强天下&quot;。此句是老子对&quot;逞强—壮盛—衰亡&quot;链条的最终判词，也是全章的警戒性收束。</td><td>王弼注：&quot;不道早已。&quot;以&quot;不道&quot;为&quot;失其本&quot;，故不能久。河上公注以&quot;天道&quot;言&quot;不道者早死&quot;。苏辙以&quot;自然而然&quot;解&quot;早已&quot;，谓非天罚，理自如此。成玄英重玄则谓&quot;道&quot;与&quot;不道&quot;俱遣。陈鼓应指出&quot;早已&quot;之&quot;已&quot;当读为&quot;止&quot;&quot;亡&quot;，非&quot;已经&quot;之义，注家常误。楼宇烈从王弼本出发，强调此句与&quot;物壮则老&quot;为一体。</td><td>王弼以&quot;崇本息末&quot;立论，&quot;不道&quot;即失&quot;无&quot;之本，失本则不能长久，这是本体论的必然，而非人格天的惩罚。河上公一系则以&quot;天道&quot;赏罚言，带较强的人格化色彩，二者对&quot;早已&quot;的解释机制不同。郭象&quot;独化&quot;论会否认有一个&quot;道&quot;作为评判标准，因而&quot;不道早已&quot;在他那里难以成立——这正是郭象注《庄》而不注《老》的内在原因之一。儒家虽也讲&quot;不道&quot;必亡（如孟子&quot;不仁不智……而国亡矣&quot;），但其标准是仁义，不是自然无为。韩非《解老》把&quot;道&quot;落实为&quot;理&quot;，&quot;不道早已&quot;成了治乱兴亡的法则，可直接服务于法家政治学。现代研究者如葛兆光提醒，此句在汉代常被方士、政治家各取所需地引用，其&quot;道&quot;的含义在不同语境中被大幅改写，读者须留意文本的接受史。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">赤子</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">刚出生的婴儿，谁也没教他，他却会哭会笑、筋骨柔软、精气充足，古人用这个状态比喻一个人&quot;德&quot;养得极厚的样子。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;赤子&quot;原指初生婴儿，因新生儿肤色赤红得名。老子以婴儿为喻，形容含&quot;德&quot;深厚之人：骨弱筋柔而握力牢固，未知男女之事而生殖器官勃起，终日号哭而不沙哑。老子借此说明一种未经后天造作、精气和谐饱满的生命状态，是&quot;含德之厚&quot;的形象化表达，并非主张人真的回到婴儿。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;赤子，无求无欲，不犯众物，故毒螫之物无犯之也。&quot;以&quot;无欲&quot;释赤子，落在&quot;贵无&quot;的本体—心性框架内。河上公注则从养生立论，强调&quot;含德之厚&quot;者&quot;和气不伤&quot;。苏辙《老子解》以&quot;无心&quot;解之，近于释老互摄。陈鼓应《老子注译及评介》指出此章&quot;赤子&quot;是比喻而非实指，重点在&quot;精之至&quot;&quot;和之至&quot;两句。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，把赤子读成&quot;无欲&quot;的心性境界，德是&quot;无&quot;在生命上的自然发用；河上公一系（黄老、早期道教）把它读成养生修炼的生理状态，&quot;含德&quot;即保精气、却病延年，后来内丹家更把赤子讲成&quot;元婴&quot;&quot;返婴&quot;的功夫次第。郭象注《庄》主张&quot;独化&quot;，反对有一个高于万物的本根，若顺此思路，赤子的&quot;厚德&quot;不是复归某个源头，而是当下生命自足自成的饱满。佛学一系（如以中观缘起解老）则批评&quot;复归婴儿&quot;隐含一个&quot;本初—失落—复归&quot;的实体化叙事，认为赤子之德同样缘起性空，不可执为究竟。海德格尔论&quot;存在&quot;的被遮蔽与开显，与老子&quot;含德&quot;的&quot;不显而厚&quot;可相参，但他拒绝任何&quot;返回原初状态&quot;的目的论，与老子&quot;复归于朴&quot;的生成论方向并不相同。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">精之至</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">婴儿身上那股精气足到了极点，所以哭一天嗓子也不哑。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;精&quot;指精气、生命力，&quot;至&quot;为极至。本章&quot;精之至也&quot;与&quot;和之至也&quot;并列，解释赤子&quot;终日号而不嗄&quot;的原因：不是靠力气，而是精气充沛到极处、内在和谐到极处，故能久用而不损。老子以此说明&quot;含德之厚&quot;者不是用力维持，而是本然充足。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;赤子……精子之至也。&quot;以&quot;自然&quot;释之，强调非造作所致。河上公注：&quot;赤子从朝至暮啼号而不嗄者，和气之所致也。&quot;将&quot;精&quot;与&quot;和&quot;并置于气化养生脉络中。成玄英《老子义疏》以重玄双遣解之，谓&quot;精&quot;与&quot;和&quot;皆不可执。刘笑敢《老子古今》指出本章&quot;精&quot;&quot;和&quot;是老子少见的正面描述生命充盈的语汇，与其&quot;反者道之动&quot;的循环观互为补充。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公与道教养生传统把&quot;精&quot;实化为可宝可炼之物（精气神三宝之说由此衍出），&quot;精之至&quot;成为内丹&quot;炼精化气&quot;的经典依据；王弼则把它虚化为&quot;自然&quot;的发用，反对在&quot;精&quot;上更添一分人为把捉。王夫之以&quot;气化&quot;立论，认为&quot;精&quot;只是气之凝聚状态，无所谓独立自存之&quot;精&quot;，与道教实体化的读法相左。现代研究者（如楼宇烈《王弼集校释》所呈现的脉络）多强调王弼注的&quot;崇本息末&quot;立场，提醒读者不要把老子的&quot;精&quot;直接等同于后世内丹术语。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">和之至</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">婴儿身上的柔和协调到了极点，所以能长久而不受伤。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;和&quot;指阴阳、血气、身心之间的和谐协调；&quot;至&quot;为极至。本章&quot;和之至也&quot;与&quot;精之至也&quot;对举，说明赤子之所以&quot;终日号而不嗄&quot;在于内在和谐，不是靠强撑。由此引出下文&quot;知和曰常&quot;，把&quot;和&quot;提升为&quot;常道&quot;的内容。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注以&quot;无争&quot;&quot;不犯物&quot;释和，落在&quot;无&quot;的本体论上。河上公注：&quot;和气之所致也。&quot;以&quot;和气&quot;为宇宙与身体共通的介质。苏辙以&quot;无心而和&quot;解，近禅。成玄英重玄一系则谓&quot;和&quot;亦遣，不落两边。陈鼓应指出老子&quot;和&quot;字兼含&quot;阴阳冲和&quot;与&quot;生命和谐&quot;二义，本章偏重后者但不离前者。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">儒家《中庸》以&quot;中和&quot;为天下之大本达道，把&quot;和&quot;伦理化、宇宙论化（&quot;致中和，天地位焉，万物育焉&quot;），与老子在生命体上言&quot;和&quot;路径不同；荀子批评庄子&quot;蔽于天而不知人&quot;，若移评老子，也会说这种&quot;和&quot;缺少礼义之节的维度。王弼把&quot;和&quot;收归&quot;无&quot;，郭象以&quot;独化&quot;抹去一个统摄性的&quot;和&quot;之源，二者都反对把&quot;和&quot;当成可追求的对象。佛学中观以&quot;缘起即空&quot;解&quot;和&quot;，谓和合假立、无自性，警惕把&quot;和&quot;实体化为宇宙元气；禅宗则以&quot;无心&quot;为和，近苏辙而远河上公。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">知和曰常</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">懂得什么是真正的和谐，就叫作懂得了&quot;常&quot;，也就是万物运行的恒常道理。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">本章由赤子的&quot;和之至&quot;推出认识论命题：&quot;知和曰常。&quot;意为体认到阴阳和合、生命和谐之理，才算把握了恒常之道。老子在此把&quot;和&quot;从生命状态提升为道的规律性内容，与&quot;复命曰常&quot;（第十六章）&quot;知常曰明&quot;构成同一组概念链。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;物以和为常，故知和则得常也。&quot;以&quot;和&quot;为物之常理，落在&quot;崇本&quot;的理路。河上公注：&quot;人能知和气之柔弱有益于人者，则为知道之常也。&quot;苏辙以&quot;和&quot;为&quot;性之自然&quot;。成玄英重玄：常与无常俱遣，&quot;知常&quot;亦不可执。刘笑敢指出老子&quot;常&quot;字兼具&quot;恒常规律&quot;与&quot;常态&quot;二义，本章偏前者。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;和&quot;为&quot;常&quot;，把认识论收摄于本体论，&quot;知&quot;不是积累知识而是体认本根；郭象注《庄》&quot;独化&quot;，反对有一个恒常的&quot;和&quot;可&quot;知&quot;，一切只是各安其分、当下自尔，与王弼的&quot;得常&quot;说相左。韩非《解老》以&quot;理&quot;释&quot;常&quot;，把&quot;知和曰常&quot;读成把握事物法则以治世，走向法家的理路。佛学中观以&quot;常&quot;为戏论，龙树《中论》破&quot;常&quot;&quot;断&quot;二边，&quot;知常曰明&quot;在中观看来仍是执取，须以&quot;缘起性空&quot;再遣一层——这正是成玄英&quot;重玄&quot;取径的来路。现代新儒家（如牟宗三）则以此章为据，论道家&quot;境界形态的形而上学&quot;，认为&quot;常&quot;是主观境界而非客观实体，与西方实体形而上学判然有别。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">知常曰明</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">懂得恒常之道，就叫作&quot;明&quot;，即真正的明白、通透。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子认识论的核心命题之一，见本章及第十六章&quot;复命曰常，知常曰明&quot;。意为把握恒常之道才称得上&quot;明&quot;；反之&quot;不知常，妄作凶&quot;。&quot;明&quot;在老子中兼指智慧的通透与不被现象所惑的洞察力，与&quot;明&quot;字在先秦思想中&quot;照察&quot;的义项相通。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;不学而能，何以明之？&quot;意在&quot;明&quot;非积学所得，是体&quot;无&quot;而自照。河上公以&quot;明&quot;为&quot;知道&quot;之效验。苏辙以&quot;明&quot;为&quot;无心之照&quot;。成玄英谓&quot;明&quot;亦遣，不立&quot;明&quot;相。陈鼓应指出老子&quot;明&quot;字与&quot;光而不耀&quot;（第五十八章）呼应，是&quot;内照&quot;而非外炫。楼宇烈《王弼集校释》强调王弼注以&quot;明&quot;为&quot;崇本&quot;之知，与&quot;为学日益&quot;相对。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">儒家以&quot;明&quot;为&quot;明德&quot;（《大学》&quot;在明明德&quot;），是道德心性的朗现，与老子&quot;知常&quot;的自然之明不同路；荀子《解蔽》以&quot;大清明&quot;言心之虚壹而静，形式上最近老子之&quot;明&quot;，但归宿是礼义之统，非&quot;复命&quot;。王弼把&quot;明&quot;内在化为体无之照，郭象则谓&quot;明&quot;只是各自独化中的自得，无须一个统摄性的&quot;常&quot;作对象。佛学中观以&quot;明&quot;与&quot;无明&quot;相对而皆空，禅宗更以&quot;明&quot;为病（&quot;明头来明头打&quot;），与老子以&quot;明&quot;为正面境界适成对照。海德格尔论&quot;真理&quot;为&quot;无蔽&quot;（aletheia），其&quot;照亮&quot;结构与老子&quot;明&quot;可相参，但他拒绝一个可&quot;知&quot;的恒常秩序，这是与老子&quot;知常&quot;最根本的分歧。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">益生曰祥</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">刻意去给生命加码、硬要增益，古书里叫&quot;祥&quot;，但这里其实是警告：这不是好事。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;益生&quot;指人为地增益生命、过度求生厚养；&quot;祥&quot;在此非吉庆之义，而是&quot;妖祥&quot;之祥，指反常之兆、灾异。本章&quot;益生曰祥&quot;紧接&quot;知常曰明&quot;之后，与&quot;心使气曰强&quot;对举，构成对&quot;不知常而妄作&quot;的具体指摘：刻意厚生反成祸端。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;生不可益，益之则夭也。&quot;直截以&quot;益生&quot;为伤生。河上公注则以&quot;祥&quot;为&quot;长&quot;或&quot;善&quot;，注家于此分歧明显。苏辙以&quot;祥&quot;为&quot;妖&quot;，与王弼同调。成玄英重玄一系则谓&quot;益生&quot;与&quot;不益生&quot;俱遣。陈鼓应、楼宇烈均从王弼说，读&quot;祥&quot;为&quot;妖祥&quot;&quot;不祥&quot;。刘笑敢提醒此字歧解直接影响全章立论方向。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;生不可益&quot;立论，背后是&quot;贵无&quot;&quot;自然&quot;的立场：一切增益皆是&quot;有为&quot;，违逆自然则伤生。河上公一系养生家恰恰主张&quot;益&quot;，把&quot;祥&quot;读作吉善，遂与王弼分道——这实际是&quot;自然无为&quot;与&quot;导引服食&quot;两种道家形态的分歧。郭象&quot;独化&quot;论若用于此，会否认有一个&quot;当益不当益&quot;的尺度，各适其性即足，不需要&quot;益生&quot;也不需要&quot;不益生&quot;的戒律。道教内丹虽重&quot;炼养&quot;，但严格区分&quot;顺则成人、逆则成仙&quot;的&quot;逆修&quot;与世俗&quot;厚生&quot;，可说是在另一层回应&quot;益生曰祥&quot;的警告。现代研究中，陈鼓应明确以王弼读法为据，认为本章是一篇&quot;戒滥用生命力&quot;的警语，与后世神仙家言不可混同。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">心使气曰强</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">用意念、意志去驱使身上那股精气，看着很强，其实是硬撑。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;心&quot;指心志、意念，&quot;气&quot;指精气、血气，&quot;使&quot;为驱使、役使。&quot;强&quot;在此非褒义，指刚强、逞强。全句意为：以心志强行支配精气，看似有力，实为消耗、违逆自然，与赤子&quot;精之至&quot;&quot;和之至&quot;的自然充盈正相对照，也与下文&quot;物壮则老&quot;相承。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;心使气则强，强则物壮，物壮则老，故不道早已。&quot;将&quot;强&quot;直接接入&quot;壮—老—不道&quot;的链条。河上公注从养生言&quot;心&quot;与&quot;气&quot;的关系，强调&quot;气&quot;当自然调顺。成玄英以重玄双遣解&quot;心&quot;&quot;气&quot;二执。陈鼓应指出老子全书对&quot;强&quot;多取贬义（如&quot;强梁者不得其死&quot;），此章&quot;强&quot;亦当如是读。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;自然&quot;为本，把&quot;心使气&quot;判为有为造作，其&quot;强&quot;必归于&quot;老&quot;。道教内丹一系则对&quot;心&quot;&quot;气&quot;关系别有讲法：主张&quot;以神驭气&quot;而非&quot;以心使气&quot;，强调&quot;勿忘勿助&quot;，可说是在工夫层面回应老子的警告，却仍保留一个可修炼的&quot;气&quot;实体，与王弼的&quot;贵无&quot;取径不同。郭象&quot;独化&quot;则根本不设&quot;心&quot;与&quot;气&quot;的统属问题，各安其分即无&quot;使&quot;之病。儒家中，孟子讲&quot;志至焉，气次焉&quot;&quot;持其志，无暴其气&quot;，与老子同样警惕&quot;暴其气&quot;，但孟子以&quot;浩然之气&quot;配&quot;义与道&quot;，把心志放在道德主导地位，恰是老子所戒的&quot;心使气&quot;方向，二者构成有趣的对照。佛学禅宗以&quot;无心&quot;为宗，反对任何&quot;使&quot;的主体，与老子&quot;不使气&quot;表面相近而理路不同：老子是保生命之和，禅宗是破能所之执。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">物壮则老</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">任何东西到了最强壮、最鼎盛的时候，接下来就要衰老了。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子辩证法的经典表述，见本章及第三十章。意为事物发展到壮盛之极便转向衰败，故&quot;壮&quot;不足恃。本章承&quot;心使气曰强&quot;而言：逞强使气正是&quot;壮&quot;，其结果必是&quot;老&quot;；第三十章则以&quot;物壮则老，是谓不道，不道早已&quot;戒兵威之盛。此语体现了老子&quot;反者道之动&quot;的循环观。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;物壮则老，故不道早已。&quot;以&quot;不道&quot;释&quot;壮&quot;，谓壮非道之常。河上公注以&quot;天道&quot;言盛极必衰。苏辙以&quot;理之自然&quot;解。成玄英重玄一系则谓&quot;壮&quot;&quot;老&quot;俱遣，不落生灭二边。陈鼓应指出此句是老子&quot;守柔&quot;&quot;去甚去奢去泰&quot;主张的理论根据。刘笑敢将之归入老子&quot;反—复&quot;的辩证结构。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼把&quot;壮—老&quot;归为&quot;不道&quot;，即不合&quot;无&quot;之本，故必早已；郭象注《庄》则以&quot;独化&quot;消解这种必然循环，认为生死壮老只是各物自尔的变化，没有一个&quot;道&quot;在背后规定盛极必衰。儒家《易》学以&quot;亢龙有悔&quot;&quot;日中则昃&quot;言盛极之戒，与老子形式相近，但《易》学以&quot;生生&quot;为德，衰而复生，不停留在&quot;早已&quot;的悲观收束，这是儒道的重要分野。佛学中观以&quot;缘起&quot;解壮老，谓无自性故无实壮实老，龙树破&quot;生住灭&quot;三相，比老子更彻底地取消&quot;壮—老&quot;的实体性。怀特海过程哲学以&quot;现实实有&quot;的生成与&quot;客观不朽&quot;言变化，承认一切达至完成即转入过去，形式上近&quot;物壮则老&quot;，但他不设&quot;不道早已&quot;的价值判词，与老子的规范意味不同。韩非《解老》则从&quot;理&quot;与&quot;势&quot;解此句，把它读成治国的权势规律，走向法家。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">不道早已</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不合于道的做法，很快就会自己完蛋。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;不道&quot;指不合于道、违背自然；&quot;早已&quot;即早亡、及早终止。本章承&quot;物壮则老&quot;而言：壮盛即衰，是因为它不合于道，所以早早终止。第三十章末句同此，用以戒&quot;以兵强天下&quot;。此句是老子对&quot;逞强—壮盛—衰亡&quot;链条的最终判词，也是全章的警戒性收束。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;不道早已。&quot;以&quot;不道&quot;为&quot;失其本&quot;，故不能久。河上公注以&quot;天道&quot;言&quot;不道者早死&quot;。苏辙以&quot;自然而然&quot;解&quot;早已&quot;，谓非天罚，理自如此。成玄英重玄则谓&quot;道&quot;与&quot;不道&quot;俱遣。陈鼓应指出&quot;早已&quot;之&quot;已&quot;当读为&quot;止&quot;&quot;亡&quot;，非&quot;已经&quot;之义，注家常误。楼宇烈从王弼本出发，强调此句与&quot;物壮则老&quot;为一体。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;崇本息末&quot;立论，&quot;不道&quot;即失&quot;无&quot;之本，失本则不能长久，这是本体论的必然，而非人格天的惩罚。河上公一系则以&quot;天道&quot;赏罚言，带较强的人格化色彩，二者对&quot;早已&quot;的解释机制不同。郭象&quot;独化&quot;论会否认有一个&quot;道&quot;作为评判标准，因而&quot;不道早已&quot;在他那里难以成立——这正是郭象注《庄》而不注《老》的内在原因之一。儒家虽也讲&quot;不道&quot;必亡（如孟子&quot;不仁不智……而国亡矣&quot;），但其标准是仁义，不是自然无为。韩非《解老》把&quot;道&quot;落实为&quot;理&quot;，&quot;不道早已&quot;成了治乱兴亡的法则，可直接服务于法家政治学。现代研究者如葛兆光提醒，此句在汉代常被方士、政治家各取所需地引用，其&quot;道&quot;的含义在不同语境中被大幅改写，读者须留意文本的接受史。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 55 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 55 章]
+
+含德之厚，比于赤子。毒虫不螫，猛兽不据，攫鸟不搏。骨弱筋柔而握固。未知牝牡之合而朘作，精之至也。终日号而不嗄，和之至也。知和曰常，知常曰明，益生曰祥，心使气曰强。物壮则老，谓之不道，不道早已。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_55_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 44 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 44/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_43/site/index.html" title="第 43 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_45/site/index.html" title="第 45 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 44 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>名与身孰亲？身与货孰多？得与亡孰病？是故甚爱必大费，多藏必厚亡，知足不辱，知止不殆，可以长久。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 44 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<br/>
+<blockquote>这章是老子用三组追问逼你给人生排序：名与身哪个更亲？身与货哪个更重？得与亡哪个更有害？他不急着给答案，而是让后果自己说话——“甚爱必大费，多藏必厚亡”。最有趣的不在结论，而在推理方式：把抽象的价值选择换算成可感知的代价。你最重要的收获是“知足不辱，知止不殆”：这不是劝你躺平，而是一套精确的止损算法。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<br/>
+<blockquote>1. 如果你为一个头衔连续熬夜三个月，体检报告亮红灯——你会觉得“名”比“身”亲，还是终于看清了代价？</blockquote>
+<blockquote>2. 如果你囤了一屋子舍不得扔的东西，搬家时运费比东西还贵——“多藏”到底藏住了什么？</blockquote>
+<blockquote>3. 如果你在一段关系里“甚爱”到失去自己，对方却越来越远——“大费”的到底是钱，还是别的？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<br/>
+<blockquote>- <strong>韩非</strong>在《解老》《喻老》中直接注解老子，把“甚爱必大费”读作政治经济学：君主过度聚敛，看似多得，实则失民心、招祸患。他把老子的处世智慧翻译成了利害计算的君主技术。</blockquote>
+<blockquote>- <strong>荀子</strong>在《性恶》中同样承认人好利，但开出的是另一张方子：用礼义制度正面建构秩序，而不是退回“知足”。老子让你减欲，荀子让你用制度节欲——目的相近，路径相反。</blockquote>
+<blockquote>- <strong>王阳明</strong>讲“致良知”，认为追逐名利是良知被私欲遮蔽。他也会说“知止”，但“止”在良知本体上，不在外物的界限上——与老子把“止”落在物我边界处，形成有趣的对勘。</blockquote>
+<blockquote>- <strong>涂尔干</strong>在《自杀论》中提出“失范”：欲望失去边界会引发社会病理。老子说“知足不辱”，涂尔干用统计学证明了同一件事——无限欲望需要外部调节，否则个体与共同体都会受损。</blockquote>
+<blockquote>- <strong>罗素</strong>在《幸福之路》里分析过度竞争与名望焦虑，几乎用现代心理学语言复述了“甚爱必大费”：对名声的过度关切让人永远处于匮乏感中。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<br/>
+<blockquote><strong>（1）第一遍（速览）</strong>：抓三个关注点——① 三组追问的排列顺序（名-身-货-得-亡，为什么“身”夹在中间）；② “甚爱”与“多藏”的平行句式，注意“必”字的绝对语气；③ 结尾“知足/知止”对举，一个是心态，一个是行动边界。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：盯住两个必看论证——① “甚爱必大费”：逻辑是“过度投放注意力→资源透支”，老子没说“爱不好”，说的是“甚”字出了问题；② “多藏必厚亡”：逻辑是“积聚超过临界→反噬必然”，注意“厚”字是程度副词，不是道德评判——老子的因果链是强度的，不是善恶的。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：追问一个问题——“知足”与“知止”如果落到具体境遇里，谁来告诉你“足”和“止”的刻度在哪里？老子没给量化标准，只说“可以长久”。那么这套智慧是普遍规则，还是只在某些人生阶段（比如功成名就之后）才成立？如果你正处在需要“进取”的阶段，这句话对你意味着什么？</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+Q1["命题：名与身孰亲"]
+Q2["命题：身与货孰多"]
+Q3["命题：得与亡孰病"]
+Q4["命题：甚爱必大费"]
+Q5["命题：多藏必厚亡"]
+Q6["命题：知足不辱，知止不殆，可以长久"]
+Ming["概念：名"]
+Shen["概念：身"]
+Huo["概念：货"]
+De["概念：得"]
+Wang["概念：亡"]
+ShenAi["概念：甚爱"]
+DuoCang["概念：多藏"]
+ZhiZu["概念：知足"]
+ZhiZhi["概念：知止"]
+ChangJiu["概念：长久"]
+Q1 --> Ming
+Q1 --> Shen
+Q2 --> Shen
+Q2 --> Huo
+Q3 --> De
+Q3 --> Wang
+Q4 --> ShenAi
+Q5 --> DuoCang
+Q6 --> ZhiZu
+Q6 --> ZhiZhi
+Q6 --> ChangJiu
+Q1 -- supports --> Q4
+Q2 -- supports --> Q4
+Q3 -- supports --> Q5
+Q4 -- supports --> Q6
+Q5 -- supports --> Q6
+Q4 -- relates_to --> Q5
+Q1 -- relates_to --> Q2
+Q2 -- relates_to --> Q3
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>以三组追问辨析名、身、货、得与亡的轻重，引出“甚爱必大费，多藏必厚亡”的后果，最终收束于“知足不辱，知止不殆，可以长久”的处世智慧。</div>
+<h3>📌 核心命题</h3><ol>
+<li>名声与生命哪个更亲近，是本章首先提出的追问。</li>
+<li>生命与财货哪个更贵重，是本章继续追问的问题。</li>
+<li>获得与失去哪个更有害，是本章的第三个追问。</li>
+<li>过度爱惜必然导致巨大耗费。</li>
+<li>过多贮藏必然导致惨重损失。</li>
+<li>知足就不会受辱，知止就不会危险，因而可以长久。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>名与身孰亲？</li>
+<li>身与货孰多？</li>
+<li>得与亡孰病？</li>
+<li>是故甚爱必大费，多藏必厚亡。</li>
+<li>知足不辱，知止不殆，可以长久。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>甚爱</strong></summary><div class="case-body">过度爱惜、过分贪恋某物。</div></details>
+<details><summary><strong>多藏</strong></summary><div class="case-body">过多地贮藏、积聚财物。</div></details>
+<details><summary><strong>知足</strong></summary><div class="case-body">知道满足，不无限追逐外物。</div></details>
+<details><summary><strong>知止</strong></summary><div class="case-body">知道适可而止，懂得界限。</div></details>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<p><strong>【理解检查】</strong></p>
+<br/>
+<blockquote>我刚读完第 44 章（{章节标题 / 主题}）。以下是我对本章的复述：{你自己的段落式陈述}。请帮我做两件事。第一，<strong>主线提取</strong>：用 3–5 句话概括我这段复述的论点骨架，指出我是否抓住了本章的推进方向。第二，<strong>关键概念检查</strong>：对照本章的核心概念（{列出 3–5 个你记得的概念}），逐条判断我是否用对了、是否漏掉了某个关键区分，凡是偏离本章原意的地方请具体指出原文对应位置。</blockquote>
+<br/>
+<p><strong>【强反驳】</strong></p>
+<br/>
+<blockquote>我读完第 44 章后，倾向于接受本章的立场：{用一句话写出你所接受的核心主张}。现在请你扮演<strong>最强的反方</strong>——不是敷衍的“另一方面”，而是真心认为本章错了的人。请从三个层次依次反驳：①<strong>前提层面</strong>：本章依赖了哪些未经证明的假设？②<strong>推理层面</strong>：从前提走到结论的过程中，哪一步是跳跃的？③<strong>结论层面</strong>：给出一个能让本章结论失效的反例或对立解释。请标出哪一记反驳最致命，以及我如果要守住本章立场，最需要回应的哪一点。</blockquote>
+<br/>
+<p><strong>【连现实】</strong></p>
+<br/>
+<blockquote>我读完了第 44 章，核心思想我理解为：{一句话概括}。请给我 <strong>3 个真实生活 / 工作场景</strong>，说明这一章的思想如何具体落地：场景一放在{日常人际 / 家庭}，场景二放在{职场 / 组织决策}，场景三放在{你所在专业领域，如学习、创作、技术判断}。每个场景请写清：这个场景里出现了本章所说的什么机制、按本章思路应该怎么做、以及不按本章思路会付出什么代价。</blockquote>
+<br/>
+<p><strong>【深挖】</strong></p>
+<br/>
+<blockquote>第 44 章里最让我兴奋的一句话是：“{原文原句}”。请围绕这句话做“<strong>那这样推下去还有什么？</strong>”的连锁推演：先指出这句话在本章论证中承担的功能（它是前提、过渡还是结论）；然后沿着它往前推 3–5 步，每一步说清“如果上一步成立，那么下一步必然/可能是什么”；最后标出这条推演链上<strong>最容易断裂的那一环</strong>，以及如果断裂，本章还剩下什么。</blockquote>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. <strong>这一章如果用一句话说，在讲什么？</strong></li>
+</ol>
+<p>   提示：合上书凭记忆讲，别翻原文——讲不出来说明还没抓住主线。</p>
+<br/>
+<ol>
+<li>2. <strong>作者在这一章主要在跟谁“吵架”？他想反驳的是什么观点？</strong></li>
+</ol>
+<p>   提示：看章首和章末，作者通常会点明对手；找不到对手，说明你还没读懂他的问题意识。</p>
+<br/>
+<ol>
+<li>3. <strong>本章出现了哪几个关键概念？你能各用一个日常例子说明吗？</strong></li>
+</ol>
+<p>   提示：能举例才算懂；举不出例子，多半只是记住了词。</p>
+<br/>
+<ol>
+<li>4. <strong>本章的论证是怎么一步步走过来的？前提 → 推理 → 结论。</strong></li>
+</ol>
+<p>   提示：把逻辑链画出来，并标出你认为最弱的一环。</p>
+<br/>
+<ol>
+<li>5. <strong>如果本章的核心论断是错的，世界会有什么不同？</strong></li>
+</ol>
+<p>   提示：反事实检验——找不到“如果它错会怎样”的差别，说明你还没抓住它的分量。</p>
+<br/>
+<ol>
+<li>6. <strong>这一章在全书的什么位置？它承接了前面什么、又为后面铺了什么？</strong></li>
+</ol>
+<p>   提示：回看上一章结尾与本卷开头的提问，位置感是读懂整本书的关键。</p>
+<br/>
+<ol>
+<li>7. <strong>你同意哪一句、不同意哪一句？不同意的理由能站得住吗？</strong></li>
+</ol>
+<p>   提示：立场要落到具体句子上；再问自己一句——作者会怎么回你？</p>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>名与身孰亲</td><td>名声和自己的命，哪个更值得你亲近？</td><td>出自《老子》第四十四章首问。老子把&quot;名&quot;（名誉、声名）与&quot;身&quot;（生命、身体）对举，追问人应当把哪个放在更优先的位置，以此批评为求名而牺牲生命本真的做法。</td><td>原文以&quot;孰亲&quot;设问，&quot;亲&quot;取切近、可依之义。&quot;名&quot;属外在之&quot;有&quot;，&quot;身&quot;属内在之&quot;真&quot;；老子以反问句而非陈述句展开，是&quot;正言若反&quot;的修辞策略，把价值排序问题交还读者。王弼注：&quot;尚名好高，其身必疏。&quot;</td><td>王弼以&quot;贵无&quot;为纲，认为&quot;名&quot;生于&quot;不足&quot;、是&quot;尚名好高&quot;而致&quot;身疏&quot;，故主张&quot;崇本息末&quot;、以无为身之主；河上公从养生立论，解为&quot;名遂则身退&quot;，重在全生保真；庄子《养生主》说&quot;为善无近名&quot;，以&quot;缘督以为经&quot;保身全生，与老子同调；海德格尔则从&quot;常人&quot;（das Man）的公共意见分析：人沉沦于他人之&quot;名&quot;而遮蔽本真能在，其&quot;身&quot;不是生物体而是&quot;此在&quot;的在世存在。</td></tr>
+<tr><td>身与货孰多</td><td>命和财货，哪个分量更重？</td><td>第二问。&quot;货&quot;指财货、利禄；&quot;多&quot;在此非数量之多，而是&quot;重要、可重&quot;之义。老子把&quot;身&quot;与&quot;货&quot;对举，指出贪货无厌必损其身。</td><td>王弼注：&quot;贪货无厌，其身必少。&quot;&quot;少&quot;与&quot;多&quot;对文，是以量喻质。老子不否定货利本身，而否定以货易身的价值倒置，即&quot;以身殉物&quot;。</td><td>河上公《老子章句》以养生解此章，主张财多害身、当爱啬精神；韩非在《解老》中把&quot;祸莫大于不知足&quot;一类的欲望逻辑读为治身治国之术，重&quot;理&quot;与&quot;度量&quot;；佛学中观则以&quot;缘起性空&quot;观&quot;身&quot;与&quot;货&quot;皆无自性，贪著二边俱为颠倒；郭象在《庄子注》中主张&quot;适性&quot;、&quot;各安其分&quot;，反对以分外之物累身，与老子&quot;身重于货&quot;可相参。</td></tr>
+<tr><td>得与亡孰病</td><td>得到与失去，哪一个才是真正的病？</td><td>第三问，并带出&quot;甚爱必大费，多藏必厚亡&quot;的判断。&quot;得&quot;指获取名利货利，&quot;亡&quot;指丧失生命或本真；老子指出贪得反而招致更大丧失，故&quot;知足&quot;&quot;知止&quot;才是长久之道。</td><td>王弼注：&quot;得多利而亡其身，何者为病也。&quot;又注&quot;甚爱必大费，多藏必厚亡&quot;曰：&quot;甚爱不与物通，多藏不与物散。求之者多，攻之者众，为物所病，故大费厚亡也。&quot;此处&quot;病&quot;为动词化的价值判断，非医学义。</td><td>王弼以&quot;无&quot;为本，认为&quot;甚爱&quot;&quot;多藏&quot;皆是&quot;有&quot;之执著，故&quot;大费&quot;&quot;厚亡&quot;是&quot;崇本&quot;失败后的必然；苏辙《老子解》以&quot;性&quot;为说，认为外物本不足以益性，逐之则性亏；庄子《齐物论》以&quot;得&quot;与&quot;失&quot;为&quot;成毁&quot;之循环，主张&quot;两行&quot;而&quot;照之于天&quot;；海德格尔的&quot;操心&quot;（Sorge）分析亦可参照：沉沦于世内存在者的占有，反而遮蔽了此在的本真可能性。</td></tr>
+<tr><td>知足不辱，知止不殆</td><td>知道满足就不会受辱，知道停下就不会翻车，这样才能长久。</td><td>本章结论句。&quot;知足&quot;指向欲望的自我限定，&quot;知止&quot;指向行为的自我节制；&quot;辱&quot;与&quot;殆&quot;是过度求取的两重后果，&quot;长久&quot;则是二者之效。老子由此把人生论收束于&quot;度&quot;的智慧。</td><td>原文对举&quot;辱／殆&quot;与&quot;长久&quot;，&quot;殆&quot;取危殆之义。王弼注：&quot;知足则不辱，知止则不殆，可以长久。&quot;此章在通行本中题为&quot;立戒&quot;（河上公本题），&quot;戒&quot;即戒贪、戒盈。</td><td>河上公以&quot;知足常足&quot;解，落于保身养生；郭象以&quot;止其分内&quot;、&quot;适性逍遥&quot;解，认为足与止不在外物多少而在各安其性分；庄子《逍遥游》以&quot;鹪鹩巢林，不过一枝&quot;喻足止之自然；佛学禅宗讲&quot;无心&quot;、&quot;无求&quot;，以知足为破贪著之方便；维特根斯坦论&quot;语言的界限&quot;，主张对不可说者保持沉默，可与&quot;知止&quot;的自我限定相互发明。现代研究中，陈鼓应《老子今注今译》把此章主旨概括为&quot;贵身&quot;与&quot;知足知止&quot;，刘笑敢《老子古今》则从&quot;人文自然&quot;角度强调其价值序位不是禁欲而是反对以身殉物。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">名与身孰亲</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">名声和自己的命，哪个更值得你亲近？</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">出自《老子》第四十四章首问。老子把&quot;名&quot;（名誉、声名）与&quot;身&quot;（生命、身体）对举，追问人应当把哪个放在更优先的位置，以此批评为求名而牺牲生命本真的做法。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文以&quot;孰亲&quot;设问，&quot;亲&quot;取切近、可依之义。&quot;名&quot;属外在之&quot;有&quot;，&quot;身&quot;属内在之&quot;真&quot;；老子以反问句而非陈述句展开，是&quot;正言若反&quot;的修辞策略，把价值排序问题交还读者。王弼注：&quot;尚名好高，其身必疏。&quot;</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;贵无&quot;为纲，认为&quot;名&quot;生于&quot;不足&quot;、是&quot;尚名好高&quot;而致&quot;身疏&quot;，故主张&quot;崇本息末&quot;、以无为身之主；河上公从养生立论，解为&quot;名遂则身退&quot;，重在全生保真；庄子《养生主》说&quot;为善无近名&quot;，以&quot;缘督以为经&quot;保身全生，与老子同调；海德格尔则从&quot;常人&quot;（das Man）的公共意见分析：人沉沦于他人之&quot;名&quot;而遮蔽本真能在，其&quot;身&quot;不是生物体而是&quot;此在&quot;的在世存在。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">身与货孰多</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">命和财货，哪个分量更重？</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">第二问。&quot;货&quot;指财货、利禄；&quot;多&quot;在此非数量之多，而是&quot;重要、可重&quot;之义。老子把&quot;身&quot;与&quot;货&quot;对举，指出贪货无厌必损其身。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;贪货无厌，其身必少。&quot;&quot;少&quot;与&quot;多&quot;对文，是以量喻质。老子不否定货利本身，而否定以货易身的价值倒置，即&quot;以身殉物&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公《老子章句》以养生解此章，主张财多害身、当爱啬精神；韩非在《解老》中把&quot;祸莫大于不知足&quot;一类的欲望逻辑读为治身治国之术，重&quot;理&quot;与&quot;度量&quot;；佛学中观则以&quot;缘起性空&quot;观&quot;身&quot;与&quot;货&quot;皆无自性，贪著二边俱为颠倒；郭象在《庄子注》中主张&quot;适性&quot;、&quot;各安其分&quot;，反对以分外之物累身，与老子&quot;身重于货&quot;可相参。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">得与亡孰病</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">得到与失去，哪一个才是真正的病？</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">第三问，并带出&quot;甚爱必大费，多藏必厚亡&quot;的判断。&quot;得&quot;指获取名利货利，&quot;亡&quot;指丧失生命或本真；老子指出贪得反而招致更大丧失，故&quot;知足&quot;&quot;知止&quot;才是长久之道。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;得多利而亡其身，何者为病也。&quot;又注&quot;甚爱必大费，多藏必厚亡&quot;曰：&quot;甚爱不与物通，多藏不与物散。求之者多，攻之者众，为物所病，故大费厚亡也。&quot;此处&quot;病&quot;为动词化的价值判断，非医学义。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，认为&quot;甚爱&quot;&quot;多藏&quot;皆是&quot;有&quot;之执著，故&quot;大费&quot;&quot;厚亡&quot;是&quot;崇本&quot;失败后的必然；苏辙《老子解》以&quot;性&quot;为说，认为外物本不足以益性，逐之则性亏；庄子《齐物论》以&quot;得&quot;与&quot;失&quot;为&quot;成毁&quot;之循环，主张&quot;两行&quot;而&quot;照之于天&quot;；海德格尔的&quot;操心&quot;（Sorge）分析亦可参照：沉沦于世内存在者的占有，反而遮蔽了此在的本真可能性。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">知足不辱，知止不殆</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">知道满足就不会受辱，知道停下就不会翻车，这样才能长久。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">本章结论句。&quot;知足&quot;指向欲望的自我限定，&quot;知止&quot;指向行为的自我节制；&quot;辱&quot;与&quot;殆&quot;是过度求取的两重后果，&quot;长久&quot;则是二者之效。老子由此把人生论收束于&quot;度&quot;的智慧。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文对举&quot;辱／殆&quot;与&quot;长久&quot;，&quot;殆&quot;取危殆之义。王弼注：&quot;知足则不辱，知止则不殆，可以长久。&quot;此章在通行本中题为&quot;立戒&quot;（河上公本题），&quot;戒&quot;即戒贪、戒盈。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以&quot;知足常足&quot;解，落于保身养生；郭象以&quot;止其分内&quot;、&quot;适性逍遥&quot;解，认为足与止不在外物多少而在各安其性分；庄子《逍遥游》以&quot;鹪鹩巢林，不过一枝&quot;喻足止之自然；佛学禅宗讲&quot;无心&quot;、&quot;无求&quot;，以知足为破贪著之方便；维特根斯坦论&quot;语言的界限&quot;，主张对不可说者保持沉默，可与&quot;知止&quot;的自我限定相互发明。现代研究中，陈鼓应《老子今注今译》把此章主旨概括为&quot;贵身&quot;与&quot;知足知止&quot;，刘笑敢《老子古今》则从&quot;人文自然&quot;角度强调其价值序位不是禁欲而是反对以身殉物。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 44 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 44 章]
+
+名与身孰亲？身与货孰多？得与亡孰病？是故甚爱必大费，多藏必厚亡，知足不辱，知止不殆，可以长久。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_44_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

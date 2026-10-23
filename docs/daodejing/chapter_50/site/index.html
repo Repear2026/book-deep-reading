@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 50 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 50/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_49/site/index.html" title="第 49 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_51/site/index.html" title="第 51 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 50 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>出生入死。生之徒，十有三；死之徒，十有三；人之生，动之死地，亦十有三。夫何故？以其生生之厚。盖闻善摄生者，陆行不遇兕虎，入军不被甲兵；兕无所投其角，虎无所措其爪，兵无所容其刃。夫何故？以其无死地。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 50 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章老子用一组冷峻的“三分法”算了一笔生死账：天生长寿的占三成，天生死路的占三成，本可长生却因“求生太厚”把自己折腾进死地的又占三成。真正的高手——“善摄生者”——走在山林不遭兕虎、上了战场不被兵刃所伤，靠的不是运气，而是“无死地”：压根没把自己摆到那个会死的局里去。全章的好处在反差：越是拼命抓生命的人越抓不住，越不刻意护命的人反而全生。收获一句话——养生不是往身上加东西，而是不往死地里站。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>- 如果“爱自己”的方式是不断加营养、加锻炼、加保险，却恰恰因为“加得太厚”反而先垮掉，会怎样？</blockquote>
+<blockquote>- 如果真正的安全不是躲开兕虎兵刃，而是让自己根本不进入那个被它们伤到的位置，会怎样？</blockquote>
+<blockquote>- 如果你接受“三分之三都是死路”，那么剩下那十分之一“生”的人，靠的究竟是什么，而不是什么？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote>- <strong>庄子（《养生主》）</strong>：“缘督以为经”，庖丁解牛“以无厚入有间”，正是“善摄生者”的另一种写法——不与物硬碰，故刀刃若新发于硎。</blockquote>
+<blockquote>- <strong>韩非（《解老》《喻老》）</strong>：把老子的“无死地”作政治化读解，认为圣人“不处危以侥幸”，治国者亦当避“死地”，把养生逻辑挪到权力自保上。</blockquote>
+<blockquote>- <strong>海德格尔</strong>：提出“向死存在”，认为人只有把死纳入自身生存结构、不再把它当外在意外来回避，才可能本真地活；这与老子“不厚生”形成一对张力：一个是直面死，一个是消解死地。</blockquote>
+<blockquote>- <strong>福柯</strong>：其“生命权力”分析指出，现代治理把“养护生命”变成一整套技术装置，往往恰恰通过“厚生”来管理人口——可反观老子对“生生之厚”的警惕。</blockquote>
+<blockquote>- <strong>吉登斯</strong>：讨论“风险社会”中的安全追求，指出为规避风险而层层设防，常反造新的风险；可与“无死地”对读。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：抓三个点——一是开头“生之徒十有三、死之徒十有三、动之死地亦十有三”的十分之三分法，弄清“三类人”各是谁；二是“善摄生者”的两幅画面（陆行不遇兕虎、入军不被甲兵）；三是两个反问“夫何故”，它们各引出一个原因，是本章的骨架。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：必看两处论证。其一，“以其生生之厚”——为何“厚养”反倒成“死地”？注意老子的逻辑不是禁欲，而是“过度经营生命本身就是一种耗损”。其二，“以其无死地”——注意“无”字，不是“能扛住兕虎兵刃”，而是根本不在其伤害范围里，这决定了全章不是讲神奇护体，而是讲位置与方式的选择。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：追问一个开放问题——“无死地”若真的成立，是意味着一种可操作的处世技术，还是只是一个理想极限？如果它只是极限，那么老子写下“善摄生者”究竟是为了让人去练这门功夫，还是为了反衬“生生之厚”者的荒谬？这个追问会牵动你对全章是“养生术”还是“反养生术”的判断。</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+A1["老子"] -->|relates_to| C1["出生入死"]
+C1 -->|relates_to| P1["生之徒十有三"]
+C1 -->|relates_to| P2["死之徒十有三"]
+C1 -->|relates_to| P3["动之于死地亦十有三"]
+C2["生生之厚"] -->|supports| P4["求生太厚故入死地"]
+P4 -->|supports| P3
+P1 -->|relates_to| P2
+P2 -->|relates_to| P3
+C2 -->|relates_to| C1
+C3["善摄生者"] -->|relates_to| P5["陆行不遇兕虎，入军不被甲兵"]
+C4["无死地"] -->|supports| P6["兕虎兵刃不能害"]
+P6 -->|supports| P5
+C3 -->|relates_to| C4
+P5 -->|relates_to| P3
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章以“出生入死”讨论生死比例与“生生之厚”的弊端，提出“善摄生者”因“无死地”而不受兕虎兵刃所害，呈现老子关于养护生命与处世避害的核心智慧。</div>
+<h3>📌 核心命题</h3><ol>
+<li>人从出生到死亡，生存一类占十分之三，死亡一类占十分之三。</li>
+<li>人本来求生，却因行动走向死地，也占十分之三。</li>
+<li>其原因在于求生太厚。</li>
+<li>善摄生者陆行不遇兕虎，入军不被甲兵。</li>
+<li>兕、虎、兵刃都不能伤害善摄生者，原因在于其无死地。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>“夫何故？以其生生之厚。”</li>
+<li>“盖闻善摄生者，陆行不遇兕虎，入军不被甲兵；”</li>
+<li>“夫何故？以其无死地。”</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>出生入死</strong></summary><div class="case-body">从出生到死亡的过程。</div></details>
+<details><summary><strong>生生之厚</strong></summary><div class="case-body">求生过度、太厚养其生。</div></details>
+<details><summary><strong>善摄生者</strong></summary><div class="case-body">善于养护生命的人。</div></details>
+<details><summary><strong>无死地</strong></summary><div class="case-body">没有可致死的境地。</div></details>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 {章节号} 章《{章节标题}》。我自己的概括是：</p>
+<p>「{我的一句话概括}」</p>
+<br/>
+<p>请你做三件事，不要急着替我总结：</p>
+<p>1）主线提取：用&quot;作者要回答的问题 → 他给出的回答 → 他凭什么这么答（理由/论证步骤）&quot;三步，把本章骨架列出来；</p>
+<p>2）关键概念检查：从我这句话里挑出 {我怀疑的概念，如：意志/自由/表象}，逐个反问我&quot;你说的这个词，在本章里具体指什么&quot;，等我回答后再判断我用对了还是用偏了；</p>
+<p>3）缺口提示：指出我这句概括漏掉了本章哪个不可省略的环节。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>请扮演 {反方立场，如：一位彻底的自然主义唯物论者 / 与作者对立的学派代表}，读完第 {章节号} 章后认为它 {核心攻击点，如：前提未经论证 / 关键一步是跳跃 / 结论自相矛盾}。</p>
+<br/>
+<p>要求：</p>
+<p>1）先按慈善原则，用作者自己的术语把该章立场最强地复述一遍，确认你打的不是稻草人；</p>
+<p>2）给出三条最强反驳，每条配一个具体反例或思想实验；</p>
+<p>3）针对我目前的接受度——「{我对本章结论的接受程度与理由}」——逐条追问：我凭什么还站得住？</p>
+<p>4）全程不许给我台阶下，除非我给出了你无法反驳的理由。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我读完了第 {章节号} 章，我理解它的核心是 {一句话主题}。</p>
+<p>下面是我给你的 3 个真实场景：</p>
+<p>1）{场景一：生活场景}</p>
+<p>2）{场景二：工作/职业场景}</p>
+<p>3）{场景三：公共议题或人际冲突场景}</p>
+<br/>
+<p>请对每个场景分别回答：</p>
+<ul>
+<li>- 本章的 {核心概念} 在这里具体起什么作用？用它看和不用它看，判断会差在哪里？</li>
+<li>- 如果按本章逻辑行动，我会做出什么与直觉不同的选择？</li>
+<li>- 本章思想在这个场景里最可能在哪儿失灵？请指出边界条件。</li>
+</ul>
+<p>最后判断：这三个场景里，哪一个最不适合用本章思想解释，为什么。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 {章节号} 章里最让我兴奋的一句话是：</p>
+<p>「{原文句子}」</p>
+<br/>
+<p>请围绕它做四步推演：</p>
+<p>1）定位：这句话在本章论证中承担什么功能？它是前提、推论，还是修辞性的收束？</p>
+<p>2）推到底：如果把它当成真命题推到极致，会得出哪些作者本人没明说的结论？</p>
+<p>3）撞墙：推到极致后会遇上什么反例、悖论或无法接受的后果？</p>
+<p>4）退守：为了保住这句话而不撞墙，作者最可能退到哪个更弱的版本？退守后损失了什么？</p>
+<p>最后反问我一句：{我最想守住的直觉} 值不值得为它接受这个代价？</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. <strong>这一章里，作者主要在跟谁较劲、想回答什么问题？</strong> —— 提示：先找&quot;反驳对象&quot;和&quot;待解难题&quot;，比找结论更容易入门。</li>
+<li>2. <strong>用一句大白话说，作者想让我相信什么？</strong> —— 提示：不许用书里的术语，只能用日常语言，说不出来就是还没读懂。</li>
+<li>3. <strong>本章出现频率最高的那个词，作者用时和你平时用时是一个意思吗？</strong> —— 提示：哲学章常常在悄悄重定义一个你自以为认识的词。</li>
+<li>4. <strong>作者给的理由里，哪一条你最不服气？</strong> —— 提示：不服气的地方往往就是本章论证最吃紧的地方，别急着说服自己。</li>
+<li>5. <strong>如果这一章的结论是假的，世界会有什么不一样？</strong> —— 提示：想不出差别，说明这个结论可能没有实质内容，或者你还没抓住它。</li>
+<li>6. <strong>作者有没有一个前提是他直接拿来用、却没论证的？</strong> —— 提示：找&quot;显然&quot;&quot;当然&quot;&quot;众所周知&quot;这类词后面的东西。</li>
+<li>7. <strong>把本章结论交给一个立场相反的哲学传统去审，最强的对手会说什么？</strong> —— 提示：先想清楚对立阵营的名字和它的核心武器，再看本章有没有预备防守。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><p><strong>本章概念列表为空，无法生成分层翻译。</strong></p>
+<br/>
+<table class="tbl"><thead><tr>
+<th>序号</th><th>笔记中的 <code>concept</code></th><th>笔记中的 <code>explanation</code></th><th>可执行动作</th>
+</tr></thead><tbody>
+<tr><td>1</td><td>null</td><td>（空）</td><td>待补全</td></tr>
+<tr><td>2</td><td>null</td><td>（空）</td><td>待补全</td></tr>
+<tr><td>3</td><td>null</td><td>（空）</td><td>待补全</td></tr>
+<tr><td>4</td><td>null</td><td>（空）</td><td>待补全</td></tr>
+</table>
+<br/>
+<p>L0、L1 和 L2 三层必须严格依据本章笔记和原文来写，不能靠猜测补充；现在这四个条目都没有可用的术语和释义，所以任何输出都会变成编造，因此不生成。</p>
+<br/>
+<p>请先补全 <code>concept</code> 字段（术语名）和 <code>explanation</code> 字段（本章给出的释义），再重新运行，就能得到完整的四层表格。如果本章（第 50 章）笔记解析出现异常，也请一并核对原文提取环节。</p></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 50 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 50 章]
+
+出生入死。生之徒，十有三；死之徒，十有三；人之生，动之死地，亦十有三。夫何故？以其生生之厚。盖闻善摄生者，陆行不遇兕虎，入军不被甲兵；兕无所投其角，虎无所措其爪，兵无所容其刃。夫何故？以其无死地。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_50_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

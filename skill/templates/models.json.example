@@ -1,0 +1,12 @@
+[
+  {
+    "id": "deepseek-v4-flash",
+    "name": "DeepSeek-V4 Flash",
+    "vendor": "DeepSeek",
+    "url": "https://api.deepseek.com/chat/completions",
+    "apiKey": "sk-替换成你自己的密钥",
+    "supportsToolCall": true,
+    "supportsImages": false,
+    "supportsReasoning": true
+  }
+]

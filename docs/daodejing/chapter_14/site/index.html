@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 14 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 14/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_13/site/index.html" title="第 13 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_15/site/index.html" title="第 15 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 14 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>视之不见名曰夷，听之不闻名曰希，搏之不得名曰微。此三者，不可致诘，故混而为一。其上不皦，其下不昧。绳绳不可名，复归于无物。是谓无状之状，无物之象，是谓惚恍。迎之不见其首，随之不见其后。执古之道，以御今之有。能知古始，是谓道纪。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 14 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<br/>
+<blockquote>这一章老子玩了个“反常识”的游戏：他先说“道”根本看不见、听不到、摸不着，甚至连追问都无从下手——它既不明亮也不昏暗，最终“复归于无物”，只剩一个“惚恍”。但别以为他在故弄玄虚：话锋一转，他说只要“执古之道”，就能“御今之有”，知古始就叫“道纪”。这就是全章最有趣的转折——<strong>不可感知的道，恰恰是最实用的治理工具</strong>。最重要的收获：老子把“不可名状”从神秘主义拉回了实践哲学，道不是用来“看”的，是用来“执”的。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<br/>
+<blockquote>1. 如果有一种东西你永远看不见、听不到、摸不着，却声称能指导你的一切行动——你会信它，还是觉得这是骗局？</blockquote>
+<blockquote>2. 如果你被告知“抓住古代的道就能管好今天的事”，你会追问：古代的“道”凭什么对今天有效？</blockquote>
+<blockquote>3. 如果“知古始”就是掌握了道的纲纪，那“古始”到底指时间上的开头，还是逻辑上的根源？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<br/>
+<blockquote>- <strong>维特根斯坦</strong>：他在《逻辑哲学论》末尾说“对于不可言说之物，必须保持沉默”。老子却偏要“强为之容”——用夷、希、微、惚恍去说那不可说的，这正是分析哲学与道家在语言界限上的经典分歧。</blockquote>
+<blockquote>- <strong>荀子</strong>：主张“天行有常，不为尧存，不为桀亡”，把“道”理解为可认识、可遵循的客观规律，与老子“绳绳不可名”的不可知论倾向形成对照。</blockquote>
+<blockquote>- <strong>韩非</strong>：在《解老》《喻老》中把老子的“道”转译为政治操作术，将“执古之道以御今之有”读作君主驾驭臣下的“术”，代表法家对道家文本的实用主义挪用。</blockquote>
+<blockquote>- <strong>王阳明</strong>：讲“心即理”“知行合一”，认为天理不在外物而在本心，与老子“执古之道”需向外追溯“古始”的路径构成方向上的差异。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<br/>
+<blockquote><strong>（1）第一遍（速览）：</strong> 关注三个点——①“夷、希、微”三个否定性命名如何层层剥掉感官依赖；②“其上不皦，其下不昧”这句空间隐喻在说什么（道不在任何极端位置）；③从“视之不见”到“执古之道”的文体转折，前半是描述，后半是行动纲领。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）：</strong> 必看两个论证：第一，“此三者，不可致诘，故混而为一”——为什么“无法追问分辨”反而成了“混一”的理由？这是老子独特的逻辑：不可分析性本身就是统一性的证据。第二，“绳绳不可名，复归于无物”到“无状之状，无物之象”——注意“无”字在这里不是“没有”，而是“没有固定形态”，这是理解“惚恍”的关键。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）：</strong> 追问一个问题：老子说“执古之道，以御今之有”，但“古之道”本身是不可感知、不可命名的——那你到底“执”的是什么？如果“执”的只是一个“惚恍”，它凭什么比“今之有”更可靠？这个循环是老子留给读者的最大难题，也是历代注家争论的焦点。</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+  C_yi["夷：视之不见"]
+  C_xi["希：听之不闻"]
+  C_wei["微：搏之不得"]
+  C_hh["惚恍"]
+  C_dj["道纪"]
+  C_dao["道"]
+
+  P_buke["道不可通过视、听、触直接把握"]
+  P_hunyi["夷希微三者不可致诘，混而为一"]
+  P_bujiao["其上不皦，其下不昧"]
+  P_wuwu["绳绳不可名，复归于无物"]
+  P_hh["无状之状、无物之象，是谓惚恍"]
+  P_shouwei["迎之不见其首，随之不见其后"]
+  P_zhigu["执古之道，以御今之有"]
+  P_daoji["能知古始，是谓道纪"]
+
+  C_yi -->|relates_to| P_buke
+  C_xi -->|relates_to| P_buke
+  C_wei -->|relates_to| P_buke
+  C_dao -->|relates_to| P_hh
+  C_hh -->|relates_to| P_hh
+  C_dj -->|relates_to| P_daoji
+
+  P_buke -->|supports| P_hunyi
+  P_hunyi -->|supports| P_bujiao
+  P_hunyi -->|supports| P_wuwu
+  P_bujiao -->|supports| P_hh
+  P_wuwu -->|supports| P_hh
+  P_hh -->|supports| P_shouwei
+  P_hh -->|supports| P_zhigu
+  P_zhigu -->|supports| P_daoji
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章通过夷、希、微描述道不可感知、不可名状，提出无状之状、无物之象的惚恍之道，并转向实践：执古之道以御今之有，知古始即道纪。</div>
+<h3>📌 核心命题</h3><ol>
+<li>道不可通过视觉、听觉、触觉直接把握。</li>
+<li>夷、希、微三者不可追问分辨，混而为一。</li>
+<li>道不显明于上，也不晦暗于下。</li>
+<li>道绳绳不可名，最终复归于无物。</li>
+<li>道可称为无状之状、无物之象，处于惚恍之中。</li>
+<li>道迎之不见其首，随之不见其后。</li>
+<li>执守古之道，可以驾驭今之有的。</li>
+<li>能知古始，就称为道纪。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>视之不见名曰夷，听之不闻名曰希，搏之不得名曰微。</li>
+<li>此三者，不可致诘，故混而为一。</li>
+<li>其上不皦，其下不昧。</li>
+<li>绳绳不可名，复归于无物。</li>
+<li>是谓无状之状，无物之象，是谓惚恍。</li>
+<li>迎之不见其首，随之不见其后。</li>
+<li>执古之道，以御今之有。</li>
+<li>能知古始，是谓道纪。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>夷</strong></summary><div class="case-body">看不见，称之为夷。</div></details>
+<details><summary><strong>希</strong></summary><div class="case-body">听不到，称之为希。</div></details>
+<details><summary><strong>微</strong></summary><div class="case-body">摸不着，称之为微。</div></details>
+<details><summary><strong>惚恍</strong></summary><div class="case-body">若有若无、难以确定的样子。</div></details>
+<details><summary><strong>道纪</strong></summary><div class="case-body">道的纲纪或头绪，由知古始来把握。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>{&#x27;chapter&#x27;: &#x27;第1章&#x27;, &#x27;hint&#x27;: &#x27;与“道可道，非常道”相呼应，强调道不可言说、不可直接感知。&#x27;}</li>
+<li>{&#x27;chapter&#x27;: &#x27;第21章&#x27;, &#x27;hint&#x27;: &#x27;“惚兮恍兮，其中有象”可与本章“惚恍”“无物之象”对读。&#x27;}</li>
+<li>{&#x27;chapter&#x27;: &#x27;第25章&#x27;, &#x27;hint&#x27;: &#x27;“有物混成，先天地生”可与本章“混而为一”“复归于无物”相参。&#x27;}</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>模板 A｜理解检查</h3>
+<br/>
+<p>```</p>
+<p>下面是我读《第 14 章》之后自己写的一段概括，请你帮我做&quot;主线提取 + 关键概念检查&quot;。</p>
+<br/>
+<p>我的概括：</p>
+<p>{我的章节概括}</p>
+<br/>
+<p>本章原文/笔记要点（如我没有附上，请以你对我所给概括的复述为准，不要补充我没提到的内容）：</p>
+<p>{本章要点或原文摘录}</p>
+<br/>
+<p>请按三步回应：</p>
+<ol>
+<li>1. 主线提取：把我这段话压缩成 2—3 句&quot;本章主张—支撑理由—结论&quot;，指出我的概括里哪一句是主线、哪些只是例子或铺垫。</li>
+<li>2. 关键概念检查：列出本章真正承担论证重量的 3—5 个关键概念，逐个问我&quot;你能用自己的话说明它在本章中指的是什么、它和哪个概念对立吗&quot;，并判断我上面的概括里是否把它们用对了、用漏了、或用混了。</li>
+<li>3. 断点标注：指出我的概括中有哪一处是&quot;跳步&quot;（我给出的结论超出了我给出的理由），并说明缺哪一环。</li>
+</ul>
+<br/>
+<p>要求：不要替我补写概括；凡是我没提到的本章内容，你只能提示&quot;这里可能缺一环，回去核对原文&quot;，不要凭空替我断言原文说了什么。</p>
+<p>```</p>
+<br/>
+<h3>模板 B｜强反驳</h3>
+<br/>
+<p>```</p>
+<p>请你扮演本章《第 14 章》最强硬、最有学理的反方，目标是让我对本章的接受度经受一次真实压力测试。</p>
+<br/>
+<p>本章核心主张（我的理解）：</p>
+<p>{本章核心主张}</p>
+<br/>
+<p>我目前对它的接受程度与理由：</p>
+<p>{我的立场与理由}</p>
+<br/>
+<p>反方作战要求：</p>
+<ol>
+<li>1. 先做 charitable reading：用最强形式重述本章主张，确保你攻击的不是稻草人。</li>
+<li>2. 然后给出 3 条彼此独立的反驳，每条须包含：反驳类型（内在矛盾／前提可疑／反例／后果不可接受／诉诸更强的替代解释）、论证展开、以及&quot;本章作者最可能的回应是什么、这个回应为什么还不够&quot;。</li>
+<li>3. 每条反驳都要标明它打击的是本章的哪一步（前提、推理、还是结论）。</li>
+<li>4. 最后给出一个&quot;最小让步方案&quot;：如果我必须保留本章最有价值的那部分洞见，我应当放弃哪一句、保留哪一句。</li>
+</ul>
+<br/>
+<p>要求：不要替本章辩护到底，也不要为了反驳而歪曲；如果你认为某条反驳其实能被本章轻松化解，就如实说明并换一条更强的。</p>
+<p>```</p>
+<br/>
+<h3>模板 C｜连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《第 14 章》，想检验自己是不是真的理解，而不只是&quot;看懂了字&quot;。</p>
+<br/>
+<p>本章我抓到的核心思想：</p>
+<p>{本章核心思想}</p>
+<br/>
+<p>请给我 3 个真实生活/工作场景，并用本章思想去解释它们。要求：</p>
+<ol>
+<li>1. 三个场景的层次要拉开：一个日常人际/自我管理层面的，一个组织或职业决策层面的，一个公共议题或社会现象层面的。</li>
+<li>2. 每个场景按此结构写：</li>
+<li>   - 场景速写（3—4 句，具体到有冲突、有选择、有代价，不要泛泛而谈）</li>
+<li>   - 用本章的哪个概念/区分来切开它</li>
+<li>   - 按本章逻辑会得出什么判断或建议</li>
+<li>   - 这个判断在现实中会&quot;卡&quot;在哪里（本章思想解释不了或会失灵的部分）</li>
+<li>3. 最后问我一个问题：这三个场景中，哪一个是我用本章思想解释得最勉强的？为什么？</li>
+</ul>
+<br/>
+<p>要求：场景要具体可感，不要用&quot;比如在工作中我们常常……&quot;这种空转句式；凡涉及本章未明说的推论，请标注&quot;这是我从本章推出来的，不是原文直接说的&quot;。</p>
+<p>```</p>
+<br/>
+<h3>模板 D｜深挖</h3>
+<br/>
+<p>```</p>
+<p>本章里最让我兴奋的一句话是：</p>
+<br/>
+<p>&quot;{我挑出的原句}&quot;</p>
+<br/>
+<p>它出现在上下文中是这样的（如有笔记请附上）：</p>
+<p>{上下文或我的理解}</p>
+<br/>
+<p>请围绕这句话做&quot;那这样推下去还有什么？&quot;的四层展开：</p>
+<ol>
+<li>1. 这句话在说它自己：拆出它隐含的前提与它明确否定的东西（它在跟谁抬杠）。</li>
+<li>2. 推一步：如果这句话成立，作者在本章其他地方就必须接受什么？有没有他其实没明说、但逻辑上被绑定的结论？</li>
+<li>3. 推到边界：这句话在什么条件下会失效？它的适用范围到哪里为止？有没有反例能让它变成半真半假？</li>
+<li>4. 推出去：这句话如果移植到本章之外的领域（伦理、政治、语言、认知、日常实践任一），会长成什么样子？会与哪些既有想法冲突？</li>
+</ul>
+<br/>
+<p>最后给我 3 个&quot;顺着这句话继续想&quot;的追问，按由浅入深排列，并标明每个追问大致需要读什么类型的东西才能推进。</p>
+<br/>
+<p>要求：第 1、2 层严格以本章文本为依据，不得替我补充原文没有的论点；第 3、4 层属于延伸，请明确标注&quot;以下是延伸推演，非原文内容&quot;。</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅到深）</h2>
+<br/>
+<ol>
+<li>1. 这一章如果用一句话讲，作者最想让你接受的是什么？——先别管对错，只练&quot;把一章压成一句&quot;，说不出来就说明主线还没抓到。</li>
+<li>2. 本章里有没有哪个词反复出现、但你其实说不清它什么意思？——把那个词抄下来，问自己&quot;它反义词是什么&quot;，能答上就是真懂了一半。</li>
+<li>3. 作者是在反驳谁？他心里那个&quot;错误答案&quot;长什么样？——哲学写作几乎都是对着某个对手写的，找到对手，章节结构就自动显形。</li>
+<li>4. 本章的结论是靠什么撑住的：一个例子、一个类比，还是一个论证？——例子只能说明，论证才能证明；分不清这两者是最常见的误读来源。</li>
+<li>5. 如果把本章最关键的那一步推理抽掉，结论还成立吗？——这是检验&quot;哪一步真正承重&quot;最快的办法。</li>
+<li>6. 你自己原本是怎么想这个问题的？本章有没有改变你，还是只是替你说出了你早就在做的事？——能说清&quot;被改变的具体是哪一句&quot;，才算读进去了。</li>
+<li>7. 假设有人完全接受本章，他的生活会因此有什么不同？如果不接受，又会怎样？——把论点推到实践后果上，是检验理解深度最狠的一关。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>夷</td><td>看不见，不等于不存在，而是视觉抓不住。</td><td>老子用“夷”指无色、不可见者，与“希”“微”并列，说明道超出感官把握。</td><td>《老子》十四章：“视之不见，名曰夷。”河上公注以“无色”释之；王弼以“无”为本，将此不可见者归于混一之无。</td><td>河上公从治身养生解“无色”，强调精气不可见；王弼以贵无论说“夷希微”三者混而为一，终归于无；成玄英重玄学则双遣有无，反对把“夷”执为实有或断无。</td></tr>
+<tr><td>希</td><td>听不到，不是没有声音，而是听觉抓不住。</td><td>老子用“希”指无声、不可闻者，与“夷”“微”并列，表示道不可由听觉把握。</td><td>《老子》十四章：“听之不闻名曰希。”河上公注以“无声”释之；王弼注强调无声无响，非具体声尘。</td><td>河上公以“无声”说希，偏重治身养气；王弼以无为本，认为希声非有声可闻；成玄英重玄学以双遣释之，既不执有声，也不执无声。</td></tr>
+<tr><td>微</td><td>摸不着，不是没有形体，而是触觉抓不住。</td><td>老子用“微”指无形、不可搏者，与“夷”“希”并列，表示道不可由触觉把握。</td><td>《老子》十四章：“搏之不得名曰微。”河上公注以“无形”释之；王弼以“无体”说之，强调不可执为具体形质。</td><td>河上公以“无形”释微，联系治身养生；王弼以贵无论说微者无体；成玄英重玄学以非有非无、遣执双忘释之；郭象独化论则反对在万物之上另立一个无形之道。</td></tr>
+<tr><td>惚恍</td><td>若有若无，说不清、定不住的样子。</td><td>老子用“惚恍”形容道似有似无、不可确定的状态，非具体物象。</td><td>《老子》十四章：“无状之状，无物之象，是谓惚恍。”又云“绳绳不可名，复归于无物”。</td><td>王弼以贵无论把惚恍理解为无形无象之本；河上公注偏重道气恍惚、治身治国的实践义；成玄英重玄学以非有非无、双遣释之；郭象独化论反对在万物之上另立恍惚之道。</td></tr>
+<tr><td>道纪</td><td>道的头绪或纲纪，懂古始就能把握当下。</td><td>老子把“道纪”与“执古之道，以御今之有”相连，指道的纲纪、头绪，由知古始来把握。</td><td>《老子》十四章：“执古之道，以御今之有；能知古始，是谓道纪。”河上公注重治国治身；王弼注重执古御今、以无为用。</td><td>王弼以“执古之道，以御今之有”发挥以无为本、不执今有；河上公从治国养生说道纪；韩非《解老》以“理”释道，重“缘道理以从事”；陈鼓应等现代研究者常把“道纪”解为道的纲纪或规律。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">夷</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">看不见，不等于不存在，而是视觉抓不住。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子用“夷”指无色、不可见者，与“希”“微”并列，说明道超出感官把握。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》十四章：“视之不见，名曰夷。”河上公注以“无色”释之；王弼以“无”为本，将此不可见者归于混一之无。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公从治身养生解“无色”，强调精气不可见；王弼以贵无论说“夷希微”三者混而为一，终归于无；成玄英重玄学则双遣有无，反对把“夷”执为实有或断无。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">希</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">听不到，不是没有声音，而是听觉抓不住。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子用“希”指无声、不可闻者，与“夷”“微”并列，表示道不可由听觉把握。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》十四章：“听之不闻名曰希。”河上公注以“无声”释之；王弼注强调无声无响，非具体声尘。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以“无声”说希，偏重治身养气；王弼以无为本，认为希声非有声可闻；成玄英重玄学以双遣释之，既不执有声，也不执无声。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">微</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">摸不着，不是没有形体，而是触觉抓不住。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子用“微”指无形、不可搏者，与“夷”“希”并列，表示道不可由触觉把握。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》十四章：“搏之不得名曰微。”河上公注以“无形”释之；王弼以“无体”说之，强调不可执为具体形质。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以“无形”释微，联系治身养生；王弼以贵无论说微者无体；成玄英重玄学以非有非无、遣执双忘释之；郭象独化论则反对在万物之上另立一个无形之道。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">惚恍</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">若有若无，说不清、定不住的样子。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子用“惚恍”形容道似有似无、不可确定的状态，非具体物象。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》十四章：“无状之状，无物之象，是谓惚恍。”又云“绳绳不可名，复归于无物”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以贵无论把惚恍理解为无形无象之本；河上公注偏重道气恍惚、治身治国的实践义；成玄英重玄学以非有非无、双遣释之；郭象独化论反对在万物之上另立恍惚之道。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">道纪</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">道的头绪或纲纪，懂古始就能把握当下。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子把“道纪”与“执古之道，以御今之有”相连，指道的纲纪、头绪，由知古始来把握。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》十四章：“执古之道，以御今之有；能知古始，是谓道纪。”河上公注重治国治身；王弼注重执古御今、以无为用。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“执古之道，以御今之有”发挥以无为本、不执今有；河上公从治国养生说道纪；韩非《解老》以“理”释道，重“缘道理以从事”；陈鼓应等现代研究者常把“道纪”解为道的纲纪或规律。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 14 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 14 章]
+
+视之不见名曰夷，听之不闻名曰希，搏之不得名曰微。此三者，不可致诘，故混而为一。其上不皦，其下不昧。绳绳不可名，复归于无物。是谓无状之状，无物之象，是谓惚恍。迎之不见其首，随之不见其后。执古之道，以御今之有。能知古始，是谓道纪。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_14_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

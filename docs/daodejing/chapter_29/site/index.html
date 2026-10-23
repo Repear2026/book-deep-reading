@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 29 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 29/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_28/site/index.html" title="第 28 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_30/site/index.html" title="第 30 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 29 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>将欲取天下而为之，吾见其不得已。天下神器，不可为也，不可执也。为者败之，执者失之。是以圣人无为，故无败；无执，故无失。故物或行或随，或歔或吹。或强或羸，或挫或隳。是以圣人去甚，去奢，去泰。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 29 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<br/>
+<blockquote>这一章是老子政治哲学的浓缩版：天下是“神器”，不是谁想拿就能拿、想管就能管的。你越使劲抓，它越从指缝里溜走——“为者败之，执者失之”。反过来，圣人“无为”“无执”，所以不败不失。最后落到三条实操准则：去甚、去奢、去泰，也就是别走极端、别贪奢华、别过度。最重要的一收获是：老子不是教你躺平，而是提醒你——对复杂系统强行操控，往往正是失败的原因。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<br/>
+<blockquote>1. 如果你是一家公司的新任 CEO，急于“大刀阔斧改革”，老子的“为者败之”会让你先做什么、不做什么？</blockquote>
+<blockquote>2. 如果你死死抓住一段关系不放，越用力越抓不住——“执者失之”说的是不是就是你？</blockquote>
+<blockquote>3. 如果你的生活被“更多、更快、更强”填满，老子的“去甚、去奢、去泰”会让你先删掉哪一样？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<br/>
+<blockquote><strong>韩非子（法家）</strong>：韩非主张君主以“法、术、势”主动掌控全局，相信精密制度可以“为”出秩序；老子却说“不可为也，不可执也”——法家要造机器，老子说这机器本身就是“神器”，碰不得。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>荀子（儒家）</strong>：荀子讲“化性起伪”，主张通过礼义教化积极改造人性与社会，是典型的“做加法”；老子恰恰相反，讲“去甚、去奢、去泰”，是“做减法”——一个相信建构，一个相信去除。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>福柯（现代哲学）</strong>：福柯剖析现代“治理术”如何通过细密技术把人口纳入管理，这正是老子警惕的“执”与“为”的极致形态；而福柯自己也指出，权力越渗透，反噬越强——“为者败之，执者失之”在当代治理中仍在上演。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<br/>
+<blockquote><strong>（1）第一遍（速览）：3 个关注点</strong></blockquote>
+<blockquote>- “神器”这个比喻：为什么天下被比作“神圣的器物”，而不是“战利品”？</blockquote>
+<blockquote>- “为”与“执”两个动词：老子到底在反对什么样的“作为”和“把持”？</blockquote>
+<blockquote>- “去甚、去奢、去泰”：三个“去”字背后，是不是同一条逻辑——做减法？</blockquote>
+<br/>
+<blockquote><strong>（2）第二遍（细抠）：2 个必看的论证</strong></blockquote>
+<blockquote>- “将欲取天下而为之，吾见其不得已。”——注意“不得已”三字：老子不是说你做不到，而是说这条路根本走不通。接着看“为者败之，执者失之”，这是一个从“意图”到“结果”的因果倒转：你想取，结果却是败与失。</blockquote>
+<blockquote>- “是以圣人无为，故无败；无执，故无失。”——这是从反面论证翻到正面结论：不为→不败，不执→不失，逻辑完全对称。然后立刻接“去甚、去奢、去泰”，把抽象原则落成三条可操作的行为边界。</blockquote>
+<br/>
+<blockquote><strong>（3）第三遍（思辨）：1 个该追问的开放问题</strong></blockquote>
+<blockquote>- 老子说“无为故无败”。但“无为”本身是不是也是一种“为”？如果完全不作为导致秩序崩溃、关系瓦解，这算不算另一种“败”？——无为的边界到底在哪里，这是读完全章最值得带走的追问。</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+  au["人物：老子"]
+  c1["概念：神器"]
+  c2["概念：无为"]
+  c3["概念：无执"]
+  c4["概念：去甚、去奢、去泰"]
+  p1["命题：天下是神圣之物，不可强行作为，不可执着把持"]
+  p2["命题：强行作为者失败，执着把持者失去"]
+  p3["命题：圣人无为故无败，无执故无失"]
+  p4["命题：圣人去除极端、奢侈和过度"]
+  a1["论据：将欲取天下而为之，吾见其不得已"]
+  a2["论据：天下神器，不可为也，不可执也"]
+  a3["论据：为者败之，执者失之"]
+  a4["论据：圣人无为，故无败；无执，故无失"]
+  a1 -->|supports| p1
+  a2 -->|supports| p1
+  a2 -->|supports| p2
+  a3 -->|supports| p2
+  a4 -->|supports| p3
+  p1 -->|supports| p2
+  p2 -->|supports| p3
+  p3 -->|relates_to| p4
+  c1 -->|relates_to| p1
+  c2 -->|relates_to| p3
+  c3 -->|relates_to| p3
+  c4 -->|relates_to| p4
+  au -->|relates_to| p1
+  au -->|relates_to| c2
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章集中阐述“无为而治”的政治哲学：天下不可强取、不可执持，统治者若妄为执取必致失败与丧失，圣人以无为无执而保全，并以去甚、去奢、去泰作为实践准则。</div>
+<h3>📌 核心命题</h3><ol>
+<li>天下是神圣之物，不可以强行作为，也不可以执着把持。</li>
+<li>强行作为的人会失败，执着把持的人会失去。</li>
+<li>圣人因无为而无败，因无执而无失。</li>
+<li>圣人去除极端、奢侈和过度。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>将欲取天下而为之，吾见其不得已。</li>
+<li>天下神器，不可为也，不可执也。</li>
+<li>为者败之，执者失之。</li>
+<li>是以圣人无为，故无败；无执，故无失。</li>
+<li>是以圣人去甚，去奢，去泰。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>神器</strong></summary><div class="case-body">天下如同神圣的器物，不能凭人力强行操控。</div></details>
+<details><summary><strong>无为</strong></summary><div class="case-body">不妄加作为，顺应自然而不强行干预。</div></details>
+<details><summary><strong>无执</strong></summary><div class="case-body">不执着把持，不强行抓住不放。</div></details>
+<details><summary><strong>去甚、去奢、去泰</strong></summary><div class="case-body">去除极端、奢侈和过度的行为。</div></details>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《{书名}》第 {章号} 章「{章节标题}」。下面是我自己写的一段概括：</p>
+<br/>
+<p>&quot;&quot;&quot;</p>
+<p>{我的概括}</p>
+<p>&quot;&quot;&quot;</p>
+<br/>
+<p>请分两步检查，不要替我补充我没读到的内容：</p>
+<br/>
+<p>1）主线提取：把我的话压缩成 3–5 个逻辑步骤，标出哪一步是我自己加的、哪一步是作者原文的论证环节、哪一步我漏掉了（漏掉的只指出&quot;这里缺一个环节&quot;，不要替我填内容）。</p>
+<p>2）关键概念检查：列出本章出现的核心术语（含那些&quot;看着像日常词其实是术语&quot;的词），逐个问我&quot;这个词在本章里是什么意思&quot;，等我回答后再对照本章原文/笔记判断对错，并指出我混淆了它和哪个邻近概念。</p>
+<br/>
+<p>凡是我概括里没有原文依据的地方，直接标为「待核实」，并说明我需要回原文哪一段去核对。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>我读完了《{书名}》第 {章号} 章「{章节标题}」。我目前的接受度是：{完全接受 / 半信半疑 / 不接受}，主要理由是：{我的理由}。</p>
+<br/>
+<p>请你扮演最强反方，规则如下：</p>
+<br/>
+<p>1）先用一段话复述我的立场，强到我本人都点头说&quot;对，我就是这个意思&quot;；</p>
+<p>2）再给出至少 3 条从相反视角出发的挑战，每条必须写明它攻击的是我论证的哪一步（前提？推理？例子？还是我没意识到的隐含假设？）；</p>
+<p>3）每条挑战要给出一个具体的反例或反诘问句，而不是笼统地说&quot;这太理想化了&quot;；</p>
+<p>4）最后告诉我：如果反方其中一条成立，我原来的哪一句话必须撤回或改写。</p>
+<br/>
+<p>不要为了让我舒服而放水，也不要为了显得犀利而攻击稻草人。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我读完了《{书名}》第 {章号} 章「{章节标题}」，我理解的关键点是：{我的理解}。</p>
+<br/>
+<p>请给我 3 个真实生活/工作场景（领域限定在：{职场沟通 / 家庭关系 / 学习决策 / 产品设计 / 公共议题，任选}），分别说明本章思想如何应用。每个场景写清四件事：</p>
+<br/>
+<p>1）情境：具体到人物、冲突、要做的决定；</p>
+<p>2）本章的哪个概念/区分在这里起作用（要指名，不要笼统说&quot;本章的思想&quot;）；</p>
+<p>3）按本章的逻辑，该怎么判断、该怎么行动；</p>
+<p>4）这个应用最容易被误用的地方是什么（即：什么情况下照搬本章反而会出错）。</p>
+<br/>
+<p>场景要具体到你能够想象&quot;我明天就会遇到&quot;，不要举教科书式的抽象例子。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>本章最让我兴奋的一句话是：「{原文句子}」（{页码 / 章节位置}）。</p>
+<br/>
+<p>请围绕这句做推演式深挖，分四层：</p>
+<br/>
+<p>1）语境还原：这句话在原文里到底在反对什么、在支持什么？把它放回上一句和下一句之间读，它的锋芒指向谁？</p>
+<p>2）推到底：如果把它当成一个普遍原则，允许它推到极限，会得出哪 3 个更远的推论？每个推论要写出它的形式（&quot;如果…那么…&quot;）。</p>
+<p>3）找内生矛盾：这 3 个推论里，哪一个会跟作者在本章其他地方（或你在全书别处读到的立场）打架？冲突具体在哪里？</p>
+<p>4）学术史定位：历史上有没有人真的把这个方向推到底过？如果有，请说清是谁、哪本著作、大致什么年代、他为此付出了什么代价（被批评、被忽略、被改造）。如果没有，就直说&quot;我没有确切的对应人物&quot;，不要编。</p>
+<p>```</p>
+<br/>
+<h2>2）5–7 个新手引导问题</h2>
+<br/>
+<ol>
+<li>1. <strong>这章用一句话说，在讲什么？</strong> 先别看笔记，凭记忆说；卡住的地方就是你该重读的地方。</li>
+<li>2. <strong>这章里有哪几个词，看着是日常词、其实是术语？</strong> 把每个词用你自己的话重写一遍，重写不出来就是没懂。</li>
+<li>3. <strong>作者在本章最想反驳的是谁的什么说法？</strong> 找&quot;但是&quot;&quot;然而&quot;&quot;真正的错误在于&quot;这类转折词，它们后面通常就是对手。</li>
+<li>4. <strong>本章是一条论证链，还是几条并排的链？</strong> 给每一段标一个功能：提出主张、举例、反驳、让步、下结论。</li>
+<li>5. <strong>如果本章的结论是假的，世界会有什么不同？</strong> 这是检验&quot;你是否真知道这章在主张什么&quot;的最快办法：说不出差别，说明你还没抓住主张。</li>
+<li>6. <strong>本章的立场在思想史上属于哪个阵营，对手阵营的代表人物是谁？</strong> 试说出至少一个名字加一本书，而不是&quot;有人认为&quot;。</li>
+<li>7. <strong>你能用本章的概念，修正你自己原有的某个看法吗？</strong> 写成一个句式：&quot;我原来以为……；读完本章我认为……；因为本章的……概念指出了我原来漏掉的……&quot;</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>神器</td><td>这世界像一件有灵性的宝物，你越想攥紧它、摆弄它，越容易把它弄坏。</td><td>&quot;神器&quot;指天下、国家政权或万物自然的整体秩序。老子认为它神圣而不可强力把持，反对以主观意志强行改造，主张顺其自然。</td><td>《老子》二十九章：&quot;天下神器，不可为也。为者败之，执者失之。&quot; 王弼注以&quot;无&quot;为本，谓神器&quot;无形无名&quot;，不可以有为治之；河上公注则从养生治国合一的角度，解为&quot;器&quot;乃神明之器，须清静自守。</td><td>王弼以贵无论为据，认为神器本性是&quot;无&quot;，任何有为都是对无的遮蔽，故&quot;为者败之&quot;；河上公从黄老养生立场，把神器解为身国同构之器，主张保精爱气、不以人为扰之；郭象则以独化说消解&quot;神器&quot;背后的主宰意味，认为万物自生自化，无所谓被谁把持，故强执反失；苏辙以佛老融合解之，谓神器本空，执之者自取其败。</td></tr>
+<tr><td>无为</td><td>不是什么都不干，而是别硬来、别瞎折腾，顺着事情本来的样子去做。</td><td>&quot;无为&quot;是道家核心范畴，指不妄为、不强作，顺应自然规律而不任意干预。老子以&quot;无为而无不为&quot;表述其政治与人生智慧，非消极不为。</td><td>《老子》二十九章：&quot;为者败之，执者失之，是以圣人无为故无败，无执故无失。&quot; 王弼注：&quot;自然已足，为则败也。&quot; 陈鼓应《老子今注今译》指出&quot;无为&quot;是&quot;不妄为&quot;，即不违反自然规律的作为。</td><td>王弼以&quot;无&quot;释&quot;无为&quot;，谓顺自然之性即是无为，反对以名教人为；河上公把无为落到养生实践，指爱精重气、不为声色所役；郭象以&quot;独化&quot;解之，认为无为即各安其性、任物自为，圣人之治在使物各得其所；韩非《解老》则从法家立场把无为转为君主&quot;术&quot;——君静而臣动，以无为御有为，与老子的自然义已有偏移；刘笑敢区分&quot;道家式无为&quot;与&quot;黄老式无为&quot;，前者重自然，后者重治术。</td></tr>
+<tr><td>无执</td><td>别死死抓住一样东西不放，抓得越紧，丢得越快。</td><td>&quot;无执&quot;指不执著把持，不强行占有或控制。与&quot;无为&quot;相承，强调对结果、权位、名利的超脱态度，是老子处世与治国的重要原则。</td><td>《老子》二十九章：&quot;执者失之……无执故无失。&quot; 成玄英《道德经义疏》以重玄之道解&quot;执&quot;，谓执有执无皆是病，双遣二边方为无执。</td><td>成玄英以重玄学立场，主张&quot;执&quot;包括执有与执无，须遣之又遣，方契重玄；郭象以独化论解之，认为物各自适，强执一理以齐物反失其性；佛学中观以缘起性空为据，龙树《中论》&quot;因缘所生法，我说即是空&quot;，与&quot;无执&quot;相通而理路不同——中观破的是自性见，老子破的是人为把持；禅宗则以&quot;无心&quot;&quot;无住&quot;为宗，惠能&quot;应无所住而生其心&quot;，把无执推向心性解脱。</td></tr>
+<tr><td>去甚、去奢、去泰</td><td>别走极端，别太铺张，别过度，凡事留有余地。</td><td>语出《老子》二十九章：&quot;是以圣人去甚，去奢，去泰。&quot; 三者指去除极端、奢侈、过度之行，是圣人治世修身的三条具体戒律，与无为、无执相呼应。</td><td>《老子》二十九章原文：&quot;圣人去甚，去奢，去泰。&quot; 河上公注：&quot;甚谓贪淫声色，奢谓服饰饮食，泰谓宫室台榭。&quot; 王弼注则总归于&quot;因物自然，不设不施&quot;。</td><td>河上公以养生与治身解之，把甚、奢、泰具体化为声色、服食、宫室之欲，主张节欲保身；王弼以贵无论为本，认为去三者即是&quot;不设不施&quot;、因任自然，反对人为造作；王夫之以气化论解之，谓盈虚消息乃气之自然，过与不及皆失中和，去甚去奢去泰即以人合天；现代学者陈鼓应强调此三者是对统治者奢靡与极权的批判，具有政治哲学意义。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">神器</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">这世界像一件有灵性的宝物，你越想攥紧它、摆弄它，越容易把它弄坏。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;神器&quot;指天下、国家政权或万物自然的整体秩序。老子认为它神圣而不可强力把持，反对以主观意志强行改造，主张顺其自然。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》二十九章：&quot;天下神器，不可为也。为者败之，执者失之。&quot; 王弼注以&quot;无&quot;为本，谓神器&quot;无形无名&quot;，不可以有为治之；河上公注则从养生治国合一的角度，解为&quot;器&quot;乃神明之器，须清静自守。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以贵无论为据，认为神器本性是&quot;无&quot;，任何有为都是对无的遮蔽，故&quot;为者败之&quot;；河上公从黄老养生立场，把神器解为身国同构之器，主张保精爱气、不以人为扰之；郭象则以独化说消解&quot;神器&quot;背后的主宰意味，认为万物自生自化，无所谓被谁把持，故强执反失；苏辙以佛老融合解之，谓神器本空，执之者自取其败。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">无为</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不是什么都不干，而是别硬来、别瞎折腾，顺着事情本来的样子去做。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;无为&quot;是道家核心范畴，指不妄为、不强作，顺应自然规律而不任意干预。老子以&quot;无为而无不为&quot;表述其政治与人生智慧，非消极不为。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》二十九章：&quot;为者败之，执者失之，是以圣人无为故无败，无执故无失。&quot; 王弼注：&quot;自然已足，为则败也。&quot; 陈鼓应《老子今注今译》指出&quot;无为&quot;是&quot;不妄为&quot;，即不违反自然规律的作为。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;释&quot;无为&quot;，谓顺自然之性即是无为，反对以名教人为；河上公把无为落到养生实践，指爱精重气、不为声色所役；郭象以&quot;独化&quot;解之，认为无为即各安其性、任物自为，圣人之治在使物各得其所；韩非《解老》则从法家立场把无为转为君主&quot;术&quot;——君静而臣动，以无为御有为，与老子的自然义已有偏移；刘笑敢区分&quot;道家式无为&quot;与&quot;黄老式无为&quot;，前者重自然，后者重治术。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">无执</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">别死死抓住一样东西不放，抓得越紧，丢得越快。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;无执&quot;指不执著把持，不强行占有或控制。与&quot;无为&quot;相承，强调对结果、权位、名利的超脱态度，是老子处世与治国的重要原则。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》二十九章：&quot;执者失之……无执故无失。&quot; 成玄英《道德经义疏》以重玄之道解&quot;执&quot;，谓执有执无皆是病，双遣二边方为无执。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">成玄英以重玄学立场，主张&quot;执&quot;包括执有与执无，须遣之又遣，方契重玄；郭象以独化论解之，认为物各自适，强执一理以齐物反失其性；佛学中观以缘起性空为据，龙树《中论》&quot;因缘所生法，我说即是空&quot;，与&quot;无执&quot;相通而理路不同——中观破的是自性见，老子破的是人为把持；禅宗则以&quot;无心&quot;&quot;无住&quot;为宗，惠能&quot;应无所住而生其心&quot;，把无执推向心性解脱。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">去甚、去奢、去泰</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">别走极端，别太铺张，别过度，凡事留有余地。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》二十九章：&quot;是以圣人去甚，去奢，去泰。&quot; 三者指去除极端、奢侈、过度之行，是圣人治世修身的三条具体戒律，与无为、无执相呼应。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》二十九章原文：&quot;圣人去甚，去奢，去泰。&quot; 河上公注：&quot;甚谓贪淫声色，奢谓服饰饮食，泰谓宫室台榭。&quot; 王弼注则总归于&quot;因物自然，不设不施&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以养生与治身解之，把甚、奢、泰具体化为声色、服食、宫室之欲，主张节欲保身；王弼以贵无论为本，认为去三者即是&quot;不设不施&quot;、因任自然，反对人为造作；王夫之以气化论解之，谓盈虚消息乃气之自然，过与不及皆失中和，去甚去奢去泰即以人合天；现代学者陈鼓应强调此三者是对统治者奢靡与极权的批判，具有政治哲学意义。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 29 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 29 章]
+
+将欲取天下而为之，吾见其不得已。天下神器，不可为也，不可执也。为者败之，执者失之。是以圣人无为，故无败；无执，故无失。故物或行或随，或歔或吹。或强或羸，或挫或隳。是以圣人去甚，去奢，去泰。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_29_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

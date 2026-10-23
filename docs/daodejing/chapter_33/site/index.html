@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 33 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 33/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_32/site/index.html" title="第 32 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_34/site/index.html" title="第 34 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 33 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>知人者智，自知者明。胜人者有力，自胜者强。知足者富。强行者有志。不失其所者久。死而不亡者寿。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 33 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<br/>
+<p>这一章只有八句话，却像八面镜子，把“智慧”从向外看扭转为向内看。老子说：了解别人只是聪明，了解自己才算通透；战胜别人只是有力，战胜自己才算刚强；知道满足才叫富有，勉力而行才算有志，不丢根本才能长久，身死而精神不亡才算长寿。最有意思的是它悄悄调换了世俗的价值排序——把“赢别人”降格，把“赢自己”升格。你最大的收获将是：真正的强大与富有，发生在内部，不在外部。</p>
+<br/>
+<h2>②多问题意识关联</h2>
+<br/>
+<blockquote>如果一个人能看透身边所有人，却始终看不清自己真正想要什么，他的“聪明”还成立吗？</blockquote>
+<p>&gt;</p>
+<blockquote>如果每次竞争你都赢了对手，可赢了之后仍觉得空、仍停不下来，这算“有力”还是被力所役？</blockquote>
+<p>&gt;</p>
+<blockquote>如果你已经拥有很多，却总觉得“还不够”，那么“富”到底由账户数字决定，还是由心里那道满足的界线决定？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<br/>
+<ul>
+<li>- <strong>苏格拉底</strong>（柏拉图《申辩篇》所记德尔斐神谕“认识你自己”）：哲学的开端不是认识世界，而是承认自己的无知——与老子“自知者明”同调，但苏格拉底把它推向对话与诘问，老子则推向内在的静观节制。</li>
+<li>- <strong>王阳明</strong>（“致良知”与“知行合一”）：知与行不可分，真知必能行；这正好呼应“强行者有志”——在老子那里“志”不是空想，而是勉力落实，王阳明则把这一落实的根据收归于本心良知。</li>
+<li>- <strong>福柯</strong>（晚期“自我技术”“自我关怀”研究）：他把“认识自己”放回古希腊罗马的“关心自己”传统中，指出自我修养是一套可实践的技艺——可与老子“自胜”“知足”对读，二者都把自我当作需要日日打磨的对象。</li>
+<li>- <strong>荀子</strong>（《解蔽》）：人之患在于“蔽于一曲”，认知被偏见与欲望遮蔽，“自知”因此极难——这为老子的“自知者明”提供了一个“为何难”的解释：明，就是解蔽。</li>
+<li>- <strong>罗素</strong>（《幸福之路》等）：他谈竞争哲学使人疲于“胜过他人”而失去内在安宁，与“胜人者有力，自胜者强”的排序形成现代回声，只是罗素更强调社会制度与兴趣的调节，而非内在克制。</li>
+</ul>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<br/>
+<p><strong>（1）第一遍（速览）：三个关注点</strong></p>
+<ul>
+<li>- 看结构：六句“X者Y”的排比其实两两成对（知人/自知、胜人/自胜），注意老子如何用同一个句式悄悄完成价值翻转。</li>
+<li>- 看方向：划出所有“向外”的词（知人、胜人）与“向内”的词（自知、自胜、知足），体会重心移动的轨迹。</li>
+<li>- 看结尾：“不失其所”与“死而不亡”把话题从心理层面拉到生命长度层面，留意“久”与“寿”的区别。</li>
+</ul>
+<br/>
+<p><strong>（2）第二遍（细抠）：两个必看的论证</strong></p>
+<ul>
+<li>- “知人者智，自知者明”：为什么“知人”只能算“智”而“自知”才配称“明”？结合第16章“知常曰明”互参，体会“明”是穿透性的洞见，而非信息量的多寡。</li>
+<li>- “知足者富”：这句的论证逻辑不是“有得多所以富”，而是“界线清楚所以富”——与第44章“知足不辱，知止不殆”对读，看老子如何把“富”从占有量改写为满足感。</li>
+</ul>
+<br/>
+<p><strong>（3）第三遍（思辨）：一个该追问的开放问题</strong></p>
+<p>“死而不亡者寿”——如果“寿”不在于肉身延续，而在于某种“不消亡”的东西，那么老子指的究竟是什么？是德性、影响、与道合一的状态，还是别的？这个问题没有标准答案，但它会逼你重新定义：你希望自己身上哪一部分“活得比身体更久”？</p>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+    %% 概念
+    c1["自知"]
+    c2["自胜"]
+    c3["知足"]
+    c4["强行"]
+    c5["不失其所"]
+    c6["死而不亡"]
+
+    %% 论据（原文）
+    a1["知人者智，自知者明"]
+    a2["胜人者有力，自胜者强"]
+    a3["知足者富"]
+    a4["强行者有志"]
+    a5["不失其所者久"]
+    a6["死而不亡者寿"]
+
+    %% 命题（白话解释）
+    p1["能了解他人的人可称为智"]
+    p2["能了解自己的人可称为明"]
+    p3["能战胜他人的人可称为有力"]
+    p4["能战胜自己的人可称为强"]
+    p5["知道满足的人可称为富"]
+    p6["勉力而行的人可称为有志"]
+    p7["不失去其根本所在的人可称为久"]
+    p8["身死而不消亡的人可称为寿"]
+
+    %% 概念 -> 论据（relates_to）
+    c1 -.-> a1
+    c2 -.-> a2
+    c3 -.-> a3
+    c4 -.-> a4
+    c5 -.-> a5
+    c6 -.-> a6
+
+    %% 论据 -> 命题（supports）
+    a1 --> p1
+    a1 --> p2
+    a2 --> p3
+    a2 --> p4
+    a3 --> p5
+    a4 --> p6
+    a5 --> p7
+    a6 --> p8
+
+    %% 概念间关系（relates_to）
+    c1 -.-> c2
+    c3 -.-> c4
+    c5 -.-> c6
+
+    %% 命题间关系（relates_to）
+    p1 -.-> p2
+    p3 -.-> p4
+    p5 -.-> p6
+    p7 -.-> p8
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章以八组判断界定智、明、力、强、富、志、久、寿，将修养重心由向外知人、胜人转向向内自知、自胜，是老子关于自我认识、自我节制与生命恒久的纲领性章节。</div>
+<h3>📌 核心命题</h3><ol>
+<li>能了解他人的人可称为智。</li>
+<li>能了解自己的人可称为明。</li>
+<li>能战胜他人的人可称为有力。</li>
+<li>能战胜自己的人可称为强。</li>
+<li>知道满足的人可称为富。</li>
+<li>勉力而行的人可称为有志。</li>
+<li>不失去其根本所在的人可称为久。</li>
+<li>身死而不消亡的人可称为寿。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>知人者智，自知者明。</li>
+<li>胜人者有力，自胜者强。</li>
+<li>知足者富。</li>
+<li>强行者有志。</li>
+<li>不失其所者久。</li>
+<li>死而不亡者寿。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>自知</strong></summary><div class="case-body">白话解释：了解自己。</div></details>
+<details><summary><strong>自胜</strong></summary><div class="case-body">白话解释：战胜自己。</div></details>
+<details><summary><strong>知足</strong></summary><div class="case-body">白话解释：知道满足。</div></details>
+<details><summary><strong>强行</strong></summary><div class="case-body">白话解释：勉力而行。</div></details>
+<details><summary><strong>不失其所</strong></summary><div class="case-body">白话解释：不失去其根本所在。</div></details>
+<details><summary><strong>死而不亡</strong></summary><div class="case-body">白话解释：身死而不消亡。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>可与第16章“知常曰明”互参，理解“明”作为对自身与常道的洞见。</li>
+<li>可与第44章“知足不辱，知止不殆”互参，理解“知足者富”的节制义。</li>
+<li>可与第52章“守母”“没身不殆”及第59章“长生久视之道”互参，理解“不失其所者久”与“死而不亡者寿”的守本恒久义。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 33 章。以下是我自己对本章主线的概括：</p>
+<br/>
+<p>【我的概括】{我的概括，3-5 句}</p>
+<br/>
+<p>请你只做诊断，不要替我重写概括：</p>
+<ol>
+<li>1. 对照本章原文，指出我的概括遗漏了哪 2-3 个关键论证环节，并逐一说明这些环节为什么不可省略——如果抽掉它们，本章结论会变成什么样。</li>
+<li>2. 检查我对以下关键概念的用法是否准确：{关键概念列表}。如果我把其中任何一个用窄了或用宽了，请指出，并给出该概念在本章中出现的具体语境（哪一段、在回应什么问题）。</li>
+<li>3. 最后给我一句话：我的概括属于&quot;抓到了骨架&quot;还是&quot;抓到了某个枝节当骨架&quot;，并说明判断依据。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>我已读完第 33 章，并且倾向于接受它的核心主张：{我接受的主张}</p>
+<br/>
+<p>请你扮演最强反方，要求如下：</p>
+<ol>
+<li>1. 先用 steel-man 的方式复述我这个主张的最强版本（比我自己表述得更好），确认你打的不是稻草人。</li>
+<li>2. 从相反的哲学立场出发构造一个能在学术讨论会上站得住的反驳：指出它依赖了哪个未加辩护的前提，这个前提在什么意义上是可以被质疑的。</li>
+<li>3. 说明如果那个前提不成立，本章的论证会崩到什么程度——是局部失效，还是整章结论一起塌掉。</li>
+<li>4. 最后回答：本章文本内部有没有预留对这个反驳的回应？如果有，在第几段附近；如果没有，作者可能为什么没料到这一击。</li>
+</ol>
+<p>不要给我&quot;两方面都有道理&quot;的和稀泥结论，要明确站边。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 33 章，我抓到的核心思想是：{核心思想}</p>
+<br/>
+<p>请给我 3 个具体场景，分别落在这些领域：{场景领域1}、{场景领域2}、{场景领域3}。</p>
+<p>针对每个场景说明：</p>
+<p>(a) 用本章的思想会怎么分析它——要落到具体的判断或决策上，不要停在&quot;这很有启发&quot;；</p>
+<p>(b) 本章思想在这个场景里失灵、显得空洞或得出反直觉结论的地方在哪里；</p>
+<p>(c) 如果我要把这个思想用错，最常见的错法是什么。</p>
+<p>不要给通用鸡汤，要具体到能照着做事或照着反驳。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 33 章里最让我兴奋的一句话是：</p>
+<br/>
+<p>「{原文句子}」（大致出现在{章节位置/段落}）</p>
+<br/>
+<p>请你围绕这一句往前推，给出 3 层递进：</p>
+<ul>
+<li>- 最近的一层：这句话直接蕴含、作者本人多半会同意但我还没想到的结论；</li>
+<li>- 中间的一层：作者可能会犹豫甚至回避、但逻辑上被这句话逼出来的结论；</li>
+<li>- 最远的一层：作者很可能拒绝、但沿着这句话推下去无法不接受的结论。</li>
+</ul>
+<br/>
+<p>每一层都要说明：它和本章其他论点之间存在什么张力？如果这层成立，本章哪一部分需要改写？</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. 这章你读到哪一段突然卡住了？——先把它标出来别硬啃，卡点就是后面讨论最好的入口。</li>
+<li>2. 用一句大白话说：这章作者想让你相信什么？——不准用书里的术语，说不出来说明还没抓住。</li>
+<li>3. 这一章里哪些词反复出现？——把它们圈出来，作者在本章中对这些词的用法往往和日常用法不同。</li>
+<li>4. 作者在这一章里是在跟谁吵架？——找出那个&quot;隐形的对手&quot;，论证的方向立刻就清楚了。</li>
+<li>5. 如果本章的核心主张是假的，世界会有什么不一样？——想不出任何区别，说明这个主张可能没有实质内容。</li>
+<li>6. 本章的论证是演绎、归谬，还是靠一个思想实验？——先认出论证形式，才知道它该被怎么攻击。</li>
+<li>7. 你能为本章的核心主张构造一个反例吗？——构造得出来，才算真正摸到了它的边界条件。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>自知（了解自己）</td><td>看懂自己的长短处，比看懂别人更难也更值钱。</td><td>老子把认知分两层：“知人”只是“智”，属机巧聪明；“自知”才是“明”，属内在澄明。本章以“明”为修养的起点。</td><td>“自知者明”与五十二章“知常曰明”、十六章“复命曰常，知常曰明”互文，“明”在《老子》中是体道观照的能力，而非知识量的增加；“智/明”对举，构成认知的层级差。</td><td>王弼注“知人者智而已矣，未若自知者超智之上也”，以“无”为本，自知即返本自证，是“崇本息末”的自我面；河上公从养生立说，解“自知”为“反听内视”“精神内守”。庄子“吾丧我”（《齐物论》）可视为“自知”的极端形态，即去除成心。与苏格拉底“认识你自己”表面相同：希腊的“自知”以理性求知、知道自己无知为归宿；老子的“自知”以“去知”为归宿，是减法而非加法。</td></tr>
+<tr><td>自胜（战胜自己）</td><td>管住自己的欲望和脾气，比打赢别人更难。</td><td>“胜人”靠“力”，是外在的较量；“自胜”靠“强”，是内在的克制。老子把“强”从暴力义转为自守义。</td><td>王弼注“胜人者有力而已矣，未若自胜者无物以损其力”，强调“无物”对反于“有物”的角力；与五十二章“守柔曰强”、三十章“物壮则老”互证，老子之“强”指向不与人争的内聚力。</td><td>河上公以内修解：自胜者“情欲不生于心”，重精气之守；郭象从“独化”“性分”立论，认为自胜即“各安其性分”而不外求，反对有一个外在于己的胜负标准；韩非《喻老》把“自胜”读作君主对自身权势的克制，属政治术；禅宗“无心”“无念”与之最近，把对立（胜负）本身消解掉；而荀子“化性起伪”同样是胜性，方向却是以礼义外塑，与老子之“损”恰好相反。</td></tr>
+<tr><td>知足（知道满足）</td><td>够了就是富，不只是钱多才算富。</td><td>老子把“富”从占有量重新定义为满足感，本章的“富”是状态词而非数量词；与四十六章“祸莫大于不知足，咎莫大于欲得”互为注脚。</td><td>王弼注“知足者，自不失也”，并把“知足之足”解为“常足”——不以外物为参照系的内足；与三十三章“不失其所”构成同一套“反求诸己”的语义场。</td><td>河上公以“守一”“精气不泄”解知足，属养生内丹先声；郭象以“性分”说立论，足于己分则无待于外，与庄子《逍遥游》“无待”同调；嵇康《养生论》承此，以“嗜欲”为伐性之斧。西方对照：伊壁鸠鲁区分自然且必要与虚妄的欲望，主张自足（autarkeia）即富，塞涅卡《论幸福生活》亦以“知足者富”为旨；佛教《遗教经》讲少欲知足，路径同为减欲，但归宿是出离而非安生。</td></tr>
+<tr><td>强行（勉力而行）</td><td>认准了道就硬着头皮走下去，这才叫有志气。</td><td>“强行者”指勤而行之、不中辍于道的人；老子把“志”落在践行上，而非志向的宏大上。四十一章“上士闻道，勤而行之”是同一意思。</td><td>王弼注“勤能行之，其志必获”，以“勤”释“强”，把“强”限定为对道的持续投入，与“强梁者不得其死”的“强”判然两义；这是《老子》内部“强”字的语境分化。</td><td>河上公养生家把它解为昼夜不懈的行气导引之术；儒家最可对照：《中庸》“或勉强而行之，及其成功，一也”，荀子“锲而不舍，金石可镂”，朱熹以“勇”配“强”，都是把道德实践的持续性视为德性；王夫之以“气化”言“志为气之帅”，把强行纳入气论；陈鼓应、刘笑敢等现代研究者提示，此句是老子少见的“正面肯定进取”之处，不可与“无为”简单对反。</td></tr>
+<tr><td>不失其所（不失去其根本所在）</td><td>站得住、走得远的人，是因为没丢掉自己的根。</td><td>“所”指安身立命之处、本分、根基；“不失其所”是能“久”的条件。本章把“久”从时间长度转为根基稳固度。</td><td>王弼注“以道为本，故能长久”，把“所”提升为本体论意义上的“本”；河上公则以“所受于天”的精气解“所”，走的是宇宙生成论路数；一说“所”即位分、处所，属处世义。三解并存于注史。</td><td>郭象以“性分”说：各安其性分而不越，即“不失其所”，是“独化”的政治伦理延伸；成玄英重玄学则强调“不滞于所”，连“所”也不可执，比郭象更进一步；儒家对照最直接，孟子“不失其本心”（《告子上》）与“非独贤者有是心也，贤者能勿丧耳”，同为守本之学，但孟子之本为“仁义之心”，老子之本为“道”。海德格尔“栖居”（wohnen）与“位置”（Ort）之思可作类比，但他是从存在之真理说人如何在世界中居有，与老子的“本”不同源。</td></tr>
+<tr><td>死而不亡（身死而不消亡）</td><td>人死了，可留下的东西还活着，这才叫长寿。</td><td>老子有意区分“死”与“亡”：形体死是“死”，影响、精神与所立之德消失才是“亡”。因此“寿”在此不是年岁，而是身后之存续。</td><td>王弼注“身没而道存，德被万物，故曰寿”，以“道/德”的存续替换个体生命的存续；河上公以“精神不亡”解，成玄英以“不生不灭”解，三注分别对应玄学、养生、重玄三条理解路线。</td><td>道教内丹把它读实：形解尸蜕、阳神不灭，是修炼的可达境界；庄子《养生主》“指穷于为薪，火传也，不知其尽也”是最贴近的原文内证，且以“死生一条”消解生死对待；佛教中观则以“业力相续、不常不断”相呼应，反对把“不亡”实体化为灵魂；儒家《左传》“三不朽”（立德立功立言）是结构上最直接的对照，同样以身后之名德代偿肉身，但儒家的载体是名教与历史，老子与庄子的载体是道与化。陈鼓应、刘笑敢等现代研究者普遍主张此处指“精神生命之延续”，非宗教意义上的灵魂不死。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">自知（了解自己）</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">看懂自己的长短处，比看懂别人更难也更值钱。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子把认知分两层：“知人”只是“智”，属机巧聪明；“自知”才是“明”，属内在澄明。本章以“明”为修养的起点。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">“自知者明”与五十二章“知常曰明”、十六章“复命曰常，知常曰明”互文，“明”在《老子》中是体道观照的能力，而非知识量的增加；“智/明”对举，构成认知的层级差。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼注“知人者智而已矣，未若自知者超智之上也”，以“无”为本，自知即返本自证，是“崇本息末”的自我面；河上公从养生立说，解“自知”为“反听内视”“精神内守”。庄子“吾丧我”（《齐物论》）可视为“自知”的极端形态，即去除成心。与苏格拉底“认识你自己”表面相同：希腊的“自知”以理性求知、知道自己无知为归宿；老子的“自知”以“去知”为归宿，是减法而非加法。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">自胜（战胜自己）</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">管住自己的欲望和脾气，比打赢别人更难。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">“胜人”靠“力”，是外在的较量；“自胜”靠“强”，是内在的克制。老子把“强”从暴力义转为自守义。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注“胜人者有力而已矣，未若自胜者无物以损其力”，强调“无物”对反于“有物”的角力；与五十二章“守柔曰强”、三十章“物壮则老”互证，老子之“强”指向不与人争的内聚力。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以内修解：自胜者“情欲不生于心”，重精气之守；郭象从“独化”“性分”立论，认为自胜即“各安其性分”而不外求，反对有一个外在于己的胜负标准；韩非《喻老》把“自胜”读作君主对自身权势的克制，属政治术；禅宗“无心”“无念”与之最近，把对立（胜负）本身消解掉；而荀子“化性起伪”同样是胜性，方向却是以礼义外塑，与老子之“损”恰好相反。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">知足（知道满足）</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">够了就是富，不只是钱多才算富。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子把“富”从占有量重新定义为满足感，本章的“富”是状态词而非数量词；与四十六章“祸莫大于不知足，咎莫大于欲得”互为注脚。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注“知足者，自不失也”，并把“知足之足”解为“常足”——不以外物为参照系的内足；与三十三章“不失其所”构成同一套“反求诸己”的语义场。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以“守一”“精气不泄”解知足，属养生内丹先声；郭象以“性分”说立论，足于己分则无待于外，与庄子《逍遥游》“无待”同调；嵇康《养生论》承此，以“嗜欲”为伐性之斧。西方对照：伊壁鸠鲁区分自然且必要与虚妄的欲望，主张自足（autarkeia）即富，塞涅卡《论幸福生活》亦以“知足者富”为旨；佛教《遗教经》讲少欲知足，路径同为减欲，但归宿是出离而非安生。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">强行（勉力而行）</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">认准了道就硬着头皮走下去，这才叫有志气。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">“强行者”指勤而行之、不中辍于道的人；老子把“志”落在践行上，而非志向的宏大上。四十一章“上士闻道，勤而行之”是同一意思。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注“勤能行之，其志必获”，以“勤”释“强”，把“强”限定为对道的持续投入，与“强梁者不得其死”的“强”判然两义；这是《老子》内部“强”字的语境分化。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公养生家把它解为昼夜不懈的行气导引之术；儒家最可对照：《中庸》“或勉强而行之，及其成功，一也”，荀子“锲而不舍，金石可镂”，朱熹以“勇”配“强”，都是把道德实践的持续性视为德性；王夫之以“气化”言“志为气之帅”，把强行纳入气论；陈鼓应、刘笑敢等现代研究者提示，此句是老子少见的“正面肯定进取”之处，不可与“无为”简单对反。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">不失其所（不失去其根本所在）</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">站得住、走得远的人，是因为没丢掉自己的根。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">“所”指安身立命之处、本分、根基；“不失其所”是能“久”的条件。本章把“久”从时间长度转为根基稳固度。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注“以道为本，故能长久”，把“所”提升为本体论意义上的“本”；河上公则以“所受于天”的精气解“所”，走的是宇宙生成论路数；一说“所”即位分、处所，属处世义。三解并存于注史。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">郭象以“性分”说：各安其性分而不越，即“不失其所”，是“独化”的政治伦理延伸；成玄英重玄学则强调“不滞于所”，连“所”也不可执，比郭象更进一步；儒家对照最直接，孟子“不失其本心”（《告子上》）与“非独贤者有是心也，贤者能勿丧耳”，同为守本之学，但孟子之本为“仁义之心”，老子之本为“道”。海德格尔“栖居”（wohnen）与“位置”（Ort）之思可作类比，但他是从存在之真理说人如何在世界中居有，与老子的“本”不同源。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">死而不亡（身死而不消亡）</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">人死了，可留下的东西还活着，这才叫长寿。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子有意区分“死”与“亡”：形体死是“死”，影响、精神与所立之德消失才是“亡”。因此“寿”在此不是年岁，而是身后之存续。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注“身没而道存，德被万物，故曰寿”，以“道/德”的存续替换个体生命的存续；河上公以“精神不亡”解，成玄英以“不生不灭”解，三注分别对应玄学、养生、重玄三条理解路线。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">道教内丹把它读实：形解尸蜕、阳神不灭，是修炼的可达境界；庄子《养生主》“指穷于为薪，火传也，不知其尽也”是最贴近的原文内证，且以“死生一条”消解生死对待；佛教中观则以“业力相续、不常不断”相呼应，反对把“不亡”实体化为灵魂；儒家《左传》“三不朽”（立德立功立言）是结构上最直接的对照，同样以身后之名德代偿肉身，但儒家的载体是名教与历史，老子与庄子的载体是道与化。陈鼓应、刘笑敢等现代研究者普遍主张此处指“精神生命之延续”，非宗教意义上的灵魂不死。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 33 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 33 章]
+
+知人者智，自知者明。胜人者有力，自胜者强。知足者富。强行者有志。不失其所者久。死而不亡者寿。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_33_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 61 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 61/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_60/site/index.html" title="第 60 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_62/site/index.html" title="第 62 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 61 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>大国者下流，天下之交，天下之牝，牝常以静胜牡，以静为下。故大国以下小国，则取小国；小国以下大国，则取大国。故或下以取，或下而取。大国不过欲兼畜人，小国不过欲入事人。夫两者各得其所欲，大者宜为下。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 61 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这章讲大国与小国怎么相处。老子打了个比方：大国要像江河下游，百川汇注，安静处下。他用“牝常以静胜牡”说明安静谦下反而占优。核心结论是：大国对小国谦下就能取得小国，小国对大国谦下就能取得大国——双方都谦下，但“大者宜为下”。有趣之处在于，老子把国际关系讲成了一种“以退为进”的力学：谁更大，谁更该先低头。最重要收获：谦下不是道德姿态，而是一种结构性的智慧——位置越高，越要往下处。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>1. 如果你是大国决策者，面对小国，你会先展示力量还是先主动谦下？为什么？</blockquote>
+<blockquote>2. 如果“谦下”是一种策略而非品德，那小国的“下”和大国的“下”有什么本质不同？</blockquote>
+<blockquote>3. 如果双方都谦下、各得所欲，老子为什么还要补一句“大者宜为下”？谁多让一步？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote>- <strong>荀子</strong>：主张“以德兼人”，认为兼并别国要靠德行感化而非强力胁迫（《议兵》篇），与老子“大国以下小国则取小国”有相通处，但荀子更强调礼义制度的建构，不止于姿态上的“下”。</blockquote>
+<blockquote>- <strong>韩非</strong>：法家视角看国际关系，认为“下”只是权术手段之一，本质是计算利害强弱；《韩非子》中反复讲君臣父子皆以计合，谦下若不能带来实际利益便无意义——这与老子把“下”讲成近乎自然的道理形成张力。</blockquote>
+<blockquote>- <strong>福柯</strong>：权力关系无处不在，“谦下”本身也是一种权力技术——通过自我克制、自我降格来生产对方的顺从与依附，所谓“取”不过是权力毛细血管中的一种运作方式。</blockquote>
+<blockquote>- <strong>罗素</strong>：在《权力论》中把权力欲视为政治的核心动力，若以此看老子，大国的“下”可理解为一种间接权力策略：不直接压服，而通过让利与包容来扩大影响力。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）：三个关注点</strong></blockquote>
+<blockquote>- 注意“下流”不是贬义：老子用它指江河下游，百川汇聚之处——位置最低，反而容纳最多。</blockquote>
+<blockquote>- 注意“牝常以静胜牡”这个性别隐喻：老子用雌雄、静动来讲优劣，不是道德褒贬，而是结构分析。</blockquote>
+<blockquote>- 注意最后一句“大者宜为下”：全章落脚点不在小国，而在大国——越强越要主动处下。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）：两个必看的论证</strong></blockquote>
+<blockquote>- “故大国以下小国，则取小国；小国以下大国，则取大国。”——这是双向对称结构：双方都用“下”来“取”，但“取”的含义不同。大国的“取”是取得小国的依附，小国的“取”是取得大国的容纳。要看清“取”字前后的主客关系。</blockquote>
+<blockquote>- “故或下以取，或下而取。”——这句最容易被略过，其实是全章的关节：一种“下”是主动去取得（下以取），一种“下”是因谦下而被取得（下而取）。老子把两种“下”的结果区分得很清楚，不是笼统讲“谦下就好”。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）：一个该追问的开放问题</strong></blockquote>
+<blockquote>- “大者宜为下”究竟是道德劝告，还是策略计算？如果大国谦下只是为了“兼畜人”——扩大自己的容纳范围与影响力——那这种“下”还算是真正的谦下吗？老子没有正面回答，但这正是读者该自己追问的地方：当“处下”本身成为一种“取”的手段，谦下与权谋的边界在哪里？</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+    au1["老子"]
+    p1["大国应当像居于下游一样处下，成为天下交汇之处"]
+    p2["牝常以静胜牡，说明安静和处下具有优势"]
+    p3["大国对小国谦下，就能取得小国；小国对大国谦下，就能取得大国"]
+    p4["谦下有两种结果：以谦下取得，或因谦下而被取得"]
+    p5["大国不过想兼畜人，小国不过想入事人，两者各得所欲时，大国更应处下"]
+    
+    a1["大国者下流，天下之交"]
+    a2["天下之牝，牝常以静胜牡，以静为下"]
+    a3["故大国以下小国，则取小国"]
+    a4["小国以下大国，则取大国"]
+    a5["故或下以取，或下而取"]
+    a6["大国不过欲兼畜人"]
+    a7["小国不过欲入事人"]
+    a8["夫两者各得其所欲，大者宜为下"]
+    
+    c1["下流"]
+    c2["牝"]
+    c3["牡"]
+    c4["以静为下"]
+    c5["兼畜人"]
+    c6["入事人"]
+    
+    au1 -->|relates_to| p1
+    
+    a1 -->|supports| p1
+    a2 -->|supports| p2
+    a3 -->|supports| p3
+    a4 -->|supports| p3
+    a5 -->|supports| p4
+    a6 -->|supports| p5
+    a7 -->|supports| p5
+    a8 -->|supports| p5
+    
+    c1 -->|relates_to| a1
+    c2 -->|relates_to| a2
+    c3 -->|relates_to| a2
+    c4 -->|relates_to| a2
+    c5 -->|relates_to| a6
+    c6 -->|relates_to| a7
+    
+    p1 -->|relates_to| p2
+    p2 -->|relates_to| p3
+    p3 -->|relates_to| p4
+    p4 -->|relates_to| p5
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章论述大国与小国的相处之道，提出大国应像居于下游一样谦下包容，以静处下，从而使大国兼畜、小国入事，双方各得所欲。</div>
+<h3>📌 核心命题</h3><ol>
+<li>大国应当像居于下游一样处下，成为天下交汇之处。</li>
+<li>牝常以静胜牡，说明安静和处下具有优势。</li>
+<li>大国对小国谦下，就能取得小国；小国对大国谦下，就能取得大国。</li>
+<li>谦下有两种结果：以谦下取得，或因谦下而被取得。</li>
+<li>大国不过想兼畜人，小国不过想入事人，两者各得所欲时，大国更应处下。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>大国者下流，天下之交，天下之牝，牝常以静胜牡，以静为下。</li>
+<li>故大国以下小国，则取小国；小国以下大国，则取大国。</li>
+<li>故或下以取，或下而取。</li>
+<li>大国不过欲兼畜人，小国不过欲入事人。</li>
+<li>夫两者各得其所欲，大者宜为下。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>下流</strong></summary><div class="case-body">这里指居于下游，比喻大国应处在谦下的位置。</div></details>
+<details><summary><strong>牝</strong></summary><div class="case-body">雌性，文中用来喻指安静处下的一方。</div></details>
+<details><summary><strong>牡</strong></summary><div class="case-body">雄性，文中与牝相对。</div></details>
+<details><summary><strong>以静为下</strong></summary><div class="case-body">以安静保持谦下。</div></details>
+<details><summary><strong>兼畜人</strong></summary><div class="case-body">兼并畜养他人，指大国容纳、养护小国。</div></details>
+<details><summary><strong>入事人</strong></summary><div class="case-body">加入并事奉他人，指小国依附、事奉大国。</div></details>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 61 章。我的一句话总结是：{我的总结}。</p>
+<p>请帮我做两件事：</p>
+<p>① 提取本章的主线论证，按「起点问题 → 关键转折 → 结论」列出 3–5 个节点；</p>
+<p>② 逐条检查我的总结：哪些关键概念我用对了、哪些漏掉了、哪些被我换成了自己的说法。请指出本章中对应的大意位置（段落或论点），不要引入本章之外的论点。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>请扮演第 61 章最坚定的反方。我目前接受的核心论点是：{我接受的核心论点}。</p>
+<p>要求：</p>
+<p>① 给出三个最强反驳，按力度从强到弱排列；</p>
+<p>② 每个反驳必须指明它攻击的是本章论证的哪一环——前提、推理形式，还是结论的范围；</p>
+<p>③ 如果思想史上有真实存在的对立学派或学者说过类似的话，请注明是谁、在哪部著作或哪场争论中；没有就直说「这是我的构造，无出处」。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 61 章，我理解它的核心是：{核心思想}。</p>
+<p>请给我 3 个真实生活/工作场景（具体到可操作层面，不要虚构故事），分别说明：</p>
+<p>① 这一章的思想在这个场景里怎么用；</p>
+<p>② 如果反其道而行，会发生什么；</p>
+<p>③ 这个应用在哪一步可能失效——即本章思想不适用的边界条件。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 61 章里最让我兴奋的一句话是：「{原文句子}」。</p>
+<p>请围绕这句话往下推：</p>
+<p>① 这句话隐含了哪些没明说的前提？</p>
+<p>② 如果把它推到极端，会得出什么反直觉甚至荒谬的结论？</p>
+<p>③ 思想史上有谁真的这样推过？他们推到了哪一步、后来被什么反驳？</p>
+<p>④ 回到本章，作者有没有在别处给这句话设过限制？</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. 这一章到底在回答什么问题？——先确认问题意识，再决定要不要逐段细读。</li>
+<li>2. 作者用了哪些日常例子或比喻？——从熟悉的例子切入，比直接啃术语省力得多。</li>
+<li>3. 这一章里有没有哪句让我本能地想说“不对”？——先记下自己的直觉反应，读完再回看是否被说服。</li>
+<li>4. 本章的核心概念和上一章是什么关系？——理清概念链条，避免把结论当成孤立知识点背下来。</li>
+<li>5. 如果作者是错的，最可能错在哪一步？——练习定位论证的薄弱环节，而不只是复述观点。</li>
+<li>6. 这一章的主张放在今天还成立吗？我能想到什么反例？——把文本放进当代语境做压力测试。</li>
+<li>7. 思想史上有哪些人对这一章的核心主张提出过系统反驳？——进阶：进入学术争论脉络，看这一章在对话中站在哪一边。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>下流</td><td>像江河下游一样处在低处，能汇聚各方。</td><td>本义为江河下游；老子用以比喻大国应谦下、居汇流之地，不是现代汉语“卑劣”义。</td><td>《老子》六十一章“大国者下流，天下之交”；王弼注以“江海居大而处下，则百川流之”释之，核心术语为“处下”“交汇”“不争”。</td><td>王弼以“无”为本、以江海处下释大国下流，强调谦下能容；河上公注偏重治国养生，强调处下不争、不逆细微；苏辙《老子解》以众流所会解“下流”；陈鼓应《老子今注今译》指出这是以江海喻大国的谦下外交，不是道德贬义。</td></tr>
+<tr><td>牝</td><td>雌性、母性，代表安静柔顺的一方。</td><td>雌性鸟兽；老子用以象征静、柔、下位，与“牡”相对。</td><td>《老子》“天下之牝”“牝常以静胜牡”；王弼注“牝，雌也”，以“静”释牝，核心术语为“静”“胜”“下”。</td><td>王弼注“雄躁动贪欲，雌常以静，故能胜雄”，以贵无主静解；河上公注以雌柔为养生治国之德；陈鼓应说牝象征雌柔、静定；成玄英重玄学可解为遣执归静，但不是直接注此句。</td></tr>
+<tr><td>牡</td><td>雄性、公性，代表躁动主动的一方。</td><td>雄性鸟兽，与“牝”相对；老子用以指躁动、主动、争胜的一方。</td><td>《老子》“牝常以静胜牡”；王弼注以“雄躁动贪欲”释牡，核心术语为“躁”“动”“贪欲”。</td><td>王弼以“静”为反本，故牝以静胜牡；河上公从养生说牡为躁动耗散、牝为安静自守；陈鼓应指出老子不是贬斥雄性，而是以雌静喻谦下策略；韩非《解老》重静以少费，可作对照，但不直接释此章。</td></tr>
+<tr><td>以静为下</td><td>用安静、谦下的方式处理关系。</td><td>以静定自处，并以此表示谦下；老子认为静能胜动、下能取上。</td><td>《老子》“牝常以静胜牡，以静为下”；王弼注以“静”为反本、以“下”为不争，核心术语为“静”“下”“胜”。</td><td>王弼贵无主静，认为静是动的根本，故“以静为下”；河上公从养生治国说清静自守则能下人；苏辙《老子解》以静故能下、下故能取；陈鼓应指出这是老子“柔弱胜刚强”在处理大国小国关系上的应用。</td></tr>
+<tr><td>兼畜人</td><td>包容、养护别人，把别国纳入自己的照顾范围。</td><td>兼有并畜养他人；在大国语境中指大国包容、养护小国。</td><td>《老子》“大国不过欲兼畜人”；王弼注以大国谦下畜小国释之，核心术语为“兼”“畜”“下”。</td><td>王弼以政治谦下解大国欲兼畜小国；河上公从治国养生说“畜养”百姓小国；苏辙《老子解》说大国之欲不过兼畜小国；陈鼓应译为大国不过想包容养护小国；刘笑敢《老子古今》关注“兼畜”与“入事”的对等交换结构。</td></tr>
+<tr><td>入事人</td><td>加入并侍奉别人，小国依附大国。</td><td>进入并事奉他人；在小国语境中指小国谦下事奉大国。</td><td>《老子》“小国不过欲入事人”；王弼注以小国下大国、入事以自存释之，核心术语为“事”“下”“取”。</td><td>王弼以谦下外交解小国入事大国；河上公从治国说小国下大国以求安；苏辙说小国不过入事大国；陈鼓应译为小国不过想事奉大国；刘笑敢指出老子在大国小国之间设定“各得所欲”的互惠，而非单方屈服。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">下流</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">像江河下游一样处在低处，能汇聚各方。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">本义为江河下游；老子用以比喻大国应谦下、居汇流之地，不是现代汉语“卑劣”义。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》六十一章“大国者下流，天下之交”；王弼注以“江海居大而处下，则百川流之”释之，核心术语为“处下”“交汇”“不争”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本、以江海处下释大国下流，强调谦下能容；河上公注偏重治国养生，强调处下不争、不逆细微；苏辙《老子解》以众流所会解“下流”；陈鼓应《老子今注今译》指出这是以江海喻大国的谦下外交，不是道德贬义。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">牝</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">雌性、母性，代表安静柔顺的一方。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">雌性鸟兽；老子用以象征静、柔、下位，与“牡”相对。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》“天下之牝”“牝常以静胜牡”；王弼注“牝，雌也”，以“静”释牝，核心术语为“静”“胜”“下”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼注“雄躁动贪欲，雌常以静，故能胜雄”，以贵无主静解；河上公注以雌柔为养生治国之德；陈鼓应说牝象征雌柔、静定；成玄英重玄学可解为遣执归静，但不是直接注此句。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">牡</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">雄性、公性，代表躁动主动的一方。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">雄性鸟兽，与“牝”相对；老子用以指躁动、主动、争胜的一方。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》“牝常以静胜牡”；王弼注以“雄躁动贪欲”释牡，核心术语为“躁”“动”“贪欲”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“静”为反本，故牝以静胜牡；河上公从养生说牡为躁动耗散、牝为安静自守；陈鼓应指出老子不是贬斥雄性，而是以雌静喻谦下策略；韩非《解老》重静以少费，可作对照，但不直接释此章。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">以静为下</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">用安静、谦下的方式处理关系。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">以静定自处，并以此表示谦下；老子认为静能胜动、下能取上。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》“牝常以静胜牡，以静为下”；王弼注以“静”为反本、以“下”为不争，核心术语为“静”“下”“胜”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼贵无主静，认为静是动的根本，故“以静为下”；河上公从养生治国说清静自守则能下人；苏辙《老子解》以静故能下、下故能取；陈鼓应指出这是老子“柔弱胜刚强”在处理大国小国关系上的应用。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">兼畜人</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">包容、养护别人，把别国纳入自己的照顾范围。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">兼有并畜养他人；在大国语境中指大国包容、养护小国。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》“大国不过欲兼畜人”；王弼注以大国谦下畜小国释之，核心术语为“兼”“畜”“下”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以政治谦下解大国欲兼畜小国；河上公从治国养生说“畜养”百姓小国；苏辙《老子解》说大国之欲不过兼畜小国；陈鼓应译为大国不过想包容养护小国；刘笑敢《老子古今》关注“兼畜”与“入事”的对等交换结构。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">入事人</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">加入并侍奉别人，小国依附大国。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">进入并事奉他人；在小国语境中指小国谦下事奉大国。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》“小国不过欲入事人”；王弼注以小国下大国、入事以自存释之，核心术语为“事”“下”“取”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以谦下外交解小国入事大国；河上公从治国说小国下大国以求安；苏辙说小国不过入事大国；陈鼓应译为小国不过想事奉大国；刘笑敢指出老子在大国小国之间设定“各得所欲”的互惠，而非单方屈服。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 61 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 61 章]
+
+大国者下流，天下之交，天下之牝，牝常以静胜牡，以静为下。故大国以下小国，则取小国；小国以下大国，则取大国。故或下以取，或下而取。大国不过欲兼畜人，小国不过欲入事人。夫两者各得其所欲，大者宜为下。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_61_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

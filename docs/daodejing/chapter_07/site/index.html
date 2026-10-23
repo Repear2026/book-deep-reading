@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 7 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 7/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_06/site/index.html" title="第 6 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_08/site/index.html" title="第 8 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 7 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>天长地久。天地所以能长且久者，以其不自生，故能长生。是以圣人后其身而身先；外其身而身存。非以其无私邪，故能成其私。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 7 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章只有三句话，却讲了一个反直觉的道理：越想抓住自己，越抓不住；越不为自己活，反而越能成全自己。老子拿天地作例子——天地不为自己而存在，所以能长久。然后推到人身上：把自己往后放，反而站到前面；把自身置之度外，反而保住了自己。最后反问一句：不正是因为无私吗？反而成就了自己。有趣的不是“无私”这个道德训诫，而是其中那个辩证结构：退让与获得、后与先、外与存，竟然互为因果。最重要的收获是：老子不是让你牺牲自己，而是让你换一种“保存自己”的方式。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>1. 如果你把“先人后己”纯粹当成道德要求，那为什么老子说结果是“身先”“身存”？这算是道德还是策略？</blockquote>
+<blockquote>2. 如果一个团队里人人都“后其身”，会不会反而没人往前冲？退让有没有边界？</blockquote>
+<blockquote>3. 如果“成其私”是最终效果，那“无私”还纯粹吗？还是说老子在教你一种更聪明的自私？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote><strong>荀子</strong>：人性本恶，善者伪也；人天然好利疾恶，靠礼义法度矫正。在老荀看来，老子这种“不自生”不能靠自然本性实现，必须靠外在规范塑造。</blockquote>
+<blockquote><strong>韩非</strong>：人与人之间是计算关系，“舆人成舆则欲人之富贵，匠人成棺则欲人之夭死”。他会追问：圣人“后其身”到底是真心无私，还是另一种算计？韩非会认为这恰恰是精明的自利。</blockquote>
+<blockquote><strong>王阳明</strong>：良知本体无善无恶，一有“成其私”的念头便已落入计较。阳明会说老子仍停留在效果层面，真正的无私不该问“能不能成其私”。</blockquote>
+<blockquote><strong>罗素</strong>：在《社会改造原理》等著作中他主张，开明的自利与利他并不冲突，最好的自我实现常通过服务他人达成——这与老子“无私成私”的悖论结构高度呼应，但罗素诉诸理性计算而非天道。</blockquote>
+<blockquote><strong>涂尔干</strong>：个人主义与社会团结并非对立，职业团体与道德规范能让个体在承担责任中获得自我实现，可看作社会学版“外其身而身存”。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：关注三个点——第一句“天地所以能长且久者，以其不自生”，看老子如何用自然现象开场；第二句“后其身而身先；外其身而身存”，看两组“反—正”配对；第三句反问“非以其无私邪？故能成其私”，看落脚点落在“私”字上。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：必看两个论证。一是“不自生→长生”的因果链：天地不为自己而存在，所以能持续存在——这里要问，这个“所以”是逻辑必然还是观察归纳？二是“无私→成其私”的反问结构：老子用“非以其……邪”的反问收尾，语气是肯定的，但“成其私”到底指世俗的功成名就，还是指“身存”意义上的保全？这两个论证是本章全部张力所在。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：该追问的一个开放问题是——如果“无私”的正当性最终由“成其私”来证明，那这种无私和精明的利己主义界限在哪里？老子到底在讲一种更高的道德，还是一种更深的策略？这个追问没有标准答案，但决定了你如何安放整章。</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+    c_tiandao["概念：天道"]
+    c_rendao["概念：人道"]
+    c_busizisheng["概念：不自生"]
+    c_houshen["概念：后其身"]
+    c_waishen["概念：外其身"]
+    c_wusi["概念：无私"]
+    c_chengsi["概念：成其私"]
+    c_buzheng["概念：不争"]
+
+    p_tiandi["命题：天地不自生，故能长生"]
+    p_shengren["命题：圣人后其身而身先，外其身而身存"]
+    p_wusi["命题：唯其无私，故能成其私"]
+    p_yinyu["命题：以天地长久之天道，明圣人处世之人道"]
+
+    x_ch2["事件：第2章 功成而弗居"]
+    x_ch8["事件：第8章 上善若水"]
+    x_ch22["事件：第22章 夫唯不争，故天下莫能与之争"]
+    x_ch66["事件：第66章 江海善下为百谷王"]
+
+    c_busizisheng --relates_to--> p_tiandi
+    c_houshen --relates_to--> p_shengren
+    c_waishen --relates_to--> p_shengren
+    c_wusi --relates_to--> p_wusi
+    c_chengsi --relates_to--> p_wusi
+    c_tiandao --relates_to--> p_yinyu
+    c_rendao --relates_to--> p_yinyu
+    c_buzheng --relates_to--> p_wusi
+
+    p_tiandi --supports--> p_shengren
+    p_tiandi --supports--> p_yinyu
+    p_shengren --supports--> p_wusi
+    p_shengren --supports--> p_yinyu
+
+    x_ch2 --supports--> p_wusi
+    x_ch8 --supports--> p_wusi
+    x_ch22 --supports--> p_shengren
+    x_ch66 --supports--> p_shengren
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章由天地长久之道推及圣人处世之道，是《道德经》中“以天道明人道”的典型章节；核心在于说明不自生、后其身、外其身与无私反而能长生、身先、身存、成其私的辩证关系。</div>
+<h3>📌 核心命题</h3><ol>
+<li>天地能够长久，是因为它不为自己而生，所以能长生。</li>
+<li>圣人把自己放在后面，反而能占先；把自己置于度外，反而能保全自身。</li>
+<li>正因为无私，反而能成就自己。</li>
+<li>本章以天地长久为喻，引出圣人处世应以无私、退让、不自生为原则。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>天地所以能长且久者，以其不自生，故能长生。</li>
+<li>是以圣人后其身而身先；外其身而身存。</li>
+<li>非以其无私邪？故能成其私。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>不自生</strong></summary><div class="case-body">不为自己而生存，不以自我保存为唯一目的。</div></details>
+<details><summary><strong>后其身</strong></summary><div class="case-body">把自己放在别人后面，不争先、不居前。</div></details>
+<details><summary><strong>外其身</strong></summary><div class="case-body">把自己置于度外，不执着于自身利害与安危。</div></details>
+<details><summary><strong>成其私</strong></summary><div class="case-body">成就自己；指因无私反而最终成全自身。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>可与第2章“功成而弗居，夫唯弗居，是以不去”相呼应，理解不居功反而能保全。</li>
+<li>可与第8章“上善若水，水善利万物而不争”相呼应，理解不争与成全之道。</li>
+<li>可与第22章“夫唯不争，故天下莫能与之争”相呼应，理解退让与领先的辩证关系。</li>
+<li>可与第66章江海“善下之”而能为百谷王相呼应，理解后其身而身先。</li>
+<li>可与全书“无为”“不争”“柔弱胜刚强”等主题关联，但本章侧重由天地长久引出无私成私。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《{书名}》第 {章号} 章。下面是我对这一章主线的复述，请你做两件事：</p>
+<br/>
+<p>1）主线提取：把我的复述压缩成 3-5 个要点，标出哪些是本章的论证主干、哪些只是举例或铺垫。</p>
+<p>2）关键概念检查：指出我复述里出现的每个关键概念，逐个问我&quot;你用这个词时指的是什么&quot;，并对照本章原文判断我的用法是否走偏、有没有把作者的定义换成了我自己的常识理解。</p>
+<br/>
+<p>最后给出：我漏掉了本章哪个不可省略的环节？如果漏掉它，整章论证会断在哪一步？</p>
+<br/>
+<p>我的复述：</p>
+<p>{我的复述}</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>请你扮演《{书名}》第 {章号} 章最强的反方，不是挑语病，而是从对立立场出发反驳这一章的核心主张。</p>
+<br/>
+<p>要求：</p>
+<p>1）先用自己的话把本章核心主张重述一遍，确认你反驳的是它本身，不是稻草人。</p>
+<p>2）给出最强的两到三条反驳：可以是前提不成立、推理有跳跃、反例、或者&quot;结论成立但代价作者没付&quot;。</p>
+<p>3）每条反驳后，替作者给出他可能的最强回应，再指出这个回应是否真的挡住了。</p>
+<p>4）最后告诉我：如果我读完这章就全盘接受，我最可能在什么地方被这章&quot;骗&quot;过去？</p>
+<br/>
+<p>我的接受点/我觉得最有道理的地方是：</p>
+<p>{我认同的论点}</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《{书名}》第 {章号} 章。请给我 3 个真实生活或工作场景，用这一章的思想去解释和应用。</p>
+<br/>
+<p>要求：</p>
+<p>1）三个场景分别落在：{场景领域一，如职场/团队}、{场景领域二，如个人决策/习惯}、{场景领域三，如人际/家庭}。</p>
+<p>2）每个场景写成具体情境（有角色、有冲突、有要做出的选择），不要泛泛而谈&quot;这体现了XX思想&quot;。</p>
+<p>3）每个场景说明：用本章的哪个概念/区分来看，会看到什么平时看不到的东西；以及按本章思路，具体下一步该怎么做。</p>
+<p>4）每个场景末尾加一句&quot;本章在这里的适用边界&quot;——什么情况下这套思想会失灵。</p>
+<br/>
+<p>我的职业/生活背景（可留空）：</p>
+<p>{背景}</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>《{书名}》第 {章号} 章里，最让我兴奋的一句话是：</p>
+<br/>
+<p>「{那句话}」</p>
+<br/>
+<p>请围绕这句话做&quot;推下去还有什么&quot;的连环深挖，至少推三层：</p>
+<br/>
+<p>1）这句话字面上承诺了什么？它预设了哪些没明说的前提？</p>
+<p>2）如果这个说法成立，本章里还有哪些论断必须跟着改写？作者自己有没有意识到这一步？</p>
+<p>3）再往外推：这个立场如果推到极端，会得出什么反直觉甚至作者未必愿意接受的结论？</p>
+<p>4）反向推：要让这句话不成立，最低成本的反例是什么？</p>
+<p>5）最后给我一个&quot;下一步该读什么&quot;的提示：这句话在思想史上通常和哪些立场站在一起、和哪些立场对立（写清是谁的说法，不确定就说不确定，不要编书名）。</p>
+<br/>
+<p>我的兴奋点在于：</p>
+<p>{我为什么被这句话击中}</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. 这一章标题里的关键词，作者自己是怎么定义的？先别急着评价，用你自己的话复述一遍。</li>
+</ol>
+<p>   *提示：区分&quot;我以为它是什么意思&quot;和&quot;作者明说它是什么意思&quot;，这一步能省掉后面一半的误读。*</p>
+<br/>
+<ol>
+<li>2. 这一章想解决的那个问题，用一句大白话说是什么？作者在反驳谁？</li>
+</ol>
+<p>   *提示：每章都有一个&quot;靶子&quot;，找不到靶子往往说明还没读进去。*</p>
+<br/>
+<ol>
+<li>3. 本章的核心主张是哪一句？把它抄下来，然后标出这句话里哪些词是不能替换的。</li>
+</ol>
+<p>   *提示：换掉一个词主张就变味，那个词就是这一章的关键概念。*</p>
+<br/>
+<ol>
+<li>4. 作者用什么例子或论证支撑这个主张？这个例子是&quot;说明&quot;还是&quot;证明&quot;？</li>
+</ol>
+<p>   *提示：例子讲得漂亮不等于论证成立，问一句&quot;没有这个例子，结论还站得住吗&quot;。*</p>
+<br/>
+<ol>
+<li>5. 这一章和上一章是什么关系？它在整本书的论证链条里承担哪一环？</li>
+</ol>
+<p>   *提示：如果删掉这一章，后面哪一章会塌？答得出说明你抓住了它的功能。*</p>
+<br/>
+<ol>
+<li>6. 这一章里有没有让你觉得&quot;说得太快&quot;的地方？作者在哪一步省略了论证？</li>
+</ol>
+<p>   *提示：找跳跃点比找结论更能检验你是否真读懂了。*</p>
+<br/>
+<ol>
+<li>7. 如果让你站到作者的反对面，你会从哪一条前提下手？作者可能怎么回你？</li>
+</ol>
+<p>   *提示：能构造出反方最强版本，才算真正拥有了这一章。*</p>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>不自生</td><td>活着不只是为了自己，不只顾着保住自己这条命。</td><td>语出《老子》第七章：“天地所以能长且久者，以其不自生，故能长生。”指天地不为自己谋求生存，不把自我保存当作目的，因而反而能够长久。这是老子以天道推及人道的典型表述。</td><td>王弼注：“自生则与物争，不自生则物归也。”以“无”为本，不自生即不执著于自我之有；“不自生”不是不生，而是不以“生”为私有、不与万物相争。河上公则从养生立说，释为不“自营一身”，强调损己奉生反得长生。</td><td>王弼以“无”为本，认为“不自生”是不立自我之私、任万物自归，与贵无论相通；河上公《老子章句》走养生一路，把“不自生”读作节欲保身、不以嗜欲戕害生命；郭象注《庄》主“独化”，反对有一个造物者主宰，对此句的引申是万物各适其性、不假外求，故“不自生”非刻意舍弃自身，而是不造作地对待生。现代学者陈鼓应强调此章是“以退为进”的辩证智慧，属于老子“正言若反”的表达方式，不可坐实为宗教式的自我否定。</td></tr>
+<tr><td>后其身</td><td>把自己放到别人后头，不抢在前、不争第一。</td><td>语出同章：“是以圣人后其身而身先。”指圣人不争先、不居功、不与人争位次，把自身置于人后，结果反而受人推戴而居于人前。与《老子》第六十六章“欲先民，必以身后之”互为呼应，是老子“谦退”“不争”思想的具体表述。</td><td>王弼注：“后其身而身先，……以其无私邪？”以“顺”释之，圣人无心于先而后自至；成玄英重玄学解为“心无分别，前后两忘”，非有意为后以取先，若存“后”之念则仍是执著。苏辙《老子解》以“不争之德”通之，谓“后”非退缩，而是去其争心。</td><td>儒家可与之对照：孔子称“君子无所争”（《论语·八佾》），孟子言“辞让之心，礼之端也”，但儒家之让以礼序为前提，后身是为成就伦常秩序；老子之“后”则以消解争竞本身为旨归，二者貌合神离。韩非《解老》《喻老》从法术角度读此句，强调君主不与人臣争功争名，方能“身先”而势固，把“后其身”转成一种统治术。刘笑敢指出老子这里的“后”属“正言若反”式的辩证表述，与儒家德性论不可简单等同。</td></tr>
+<tr><td>外其身</td><td>把自己置之度外，不把自己的利害安危看得那么重。</td><td>语出同章：“外其身而身存。”指圣人将自身置于利害、安危、得失之外，不执着于己身，反而得以保全。与“后其身”连用，共同构成老子“无私而成”的修养论表述。</td><td>王弼注：“外其身而身存，……不以外物累其心也。”以“无”释之，身之存不在于固守，而在于不执。河上公释为“不贵其身”“薄己而厚人”。庄子《齐物论》“吾丧我”可与“外其身”互参，皆主张破除对小我的执着。</td><td>庄子以“吾丧我”“形如槁木、心如死灰”言消解小我，与“外其身”同调，但庄子归趣在“逍遥”“齐物”，不以“身存”为最终目的；老子此章仍落在“身存”“成其私”的实效上，二者取向有别。佛学中观以“缘起性空”破我执，禅宗倡“无心”“无我”，可视为“外其身”的极致推演，但其立足点在解脱而非“身存”。海德格尔论“存在”不是现成在手的存在者，可借以说明“外其身”不是否弃生存，而是换一种非对象化的方式与自身相处，属于现代存在论层面的类比。</td></tr>
+<tr><td>成其私</td><td>最后反而成全了自己，把自己的事办成了。</td><td>语出同章：“非以其无私邪？故能成其私。”“私”指自身、自身之事。老子意谓正因为不刻意谋求自身，反而最终成就了自身。此句与“后其身而身先”“外其身而身存”并列，是老子辩证式的“退以求成”表述。</td><td>王弼注：“无私者，无为于身也。……身先身存，故曰能成其私也。”以“无为”为枢，无私非灭己，而是不造作地对待己身。成玄英重玄学强调“私”“无私”两遣，连“成其私”之念亦不可著。现代研究者刘笑敢将此章归入老子“正言若反”的语言策略，以“悖论式表述”揭示“反者道之动”的运作方式。</td><td>法家韩非从“利”字入手，认为人皆自利，君主当因势利导，借“无私”之名收“成私”之实，把这一章读作政治权术的辩证，与老子本旨已有偏离。郭象“独化”说下，万物各当其分、自得其得，“成其私”不过是“适性”的自然结果，无所谓刻意经营。儒家孟子辨“义利”，若以此章相绳，会批评“成其私”仍落在利上，与“何必曰利”的立场相冲突，朱熹《朱子语类》即曾讥老子之学“不肯自做，却要退后一步”以图后效；此一看法代表理学系统对老子“成其私”的批评。陈鼓应则辩护说，老子之“私”指个体生命的自然成全，不是自私自利，应与儒家意义上的“利”区分开来看。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">不自生</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">活着不只是为了自己，不只顾着保住自己这条命。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第七章：“天地所以能长且久者，以其不自生，故能长生。”指天地不为自己谋求生存，不把自我保存当作目的，因而反而能够长久。这是老子以天道推及人道的典型表述。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“自生则与物争，不自生则物归也。”以“无”为本，不自生即不执著于自我之有；“不自生”不是不生，而是不以“生”为私有、不与万物相争。河上公则从养生立说，释为不“自营一身”，强调损己奉生反得长生。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，认为“不自生”是不立自我之私、任万物自归，与贵无论相通；河上公《老子章句》走养生一路，把“不自生”读作节欲保身、不以嗜欲戕害生命；郭象注《庄》主“独化”，反对有一个造物者主宰，对此句的引申是万物各适其性、不假外求，故“不自生”非刻意舍弃自身，而是不造作地对待生。现代学者陈鼓应强调此章是“以退为进”的辩证智慧，属于老子“正言若反”的表达方式，不可坐实为宗教式的自我否定。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">后其身</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">把自己放到别人后头，不抢在前、不争第一。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出同章：“是以圣人后其身而身先。”指圣人不争先、不居功、不与人争位次，把自身置于人后，结果反而受人推戴而居于人前。与《老子》第六十六章“欲先民，必以身后之”互为呼应，是老子“谦退”“不争”思想的具体表述。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“后其身而身先，……以其无私邪？”以“顺”释之，圣人无心于先而后自至；成玄英重玄学解为“心无分别，前后两忘”，非有意为后以取先，若存“后”之念则仍是执著。苏辙《老子解》以“不争之德”通之，谓“后”非退缩，而是去其争心。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">儒家可与之对照：孔子称“君子无所争”（《论语·八佾》），孟子言“辞让之心，礼之端也”，但儒家之让以礼序为前提，后身是为成就伦常秩序；老子之“后”则以消解争竞本身为旨归，二者貌合神离。韩非《解老》《喻老》从法术角度读此句，强调君主不与人臣争功争名，方能“身先”而势固，把“后其身”转成一种统治术。刘笑敢指出老子这里的“后”属“正言若反”式的辩证表述，与儒家德性论不可简单等同。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">外其身</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">把自己置之度外，不把自己的利害安危看得那么重。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出同章：“外其身而身存。”指圣人将自身置于利害、安危、得失之外，不执着于己身，反而得以保全。与“后其身”连用，共同构成老子“无私而成”的修养论表述。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“外其身而身存，……不以外物累其心也。”以“无”释之，身之存不在于固守，而在于不执。河上公释为“不贵其身”“薄己而厚人”。庄子《齐物论》“吾丧我”可与“外其身”互参，皆主张破除对小我的执着。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">庄子以“吾丧我”“形如槁木、心如死灰”言消解小我，与“外其身”同调，但庄子归趣在“逍遥”“齐物”，不以“身存”为最终目的；老子此章仍落在“身存”“成其私”的实效上，二者取向有别。佛学中观以“缘起性空”破我执，禅宗倡“无心”“无我”，可视为“外其身”的极致推演，但其立足点在解脱而非“身存”。海德格尔论“存在”不是现成在手的存在者，可借以说明“外其身”不是否弃生存，而是换一种非对象化的方式与自身相处，属于现代存在论层面的类比。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">成其私</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">最后反而成全了自己，把自己的事办成了。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出同章：“非以其无私邪？故能成其私。”“私”指自身、自身之事。老子意谓正因为不刻意谋求自身，反而最终成就了自身。此句与“后其身而身先”“外其身而身存”并列，是老子辩证式的“退以求成”表述。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“无私者，无为于身也。……身先身存，故曰能成其私也。”以“无为”为枢，无私非灭己，而是不造作地对待己身。成玄英重玄学强调“私”“无私”两遣，连“成其私”之念亦不可著。现代研究者刘笑敢将此章归入老子“正言若反”的语言策略，以“悖论式表述”揭示“反者道之动”的运作方式。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">法家韩非从“利”字入手，认为人皆自利，君主当因势利导，借“无私”之名收“成私”之实，把这一章读作政治权术的辩证，与老子本旨已有偏离。郭象“独化”说下，万物各当其分、自得其得，“成其私”不过是“适性”的自然结果，无所谓刻意经营。儒家孟子辨“义利”，若以此章相绳，会批评“成其私”仍落在利上，与“何必曰利”的立场相冲突，朱熹《朱子语类》即曾讥老子之学“不肯自做，却要退后一步”以图后效；此一看法代表理学系统对老子“成其私”的批评。陈鼓应则辩护说，老子之“私”指个体生命的自然成全，不是自私自利，应与儒家意义上的“利”区分开来看。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 7 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 7 章]
+
+天长地久。天地所以能长且久者，以其不自生，故能长生。是以圣人后其身而身先；外其身而身存。非以其无私邪，故能成其私。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_07_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

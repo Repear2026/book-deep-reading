@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 30 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 30/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_29/site/index.html" title="第 29 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_31/site/index.html" title="第 31 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 30 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>以道佐人主者，不以兵强天下。其事好还。师之所处，荆棘生焉。大军之后，必有凶年。善者果而已，不以取强。果而勿矜，果而勿伐，果而勿骄。果而不得已，果而勿强。物壮则老，是谓不道，不道早已。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 30 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这章是老子最直接的反战宣言：以道辅佐君主的人，不靠武力逞强天下。老子给出三重理由——用兵会招致报应，军队过后田园荒芜、大战之后必有荒年，事物壮盛必转向衰老。所以他主张“果而已”：达到必要结果就停，不矜、不伐、不骄、不逞强。最有趣的是，他把军事克制上升为宇宙规律——“物壮则老，是谓不道，不道早已”。最重要收获：老子不是无条件反战，而是反对“以兵强”，即把武力当作逞强和炫耀的工具。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote><strong>如果</strong>你是将军，打赢了仗，老子会允许你庆祝吗？他说“果而勿矜、勿伐、勿骄”，胜利之后的态度比胜利本身更考验人。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>如果</strong>“物壮则老”是普遍规律，那么任何追求极盛的努力（商业扩张、个人成就）是否都在加速自己的衰亡？</blockquote>
+<p>&gt;</p>
+<blockquote><strong>如果</strong>用兵“其事好还”——暴力会反弹回自身，那么“以战止战”的逻辑在老子看来是否根本不成立？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote><strong>罗素</strong>在《社会重建原则》中区分“权力欲”与“创造欲”，认为战争是权力欲的极端形态；这与老子反对“以兵强”的直觉相通，但罗素相信制度可以约束权力欲，老子则诉诸“道”的规律。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>福柯</strong>在《必须保卫社会》中揭示：战争话语本身就是权力运作的模型，社会关系被理解为持续战争。老子说“不以兵强天下”，福柯会追问——你不以兵强，是否只是换了一种更隐蔽的“强”？</blockquote>
+<p>&gt;</p>
+<blockquote><strong>荀子</strong>在《议兵》篇中主张“兵者，所以禁暴除害也”，肯定正义之战的必要性；这构成对老子的重要补充：老子反对“逞强”，荀子则正面论证何时用兵正当。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>韩非</strong>在《喻老》篇中解读本章，把“不以兵强”读作君主不应炫耀武力，而应积蓄实力、以势制人；他把老子的反战转化为一种冷静的权术计算。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：关注三个点——第一，“其事好还”四个字，理解老子对暴力的“反弹”直觉；第二，“师之所处，荆棘生焉；大军之后，必有凶年”，这是全章最具体的民生关怀；第三，“果”字的特殊用法，它不是果实，而是“达到目的就停”的分寸感。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：必看两个论证。其一，从“不以兵强天下”到“善者果而已”的推演：老子并不否定用兵的必要性，他否定的是“以取强”，即把武力当作逞强的工具；关键在于“果而不得已”五个字，它给用兵划定了伦理底线。其二，“物壮则老，是谓不道，不道早已”的形而上论证：老子把军事逞强放进一个更大的宇宙节律中——任何事物发展到极盛就走向衰老，逞强恰恰是加速衰亡的“不道”之举。注意这里的逻辑跳跃：从“壮则老”到“不道”，老子把“极盛”本身视为不合道，这是全章最需要推敲的一步。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：该追问的开放问题——“物壮则老”是否意味着老子反对一切强大？如果任何“壮”都必然“老”、都“不道”，那么一个国家、一个人是否只能永远保持柔弱？老子说的“果而已”与“物壮则老”之间是否存在张力：达到结果而不逞强，是否本身就是一种“壮”？请带着这个问题，与后续关于“柔弱胜刚强”“守雌”的章节对读。</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+  P1["以道佐人主者，不以兵强天下"]
+  P2["用兵好还：师之所处荆棘生，大军之后必有凶年"]
+  P3["善用兵者果而已，不以取强"]
+  P4["果而勿矜、勿伐、勿骄、不得已、勿强"]
+  P5["物壮则老，不道早已"]
+  Cguo["果：达到用兵目的"]
+  Chaohuan["好还：用兵易反报自身"]
+  Czhuang["物壮则老：极盛转衰"]
+  Cbudao["不道：不合于道"]
+
+  P2 -->|supports| P1
+  P3 -->|supports| P1
+  P4 -->|supports| P3
+  P5 -->|supports| P1
+  P5 -->|supports| P3
+  P4 -->|supports| P1
+
+  P3 -->|relates_to| Cguo
+  P4 -->|relates_to| Cguo
+  P2 -->|relates_to| Chaohuan
+  P5 -->|relates_to| Czhuang
+  P5 -->|relates_to| Cbudao
+  Czhuang -->|relates_to| Cbudao
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章从“以道佐人主”出发，集中论述反战与慎兵思想：武力逞强会招致报应并造成民生凋敝，善用兵者只求达到必要结果而止，不矜、不伐、不骄、不逞强；并进一步以“物壮则老”说明极盛转衰、不合于道则早亡的规律。</div>
+<h3>📌 核心命题</h3><ol>
+<li>以道辅佐君主的人，不靠武力逞强于天下。</li>
+<li>用兵之事容易招致报应；军队驻扎之处荆棘丛生，大战之后必有荒年。</li>
+<li>善用兵者达到目的就停，不借武力逞强。</li>
+<li>达到目的后不矜持、不夸耀、不骄傲，并且是出于不得已。</li>
+<li>事物壮盛就会走向衰老，这叫作不合于道，不合于道就会很快消亡。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>以道佐人主者，不以兵强天下。其事好还。</li>
+<li>师之所处，荆棘生焉。大军之后，必有凶年。</li>
+<li>善者果而已，不以取强。</li>
+<li>果而勿矜，果而勿伐，果而勿骄。果而不得已，果而勿强。</li>
+<li>物壮则老，是谓不道，不道早已。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>果</strong></summary><div class="case-body">这里指达到用兵的目的、取得结果，而不是指果实。</div></details>
+<details><summary><strong>好还</strong></summary><div class="case-body">指用兵这件事容易反过来报应到自己身上。</div></details>
+<details><summary><strong>物壮则老</strong></summary><div class="case-body">事物发展到极盛就会转向衰败。</div></details>
+<details><summary><strong>不道</strong></summary><div class="case-body">指不合于“道”，即违背自然规律的做法。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>“物壮则老”“不道早已”可能与后续章节中关于柔弱、不争、守雌的论述相呼应。</li>
+<li>“不以兵强天下”可能与后续反战、贵柔的章节继续关联。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>下面是我就第 30 章写的一段自我总结：</p>
+<br/>
+<p>「{我的陈述}」</p>
+<br/>
+<p>请分两步处理，不要替我作答，先提问：</p>
+<br/>
+<p>【第一步：主线提取】</p>
+<ol>
+<li>1. 用不超过 5 句话复述本章的论证主线（问题 → 主张 → 支撑 → 结论）。</li>
+<li>2. 对照我的总结：标出我抓到了哪几步、跳过了哪几步、把哪一步说反了。</li>
+</ul>
+<br/>
+<p>【第二步：关键概念检查】</p>
+<ol>
+<li>3. 列出本章 3–5 个关键概念，逐个向我提问：它在本章的确切含义是什么？它与哪个概念构成对立或对照？作者为什么非要用这个词而不用近义词？</li>
+<li>4. 等我回答之后，再基于本章原文逐条纠正，凡是原文没说的，明确标注&quot;本章未涉及&quot;。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>请扮演第 30 章最强硬、最有学养的反方，目标不是敷衍地挑刺，而是让我真正动摇。</p>
+<br/>
+<p>我的立场是：{我对本章的接受点，一句话}</p>
+<br/>
+<p>要求：</p>
+<ol>
+<li>1. 先用你自己的话准确复述我的立场，确认没有曲解（稻草人禁止）。</li>
+<li>2. 给出 3 条反驳，每条都必须<strong>从本章自身承认的某个前提出发</strong>做内部反推，说明&quot;你既然接受了 A，就不能同时接受 B&quot;。</li>
+<li>3. 指出本章论证链条中最脆弱的一环：是前提可疑、是推理跳跃、还是结论超出了证据。</li>
+<li>4. 反过来，站在我这一边，替我构造一个最强的补强论证；然后说明这个补强要付出什么代价。</li>
+<li>5. 最后给我一个问题：如果我仍坚持原立场，我必须先回答什么。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 30 章，把它的核心思想概括为：{一句话概括}</p>
+<br/>
+<p>请给我 3 个真实场景，难度递增：</p>
+<p>① 个人日常生活；② 职场或组织中的决策；③ 一个有争议的公共议题。</p>
+<br/>
+<p>每个场景请写四段：</p>
+<ul>
+<li>- 场景本身（具体到人、事、冲突，不要抽象）；</li>
+<li>- 本章的哪个概念/区分在此处真正起作用；</li>
+<li>- 不用这套思想的人会怎么想、会漏掉什么；</li>
+<li>- 这套思想在此场景<strong>失灵</strong>的地方（边界条件是什么）。</li>
+</ul>
+<br/>
+<p>最后一行：这三个场景共同暴露了本章哪个未言明的前提。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 30 章里最让我兴奋的一句话是：</p>
+<br/>
+<p>「{原句}」</p>
+<br/>
+<p>请围绕它做推进式追问，至少 4 层，逐层加深：</p>
+<ol>
+<li>1. 这句话字面上在断言什么？把修辞剥掉，剩下什么命题？</li>
+<li>2. 它否认了什么？作者是在反对谁、反对哪种常识？</li>
+<li>3. 如果它成立，本章其他哪个论点会被牵连着改变？</li>
+<li>4. 再往下推一步，会得出什么连作者本人可能都不愿接受的结论？</li>
+</ul>
+<br/>
+<p>每层都要标注：哪部分是本章文本直接支持的，哪部分是推论，哪部分是开放猜测。最后给出 3 个可以继续追的书或思想家（只给名字和一句理由，不要编书名）。</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. 本章作者想解决的那个问题，用大白话说是什么？</li>
+</ol>
+<p>   &gt; 提示：去找章首的提问句、或&quot;有人认为……但&quot;这种转折，那里往往藏着问题。</p>
+<br/>
+<ol>
+<li>2. 本章有哪几个词反复出现，作者为什么老用它？</li>
+</ol>
+<p>   &gt; 提示：数一数高频词，术语的重复率往往就等于作者的着力点。</p>
+<br/>
+<ol>
+<li>3. 作者在本章最想反对的是谁、或哪种说法？</li>
+</ol>
+<p>   &gt; 提示：找&quot;并非&quot;&quot;恰恰相反&quot;&quot;人们通常以为&quot;这类信号词。</p>
+<br/>
+<ol>
+<li>4. 用一个你身边的例子，把本章的主线重讲一遍。</li>
+</ol>
+<p>   &gt; 提示：讲不出来就说明主线还没抓到，回去只读每段第一句。</p>
+<br/>
+<ol>
+<li>5. 本章哪一步让你觉得&quot;跳过去了&quot;？把它指出来。</li>
+</ol>
+<p>   &gt; 提示：找两个句子之间你无法自动补上的那一环，那常常是真问题所在。</p>
+<br/>
+<ol>
+<li>6. 如果本章的核心结论是错的，世界会有什么不同？</li>
+</ol>
+<p>   &gt; 提示：设想反例情境，看这个结论是否在别处也被依赖。</p>
+<br/>
+<ol>
+<li>7. 本章和上一章、下一章的接缝在哪里？它在全书里承担什么活？</li>
+</ol>
+<p>   &gt; 提示：看章末的过渡句和遗留问题，那通常是下一章的入口。</p>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>果</td><td>打到目的就够了，这个“果”说的是结果，不是果实。</td><td>老子用语，指用兵达到目的、取得成功，而非果实。本章“善有果而已”“果而勿矜”诸句，主张目的达成即止，不以兵力逞强。</td><td>王弼注：“果犹济也”，河上公注：“果，成也”，旧注多以“济事”“成”训之；高亨《老子正诂》释为“济事成功”；陈鼓应译为“达到目的”“胜利”，并谓“果”下连缀“勿矜、勿伐、勿骄、不得已、勿强”，正是给“果”划定限度；苏辙《老子解》以“不得已”释用兵，与“果而不得已”互证；刘笑敢则强调此“果”内含“不得已”的义理结构，非单纯功利结果。</td><td>王弼以“无”为本，故“果”只是济事而不有、不恃，成功而不居；河上公从治身养生立说，把“果”解为成身、成德之事，兵事退居其次；韩非《解老》以“理”释道，讲“动静有节”，其“有节”可与“果而已”相参；苏辙从“不得已”论兵，近于儒家“义兵”之说而更收敛。近人陈鼓应、刘笑敢把“果”读作一种设限伦理：老子不废兵，但反对把结果绝对化。与克劳塞维茨“战争是政治的延续”、目的无限升级的思路正相对照。</td></tr>
+<tr><td>好还</td><td>打仗这种事，早晚会反过来报到自己头上。</td><td>指用兵这件事容易反过来报应到自己身上，即“其事好还”。老子以此说明以兵强天下者必自受其害。</td><td>王弼注：“为暴害于人，人亦必报复之，故曰其事好还”；河上公注：“好还，谓用兵者必还自受其害”；旧训“还”为返、为报，高亨《老子正诂》即释为还报之义；陈鼓应结合下文“师之所处，荆棘生焉，大军之后，必有凶年”，指出这是对战争破坏性的经验性观察，而非神学报应论；刘笑敢亦提醒，不宜把“好还”直接等同于佛教式因果报应。</td><td>王弼以“无”为本，从“不以兵强天下”推出“还”的必然，偏于自然之势；河上公以治身养生为纲，把“还”解为“自受其害”的养生—政治双重警戒；郭象主“独化”，不承认有一个司赏罚的天道，其立场恰可反衬老子“好还”中的循环秩序感。与孟子“善战者服上刑”、墨子《非攻》相比，儒墨从民生与义利立论，老子则从“反”的规律立论。刘笑敢、陈鼓应均视之为对暴力反噬的冷静估量，而非宗教恐吓。</td></tr>
+<tr><td>物壮则老</td><td>东西长到最盛的时候，就开始走向衰老。</td><td>事物发展到极盛就会转向衰败。本章紧接“果而勿强”，用以说明以兵逞强必致衰亡。</td><td>王弼注：“壮，武力暴兴，喻以兵强于天下者也”，并以“飘风不终朝，骤雨不终日”为喻，谓暴兴必不道；河上公注：“万物壮极则枯老也”；成玄英《道德经义疏》：“壮，盛也……物之壮盛，必归于老”，以重玄之理解盛衰相即；陈鼓应、楼宇烈均以“物极必反”概括此句，视为老子辩证循环观的典型表述。</td><td>王弼以“无”为本，故“壮”即失本之暴兴，其“老”非年岁之衰而是失道之速亡；河上公从养生立说，谓精气壮盛时正宜守柔，否则枯老；郭象注《庄》主“独化”，反对有一统摄万物的“天”或必然规律，其说与老子“物壮则老”的循环天道观形成张力。佛教“诸行无常”表面上与之相似，但缘起说以“无自性”为机理，老子则以“反者道之动”为机理，二者不可混同。怀特海过程哲学以现实事态的“合生”与“客观化消亡”为必然，可与“壮则老”对观，但无老子式的价值评判。</td></tr>
+<tr><td>不道</td><td>不合于道，也就是违背自然规律的做法。</td><td>指不合于“道”，即违背自然规律的做法。本章指以兵逞强、盛极而衰之事为“不道”，而“不道早已”，即速取败亡。</td><td>王弼注：“不道者早已”，谓失道则不能久；河上公注：“不得道则早已也”；成玄英疏“不道”为“乖于道”，以重玄双遣释之；韩非《解老》以“理”释道，谓“道者，万物之所然也，万理之所稽也”，“不道”即失万物之理、动而无节；陈鼓应、刘笑敢指出“道”在老文中兼具规律义与价值义，“不道”因而是描述兼评价的双重判断。</td><td>王弼贵“无”，“不道”即失本逐末，故早已；韩非以“理”为可循之则，把“不道”落到刑名法术的失当上。黄老学派重“因天之时、尽地之利”，“不道”被读为逆时妄动；《庄子·养生主》“缘督以为经”则把合道理解为顺中虚而行，与老子“不道早已”的警诫互为表里。刘笑敢强调老子“道”的事实义与价值义未分化，故“不道”既是描述也是谴责；海德格尔的“非本真状态”是存在论上的遮蔽而非道德过失，其“不道”不复有“早已”的果报结构，二者对观可见中西哲学术语分野。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">果</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">打到目的就够了，这个“果”说的是结果，不是果实。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子用语，指用兵达到目的、取得成功，而非果实。本章“善有果而已”“果而勿矜”诸句，主张目的达成即止，不以兵力逞强。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“果犹济也”，河上公注：“果，成也”，旧注多以“济事”“成”训之；高亨《老子正诂》释为“济事成功”；陈鼓应译为“达到目的”“胜利”，并谓“果”下连缀“勿矜、勿伐、勿骄、不得已、勿强”，正是给“果”划定限度；苏辙《老子解》以“不得已”释用兵，与“果而不得已”互证；刘笑敢则强调此“果”内含“不得已”的义理结构，非单纯功利结果。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，故“果”只是济事而不有、不恃，成功而不居；河上公从治身养生立说，把“果”解为成身、成德之事，兵事退居其次；韩非《解老》以“理”释道，讲“动静有节”，其“有节”可与“果而已”相参；苏辙从“不得已”论兵，近于儒家“义兵”之说而更收敛。近人陈鼓应、刘笑敢把“果”读作一种设限伦理：老子不废兵，但反对把结果绝对化。与克劳塞维茨“战争是政治的延续”、目的无限升级的思路正相对照。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">好还</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">打仗这种事，早晚会反过来报到自己头上。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指用兵这件事容易反过来报应到自己身上，即“其事好还”。老子以此说明以兵强天下者必自受其害。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“为暴害于人，人亦必报复之，故曰其事好还”；河上公注：“好还，谓用兵者必还自受其害”；旧训“还”为返、为报，高亨《老子正诂》即释为还报之义；陈鼓应结合下文“师之所处，荆棘生焉，大军之后，必有凶年”，指出这是对战争破坏性的经验性观察，而非神学报应论；刘笑敢亦提醒，不宜把“好还”直接等同于佛教式因果报应。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，从“不以兵强天下”推出“还”的必然，偏于自然之势；河上公以治身养生为纲，把“还”解为“自受其害”的养生—政治双重警戒；郭象主“独化”，不承认有一个司赏罚的天道，其立场恰可反衬老子“好还”中的循环秩序感。与孟子“善战者服上刑”、墨子《非攻》相比，儒墨从民生与义利立论，老子则从“反”的规律立论。刘笑敢、陈鼓应均视之为对暴力反噬的冷静估量，而非宗教恐吓。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">物壮则老</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">东西长到最盛的时候，就开始走向衰老。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">事物发展到极盛就会转向衰败。本章紧接“果而勿强”，用以说明以兵逞强必致衰亡。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“壮，武力暴兴，喻以兵强于天下者也”，并以“飘风不终朝，骤雨不终日”为喻，谓暴兴必不道；河上公注：“万物壮极则枯老也”；成玄英《道德经义疏》：“壮，盛也……物之壮盛，必归于老”，以重玄之理解盛衰相即；陈鼓应、楼宇烈均以“物极必反”概括此句，视为老子辩证循环观的典型表述。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，故“壮”即失本之暴兴，其“老”非年岁之衰而是失道之速亡；河上公从养生立说，谓精气壮盛时正宜守柔，否则枯老；郭象注《庄》主“独化”，反对有一统摄万物的“天”或必然规律，其说与老子“物壮则老”的循环天道观形成张力。佛教“诸行无常”表面上与之相似，但缘起说以“无自性”为机理，老子则以“反者道之动”为机理，二者不可混同。怀特海过程哲学以现实事态的“合生”与“客观化消亡”为必然，可与“壮则老”对观，但无老子式的价值评判。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">不道</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不合于道，也就是违背自然规律的做法。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指不合于“道”，即违背自然规律的做法。本章指以兵逞强、盛极而衰之事为“不道”，而“不道早已”，即速取败亡。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“不道者早已”，谓失道则不能久；河上公注：“不得道则早已也”；成玄英疏“不道”为“乖于道”，以重玄双遣释之；韩非《解老》以“理”释道，谓“道者，万物之所然也，万理之所稽也”，“不道”即失万物之理、动而无节；陈鼓应、刘笑敢指出“道”在老文中兼具规律义与价值义，“不道”因而是描述兼评价的双重判断。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼贵“无”，“不道”即失本逐末，故早已；韩非以“理”为可循之则，把“不道”落到刑名法术的失当上。黄老学派重“因天之时、尽地之利”，“不道”被读为逆时妄动；《庄子·养生主》“缘督以为经”则把合道理解为顺中虚而行，与老子“不道早已”的警诫互为表里。刘笑敢强调老子“道”的事实义与价值义未分化，故“不道”既是描述也是谴责；海德格尔的“非本真状态”是存在论上的遮蔽而非道德过失，其“不道”不复有“早已”的果报结构，二者对观可见中西哲学术语分野。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 30 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 30 章]
+
+以道佐人主者，不以兵强天下。其事好还。师之所处，荆棘生焉。大军之后，必有凶年。善者果而已，不以取强。果而勿矜，果而勿伐，果而勿骄。果而不得已，果而勿强。物壮则老，是谓不道，不道早已。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_30_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

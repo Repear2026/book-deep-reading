@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 81 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 81/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_80/site/index.html" title="第 80 章">← 上一章</a>
+  <span class="nav-btn disabled">下一章 →</span>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 81 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>信言不美，美言不信。善者不辩，辩者不善。知者不博，博者不知。圣人不积，既以为人己愈有，既以与人己愈多。天之道，利而不害；圣人之道，为而不争。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 81 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<br/>
+<p>这是《道德经》的最后一章，老子用三组对偶句收束全书：真实的话不动听、动听的话不真实；善良的人不巧辩、巧辩的人不善良；真有知识的人不卖弄广博、卖弄广博的人不是真知识。接着他抛出一个反直觉的命题：圣人不私自积藏，越是帮助别人、给予别人，自己反而越富有、越丰富。最后以“天之道，利而不害；圣人之道，为而不争”作全书精神的归结。最值得带走的是：老子用层层“否定”定义最高人格——不美、不辩、不博、不积、不争。</p>
+<br/>
+<h2>②多问题意识关联</h2>
+<br/>
+<ul>
+<li>- 如果你说过的<strong>最漂亮的那句话</strong>恰恰最可能失真，你还会把“说得漂亮”当作会说话的标准吗？</li>
+<li>- 如果你每次想证明自己善良时都忍不住多辩几句，这份“忍不住”本身暴露了什么？</li>
+<li>- 如果你在给予别人时自己反而变得“更富有”，那你此刻紧紧囤着的东西，到底在保护你还是困住你？</li>
+</ul>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<br/>
+<ul>
+<li>- <strong>荀子</strong>（《荀子·非相》）主张“君子必辩”，认为辩说足以明大道、别是非——这恰与老子“善者不辩，辩者不善”形成正面对撞：儒者以言立教，道家以不辩为善。</li>
+<li>- <strong>维特根斯坦</strong>（《逻辑哲学论》第 7 命题）说“凡不可言说的，必须保持沉默”——与“知者不博”共享一个洞见：真正的把握往往溢出铺陈的言辞之外。</li>
+<li>- <strong>马塞尔·莫斯</strong>（《礼物》）通过人类学研究发现，给予与回赠构成社会联结的根本机制——可以印证“既以与人己愈多”不只是道德训诫，而是社会关系层面的实情。</li>
+<li>- <strong>福柯</strong>（《话语的秩序》）揭示话语与权力的纠缠：谁有资格“说得漂亮”、谁被要求沉默，本身就是权力分配——他可提醒我们，“美言不信”不只是伦理判断，更是对话语生产的批判。</li>
+</ul>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<br/>
+<p><strong>（1）第一遍（速览）：三个关注点</strong></p>
+<br/>
+<ul>
+<li>- 三组对偶句的“正/反”结构（信言/美言、善者/辩者、知者/博者）——注意老子每次都用“不”字立论，而不是正面定义。</li>
+<li>- “不积”与“愈有”“愈多”之间的悖论逻辑——给予和丰盈为何能并存？</li>
+<li>- 末句“天之道/圣人之道”的并列收束——老子为何要用“天”来给全书封顶？</li>
+</ul>
+<br/>
+<p><strong>（2）第二遍（细抠）：两个必看的论证</strong></p>
+<br/>
+<ul>
+<li>- <strong>“既以为人己愈有，既以与人己愈多”</strong>：这里的“有”和“多”是什么意义上的？是财物的增加，还是德性、关系、精神层面的丰盈？如果“愈有”只是精神层面的，那这个命题是可验证的经验陈述，还是价值主张？读的时候要追问老子是否在偷换“有”的层次。</li>
+<li>- <strong>“天之道，利而不害；圣人之道，为而不争”</strong>：老子把人间准则挂靠到自然秩序上——这一步的论证力在哪里？如果“天”并不必然“利”万物（自然灾害、物种灭绝都是“天”的一部分），那这个类比是否只是修辞而非论证？</li>
+</ul>
+<br/>
+<p><strong>（3）第三遍（思辨）：一个该追问的开放问题</strong></p>
+<br/>
+<p>“为而不争”与“利而不害”是否在一切处境下相容？如果任何“有所作为”都必然触动某些人的利益格局，那“不争”是否可能只是已经占据优势位置者的从容修辞——对无力争夺者而言，“不争”究竟是德性，还是被迫的沉默？</p>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+    p1["命题: 真实可信的话不漂亮，漂亮的话不真实可信"]
+    p2["命题: 善良的人不巧辩，巧辩的人不善良"]
+    p3["命题: 真正有知识的人不卖弄广博，卖弄广博的人不是真正有知识"]
+    p4["命题: 圣人不私自积藏，越是尽力帮助别人，自己反而越富有；越是给予别人，自己反而越丰富"]
+    p5["命题: 自然的规律是利于万物而不损害；圣人的行为准则是施为而不争夺"]
+    c1["概念: 信言"]
+    c2["概念: 美言"]
+    c3["概念: 不积"]
+    c4["概念: 为而不争"]
+    c5["概念: 巧言"]
+    c6["概念: 辩智"]
+    c7["概念: 文饰"]
+    c8["概念: 无私"]
+    c9["概念: 给予"]
+    c10["概念: 天道"]
+    c11["概念: 圣人"]
+    c12["概念: 不争之德"]
+    c13["概念: 真"]
+    c14["概念: 善"]
+    c15["概念: 知"]
+
+    p1 -->|supports| p5
+    p2 -->|supports| p5
+    p3 -->|supports| p5
+    p4 -->|supports| p5
+    p1 -->|relates_to| p2
+    p2 -->|relates_to| p3
+    p3 -->|relates_to| p4
+    p4 -->|relates_to| p5
+    p1 -->|introduces| c1
+    p1 -->|introduces| c2
+    p4 -->|introduces| c3
+    p5 -->|introduces| c4
+    p5 -->|introduces| c10
+    p5 -->|introduces| c11
+    c1 -->|relates_to| c13
+    c2 -->|relates_to| c5
+    c2 -->|relates_to| c7
+    c3 -->|relates_to| c8
+    c3 -->|relates_to| c9
+    c4 -->|relates_to| c12
+    p2 -->|relates_to| c6
+    p2 -->|relates_to| c14
+    p3 -->|relates_to| c15
+    c13 -->|relates_to| c14
+    c14 -->|relates_to| c15
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>作为全书终章，收束《道德经》关于真、善、知与圣人行为的总旨：以“信言不美”辨析真实与巧饰，以“不积”“为人”“与人”说明圣人之道的反向丰盈，并以“天之道，利而不害；圣人之道，为而不争”作全书精神的归结。</div>
+<h3>📌 核心命题</h3><ol>
+<li>真实可信的话不漂亮，漂亮的话不真实可信。</li>
+<li>善良的人不巧辩，巧辩的人不善良。</li>
+<li>真正有知识的人不卖弄广博，卖弄广博的人不是真正有知识。</li>
+<li>圣人不私自积藏，越是尽力帮助别人，自己反而越富有；越是给予别人，自己反而越丰富。</li>
+<li>自然的规律是利于万物而不损害；圣人的行为准则是施为而不争夺。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>信言不美，美言不信。</li>
+<li>善者不辩，辩者不善。</li>
+<li>知者不博，博者不知。</li>
+<li>圣人不积，既以为人己愈有，既以与人己愈多。</li>
+<li>天之道，利而不害；圣人之道，为而不争。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>信言</strong></summary><div class="case-body">真实可信的话。</div></details>
+<details><summary><strong>美言</strong></summary><div class="case-body">听起来漂亮动听的话。</div></details>
+<details><summary><strong>不积</strong></summary><div class="case-body">不私自积藏财物或知识。</div></details>
+<details><summary><strong>为而不争</strong></summary><div class="case-body">有所作为却不与人争夺。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>“为而不争”可能与后续章节中关于“不争之德”的论述相呼应。</li>
+<li>“利而不害”可能在后文讨论天道的性质时继续展开。</li>
+<li>“圣人不积”与“既以为人己愈有，既以与人己愈多”可与前文关于无私、给予和反向成全的思想相互印证。</li>
+<li>“信言不美，美言不信”可与前文对巧言、辩智和外在文饰的批评联系起来理解。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《{书名}》第 81 章（{本章标题}）。下面是我自己写的一段复述，请你做「主线提取 + 关键概念检查」：</p>
+<br/>
+<p>我的复述：</p>
+<p>&quot;&quot;&quot;</p>
+<p>{我的复述}</p>
+<p>&quot;&quot;&quot;</p>
+<br/>
+<p>请按以下步骤回应：</p>
+<ol>
+<li>1. 先用一句话概括这一章的主线（作者从什么出发、经过什么、落到什么）。</li>
+<li>2. 列出这一章里我认为必须掌握的 3—5 个关键概念，逐个问我：这个词在本章的具体含义是什么？它和相邻概念的界线在哪？</li>
+<li>3. 对照我的复述，指出我漏掉的环节、搞混的层次、以及把作者的话改写成我自己的话时发生的意义漂移。</li>
+<li>4. 最后给我一个「补漏清单」：为了真正读懂这一章，我下一步该回头重读哪几段。</li>
+</ol>
+<p>不要替我补写复述，只做诊断。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>请你扮演这一章最强的反方，而不是我的陪聊。</p>
+<br/>
+<p>背景：《{书名}》第 81 章（{本章标题}），我目前的接受度是：{我对本章核心论点的接受程度，例如&quot;基本认同，但觉得论证太跳跃&quot;／&quot;被说服了&quot;}。</p>
+<br/>
+<p>本章我最认同的一点是：{我最认同的论点}</p>
+<p>我接受它的理由是：{我的理由}</p>
+<br/>
+<p>请：</p>
+<ol>
+<li>1. 站在与作者相反的立场，构造一个最强版本的反驳（不是稻草人，是能让作者本人都要认真回应的那种）。</li>
+<li>2. 指出我这个「接受理由」里最脆弱的一环：我是被论证说服的，还是被修辞、语气、例子选择说服的？</li>
+<li>3. 如果反方成立，作者这一章哪一部分会连带崩塌？哪一部分仍能站住？</li>
+<li>4. 最后不要替我判决谁对，而是告诉我：要判断这场争论，我还缺哪一块知识或哪一个经验。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《{书名}》第 81 章（{本章标题}），核心思想我理解为：{一句话概括}。</p>
+<br/>
+<p>请给我 3 个真实生活/工作场景，检验这一章的思想能不能真的用起来：</p>
+<br/>
+<p>场景 1（个人日常）：{描述一个我日常会遇到的处境，如&quot;和家人的一次争执&quot;}</p>
+<p>场景 2（工作协作）：{描述一个工作场景，如&quot;团队会议上有人用数据压人&quot;}</p>
+<p>场景 3（公共/社会）：{描述一个更大的场景，如&quot;看到一条刷屏的新闻评论&quot;}</p>
+<br/>
+<p>对每个场景，请回答：</p>
+<p>a. 用这一章的概念，这个场景里真正发生了什么（而不是表面发生了什么）？</p>
+<p>b. 这一章的思想在这里能给出什么具体判断或行动建议？</p>
+<p>c. 这一章在哪里会失灵——场景里有哪些它没考虑到的因素？</p>
+<p>请避免空泛套话，每个场景都要落到具体的人、具体的动作、具体的一句话该怎么说。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>《{书名}》第 81 章（{本章标题}）里，最让我兴奋的一句话是：</p>
+<br/>
+<p>「{原文句子}」</p>
+<br/>
+<p>请围绕这一句做「那这样推下去还有什么？」的展开，分四层：</p>
+<ol>
+<li>1. 这句话在章内的作用：作者为什么在这里说它？它承接上文什么、开启下文什么？</li>
+<li>2. 如果把它当真、推到极致，会得出哪些作者没说出口的结论？其中哪些作者本人可能会拒绝？</li>
+<li>3. 这句话和本章其他论点之间有没有张力？如果有，张力在哪？</li>
+<li>4. 沿着这句话往下追，我应该去读什么——同一作者的其他章节，还是别的思想传统里对同一问题的处理？给出 2—3 条具体的追问方向。</li>
+</ol>
+<p>最后追问我一句：我兴奋的到底是这个论断本身，还是它的表达方式？</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. 这一章从头到尾，作者想让读者接受的那个最核心的结论，用你自己的话讲一遍是什么？—— 提示：先别管论证，只抓「作者想让你同意什么」。</li>
+<li>2. 这一章里有没有哪个词反复出现，但你觉得作者用它时和你平时用的意思不太一样？—— 提示：术语往往是理解一章的钥匙，先圈出来再问它在本章的定义。</li>
+<li>3. 作者在这一章主要是在反驳谁、或者在回应哪一种流行看法？—— 提示：哲学文本常是对话，找出「对手」往往比找出「主张」更容易入门。</li>
+<li>4. 这一章最关键的论证是哪一段？你能把它拆成「前提—推理—结论」三步吗？—— 提示：拆不动的地方，往往就是你真正没读懂的地方。</li>
+<li>5. 如果把这一章的结论硬推到极端，会出现什么荒谬或难以接受的后果？作者有办法挡住吗？—— 提示：这是检验一个论点强度的最快办法，也是进入批判性阅读的第一步。</li>
+<li>6. 第 81 章在全书结构中大概处在什么位置——它是铺垫、转折，还是收束？前面的哪些内容在等它兑现？—— 提示：长书的靠后章节通常要回收伏笔，读它时值得回头翻一下目录和小节标题。</li>
+<li>7. 这一章的立场，在哲学史上大致属于哪一类传统？有哪几位重要思想家会站在它对面？—— 提示：这一步需要一些背景知识，可以先自己猜，再去查证，猜错也是有价值的。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>信言</td><td>真话往往不漂亮。</td><td>真实可信的言辞，不追求华美动听。</td><td>老子以“信”与“美”对举，提出“信言不美，美言不信”，将言语的伦理真实性置于修辞修饰之上。</td><td>王弼注以“质”“朴”释“信言”，认为信实之言不以文饰为美；河上公从身体力行解“信言”为如其实而可信；苏辙以佛理说“信言”离绮语；海德格尔区分本真言说与日常闲谈，强调言说须让存在自身显现。</td></tr>
+<tr><td>美言</td><td>花言巧语靠不住。</td><td>听起来漂亮动听的话，往往不真实可信。</td><td>老子批判“美言”对“信”的遮蔽，形成“信—美”之间的语言伦理张力，即修辞之美与言辞之真的冲突。</td><td>王弼以“华”释“美言”，认为华饰失实；成玄英重玄学以“美”为执著名相，须遣之又遣；韩非《说难》重言辞功用而警惕“华而不实”；庄子“言者所以在意，得意而忘言”可与此对读。</td></tr>
+<tr><td>不积</td><td>圣人不为自己囤积。</td><td>圣人不私自积藏财物或知识，而是尽力为人、与人。</td><td>老子以“不积”说明“既以为人己愈有，既以与人己愈多”的悖论式伦理，破除以占有为取向的自我。</td><td>河上公以“不积”为去贪知足；王弼以“无”为本，说“不积”是冲虚而用；郭象以“独化”解各安其分而不相积；中观“无所得”与“不积”相通，皆破占有执。</td></tr>
+<tr><td>为而不争</td><td>做事但不跟人争抢。</td><td>有所作为却不与人争夺，是圣人之道的实践品格。</td><td>老子以“天之道，利而不害；圣人之道，为而不争”作结，将“为”与“争”分离，强调利他而不竞胜。</td><td>王弼以“不争”为不争而善胜；河上公解“为”为修身、“不争”为不与人争功名；郭象以“独化”说各任其性而不相陵；荀子以“群而无分则争”论争之所起，正与老子“不争”形成对照。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">信言</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">真话往往不漂亮。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">真实可信的言辞，不追求华美动听。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">老子以“信”与“美”对举，提出“信言不美，美言不信”，将言语的伦理真实性置于修辞修饰之上。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼注以“质”“朴”释“信言”，认为信实之言不以文饰为美；河上公从身体力行解“信言”为如其实而可信；苏辙以佛理说“信言”离绮语；海德格尔区分本真言说与日常闲谈，强调言说须让存在自身显现。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">美言</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">花言巧语靠不住。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">听起来漂亮动听的话，往往不真实可信。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">老子批判“美言”对“信”的遮蔽，形成“信—美”之间的语言伦理张力，即修辞之美与言辞之真的冲突。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“华”释“美言”，认为华饰失实；成玄英重玄学以“美”为执著名相，须遣之又遣；韩非《说难》重言辞功用而警惕“华而不实”；庄子“言者所以在意，得意而忘言”可与此对读。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">不积</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">圣人不为自己囤积。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">圣人不私自积藏财物或知识，而是尽力为人、与人。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">老子以“不积”说明“既以为人己愈有，既以与人己愈多”的悖论式伦理，破除以占有为取向的自我。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以“不积”为去贪知足；王弼以“无”为本，说“不积”是冲虚而用；郭象以“独化”解各安其分而不相积；中观“无所得”与“不积”相通，皆破占有执。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">为而不争</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">做事但不跟人争抢。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">有所作为却不与人争夺，是圣人之道的实践品格。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">老子以“天之道，利而不害；圣人之道，为而不争”作结，将“为”与“争”分离，强调利他而不竞胜。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“不争”为不争而善胜；河上公解“为”为修身、“不争”为不与人争功名；郭象以“独化”说各任其性而不相陵；荀子以“群而无分则争”论争之所起，正与老子“不争”形成对照。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 81 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 81 章]
+
+信言不美，美言不信。善者不辩，辩者不善。知者不博，博者不知。圣人不积，既以为人己愈有，既以与人己愈多。天之道，利而不害；圣人之道，为而不争。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_81_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

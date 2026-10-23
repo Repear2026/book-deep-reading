@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 27 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 27/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_26/site/index.html" title="第 26 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_28/site/index.html" title="第 28 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 27 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>善行无辙迹，善言无瑕谪；善数不用筹策；善闭无关楗而不可开，善结无绳约而不可解。是以圣人常善救人，故无弃人；常善救物，故无弃物，是谓袭明。故善人者，不善人之师；不善人者，善人之资。不贵其师，不爱其资，虽智大迷，是谓要妙。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 27 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>本章描绘了一种“不留痕迹的高明”：最好的行动没有轨迹，最好的言辞没有破绽，最好的关闭不用门闩却打不开。老子由此推出一条出人意料的伦理结论——真正的圣人从不抛弃任何人，因为他总能把人“救”到合适的位置上。最有趣的是结尾那组悖论：好人是不好人的老师，不好人是好人的资本；不珍惜这层关系，再聪明也是大糊涂。你最重要的收获是：善与不善并非对立淘汰，而是互为资源。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>1. 如果你做完一件事，没人能指出你“做了什么”，这算成功还是失败？</blockquote>
+<blockquote>2. 如果一个人处处是缺点，社会却声称“没有废人”，这靠什么成立？</blockquote>
+<blockquote>3. 如果你拒绝向不如你的人学习，你失去的究竟是面子还是“资借”？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote><strong>维特根斯坦</strong>：语言的界限即世界的界限——老子说“善言无瑕谪”，恰似维氏所言真正要紧的东西往往不可言说，说清楚的反而露破绽。</blockquote>
+<blockquote><strong>福柯</strong>：权力最有效的运作不是压迫而是“不留痕迹”的规训——可与“善闭无关楗而不可开”对读，无痕的控制才最难挣脱。</blockquote>
+<blockquote><strong>王阳明</strong>：知行合一，善是良知自然流行，不假安排造作——正合“善行无辙迹”的无所为而为。</blockquote>
+<blockquote><strong>荀子</strong>：人之性恶，善者伪也，须师法教化——他会质疑老子“无弃人”是否低估了教化所需的制度痕迹。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：关注三处——① 五个“善”字句的排比节奏，感受老子如何用“不用工具”定义高明；② 从“善行”到“善救人”的跳跃，看技巧如何转为伦理；③ 结尾“师”与“资”的对举，抓住全章枢纽。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：必看两个论证——其一，“圣人常善救人，故无弃人”的推理：救人不是施舍，而是把人放回可用的位置，这才叫“袭明”；其二，“不善人者，善人之资”——不善者不是被淘汰的对象，而是善者反省与改进的凭借，没了“资”，善也无从成立。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：追问——如果“无弃人”成立，那“不善人”究竟是尚未被救的人，还是永远作为“资”而存在的人？一个永远需要“不善”来定义的“善”，是否陷入了老子自己也没解开的循环？</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+P1["善行无辙迹，善言无瑕谪"]
+P2["善数不用筹策，善闭无关楗，善结无绳约"]
+P3["圣人常善救人故无弃人，常善救物故无弃物"]
+P4["袭明：不弃人弃物"]
+P5["善人为不善人之师，不善人为善人之资"]
+P6["不贵其师、不爱其资，是谓要妙"]
+C1["善行"]
+C2["善言"]
+C3["善数"]
+C4["善闭"]
+C5["善结"]
+C6["袭明"]
+C7["师"]
+C8["资"]
+C9["要妙"]
+C10["圣人"]
+C1 -->|relates_to| P1
+C2 -->|relates_to| P1
+C3 -->|relates_to| P2
+C4 -->|relates_to| P2
+C5 -->|relates_to| P2
+C10 -->|relates_to| P3
+P1 -->|supports| P3
+P2 -->|supports| P3
+P3 -->|supports| P4
+C6 -->|relates_to| P4
+C7 -->|relates_to| P5
+C8 -->|relates_to| P5
+P5 -->|supports| P6
+C9 -->|relates_to| P6
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章以“善行、善言、善数、善闭、善结”说明无为而善的境界，进而提出圣人无弃人弃物的“袭明”，并论述善人与不善人的师资关系，强调不贵师、不爱资的“要妙”。</div>
+<h3>📌 核心命题</h3><ol>
+<li>善行不留辙迹，善言没有可指责的瑕疵。</li>
+<li>善数不用筹策，善闭不用关楗而不可开，善结不用绳约而不可解。</li>
+<li>圣人常善救人，所以无弃人；常善救物，所以无弃物，这称为袭明。</li>
+<li>善人是不善人的老师，不善人是善人的资借。</li>
+<li>不贵其师、不爱其资，虽自以为智也是大迷，这称为要妙。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>善行无辙迹，善言无瑕谪；善数不用筹策；善闭无关楗而不可开，善结无绳约而不可解。</li>
+<li>是以圣人常善救人，故无弃人；常善救物，故无弃物，是谓袭明。</li>
+<li>故善人者，不善人之师；不善人者，善人之资。</li>
+<li>不贵其师，不爱其资，虽智大迷，是谓要妙。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>善行</strong></summary><div class="case-body">行事不留痕迹、不张扬。</div></details>
+<details><summary><strong>善言</strong></summary><div class="case-body">说话没有可指责的瑕疵。</div></details>
+<details><summary><strong>善数</strong></summary><div class="case-body">计算不需借助筹策。</div></details>
+<details><summary><strong>善闭</strong></summary><div class="case-body">关闭不用门闩却使人不能打开。</div></details>
+<details><summary><strong>善结</strong></summary><div class="case-body">打结不用绳索却使人不能解开。</div></details>
+<details><summary><strong>袭明</strong></summary><div class="case-body">文中指圣人善救人、善救物而不弃人弃物的状态。</div></details>
+<details><summary><strong>师</strong></summary><div class="case-body">文中指善人可作不善人的老师。</div></details>
+<details><summary><strong>资</strong></summary><div class="case-body">文中指不善人可作善人的资借。</div></details>
+<details><summary><strong>要妙</strong></summary><div class="case-body">文中指不贵其师、不爱其资这一道理的精要微妙。</div></details>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```text</p>
+<p>我刚刚读完《{书名}》第 27 章。下面是我自己写的一段复述，请你帮我做“主线提取 + 关键概念检查”：</p>
+<br/>
+<p>【我的复述】</p>
+<p>{我的复述}</p>
+<br/>
+<p>请按以下要求反馈：</p>
+<ol>
+<li>1. 用 3–5 句话提炼这一章的主线论证（不要复述我的原话，要概括出“作者先……再……所以……”的结构）。</li>
+<li>2. 列出本章的 3–5 个关键概念，逐个说明：我在复述里是否用到、用对了没有、有没有偷换含义或漏掉限定条件。</li>
+<li>3. 指出我复述中“跳步”的地方——即我省略了哪些中间环节，导致结论显得比原文更强或更弱。</li>
+<li>4. 最后给我 2 个我应当能回答、但目前复述里没有体现的问题，让我自查。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```text</p>
+<p>请你扮演《{书名}》第 27 章的“最强反方”。要求如下：</p>
+<br/>
+<ol>
+<li>1. 先简述我在这一章中接受的核心主张：{我认为本章的核心主张是……}</li>
+<li>2. 然后从与作者相反的立场出发，构造对该主张最有力的反驳——不是稻草人，而是作者本人也会认真对待的那种反驳。请给出至少 2 条独立的反驳路径，每条都要指出它攻击的是本章论证的哪一环（前提？推理？隐含假设？反例？）。</li>
+<li>3. 对每条反驳，再替作者构造一个最可能的回应。</li>
+<li>4. 最后评估：经过这一轮攻防，我原来那句“我接受这个主张”应当被削弱到什么程度？请给出一个具体的削弱表述（例如“我只能接受弱化版本：在……条件下成立”）。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```text</p>
+<p>我读完了《{书名}》第 27 章，想把它落到现实。以下是我提供的 3 个真实场景：</p>
+<br/>
+<ol>
+<li>1. {场景一：生活场景}</li>
+<li>2. {场景二：工作场景}</li>
+<li>3. {场景三：{其他场景}}</li>
+</ul>
+<br/>
+<p>请对每个场景：</p>
+<ul>
+<li>- 指出本章的哪个概念或论证在此处真正适用（并说明适用的边界条件，即什么情况下它不适用）；</li>
+<li>- 给出“用本章思想看”与“不用本章思想看”两种解读的差别，具体到判断或行动上的不同；</li>
+<li>- 提醒我一种常见的误用——即人们容易把这个思想过度外推到哪里。</li>
+</ul>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```text</p>
+<p>《{书名}》第 27 章里最让我兴奋的一句话是：</p>
+<br/>
+<p>“{原文句子}”</p>
+<br/>
+<p>请围绕这句话做“那这样推下去还有什么？”的展开：</p>
+<ol>
+<li>1. 先拆解这句话的字面含义与它依赖的隐含前提（作者没明说但必须成立的东西）。</li>
+<li>2. 沿作者自己的思路往前推一步：如果这句话为真，那么本章后面/全书其他地方的哪个结论会被加强？会不会有某个结论反而被削弱？</li>
+<li>3. 沿相反方向推：如果这句话为假，本章还能剩下多少？哪一部分论证会首先垮掉？</li>
+<li>4. 给出 3 个由这句话衍生出的、作者本人没有提出但逻辑上顺理成章的新问题，并按“最值得追”排序，说明理由。</li>
+</ol>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由易到难）</h2>
+<br/>
+<p>本章标题或开头第一句在说什么？用你自己的话讲一遍。——先别管懂不懂，能说出来就说明你抓住了入口。</p>
+<br/>
+<p>本章反复出现的那两三个词是什么？作者是在同一个意思上用它们，还是中途换了意思？——术语漂移是误读的第一大来源。</p>
+<br/>
+<p>作者在本章想反驳谁？他心目中的“对手观点”是什么？——找到靶子，论证的方向就清楚了。</p>
+<br/>
+<p>本章的论证是“从前提推出结论”，还是“先给结论再补理由”？你能标出那个转折句吗？——识别论证结构比记住结论有用得多。</p>
+<br/>
+<p>如果把本章的结论削弱成“在某种条件下成立”，那个条件是什么？——学会给结论加边界，是哲学阅读的关键一步。</p>
+<br/>
+<p>本章的论证若成立，会迫使你放弃哪个你原本相信的看法？——把阅读变成对自身的检验。</p>
+<br/>
+<p>这一章和上一章、下一章是什么关系：是补充、是转折，还是自我修正？——单章读懂不算读懂，位置决定意义。</p>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>善行无辙迹</td><td>真正会做事的人，做完不留下张扬的痕迹。</td><td>老子以车辙比喻人为造作的痕迹；“善行”指合道之行，“无辙迹”即不炫耀、不留下可执著的痕迹，重在无为而自然。</td><td>原文作“善行无辙迹”。“辙迹”为车行痕迹，引申为造作、形名、可循之迹。王弼注以“顺自然而行，不造不始”释之，属于“因物之性”的无为。</td><td>王弼以“无”为本，注此句强调“顺自然而行，不造不始”，善行不是立规矩留痕迹；郭象在《庄子注》中主“独化”，认为万物自生自化，圣人任物自尔，故不须以形迹规范；海德格尔讲“无”与存在之遮蔽，可对照老子不落痕迹的“行”不是虚无，而是让存在者如其本然地显现。</td></tr>
+<tr><td>善言无瑕谪</td><td>会说话的人，话里挑不出毛病。</td><td>善言者不逞辩、不伤人，言合于理，故无可指摘。</td><td>原文作“善言无瑕谪”。“瑕”为玉病，“谪”为谴责、过失。王弼注谓“顺物之性，不别不析”，不以名言剖析强加于物。</td><td>王弼以“无”为本，释善言为顺物之性、不别不析；苏辙《老子解》常以“无心”解老，认为圣人无心而应，故言不著痕迹、无可瑕谪；维特根斯坦论语言界限，认为许多东西不可言说、只可显示，可与“善言”不落言筌相参。</td></tr>
+<tr><td>善数不用筹策</td><td>真正会算的人，不用摆算筹也算得准。</td><td>善数者以心契理，不依赖外在计算工具；喻合道者不假人为筹度。</td><td>原文作“善数不用筹策”。“筹策”为古代计数竹木。王弼注“因物之数，不假形也”，即以物之自然数为数，不以形器强算。</td><td>王弼注“因物之数，不假形”，以无为本，反对以形名筹度万物；河上公注偏治身治国，以“善数以心，不用筹策”为说，重在省事养生；怀特海过程哲学强调关系内在，可与“不假筹策”的契入式理解相参照。</td></tr>
+<tr><td>善闭无关楗而不可开</td><td>真正会关门的人，不用门闩别人也打不开。</td><td>善闭者不在门闩等形制上用力，而使人自然不能开；喻以道守御，不靠外在强制。</td><td>原文作“善闭无关楗而不可开”。“关楗”即门闩。王弼注“因物自然，不设不施”，故不用关楗而不可开。</td><td>王弼以“不设不施”释善闭，认为因物自然则无须形制；成玄英重玄学主张遣有遣无，连“闭”与“不闭”之迹亦遣，故不可开；韩非《解老》强调“缘道理以从事”，法家由此可把不待关楗理解为不恃形制而恃法势。</td></tr>
+<tr><td>善结无绳约而不可解</td><td>真正会打结的人，不用绳子别人也解不开。</td><td>善结者不以绳索约束，而使人自然相合不可解；喻以道相结，不靠外在约束。</td><td>原文作“善结无绳约而不可解”。“绳约”即绳索约束。王弼注“因物自然，不设不施”，不用关楗绳约而不可开解。</td><td>王弼以“因物自然，不设不施”释善结；郭象“独化”论可通，万物自得自尔，不需外在绳约而自相固结；禅宗讲“无心”而行，不著系缚之相，故无绳约而不可解。</td></tr>
+<tr><td>袭明</td><td>圣人善于救人救物、不抛弃人和物，这叫承袭明道。</td><td>“袭”为因袭、承袭；“明”指道之明。圣人常善救人救物，无弃人弃物，是承袭道之明。</td><td>原文作“是谓袭明”。王弼注“袭，犹因也”，即因顺自然之明，不立形名以检物。陈鼓应《老子今注今译》解为“承袭明道”、因顺自然。</td><td>王弼注“袭，犹因也”，以无为本，重因顺；河上公注从治身治国讲圣人救人救物，使各得其所；苏辙以“无心”解圣人不弃人弃物，明非外在之智，而是无心而照。</td></tr>
+<tr><td>善人者，不善人之师</td><td>好人可以给不好的人当老师。</td><td>善人可作不善人的榜样和老师，不善人可因之而改。</td><td>原文作“善人者，不善人之师”。“师”为师范、师法。老子随即说“不贵其师”，即虽为师而不执师相。</td><td>王弼注以“因”释之，善人所以为师在不立形名、不弃不善；庄子《齐物论》讲“彼是相因”“道枢”，善与不善相待而通，师资之别亦非绝对；孔子说“三人行，必有我师焉”，重师法，老子则“不贵其师”，不执师相，二者可对照。</td></tr>
+<tr><td>不善人者，善人之资</td><td>不好的人也可以成为好人的借鉴和资源。</td><td>不善人可作善人的资借、镜鉴，使善人知所戒惧、有所成就。</td><td>原文作“不善人者，善人之资”。“资”为资借、凭借。老子说“不爱其资”，即不弃不善而善用之。</td><td>王弼以因顺释之，善人不弃不善，反以之为资；庄子齐物讲“两行”不废是非，不善亦在相待中成其用；荀子说“见不善，愀然必以自省也”，以不善为修身之鉴，可与老子“资”义相参。</td></tr>
+<tr><td>要妙</td><td>不贵师、不爱资这个道理，看似简单，其实很精微。</td><td>“要妙”指精要微妙之理；老子认为不执师资之别、善用一切，是道的要妙。</td><td>原文作“是谓要妙”。“要”为切要，“妙”为微奥。王弼注以“因”释之，不贵不爱的关键在因顺自然、不立形名。</td><td>王弼以“无”为本，认为要妙不在智巧，而在因物自然；成玄英重玄学双遣师资、有无，连“要妙”亦不滞，方为真要妙；维特根斯坦言语言界限，可说者清楚、不可说者沉默，与老子“要妙”不可尽以名言尽之相参。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">善行无辙迹</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">真正会做事的人，做完不留下张扬的痕迹。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子以车辙比喻人为造作的痕迹；“善行”指合道之行，“无辙迹”即不炫耀、不留下可执著的痕迹，重在无为而自然。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文作“善行无辙迹”。“辙迹”为车行痕迹，引申为造作、形名、可循之迹。王弼注以“顺自然而行，不造不始”释之，属于“因物之性”的无为。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，注此句强调“顺自然而行，不造不始”，善行不是立规矩留痕迹；郭象在《庄子注》中主“独化”，认为万物自生自化，圣人任物自尔，故不须以形迹规范；海德格尔讲“无”与存在之遮蔽，可对照老子不落痕迹的“行”不是虚无，而是让存在者如其本然地显现。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">善言无瑕谪</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">会说话的人，话里挑不出毛病。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">善言者不逞辩、不伤人，言合于理，故无可指摘。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文作“善言无瑕谪”。“瑕”为玉病，“谪”为谴责、过失。王弼注谓“顺物之性，不别不析”，不以名言剖析强加于物。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，释善言为顺物之性、不别不析；苏辙《老子解》常以“无心”解老，认为圣人无心而应，故言不著痕迹、无可瑕谪；维特根斯坦论语言界限，认为许多东西不可言说、只可显示，可与“善言”不落言筌相参。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">善数不用筹策</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">真正会算的人，不用摆算筹也算得准。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">善数者以心契理，不依赖外在计算工具；喻合道者不假人为筹度。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文作“善数不用筹策”。“筹策”为古代计数竹木。王弼注“因物之数，不假形也”，即以物之自然数为数，不以形器强算。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼注“因物之数，不假形”，以无为本，反对以形名筹度万物；河上公注偏治身治国，以“善数以心，不用筹策”为说，重在省事养生；怀特海过程哲学强调关系内在，可与“不假筹策”的契入式理解相参照。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">善闭无关楗而不可开</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">真正会关门的人，不用门闩别人也打不开。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">善闭者不在门闩等形制上用力，而使人自然不能开；喻以道守御，不靠外在强制。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文作“善闭无关楗而不可开”。“关楗”即门闩。王弼注“因物自然，不设不施”，故不用关楗而不可开。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“不设不施”释善闭，认为因物自然则无须形制；成玄英重玄学主张遣有遣无，连“闭”与“不闭”之迹亦遣，故不可开；韩非《解老》强调“缘道理以从事”，法家由此可把不待关楗理解为不恃形制而恃法势。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">善结无绳约而不可解</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">真正会打结的人，不用绳子别人也解不开。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">善结者不以绳索约束，而使人自然相合不可解；喻以道相结，不靠外在约束。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文作“善结无绳约而不可解”。“绳约”即绳索约束。王弼注“因物自然，不设不施”，不用关楗绳约而不可开解。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“因物自然，不设不施”释善结；郭象“独化”论可通，万物自得自尔，不需外在绳约而自相固结；禅宗讲“无心”而行，不著系缚之相，故无绳约而不可解。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">袭明</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">圣人善于救人救物、不抛弃人和物，这叫承袭明道。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">“袭”为因袭、承袭；“明”指道之明。圣人常善救人救物，无弃人弃物，是承袭道之明。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文作“是谓袭明”。王弼注“袭，犹因也”，即因顺自然之明，不立形名以检物。陈鼓应《老子今注今译》解为“承袭明道”、因顺自然。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼注“袭，犹因也”，以无为本，重因顺；河上公注从治身治国讲圣人救人救物，使各得其所；苏辙以“无心”解圣人不弃人弃物，明非外在之智，而是无心而照。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">善人者，不善人之师</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">好人可以给不好的人当老师。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">善人可作不善人的榜样和老师，不善人可因之而改。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文作“善人者，不善人之师”。“师”为师范、师法。老子随即说“不贵其师”，即虽为师而不执师相。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼注以“因”释之，善人所以为师在不立形名、不弃不善；庄子《齐物论》讲“彼是相因”“道枢”，善与不善相待而通，师资之别亦非绝对；孔子说“三人行，必有我师焉”，重师法，老子则“不贵其师”，不执师相，二者可对照。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">不善人者，善人之资</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不好的人也可以成为好人的借鉴和资源。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">不善人可作善人的资借、镜鉴，使善人知所戒惧、有所成就。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文作“不善人者，善人之资”。“资”为资借、凭借。老子说“不爱其资”，即不弃不善而善用之。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以因顺释之，善人不弃不善，反以之为资；庄子齐物讲“两行”不废是非，不善亦在相待中成其用；荀子说“见不善，愀然必以自省也”，以不善为修身之鉴，可与老子“资”义相参。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">要妙</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不贵师、不爱资这个道理，看似简单，其实很精微。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">“要妙”指精要微妙之理；老子认为不执师资之别、善用一切，是道的要妙。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文作“是谓要妙”。“要”为切要，“妙”为微奥。王弼注以“因”释之，不贵不爱的关键在因顺自然、不立形名。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，认为要妙不在智巧，而在因物自然；成玄英重玄学双遣师资、有无，连“要妙”亦不滞，方为真要妙；维特根斯坦言语言界限，可说者清楚、不可说者沉默，与老子“要妙”不可尽以名言尽之相参。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 27 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 27 章]
+
+善行无辙迹，善言无瑕谪；善数不用筹策；善闭无关楗而不可开，善结无绳约而不可解。是以圣人常善救人，故无弃人；常善救物，故无弃物，是谓袭明。故善人者，不善人之师；不善人者，善人之资。不贵其师，不爱其资，虽智大迷，是谓要妙。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_27_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

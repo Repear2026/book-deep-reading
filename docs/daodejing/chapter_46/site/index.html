@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 46 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 46/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_45/site/index.html" title="第 45 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_47/site/index.html" title="第 47 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 46 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>天下有道，却走马以粪。天下无道，戎马生于郊。祸莫大于不知足；咎莫大于欲得。故知足之足，常足矣。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 46 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章只有一个核心对比：天下太平的时候，战马被退回去耕田施肥；天下大乱的时候，怀胎的母马只能在城郊野外产仔。老子由此把战乱与祸患的根源归结为“不知足”和“贪得”，并给出结论——只有“知足”带来的那种满足，才是恒久不变的满足。它有趣的地方在于：这不是心灵鸡汤式的劝人淡泊，而是把“欲望是否有限度”直接当作治世与乱世的分界线。最重要收获：贪得不是道德小毛病，而是会以马的产仔地这种极具体的代价显现出来。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>如果一国的强盛必须靠不断扩张来维持，那它停下来那天会不会反而更危险？</blockquote>
+<p>&gt;</p>
+<blockquote>如果“知足”成了不进取的借口，个人的抱负与国家的竞争该在哪里划线？</blockquote>
+<p>&gt;</p>
+<blockquote>如果满足感真的可以自给自足，为什么人还是会一再被“更多”吸引？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote><strong>荀子</strong>：主张“欲不可尽，求可节”，承认欲望本身不可消除，但强调用礼义给欲求划定度量分界——与老子“知足”相近，但荀子更依赖外在制度而非内心体认。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>韩非</strong>：从君主角度谈“欲”的危险，认为人主多欲则臣下有机可乘，把贪欲看作政治失控的结构性漏洞，而非个人修养问题。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>罗素</strong>（《幸福之路》）：认为竞争性攀比是现代社会疲惫的重要来源，主张以“热情”与“节制”替代无限占有——与“知足之足”呼应，但他诉诸心理学而非治乱之道。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>叔本华</strong>：把欲望看作永不满足的意志，满足只是短暂的间隙——他同意“欲得”带来痛苦，却对“常足”能否达到持悲观态度，与老子形成正面分歧。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>王阳明</strong>：讲“减得一分人欲，便复得一分天理”，把知足落在心上做工夫，路径更接近内在体证而非老子的政治—生命一体观。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：关注三个点——一是“走马以粪”与“戎马生于郊”这一对极端具体的画面，注意老子如何用马的用途变化来做治乱判断；二是“祸莫大于不知足；咎莫大于欲得”这两句的排比，看“祸”与“咎”是否同义；三是最后一句“知足之足，常足矣”的绕口结构，先别急着懂，只标记它。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：两个必看论证。第一，看“有道/无道”与“马之用途”之间的推论：为什么马的安置方式能充当政治状态的指标，这背后预设了什么（国家是否把资源投入战争）。第二，看“不知足—欲得—祸咎”的因果链：老子没有论证贪欲为何必然招祸，而是以断言方式给出，这一点值得停下想想他的依据是经验、是天道观，还是修辞力度。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：一个该追问的开放问题——“知足之足”若成立，满足感就与外部条件脱钩了；但若外部条件（如战乱、匮乏）真的与满足无关，老子又何必用“戎马生于郊”这样的现实苦难来反证贪欲之害？请你想：这里的“知足”究竟是内心的自我限定，还是对一种可实现的、有限度的政治经济秩序的命名？二者能否同时成立？</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+    P1["天下有道时，战马退还耕田施肥"]
+    P2["天下无道时，军马在郊野产仔"]
+    P3["祸患莫大于不知足"]
+    P4["罪过莫大于贪得"]
+    P5["知足之满足才是恒久满足"]
+    A1["却走马以粪"]
+    A2["戎马生于郊"]
+    A3["祸莫大于不知足，咎莫大于欲得"]
+    A4["知足之足，常足矣"]
+    C1["却走马以粪：战马退还施肥耕田"]
+    C2["戎马生于郊：军马郊野产驹"]
+    C3["知足之足：知足的满足"]
+    C4["常足：恒久满足"]
+    A1 -->|supports| P1
+    A2 -->|supports| P2
+    A3 -->|supports| P3
+    A3 -->|supports| P4
+    A4 -->|supports| P5
+    C1 -->|instance_of| P1
+    C2 -->|instance_of| P2
+    C3 -->|relates_to| P5
+    C4 -->|relates_to| P5
+    P1 -->|relates_to| P2
+    P3 -->|relates_to| P4
+    P3 -->|relates_to| P5
+    P4 -->|relates_to| P5
+    C3 -->|relates_to| C4
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>从治世与乱世的马匹用途对比切入，指出贪欲是祸患根源，并以知足作为恒常满足的修身与治国原则。</div>
+<h3>📌 核心命题</h3><ol>
+<li>天下有道时，战马被退还用来耕田施肥。</li>
+<li>天下无道时，军马在郊野产仔。</li>
+<li>祸患没有比不知足更大的。</li>
+<li>罪过没有比贪得更大的。</li>
+<li>懂得知足所带来的满足，才是恒久的满足。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>天下有道，却走马以粪。</li>
+<li>天下无道，戎马生于郊。</li>
+<li>祸莫大于不知足；咎莫大于欲得。</li>
+<li>故知足之足，常足矣。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>却走马以粪</strong></summary><div class="case-body">把战马退还给农夫用来施肥耕田。</div></details>
+<details><summary><strong>戎马生于郊</strong></summary><div class="case-body">军马在城郊野外产下马驹。</div></details>
+<details><summary><strong>知足之足</strong></summary><div class="case-body">知道满足的那种满足。</div></details>
+<details><summary><strong>常足</strong></summary><div class="case-body">恒久不变的满足。</div></details>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我读完了第 46 章。下面是我自己写的一段概括，请你做两件事：</p>
+<p>(1) 帮我提取这段话里的&quot;主线&quot;——用不超过 3 句话重述本章的核心论证链条；</p>
+<p>(2) 做关键概念检查——指出我概括中出现的 {概念A}、{概念B}、{概念C} 在本章原文里是否被准确使用，凡是我用错、偷换或含糊的地方，请对照原文指出并给出本章的准确定义。</p>
+<br/>
+<p>我的概括：</p>
+<p>{我的章节概括}</p>
+<br/>
+<p>本章我标记的关键概念：{概念清单}</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>请你扮演第 46 章最强硬的反方。不要温和地补充，而是从与本章立场相反的视角出发，尽最大努力论证：本章的核心主张 {本章核心主张} 是错的、或至少是严重不成立的。</p>
+<p>要求：</p>
+<ul>
+<li>- 至少给出 3 条彼此独立的反驳，每条都要针对本章的具体论证步骤，而不是泛泛而谈；</li>
+<li>- 指出本章作者最可能依赖但未加辩护的隐含前提；</li>
+<li>- 最后用一句话说明：如果我仍然接受本章，我最需要回应的那条反驳是什么。</li>
+</ul>
+<p>我的接受程度：{我对本章的接受度/我认同的部分}</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 46 章，想把它落回现实。请针对下面 3 个真实场景，逐一说明本章的思想如何应用、以及应用时会遇到什么阻力：</p>
+<p>场景 1：{生活/工作场景一}</p>
+<p>场景 2：{生活/工作场景二}</p>
+<p>场景 3：{生活/工作场景三}</p>
+<p>每个场景请写：本章的哪个概念/论证在这里起作用 → 具体怎么用 → 本章没预料到的现实摩擦是什么。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 46 章里最让我兴奋的一句话是：</p>
+<p>&quot;{原句}&quot;</p>
+<p>请围绕这句话做&quot;推下去&quot;的深挖：</p>
+<p>(1) 这句话在本章论证中承担什么角色？它预设了哪些未明说的前提？</p>
+<p>(2) 如果把这句话的逻辑一贯地推到底，会得出哪些本章没有明说、甚至可能让作者本人不安的结论？</p>
+<p>(3) 这些推论会与本章其他部分产生张力吗？张力在哪里？</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. 这章一开始想解决的是什么问题？——先别管论证，只用一句话说清&quot;作者为什么要写这一章&quot;。</li>
+<li>2. 本章出现次数最多的那个词是什么？作者用它时和你平时理解的意思一样吗？——找 2-3 处原文，比较日常义与本章义。</li>
+<li>3. 作者在本章主要是在&quot;提出主张&quot;还是在&quot;反驳别人&quot;？——分清本章的正面论点与它针对的对手，阅读难度会立刻下降。</li>
+<li>4. 本章哪一段你读得最吃力？把那段拆成&quot;前提→推理→结论&quot;三行。——拆不动的地方，往往就是本章的关键概念所在。</li>
+<li>5. 如果本章的核心主张是假的，世界会有什么不同？——用反事实检验自己是否真的抓住了主张的分量。</li>
+<li>6. 本章的论证依赖哪些没被明说的前提？——找出至少一个&quot;作者默认成立、但本可以质疑&quot;的前提。</li>
+<li>7. 本章与全书前后章节是什么关系：它是在为后面铺路，还是在回应前面留下的问题？——把它放回全书论证地图中定位。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>却走马以粪</td><td>把本来打仗用的马退回去，让农民用来耕地施肥，天下就太平了。</td><td>出自《老子》第四十六章。&quot;走马&quot;指善跑的战马，&quot;粪&quot;指施肥、耕种。意为天下有道时，战马不再用于征战，而被送回田间耕作，是老子对&quot;有道&quot;之世的形象描绘，与下文&quot;戎马生于郊&quot;构成对比。</td><td>王弼注：&quot;天下有道，却走马以粪。&quot;以&quot;天下有道&quot;为前提，将&quot;走马&quot;解为征战之具，退而归田即&quot;无为&quot;之治的效验；河上公注则从&quot;治身&quot;立说，以马喻精气，谓&quot;却走马&quot;即止息躁动、还精于身。陈鼓应《老子今注今译》释为&quot;把战马退还到田间给农夫用来耕种&quot;，视为对&quot;有道&quot;社会的具体化描写。</td><td>王弼从&quot;贵无&quot;出发，把&quot;有道&quot;理解为君主无为、不以兵强天下，战马归田是&quot;无&quot;之治的自然结果；河上公系统的养生解则把马解为身中躁动之气，&quot;却&quot;是收摄工夫，与治国解并行不悖；苏辙《老子解》以&quot;理&quot;言，谓有道则物各得其所，马自归于耕。三者一治一养一理，取径不同而皆不把此句当作单纯的经济描述。</td></tr>
+<tr><td>戎马生于郊</td><td>连怀胎的军马都在城外野地里下驹，说明战事不断、天下无道。</td><td>出自《老子》第四十六章，与&quot;却走马以粪&quot;对举。&quot;戎马&quot;即军马，&quot;生于郊&quot;指军马在城郊战场产驹。王弼注：&quot;天下无道，戎马生于郊。&quot;意指战乱不息，连牝马也被征用，只能在野外产子，是&quot;无道&quot;之世的征象。</td><td>王弼注此句紧承&quot;天下有道&quot;句，以&quot;有道、无道&quot;为一对范畴；河上公注：&quot;戎马，兵马也。……生于郊，言兵革数起，马不得休息。&quot;陈鼓应释为战马在战地生育，极言战祸之烈。刘笑敢《老子古今》指出此二句为对文，&quot;却走马&quot;与&quot;戎马生于郊&quot;是治乱两极的对照性书写。</td><td>王弼以&quot;无道&quot;归因于有为多欲，兵连祸结是君主不&quot;无为&quot;的结果；河上公一系则把它读作身国同构的警示，谓情欲驰骋则&quot;戎马&quot;生于身内；韩非《解老》以&quot;道理&quot;释《老》，重在实际治乱得失的因果，与此句的治乱对照最相合。就思想史而言，此句历来被视为老子反战、戒兵思想的直接文本依据。</td></tr>
+<tr><td>知足之足</td><td>懂得&quot;够了就是够&quot;的那种满足，才是真正靠得住的满足。</td><td>出自《老子》第四十六章：&quot;故知足之足，常足矣。&quot;意为知道满足而形成的满足，才是恒常的满足。老子把&quot;足&quot;从外在的财富、疆土之量，转为内在的限度意识，是&quot;知足&quot;命题的核心表述。</td><td>王弼注：&quot;知足者，自不失也。&quot;以&quot;不失&quot;释足，与&quot;无&quot;为本、不以物累其心的思路一贯；河上公注：&quot;知足之人，不贪财色，故常足也。&quot;陈鼓应释为&quot;知道满足的这种满足，是永远满足的&quot;。楼宇烈《王弼集校释》于此句强调王弼&quot;崇本息末&quot;的一贯立场，认为&quot;足&quot;不在外物而在主体自身。</td><td>王弼以&quot;无&quot;为本，谓足不在外物而在心不逐物，&quot;知足&quot;即不复起求外之念；郭象注《庄》主&quot;独化&quot;&quot;适性&quot;，虽非注老，其&quot;各安其分即逍遥&quot;之说与&quot;知足之足&quot;可相发明，但郭象反对有一个外在的&quot;足&quot;之标准，与王弼的本体论进路不同；河上公与道教内丹一系把&quot;知足&quot;落实为节欲保精的养生工夫。西方对照方面，海德格尔论&quot;无&quot;为存在之遮蔽，与老子由&quot;知足&quot;通向&quot;常足&quot;的生成—限度思路并不同调，可作参照而非等同。</td></tr>
+<tr><td>常足</td><td>永远满足、不会耗尽的满足。</td><td>出自《老子》第四十六章末句：&quot;故知足之足，常足矣。&quot;&quot;常&quot;在老学中兼有&quot;恒久&quot;与&quot;恒常之道&quot;两义。此句谓由知足而得的满足不随外物增减而变，故能长久。</td><td>王弼注：&quot;故知足之足，常足矣。&quot;河上公注：&quot;人能知止知足，则常足也。&quot;陈鼓应译为&quot;所以知道满足的这种满足，是永远满足的&quot;。刘笑敢指出&quot;常&quot;在《老子》中多指恒常之道或恒常状态，与&quot;非常&quot;相对，故此句不只是心理描述，更含存在方式之义。</td><td>王弼以&quot;无&quot;为本，&quot;常足&quot;即不假外求、与道同体之状态，属本体论的安顿；河上公与道教养生传统则把&quot;常足&quot;解为精气不泄、身中常有余的工夫效验；苏辙以&quot;理&quot;与&quot;分&quot;言，谓知分之限则常自足。若与庄子并观，《齐物论》的&quot;无待&quot;与&quot;常足&quot;在精神旨趣上相近，但庄子更强调&quot;逍遥&quot;的无所依待，不以&quot;足&quot;为满足之谓；与佛学中观&quot;缘起性空&quot;相较，中观不立&quot;常&quot;，&quot;常足&quot;仍是方便安立，二者不可混同。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">却走马以粪</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">把本来打仗用的马退回去，让农民用来耕地施肥，天下就太平了。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">出自《老子》第四十六章。&quot;走马&quot;指善跑的战马，&quot;粪&quot;指施肥、耕种。意为天下有道时，战马不再用于征战，而被送回田间耕作，是老子对&quot;有道&quot;之世的形象描绘，与下文&quot;戎马生于郊&quot;构成对比。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;天下有道，却走马以粪。&quot;以&quot;天下有道&quot;为前提，将&quot;走马&quot;解为征战之具，退而归田即&quot;无为&quot;之治的效验；河上公注则从&quot;治身&quot;立说，以马喻精气，谓&quot;却走马&quot;即止息躁动、还精于身。陈鼓应《老子今注今译》释为&quot;把战马退还到田间给农夫用来耕种&quot;，视为对&quot;有道&quot;社会的具体化描写。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼从&quot;贵无&quot;出发，把&quot;有道&quot;理解为君主无为、不以兵强天下，战马归田是&quot;无&quot;之治的自然结果；河上公系统的养生解则把马解为身中躁动之气，&quot;却&quot;是收摄工夫，与治国解并行不悖；苏辙《老子解》以&quot;理&quot;言，谓有道则物各得其所，马自归于耕。三者一治一养一理，取径不同而皆不把此句当作单纯的经济描述。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">戎马生于郊</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">连怀胎的军马都在城外野地里下驹，说明战事不断、天下无道。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">出自《老子》第四十六章，与&quot;却走马以粪&quot;对举。&quot;戎马&quot;即军马，&quot;生于郊&quot;指军马在城郊战场产驹。王弼注：&quot;天下无道，戎马生于郊。&quot;意指战乱不息，连牝马也被征用，只能在野外产子，是&quot;无道&quot;之世的征象。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注此句紧承&quot;天下有道&quot;句，以&quot;有道、无道&quot;为一对范畴；河上公注：&quot;戎马，兵马也。……生于郊，言兵革数起，马不得休息。&quot;陈鼓应释为战马在战地生育，极言战祸之烈。刘笑敢《老子古今》指出此二句为对文，&quot;却走马&quot;与&quot;戎马生于郊&quot;是治乱两极的对照性书写。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无道&quot;归因于有为多欲，兵连祸结是君主不&quot;无为&quot;的结果；河上公一系则把它读作身国同构的警示，谓情欲驰骋则&quot;戎马&quot;生于身内；韩非《解老》以&quot;道理&quot;释《老》，重在实际治乱得失的因果，与此句的治乱对照最相合。就思想史而言，此句历来被视为老子反战、戒兵思想的直接文本依据。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">知足之足</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">懂得&quot;够了就是够&quot;的那种满足，才是真正靠得住的满足。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">出自《老子》第四十六章：&quot;故知足之足，常足矣。&quot;意为知道满足而形成的满足，才是恒常的满足。老子把&quot;足&quot;从外在的财富、疆土之量，转为内在的限度意识，是&quot;知足&quot;命题的核心表述。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;知足者，自不失也。&quot;以&quot;不失&quot;释足，与&quot;无&quot;为本、不以物累其心的思路一贯；河上公注：&quot;知足之人，不贪财色，故常足也。&quot;陈鼓应释为&quot;知道满足的这种满足，是永远满足的&quot;。楼宇烈《王弼集校释》于此句强调王弼&quot;崇本息末&quot;的一贯立场，认为&quot;足&quot;不在外物而在主体自身。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，谓足不在外物而在心不逐物，&quot;知足&quot;即不复起求外之念；郭象注《庄》主&quot;独化&quot;&quot;适性&quot;，虽非注老，其&quot;各安其分即逍遥&quot;之说与&quot;知足之足&quot;可相发明，但郭象反对有一个外在的&quot;足&quot;之标准，与王弼的本体论进路不同；河上公与道教内丹一系把&quot;知足&quot;落实为节欲保精的养生工夫。西方对照方面，海德格尔论&quot;无&quot;为存在之遮蔽，与老子由&quot;知足&quot;通向&quot;常足&quot;的生成—限度思路并不同调，可作参照而非等同。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">常足</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">永远满足、不会耗尽的满足。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">出自《老子》第四十六章末句：&quot;故知足之足，常足矣。&quot;&quot;常&quot;在老学中兼有&quot;恒久&quot;与&quot;恒常之道&quot;两义。此句谓由知足而得的满足不随外物增减而变，故能长久。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;故知足之足，常足矣。&quot;河上公注：&quot;人能知止知足，则常足也。&quot;陈鼓应译为&quot;所以知道满足的这种满足，是永远满足的&quot;。刘笑敢指出&quot;常&quot;在《老子》中多指恒常之道或恒常状态，与&quot;非常&quot;相对，故此句不只是心理描述，更含存在方式之义。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，&quot;常足&quot;即不假外求、与道同体之状态，属本体论的安顿；河上公与道教养生传统则把&quot;常足&quot;解为精气不泄、身中常有余的工夫效验；苏辙以&quot;理&quot;与&quot;分&quot;言，谓知分之限则常自足。若与庄子并观，《齐物论》的&quot;无待&quot;与&quot;常足&quot;在精神旨趣上相近，但庄子更强调&quot;逍遥&quot;的无所依待，不以&quot;足&quot;为满足之谓；与佛学中观&quot;缘起性空&quot;相较，中观不立&quot;常&quot;，&quot;常足&quot;仍是方便安立，二者不可混同。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 46 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 46 章]
+
+天下有道，却走马以粪。天下无道，戎马生于郊。祸莫大于不知足；咎莫大于欲得。故知足之足，常足矣。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_46_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 70 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 70/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_69/site/index.html" title="第 69 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_71/site/index.html" title="第 71 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 70 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>吾言甚易知，甚易行。天下莫能知，莫能行。言有宗，事有君。夫唯无知，是以不我知。知我者希，则我者贵。是以圣人被褐怀玉。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 70 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这章是老子临近收尾时的一次“自我辩护”：我的话极易懂、极易行，天下却没人能懂、没人能行。为什么？因为“言有宗，事有君”——话有根、事有主，可人们偏偏不去看根。于是老子说：懂我的人越少，我越显珍贵；圣人就像穿着粗布衣、怀里揣着美玉的人。最重要的收获是那句“被褐怀玉”：真正的珍贵往往不在外表，而在于是否被识别。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>如果一条道理真的“极易知、极易行”，为什么现实中仍无人照做——是人不行，还是道理并不简单？</blockquote>
+<p>&gt;</p>
+<blockquote>如果你说的话有明确宗旨，却始终没人听懂，你会改说法，还是改听众？</blockquote>
+<p>&gt;</p>
+<blockquote>如果你的价值只有极少数人看得见，你会视为失败，还是视为“贵”的证明？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote><strong>维特根斯坦</strong>：认为许多哲学困惑来自语言误用——话看似易懂，其实没搞清用法，这与老子“言有宗”存在张力。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>荀子</strong>（《正名》）：主张名实相符、概念须界定清楚才能沟通，偏向“把话说到人人能懂”；老子则说“天下莫能知”，是知音难遇的慨叹。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>福柯</strong>：关注“谁有资格说话、谁被听见”——“知我者希”不只是认知问题，也牵涉话语权力与边缘位置。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>王阳明</strong>：讲“知行合一”，真知必能行；老子“易行而莫能行”，正可反问他：是不是那“知”尚未真切？</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<br/>
+<p><strong>第一遍（速览）</strong>：抓三个关注点——①开头“易知易行”与“莫能知莫能行”的反差；②“言有宗，事有君”这句自我定位；③结尾“被褐怀玉”的形象比喻。</p>
+<br/>
+<p><strong>第二遍（细抠）</strong>：两个必看的论证——其一，“夫唯无知，是以不我知”：把“不被理解”归因于对方的“无知”，这是一种反推，要问它说服力来自哪里；其二，“知我者希，则我者贵”：由“少”推出“贵”，是价值判断的跳跃，注意老子如何用稀缺来论证珍贵。</p>
+<br/>
+<p><strong>第三遍（思辨）</strong>：该追问的开放问题是——如果“无人能懂”既可证明你珍贵，也可证明你表达失败，那么用什么标准区分这两种情况？老子给出的答案，本身是否也需要“宗”与“君”？</p>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+    A_laozi["老子"]
+    C_dao["道"]
+    C_yanzong["言有宗（言有宗旨）"]
+    C_shijun["事有君（事有主宰）"]
+    C_pihe["被褐怀玉（外朴内贵）"]
+    P1["道与圣人之言易知易行"]
+    P2["天下莫能知，莫能行"]
+    P3["言有宗，事有君"]
+    P4["唯无知，故不我知"]
+    P5["知我者希，则我者贵"]
+    P6["圣人外朴而内贵"]
+    X41["上士闻道，勤而行之（第41章）"]
+    X53["大道甚夷，而民好径（第53章）"]
+    X17["太上，下知有之（第17章）"]
+
+    A_laozi -->|introduces| P1
+    A_laozi -->|introduces| P3
+    C_dao -->|relates_to| P1
+    C_yanzong -->|supports| P3
+    C_shijun -->|supports| P3
+    C_pihe -->|supports| P6
+    P3 -->|supports| P1
+    P1 -->|relates_to| P2
+    P4 -->|supports| P2
+    P4 -->|supports| P5
+    P5 -->|supports| P6
+    X41 -->|relates_to| P2
+    X53 -->|relates_to| P2
+    X17 -->|relates_to| P4
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章为《道德经》临近结尾的反思性章节，借“吾言甚易知，甚易行”与“天下莫能知，莫能行”的悖论，揭示道虽平易而世人难悟，并提出言有宗、事有君，最终以“被褐怀玉”刻画圣人的朴素外表与内蕴珍贵，承接全书对知与行、显与隐的讨论。</div>
+<h3>📌 核心命题</h3><ol>
+<li>道（或圣人之言）本身极易知晓、极易践行。</li>
+<li>天下却无人能知、无人能行。</li>
+<li>言论有其宗旨，行事有其主宰。</li>
+<li>正因为人们无知，所以不了解我。</li>
+<li>了解我的人越少，我就越显珍贵。</li>
+<li>圣人外表粗朴（被褐），内怀美玉（怀玉）。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>吾言甚易知，甚易行。天下莫能知，莫能行。</li>
+<li>言有宗，事有君。</li>
+<li>夫唯无知，是以不我知。</li>
+<li>知我者希，则我者贵。</li>
+<li>是以圣人被褐怀玉。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>言有宗</strong></summary><div class="case-body">说话有根本宗旨，不是随口乱说。</div></details>
+<details><summary><strong>事有君</strong></summary><div class="case-body">做事有主导原则或主宰。</div></details>
+<details><summary><strong>被褐怀玉</strong></summary><div class="case-body">外表穿粗布衣，怀里却藏着美玉，比喻外表朴素而内藏珍贵。</div></details>
+<details><summary><strong>知我者希，则我者贵</strong></summary><div class="case-body">懂我的人越少，效法我的人才显得珍贵。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>可与第41章“上士闻道，勤而行之”对照，理解闻道者层次差异。</li>
+<li>可与第53章“大道甚夷，而民好径”互参，说明道易行而人偏行。</li>
+<li>可与第17章“太上，下知有之”联系，思考认知层次与治理。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 70 章。以下是我自己写的一段复述：</p>
+<p>「{我的复述}」</p>
+<br/>
+<p>请对我做两件事：</p>
+<p>1）主线提取：用 3–5 句话还原这一章作者的论证主线（他面对的问题 → 他的主张 → 他的理由 → 他得出的结论），并明确指出我的复述漏掉了主线的哪一环、有没有把作者的结论说反或说弱。</p>
+<p>2）关键概念检查：列出这一章里 3 个最容易被误读的关键概念，逐个给出作者在原文中的界定（尽量贴近原话），再判断我在复述里对这些概念的使用是否偏离。</p>
+<br/>
+<p>硬性要求：凡是我说到、但原文并未出现的内容，请直接标注「原文未提及」，不要替我补全或替我圆场。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>我读完第 70 章后，倾向于接受作者的这个主张：{我接受的具体主张}。</p>
+<br/>
+<p>请你扮演最强的反方，只为赢、不为平衡：</p>
+<p>1）指出作者这条论证里未明言但必须成立的隐藏前提，并说明哪一个最脆弱；</p>
+<p>2）给出至少两种与本章结论相反的立场，各自写出最强版本的理由（可以引用哲学史上真实的反对者、学派或注家，务必注明是谁、出自何处；不确定就说不确定，不要编造书名）；</p>
+<p>3）区分：哪些反驳是作者在本章原文里已经回应过的，哪些是他完全没有回应的；</p>
+<p>4）最后指出，如果我坚持接受作者，我最需要补上的是哪一块论证。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 70 章，我理解到的核心是：{一句话概括本章核心}。</p>
+<br/>
+<p>请给我 3 个真实场景，说明这一章的思想如何被使用，分别落在：</p>
+<p>（1）我的一次日常工作决策；</p>
+<p>（2）一次我与他人观点冲突的对话；</p>
+<p>（3）一个公共议题或社会现象。</p>
+<br/>
+<p>每个场景请写清三件事：</p>
+<ul>
+<li>- 本章的哪个概念或哪组区分在这里真正起作用（点名概念，不要泛泛而谈）；</li>
+<li>- 按本章逻辑，具体该怎么处理；</li>
+<li>- 这种套用在哪里会失效，或会被本章自己的前提反噬。</li>
+</ul>
+<br/>
+<p>不要举书中原有的例子，请自己构造。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 70 章里最让我兴奋的一句话是：</p>
+<p>「{引用原文中的一句话}」</p>
+<br/>
+<p>请围绕这一句一路往下推：</p>
+<p>1）这句话若成立，逻辑上还暗含哪些作者没有明说的结论？</p>
+<p>2）它会和本章中的哪个别的论点产生张力甚至冲突？请指出具体段落或论点。</p>
+<p>3）把它推到极端版本会变成什么样子？那个极端版本还站得住吗，代价是什么？</p>
+<p>4）思想史上有谁表达过相近或针锋相对的意思？（注明人物与学派；不确定的请标明是转述）</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. 这一章作者到底想解决什么问题？他给出的答案是什么？</li>
+</ol>
+<p>   &gt; 提示：先只读本章开头两段和最后两段，答案通常就藏在这两处。</p>
+<br/>
+<ol>
+<li>2. 这一章里作者主要在反驳谁？他把对手的观点怎么表述的？</li>
+</ol>
+<p>   &gt; 提示：留意“有人会说”“然而”“并非如此”这类转折信号，对手往往是被作者自己复述出来的。</p>
+<br/>
+<ol>
+<li>3. 能不能把这一章压成三句话：他反对什么、他主张什么、他凭什么？</li>
+</ol>
+<p>   &gt; 提示：三句话都说不出来，说明你记住的是词，还没有抓住论证。</p>
+<br/>
+<ol>
+<li>4. 本章出现了哪几个关键词？作者本人是怎么界定它们的？</li>
+</ol>
+<p>   &gt; 提示：不要用日常语义去替换作者的定义，先照原文抄一遍他的界定。</p>
+<br/>
+<ol>
+<li>5. 作者用的是哪种论证方式——举例、类比、反证，还是思想实验？这个论证够硬吗？</li>
+</ol>
+<p>   &gt; 提示：把论证形式认出来之后，再问“这种形式最容易在哪一步出问题”。</p>
+<br/>
+<ol>
+<li>6. 如果这一章的结论是假的，世界会有什么不同？作者有没有排除这种可能？</li>
+</ol>
+<p>   &gt; 提示：想象反事实，是检验一个哲学主张最省力的办法。</p>
+<br/>
+<ol>
+<li>7. 这一章在整本书里承担什么功能？它和前一章、后一章是什么关系？</li>
+</ol>
+<p>   &gt; 提示：把它放回全书的论证链条里看，单章的强弱常常取决于它承重多少。</p>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>言有宗</td><td>说话不是随口乱讲，背后总有个根本的道理撑着。</td><td>出自《老子》第七十章：&quot;言有宗，事有君。&quot;指老子自谓其言说有其根本宗旨与统绪，非零散随意之论。全章以&quot;吾言甚易知，甚易行&quot;发端，而叹&quot;天下莫能知，莫能行&quot;，&quot;宗&quot;即言说所归之本。</td><td>王弼注此章重在&quot;宗，本也&quot;，以&quot;本&quot;释&quot;宗&quot;，与其&quot;崇本息末&quot;的玄学纲领贯通，言说之宗即万物之&quot;无&quot;。河上公则以治身解之，谓&quot;言有宗&quot;者，人君出言当有法度纲纪。苏辙《老子解》以&quot;道&quot;为言之宗，谓言而不离道，则虽言而实未尝言。</td><td>王弼以&quot;无&quot;为本，认为言说必有宗本，而宗本本身不可言，故其说通向&quot;得意忘言&quot;；郭象主张&quot;独化&quot;，反对在众言之上再立一个统一之本，认为&quot;宗&quot;不过是各当其分之自然聚合，无超越的言说根据；维特根斯坦在《逻辑哲学论》中提出&quot;语言的界限即世界的界限&quot;，命题须有逻辑形式作根据，与老子&quot;言有宗&quot;形似而旨趣相反——维氏之&quot;宗&quot;是逻辑结构，老子之&quot;宗&quot;是不可名的道。</td></tr>
+<tr><td>事有君</td><td>做事得有主心骨，不能东一榔头西一棒子。</td><td>出自同章，与&quot;言有宗&quot;对举。&quot;君&quot;训为主宰、主脑，谓行事有其主导原则与统率者。河上公注：&quot;事有君，事有主也。&quot;老子以此自明其行皆有所主，非无根之动。</td><td>成玄英以重玄义疏解，谓&quot;君&quot;即心王，&quot;事有君&quot;者，行事以心为主，心空则事无滞；其解已由治世转向心性修炼。王夫之《老子衍》以气化言，谓事之&quot;君&quot;即事物自身之理势，非外加之主宰，反对立一悬空之&quot;宗&quot;与&quot;君&quot;。</td><td>河上公与道教内丹传统把&quot;君&quot;读作身中之主（心神、君主之官），&quot;事有君&quot;成为养生治身的功夫论；韩非《解老》《喻老》以&quot;理&quot;释道，把&quot;事有君&quot;读为万物各有其理、循理则事成，走的是法家的客观法则一路；王夫之以&quot;气化&quot;斥&quot;贵无&quot;，认为主宰即在事中而非事外，与王弼的&quot;崇本&quot;形成直接对立。</td></tr>
+<tr><td>被褐怀玉</td><td>穿着粗布衣裳，怀里揣着宝玉——外表平常，内里金贵。</td><td>出自本章末句：&quot;知我者希，则我者贵，是以圣人被褐而怀玉。&quot;褐为贱者之服，玉为贵者之宝，以服饰之陋与怀藏之珍构成对比，喻圣人外同于俗而内蕴至德。此语后成为形容隐逸高士、深藏不露的成语。</td><td>王弼注：&quot;被褐者，同其尘；怀玉者，宝其真也。&quot;以&quot;同尘&quot;与&quot;宝真&quot;两面解之，正合其&quot;圣人体无&quot;而又不废应物的玄学架构。河上公注则落在治身：&quot;被褐者，薄外；怀玉者，厚内。&quot;以薄外厚内为养生之要。</td><td>庄子&quot;德充符&quot;一路以形残德全为贵，王骀、哀骀它之流正可与此句互训，重在&quot;德有所长而形有所忘&quot;；儒家则反其调，荀子《劝学》重&quot;君子之学以美其身&quot;，主张文质彬彬、内外兼修，不以被褐为高；葛兆光论道家式隐逸时指出，&quot;被褐怀玉&quot;构成了中国士人&quot;内在超越&quot;的典型姿态，与儒家&quot;外王&quot;取向形成张力。</td></tr>
+<tr><td>知我者希，则我者贵</td><td>懂我的人越少，肯照我做的越少，反倒说明我所讲的越珍贵。</td><td>出自同章。&quot;希&quot;通&quot;稀&quot;，少也；&quot;则&quot;训为效法、取则。老子谓天下莫能知其言、行其道，正见道之可贵。此句后常与&quot;曲高和寡&quot;并用，成为中国文化中关于孤独与价值的经典表述。</td><td>王弼注：&quot;唯深故知之者希，唯几故则之者贵。&quot;以&quot;深&quot;&quot;几&quot;释道之难知难行，与其&quot;得象忘言&quot;的认识论层次说相应。苏辙解为&quot;道大而俗不能知&quot;，以世俗之见量圣人，故见其希。成玄英则谓&quot;知希则道尊&quot;，把价值判断建立在认知稀缺性之上。</td><td>庄子&quot;大言炎炎，小言詹詹&quot;与&quot;朝菌不知晦朔&quot;之说，把认知的层级差异推到底，与老子此句同调，但庄子更强调&quot;齐物&quot;——不知者亦不必被贬；儒家则取另一路，孟子&quot;人不知而不愠&quot;、荀子&quot;劝学&quot;皆主张通过教化扩大&quot;知我者&quot;之数，不以&quot;希&quot;为贵；刘笑敢指出老子此章透露出一种&quot;被迫的孤独感&quot;，与庄子主动的&quot;逍遥&quot;不同，是道家内部两种自我定位的分水岭。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">言有宗</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">说话不是随口乱讲，背后总有个根本的道理撑着。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">出自《老子》第七十章：&quot;言有宗，事有君。&quot;指老子自谓其言说有其根本宗旨与统绪，非零散随意之论。全章以&quot;吾言甚易知，甚易行&quot;发端，而叹&quot;天下莫能知，莫能行&quot;，&quot;宗&quot;即言说所归之本。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注此章重在&quot;宗，本也&quot;，以&quot;本&quot;释&quot;宗&quot;，与其&quot;崇本息末&quot;的玄学纲领贯通，言说之宗即万物之&quot;无&quot;。河上公则以治身解之，谓&quot;言有宗&quot;者，人君出言当有法度纲纪。苏辙《老子解》以&quot;道&quot;为言之宗，谓言而不离道，则虽言而实未尝言。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，认为言说必有宗本，而宗本本身不可言，故其说通向&quot;得意忘言&quot;；郭象主张&quot;独化&quot;，反对在众言之上再立一个统一之本，认为&quot;宗&quot;不过是各当其分之自然聚合，无超越的言说根据；维特根斯坦在《逻辑哲学论》中提出&quot;语言的界限即世界的界限&quot;，命题须有逻辑形式作根据，与老子&quot;言有宗&quot;形似而旨趣相反——维氏之&quot;宗&quot;是逻辑结构，老子之&quot;宗&quot;是不可名的道。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">事有君</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">做事得有主心骨，不能东一榔头西一棒子。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">出自同章，与&quot;言有宗&quot;对举。&quot;君&quot;训为主宰、主脑，谓行事有其主导原则与统率者。河上公注：&quot;事有君，事有主也。&quot;老子以此自明其行皆有所主，非无根之动。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">成玄英以重玄义疏解，谓&quot;君&quot;即心王，&quot;事有君&quot;者，行事以心为主，心空则事无滞；其解已由治世转向心性修炼。王夫之《老子衍》以气化言，谓事之&quot;君&quot;即事物自身之理势，非外加之主宰，反对立一悬空之&quot;宗&quot;与&quot;君&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公与道教内丹传统把&quot;君&quot;读作身中之主（心神、君主之官），&quot;事有君&quot;成为养生治身的功夫论；韩非《解老》《喻老》以&quot;理&quot;释道，把&quot;事有君&quot;读为万物各有其理、循理则事成，走的是法家的客观法则一路；王夫之以&quot;气化&quot;斥&quot;贵无&quot;，认为主宰即在事中而非事外，与王弼的&quot;崇本&quot;形成直接对立。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">被褐怀玉</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">穿着粗布衣裳，怀里揣着宝玉——外表平常，内里金贵。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">出自本章末句：&quot;知我者希，则我者贵，是以圣人被褐而怀玉。&quot;褐为贱者之服，玉为贵者之宝，以服饰之陋与怀藏之珍构成对比，喻圣人外同于俗而内蕴至德。此语后成为形容隐逸高士、深藏不露的成语。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;被褐者，同其尘；怀玉者，宝其真也。&quot;以&quot;同尘&quot;与&quot;宝真&quot;两面解之，正合其&quot;圣人体无&quot;而又不废应物的玄学架构。河上公注则落在治身：&quot;被褐者，薄外；怀玉者，厚内。&quot;以薄外厚内为养生之要。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">庄子&quot;德充符&quot;一路以形残德全为贵，王骀、哀骀它之流正可与此句互训，重在&quot;德有所长而形有所忘&quot;；儒家则反其调，荀子《劝学》重&quot;君子之学以美其身&quot;，主张文质彬彬、内外兼修，不以被褐为高；葛兆光论道家式隐逸时指出，&quot;被褐怀玉&quot;构成了中国士人&quot;内在超越&quot;的典型姿态，与儒家&quot;外王&quot;取向形成张力。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">知我者希，则我者贵</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">懂我的人越少，肯照我做的越少，反倒说明我所讲的越珍贵。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">出自同章。&quot;希&quot;通&quot;稀&quot;，少也；&quot;则&quot;训为效法、取则。老子谓天下莫能知其言、行其道，正见道之可贵。此句后常与&quot;曲高和寡&quot;并用，成为中国文化中关于孤独与价值的经典表述。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;唯深故知之者希，唯几故则之者贵。&quot;以&quot;深&quot;&quot;几&quot;释道之难知难行，与其&quot;得象忘言&quot;的认识论层次说相应。苏辙解为&quot;道大而俗不能知&quot;，以世俗之见量圣人，故见其希。成玄英则谓&quot;知希则道尊&quot;，把价值判断建立在认知稀缺性之上。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">庄子&quot;大言炎炎，小言詹詹&quot;与&quot;朝菌不知晦朔&quot;之说，把认知的层级差异推到底，与老子此句同调，但庄子更强调&quot;齐物&quot;——不知者亦不必被贬；儒家则取另一路，孟子&quot;人不知而不愠&quot;、荀子&quot;劝学&quot;皆主张通过教化扩大&quot;知我者&quot;之数，不以&quot;希&quot;为贵；刘笑敢指出老子此章透露出一种&quot;被迫的孤独感&quot;，与庄子主动的&quot;逍遥&quot;不同，是道家内部两种自我定位的分水岭。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 70 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 70 章]
+
+吾言甚易知，甚易行。天下莫能知，莫能行。言有宗，事有君。夫唯无知，是以不我知。知我者希，则我者贵。是以圣人被褐怀玉。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_70_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

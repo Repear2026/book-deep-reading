@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 72 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 72/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_71/site/index.html" title="第 71 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_73/site/index.html" title="第 73 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 72 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>民不畏威，大威至矣。无狭其所居，无厌其所生。夫唯不厌，是以不厌。是以圣人自知不自见；自爱不自贵。故去彼取此。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 72 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章老子把镜头对准统治者的威压与百姓的生存底线。当百姓被逼到不再惧怕威慑时，更大的祸患就来了。老子提醒当权者：别挤压百姓的居所，别厌弃他们的生计；只有不厌弃百姓，才不会被百姓厌弃。落到个人修养上，圣人“自知不自见，自爱不自贵”，在炫耀与自贵之间主动舍弃，选取内敛的自知与自爱。最重要的收获是：威压的极限不是服从，而是反弹；真正的保全之道是“去彼取此”。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>1. 如果你被不断施压直到“反正也没什么可失去”，你会更服从，还是更可能做出不计后果的反应？</blockquote>
+<blockquote>2. 如果一个管理者只会收紧空间、掐断生计来逼人听话，他最终得到的是秩序，还是积压的对抗？</blockquote>
+<blockquote>3. 如果你明明有本事却刻意不表现、明明珍重自己却不摆高姿态，别人会低估你，还是会更难撼动你？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote>- <strong>福柯</strong>：权力不只是压制，更是生产性的网络；但福柯也提醒，当权力过度逼近身体与生存条件时，会激发抵抗——可与“民不畏威，大威至矣”对读。</blockquote>
+<blockquote>- <strong>荀子</strong>：主张“君者，舟也；庶人者，水也”，水能载舟亦能覆舟，与老子“不厌则不被厌”的相互性相通，但荀子更强调礼法制度化。</blockquote>
+<blockquote>- <strong>韩非</strong>：认为威势是君主治理的核心工具，主张“势”不可失；老子则指出威压用到极致会反噬，二者构成“威”的两种治理逻辑。</blockquote>
+<blockquote>- <strong>罗素</strong>：在《权力论》中分析对权力的欲望与制约，指出不受限制的权力趋于膨胀并引发反抗，可作现代政治学注脚。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：关注三个点——①“民不畏威，大威至矣”的因果方向（谁对谁构成威胁）；②“无狭其所居，无厌其所生”的两个“无”针对什么；③最后“自知/自见”“自爱/自贵”的对照结构。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：必看两个论证——“夫唯不厌，是以不厌”的相互性逻辑（不厌弃百姓→不被百姓厌弃）；“去彼取此”的取舍结构（舍弃自见、自贵，选取自知、自爱），注意老子不是否定“自知”和“自爱”，而是否定其外显与自高形态。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：一个开放问题——“民不畏威”究竟是被压迫到极点的被动反应，还是老子所肯定的一种有边界的抵抗？如果圣人“自知不自见”，那统治者如何在不施威压的前提下维持秩序？这个问题可留到第 73 章继续追问。</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+  P1["命题：民不畏威，大威至矣"]
+  P2["命题：无狭其所居，无厌其所生"]
+  P3["命题：夫唯不厌，是以不厌"]
+  P4["命题：圣人自知不自见，自爱不自贵"]
+  P5["命题：舍弃自见自贵，采取自知自爱"]
+  C1["概念：威"]
+  C2["概念：大威"]
+  C3["概念：无狭其所居"]
+  C4["概念：无厌其所生"]
+  C5["概念：自知不自见"]
+  C6["概念：自爱不自贵"]
+  C7["概念：去彼取此"]
+  C1 -->|relates_to| P1
+  C2 -->|relates_to| P1
+  C3 -->|relates_to| P2
+  C4 -->|relates_to| P2
+  C5 -->|relates_to| P4
+  C6 -->|relates_to| P4
+  C7 -->|relates_to| P5
+  P2 -->|supports| P3
+  P3 -->|relates_to| P4
+  P4 -->|supports| P5
+  P1 -->|relates_to| P2
+  P2 -->|relates_to| P4
+  P4 -->|relates_to| C7
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章从统治者施加威压与百姓生存处境的关系切入，指出过度压迫会招致更大祸患；进而提出圣人应自知、自爱而不自见、自贵，并在二者之间“去彼取此”。</div>
+<h3>📌 核心命题</h3><ol>
+<li>百姓不畏惧威压，巨大的威胁就会到来。</li>
+<li>不要使百姓的居所狭窄，不要厌弃百姓的生计。</li>
+<li>只有不厌弃百姓，才不会被百姓厌弃。</li>
+<li>圣人自知却不自我表现，自爱却不自以为高贵。</li>
+<li>因此舍弃自我表现与自贵，采取自知与自爱。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>民不畏威，大威至矣。</li>
+<li>无狭其所居，无厌其所生。</li>
+<li>夫唯不厌，是以不厌。</li>
+<li>是以圣人自知不自见；自爱不自贵。</li>
+<li>故去彼取此。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>威</strong></summary><div class="case-body">这里指统治者施加的威压、威慑。</div></details>
+<details><summary><strong>大威</strong></summary><div class="case-body">指百姓不畏惧威压后到来的更大威胁或祸患。</div></details>
+<details><summary><strong>无狭其所居</strong></summary><div class="case-body">不要逼迫百姓的居所变得狭窄。</div></details>
+<details><summary><strong>无厌其所生</strong></summary><div class="case-body">不要厌弃、压迫百姓赖以生存的生计。</div></details>
+<details><summary><strong>自知不自见</strong></summary><div class="case-body">有自知之明却不自我炫耀、自我表现。</div></details>
+<details><summary><strong>自爱不自贵</strong></summary><div class="case-body">珍重自身却不自以为高贵。</div></details>
+<details><summary><strong>去彼取此</strong></summary><div class="case-body">舍弃“自见”“自贵”，选取“自知”“自爱”。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>“民不畏威，大威至矣”所涉及的威压与治理后果，可能在第73章继续展开。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<p>```</p>
+<p>我刚读完第 72 章。以下是我对这章主线的理解：</p>
+<br/>
+<p>&quot;{我的一段陈述}&quot;</p>
+<br/>
+<p>请帮我做三件事：</p>
+<p>1）提取我这段话的&quot;主线骨架&quot;，标出我抓住的关键点、遗漏的关键环节；</p>
+<p>2）针对本章关键概念 {关键概念A}、{关键概念B}、{关键概念C}，逐条检查我的用法是否与原文一致——若不一致，指出偏差在哪；</p>
+<p>3）给出一段&quot;若只允许用五句话复述本章，应该是哪五句&quot;的参照版本，供我对照。</p>
+<p>不要替我补充我没读到的内容，只依据本章原文与我的陈述做诊断。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<p>```</p>
+<p>第 72 章的核心主张，我理解为：{该章核心论点}。</p>
+<p>我倾向于接受它，我的理由是：{我的理由}。</p>
+<br/>
+<p>现在请你扮演&quot;最强反方&quot;——不是敷衍地唱反调，而是从 {相反视角，例如：经验主义/实用主义/现象学/常识实在论/某个对立学派} 的立场出发，构造针对我&quot;接受态度&quot;的最强挑战。要求：</p>
+<p>1）先指出我&quot;接受得太快&quot;的地方（我在哪一步跳过了论证）；</p>
+<p>2）给出反方最强的两条论证，每条都要能独立成立；</p>
+<p>3）预判我可能的回应，并说明这些回应各自最脆弱的一环；</p>
+<p>4）最后诚实评估：在本章文本范围内，作者是否有资源挡住这两条反驳？如果没有，缺口在哪？</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<p>```</p>
+<p>我刚读完第 72 章，我理解它的核心思想是：{该章思想}。</p>
+<br/>
+<p>请给我 3 个真实生活/工作场景（建议分布在 {场景领域提示，例如：职场决策、人际沟通、教育实践、技术产品设计、公共讨论}），对每个场景逐一说明：</p>
+<p>1）这章思想在场景中具体&quot;怎么用&quot;——落到可操作的动作；</p>
+<p>2）应用的边界条件是什么——什么情况下这套思想会失效；</p>
+<p>3）最常见的误用长什么样，后果是什么。</p>
+<p>场景要具体到&quot;谁在什么处境下做什么决定&quot;，不要泛泛而谈。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<p>```</p>
+<p>第 72 章里最让我兴奋的一句话是：</p>
+<br/>
+<p>&quot;{原文句子}&quot;</p>
+<br/>
+<p>请围绕这句话往下推：</p>
+<p>1）这句话在本章论证链条中承担什么功能——它是前提、结论，还是转折点？</p>
+<p>2）如果认真&quot;那这样推下去&quot;，它还会逼出哪些进一步的主张？请列出 3 条，按推论的强度从弱到强排序；</p>
+<p>3）这 3 条里，哪些是原作者大概率会接受的，哪些是原作者大概率会拒绝的？给出文本依据；</p>
+<p>4）思想史上有没有人真的把这个方向推到底？他们是谁、代表作是什么、推到尽头后付出了什么代价？</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. 第 72 章里有没有一句话，让你读的时候心里&quot;咯噔&quot;一下？是哪句？</li>
+</ol>
+<p>   &gt; 提示：先别管对错，只标记情绪反应点——那是你进入这章的门。</p>
+<br/>
+<ol>
+<li>2. 如果有人问你&quot;第 72 章到底在吵什么架&quot;，你会用一句话怎么答？</li>
+</ol>
+<p>   &gt; 提示：说不出就说明还没抓住&quot;谁在反驳谁&quot;，回去找章里出现频率最高的对立词。</p>
+<br/>
+<ol>
+<li>3. 这章作者主要在反对谁？你能替那个&quot;被反对的立场&quot;说一句公道话吗？</li>
+</ol>
+<p>   &gt; 提示：能替对手说话，才算真读懂了论辩结构；说不出来说明你只记住了结论。</p>
+<br/>
+<ol>
+<li>4. 这章的核心概念，你能举一个书里没出现、但你自己生活里的例子吗？</li>
+</ol>
+<p>   &gt; 提示：举得出说明概念已迁移；举不出说明还停留在背诵定义。</p>
+<br/>
+<ol>
+<li>5. 这章有没有哪个地方你觉得&quot;这不太对&quot;或者&quot;作者跳步了&quot;？具体是哪一步？</li>
+</ol>
+<p>   &gt; 提示：怀疑不需要理由充分，先定位到具体句子，再回头检验是不是自己没读懂。</p>
+<br/>
+<ol>
+<li>6. 如果只允许你从这章带走一个判断，你会带走哪个？为什么不是别的？</li>
+</ol>
+<p>   &gt; 提示：逼自己排他性选择，检验你是否分得清主次。</p>
+<br/>
+<ol>
+<li>7. 这章在整本书的论证版图里占什么位置——它是在铺垫、在转折，还是在收口？</li>
+</ol>
+<p>   &gt; 提示：需要回看前后章节的衔接句；能定位说明你有了全书地图，而不只是单章印象。</p>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>威（民不畏威）</td><td>统治者施加的高压威慑，逼得百姓喘不过气。</td><td>指统治者以刑罚、政令施于民上的威压之势。《老子》此章以“民不畏威”起论，指出威压一旦超出民力承受的限度，威慑本身即告失效。</td><td>帛书甲乙本、王弼本皆作“民不畏威，则大威至”。王弼注：“威，畏也。”以“威”为可畏之势；河上公注则将此“威”解为“刑威”，与养生、治国之道相连。陈鼓应训“威”为“威压”，译为“人民不畏惧统治者的威压”。</td><td>王弼以“无”为本，主张统治者“不以威加民”，威压属于“有为”之迹，与无为而治相悖；韩非则从法家立场肯定“威”为君之二柄（刑德）之一，认为威势正是治国所必需，与老子此处对威压的警惕正相对立；苏辙《老子解》以“威”为末，谓民已不畏则威穷而乱生。</td></tr>
+<tr><td>大威</td><td>百姓一旦不再害怕威压，更大的祸乱或灾殃就会到来。</td><td>指百姓对威压失去畏惧后所招致的更大祸患，历代注家多解为“祸乱之大者”，亦有人解为“天威”“刑威之极”。</td><td>王弼注：“威不能制，则大威至矣。”以“大威”为威之极致、威穷而反；河上公以“大威”为“祸罚”；成玄英疏以重玄义解为“大威之至，莫过于死”。陈鼓应译为“可怕的祸乱就要到来”。</td><td>河上公、道教养生一路把“大威”读作身国同构中的灾殃，偏重治身；王夫之《老子衍》从气化治乱着眼，谓威穷则民散、大乱随之，重在社会政治之势；韩非一系则会把“大威”理解为君权失驭后的刑赏失序，与老子“不尚威”的告诫形成张力。</td></tr>
+<tr><td>无狎其所居</td><td>不要逼迫百姓的居所，使他们住得局促不安。</td><td>“狎”通“狭”，作动词用，谓使之狭窄、逼迫。此句意为统治者不应侵扰、压缩百姓的生存居所。</td><td>帛书乙本作“毋狎其所居”，王弼本作“无狎其所居”。王弼注：“狎，近也。”一说“狎”为“狭”之借字，河上公本即作“狭”。陈鼓应取“狭”义，译“不要逼迫人民的居所”。</td><td>河上公以“所居”为身中之神室，主张治身者不使精神局促，是养生化的读法；王弼以“无”为本，将“所居”解为万物自得之所，反对以有为侵夺其自然之分；郭象“独化”说可相呼应——各安其性分，不须外力安排其居处。</td></tr>
+<tr><td>无厌其所生</td><td>不要压榨百姓赖以活命的生活来源。</td><td>“厌”读作“压”，意为压迫、厌弃。此句谓统治者不应摧残、堵塞百姓的生存之道。</td><td>王弼本作“无厌其所生”，王弼注：“厌，塞也。”河上公注“厌”为“压”。陈鼓应译“不要压榨人民的生产”，并引“厌”与“压”古通之说。</td><td>河上公从治身立论，谓“所生”即精气，厌之则神疲，属养生内修一路；王弼以“生”为自然之性分，厌塞之则违“无为之本”；儒家孟子“制民之产”与“无恒产者无恒心”之说与此章“不厌所生”在治理关怀上相通，但孟子立足仁义之政，老子立足不扰之政，进路不同。</td></tr>
+<tr><td>自知不自见</td><td>有自知之明，却不自我炫耀、不处处表现自己。</td><td>谓人应有内在的明察而不外露张扬。“自见”读作“自现”，即自我表现、自炫。</td><td>王弼本作“是以圣人自知不自见”。王弼注：“自知，则无自见也。”陈鼓应译“有自知之明而不自我炫耀”。此句与第二十四章“自见者不明”互文。</td><td>王弼以“无”为本，认为“自见”是执有之迹，“自知”则返本；成玄英以重玄双遣解之，既不执自见，亦不滞自知，遣之又遣；庄子“至人无己”与“吾丧我”可相参照，但庄子落实于齐物逍遥，老子此章落在治民之方。</td></tr>
+<tr><td>自爱不自贵</td><td>珍重自己，却不自以为高人一等。</td><td>谓珍爱自身、守其真而不自矜尊贵。“自贵”即自高自大、以己为贵。</td><td>王弼本作“自爱不自贵”。王弼注：“自爱，则无自贵也。”陈鼓应译“爱惜自身而不自显高贵”。与第七十二章上文“自知不自见”并列，构成一组对治之方。</td><td>河上公从治身解“自爱”为爱惜精气，不“自贵”即不矜高位，偏于养生；王弼以“无”为本，谓“自贵”是名分之执，与自然之分相违；郭象“独化”说可通——各适其性即自爱，强分高下即自贵。儒家荀子“君子之学以美其身”亦重自爱，但以礼义为准的，与老子“不贵”的取向有别。</td></tr>
+<tr><td>去彼取此</td><td>舍掉“自见”“自贵”，选取“自知”“自爱”。</td><td>本章结句，谓圣人有所取舍：去“自见”“自贵”之弊，取“自知”“自爱”之实。此语亦见于第十二章、第三十八章，为《老子》中反复出现的抉择句式。</td><td>王弼本作“故去彼取此”。王弼注多就“本末”立说，去末取本；陈鼓应译为“所以舍弃自见自贵，而保持自知自爱”。楼宇烈《王弼集校释》指出此句式在王弼注中常涵“崇本息末”之义。</td><td>王弼以“崇本息末”解“去彼取此”，彼为末、此为本文；成玄英重玄学则解为遣执而不滞于遣，取舍亦不可执；王夫之《老子衍》从“气化”与“日新”立论，谓取舍非一次之定，而在随时之当，与王弼的静态本末说有别；海德格尔论“遮蔽”与“解蔽”的往返，或可与“去彼取此”的持续抉择相参，但其存在论境域与老子的治道语境不同。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">威（民不畏威）</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">统治者施加的高压威慑，逼得百姓喘不过气。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指统治者以刑罚、政令施于民上的威压之势。《老子》此章以“民不畏威”起论，指出威压一旦超出民力承受的限度，威慑本身即告失效。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">帛书甲乙本、王弼本皆作“民不畏威，则大威至”。王弼注：“威，畏也。”以“威”为可畏之势；河上公注则将此“威”解为“刑威”，与养生、治国之道相连。陈鼓应训“威”为“威压”，译为“人民不畏惧统治者的威压”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，主张统治者“不以威加民”，威压属于“有为”之迹，与无为而治相悖；韩非则从法家立场肯定“威”为君之二柄（刑德）之一，认为威势正是治国所必需，与老子此处对威压的警惕正相对立；苏辙《老子解》以“威”为末，谓民已不畏则威穷而乱生。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">大威</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">百姓一旦不再害怕威压，更大的祸乱或灾殃就会到来。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指百姓对威压失去畏惧后所招致的更大祸患，历代注家多解为“祸乱之大者”，亦有人解为“天威”“刑威之极”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“威不能制，则大威至矣。”以“大威”为威之极致、威穷而反；河上公以“大威”为“祸罚”；成玄英疏以重玄义解为“大威之至，莫过于死”。陈鼓应译为“可怕的祸乱就要到来”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公、道教养生一路把“大威”读作身国同构中的灾殃，偏重治身；王夫之《老子衍》从气化治乱着眼，谓威穷则民散、大乱随之，重在社会政治之势；韩非一系则会把“大威”理解为君权失驭后的刑赏失序，与老子“不尚威”的告诫形成张力。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">无狎其所居</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不要逼迫百姓的居所，使他们住得局促不安。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">“狎”通“狭”，作动词用，谓使之狭窄、逼迫。此句意为统治者不应侵扰、压缩百姓的生存居所。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">帛书乙本作“毋狎其所居”，王弼本作“无狎其所居”。王弼注：“狎，近也。”一说“狎”为“狭”之借字，河上公本即作“狭”。陈鼓应取“狭”义，译“不要逼迫人民的居所”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以“所居”为身中之神室，主张治身者不使精神局促，是养生化的读法；王弼以“无”为本，将“所居”解为万物自得之所，反对以有为侵夺其自然之分；郭象“独化”说可相呼应——各安其性分，不须外力安排其居处。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">无厌其所生</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不要压榨百姓赖以活命的生活来源。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">“厌”读作“压”，意为压迫、厌弃。此句谓统治者不应摧残、堵塞百姓的生存之道。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼本作“无厌其所生”，王弼注：“厌，塞也。”河上公注“厌”为“压”。陈鼓应译“不要压榨人民的生产”，并引“厌”与“压”古通之说。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公从治身立论，谓“所生”即精气，厌之则神疲，属养生内修一路；王弼以“生”为自然之性分，厌塞之则违“无为之本”；儒家孟子“制民之产”与“无恒产者无恒心”之说与此章“不厌所生”在治理关怀上相通，但孟子立足仁义之政，老子立足不扰之政，进路不同。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">自知不自见</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">有自知之明，却不自我炫耀、不处处表现自己。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">谓人应有内在的明察而不外露张扬。“自见”读作“自现”，即自我表现、自炫。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼本作“是以圣人自知不自见”。王弼注：“自知，则无自见也。”陈鼓应译“有自知之明而不自我炫耀”。此句与第二十四章“自见者不明”互文。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，认为“自见”是执有之迹，“自知”则返本；成玄英以重玄双遣解之，既不执自见，亦不滞自知，遣之又遣；庄子“至人无己”与“吾丧我”可相参照，但庄子落实于齐物逍遥，老子此章落在治民之方。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">自爱不自贵</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">珍重自己，却不自以为高人一等。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">谓珍爱自身、守其真而不自矜尊贵。“自贵”即自高自大、以己为贵。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼本作“自爱不自贵”。王弼注：“自爱，则无自贵也。”陈鼓应译“爱惜自身而不自显高贵”。与第七十二章上文“自知不自见”并列，构成一组对治之方。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公从治身解“自爱”为爱惜精气，不“自贵”即不矜高位，偏于养生；王弼以“无”为本，谓“自贵”是名分之执，与自然之分相违；郭象“独化”说可通——各适其性即自爱，强分高下即自贵。儒家荀子“君子之学以美其身”亦重自爱，但以礼义为准的，与老子“不贵”的取向有别。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">去彼取此</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">舍掉“自见”“自贵”，选取“自知”“自爱”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">本章结句，谓圣人有所取舍：去“自见”“自贵”之弊，取“自知”“自爱”之实。此语亦见于第十二章、第三十八章，为《老子》中反复出现的抉择句式。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼本作“故去彼取此”。王弼注多就“本末”立说，去末取本；陈鼓应译为“所以舍弃自见自贵，而保持自知自爱”。楼宇烈《王弼集校释》指出此句式在王弼注中常涵“崇本息末”之义。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“崇本息末”解“去彼取此”，彼为末、此为本文；成玄英重玄学则解为遣执而不滞于遣，取舍亦不可执；王夫之《老子衍》从“气化”与“日新”立论，谓取舍非一次之定，而在随时之当，与王弼的静态本末说有别；海德格尔论“遮蔽”与“解蔽”的往返，或可与“去彼取此”的持续抉择相参，但其存在论境域与老子的治道语境不同。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 72 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 72 章]
+
+民不畏威，大威至矣。无狭其所居，无厌其所生。夫唯不厌，是以不厌。是以圣人自知不自见；自爱不自贵。故去彼取此。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_72_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 10 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 10/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_09/site/index.html" title="第 9 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_11/site/index.html" title="第 11 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 10 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>载营魄抱一，能无离乎？抟气致柔，能婴儿乎？涤除玄览，能无疵乎？爱国治民，能无为乎？天门开阖，能为雌乎？明白四达，能无知乎？生之，畜之。生而不有，为而不恃，长而不宰，是谓玄德。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 10 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章是《道德经》里最像“自检清单”的一章：老子连抛六个反问——你能让魂魄与形体不分离吗？聚气能柔到像婴儿吗？涤除玄览能毫无瑕疵吗？爱国治民能不妄为吗？天门开合能守雌吗？明白四达能不自作聪明吗？六个问题没有一个给出答案，却把修身与治民的工夫境界全摊在你面前。最后归结为“生而不有，为而不恃，长而不宰”的玄德——最重要收获：最高明的作为，是不占有、不恃功、不主宰。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>1. 如果你做一件事全心投入，却要求自己“不占有成果”，你会失去动力还是获得自由？</blockquote>
+<blockquote>2. 如果你明明看得清楚、想得明白，却被要求“明白四达，能无知乎”，这到底是装傻还是真智慧？</blockquote>
+<blockquote>3. 如果你治理一个团队或家庭，能做到“为而不恃”——付出了却不拿功劳压人吗？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote>- <strong>孔子</strong>：主张“修己以安百姓”，修身与治民同样贯通，但路径是礼乐教化与正名，而非老子式的“无为”“守雌”；孔子不会问“能无知乎”，他更信“知之为知之”。</blockquote>
+<blockquote>- <strong>荀子</strong>：强调“化性起伪”，认为柔性、专注、清明都需后天礼义训练而成，与老子“抟气致柔”“涤除玄览”的返璞归真路数相反——荀子要“加”，老子要“减”。</blockquote>
+<blockquote>- <strong>韩非子</strong>：解老时把“无为”读作君主不亲细务、以法驭臣的统治术，将“生而不有”转为权柄不轻示于人，与老子侧重修身工夫的读法形成张力。</blockquote>
+<blockquote>- <strong>维特根斯坦</strong>：早期主张“对于不可说的东西必须保持沉默”，与“明白四达，能无知乎”有某种呼应——真正看清界限的人，恰恰知道何处不该逞知。</blockquote>
+<blockquote>- <strong>福柯</strong>：对“自我技术”的研究表明，古代修身术（如自我审视、自我节制）并非退回内在，而是与治理他人相互缠绕——正可借来重读本章六问中“修身—治民”并置的结构。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：关注三个点——①六组反问的排列顺序（从个体魂魄、气息、心镜，一路推到治国、天门、明白四达，是由内而外、由近及远）；②每组都用“能……乎”的问句，不是断言，读时要带疑问语气；③末句“玄德”三连（生而不有、为而不恃、长而不宰）是全章唯一的陈述句，是全篇落点。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：必看两个论证——①“载营魄抱一，能无离乎”与“抟气致柔，能婴儿乎”的递进：前者问魂魄与形体能否合一不散，后者问聚气能否柔到婴儿般的状态，一个讲“不离”，一个讲“致柔”，是从结构统一到状态还原的两步；②“爱国治民，能无为乎”与“天门开阖，能为雌乎”的并置：治民的无为与感官门户开合时的守雌，暗示外在事功与内在感官节制是同一工夫的两面。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：该追问的开放问题是——如果“生而不有，为而不恃，长而不宰”真是最高德性，那么“生”“为”“长”本身还需要吗？老子是否在说：作为可以照做，但心态上必须彻底不挂怀？这个“做而不执”的分寸，到底是可操作的工夫，还是只能悬为理想？</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+    P1["命题：载营魄抱一能否不离"]
+    P2["命题：抟气致柔能否如婴儿"]
+    P3["命题：涤除玄览能否无疵"]
+    P4["命题：爱国治民能否无为"]
+    P5["命题：天门开阖能否为雌"]
+    P6["命题：明白四达能否无知"]
+    P7["命题：生而不有、为而不恃、长而不宰，是谓玄德"]
+    C1["概念：载营魄抱一"]
+    C2["概念：抟气致柔"]
+    C3["概念：涤除玄览"]
+    C4["概念：无为"]
+    C5["概念：天门开阖"]
+    C6["概念：为雌"]
+    C7["概念：玄德"]
+    A1["论据：载营魄抱一，能无离乎？"]
+    A2["论据：抟气致柔，能婴儿乎？"]
+    A3["论据：涤除玄览，能无疵乎？"]
+    A4["论据：爱国治民，能无为乎？"]
+    A5["论据：天门开阖，能为雌乎？"]
+    A6["论据：明白四达，能无知乎？"]
+    A7["论据：生而不有，为而不恃，长而不宰"]
+    A1 --> P1
+    A2 --> P2
+    A3 --> P3
+    A4 --> P4
+    A5 --> P5
+    A6 --> P6
+    A7 --> P7
+    C1 --> P1
+    C2 --> P2
+    C3 --> P3
+    C4 --> P4
+    C5 --> P5
+    C6 --> P5
+    C7 --> P7
+    P1 --> C1
+    P2 --> C2
+    P3 --> C3
+    P4 --> C4
+    P5 --> C5
+    P7 --> C7
+    C5 --> C6
+    P1 -.-> P2
+    P2 -.-> P3
+    P3 -.-> P4
+    P4 -.-> P5
+    P5 -.-> P6
+    P6 -.-> P7
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章以六组反问检验修身与治民的工夫境界，并由“生而不有、为而不恃、长而不宰”归结为玄德。</div>
+<h3>📌 核心命题</h3><ol>
+<li>本章以反问提出：载营魄抱一能否做到不离。</li>
+<li>本章以反问提出：抟气致柔能否达到婴儿状态。</li>
+<li>本章以反问提出：涤除玄览能否做到无疵。</li>
+<li>本章以反问提出：爱国治民能否做到无为。</li>
+<li>本章以反问提出：天门开阖能否做到为雌。</li>
+<li>本章以反问提出：明白四达能否做到无知。</li>
+<li>本章陈述：生之、畜之，生而不有，为而不恃，长而不宰，是谓玄德。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>载营魄抱一，能无离乎？</li>
+<li>抟气致柔，能婴儿乎？</li>
+<li>涤除玄览，能无疵乎？</li>
+<li>爱国治民，能无为乎？</li>
+<li>天门开阖，能为雌乎？</li>
+<li>明白四达，能无知乎？</li>
+<li>生而不有，为而不恃，长而不宰，是谓玄德。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>载营魄抱一</strong></summary><div class="case-body">承载魂魄与形体而保持合一。</div></details>
+<details><summary><strong>抟气致柔</strong></summary><div class="case-body">聚气以达到柔和的状态。</div></details>
+<details><summary><strong>涤除玄览</strong></summary><div class="case-body">清除玄妙观照中的瑕疵。</div></details>
+<details><summary><strong>无为</strong></summary><div class="case-body">爱国治民时能做到不妄为。</div></details>
+<details><summary><strong>天门开阖</strong></summary><div class="case-body">天门开合时能否守雌。</div></details>
+<details><summary><strong>为雌</strong></summary><div class="case-body">在天门开阖中做到守雌。</div></details>
+<details><summary><strong>玄德</strong></summary><div class="case-body">生养而不占有、不恃功、不主宰的德。</div></details>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）四个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 10 章。以下是我对本章主线的一句自我陈述：</p>
+<br/>
+<p>「{我的一句话概括}」</p>
+<br/>
+<p>请你做两件事：</p>
+<ol>
+<li>1. 对照本章原文与笔记，判断我这句概括有没有漏掉本章的主线环节（作者的出发点 → 关键转折 → 落点），指出漏在哪一步；</li>
+<li>2. 从本章中挑出 {3} 个关键概念，逐个问我：这个概念在本章里是用来解决什么问题的？和它相邻/容易混淆的概念（请你在本章范围内指出是哪个）差别在哪？</li>
+</ul>
+<br/>
+<p>规则：只依据本章原文与笔记作答，不要引入本章之外的材料。我答错时先追问我的思路，再给纠正。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>你现在的角色：第 10 章最坚定的反方。</p>
+<br/>
+<p>我读完第 10 章后的接受态度是：{我接受/部分接受/存疑，理由一句话}。</p>
+<br/>
+<p>请你：</p>
+<ol>
+<li>1. 站在与作者相反的立场，给出 {3} 条最强反驳，每条都要针对本章的具体论证（哪一步推理、哪个前提、哪个例子），不要泛泛而谈「太理想化」「不现实」；</li>
+<li>2. 每条反驳之后，替我设想作者可能的最强回应；</li>
+<li>3. 最后只问我一个问题：在这三组攻防里，哪一组是我最没有能力回应的？为什么？</li>
+</ul>
+<br/>
+<p>规则：反驳必须落在本章文本上，引用你反驳的那句话或那个论断。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我读完了第 10 章，想把它的思想用到现实里。给你三个我真实遇到的场景：</p>
+<br/>
+<ol>
+<li>1. {场景一：工作/学习中的具体情境，写清人物、冲突、你当时的反应}</li>
+<li>2. {场景二}</li>
+<li>3. {场景三}</li>
+</ul>
+<br/>
+<p>请你对每个场景回答：</p>
+<ul>
+<li>- 本章的哪个概念/区分可以拿来描述这个场景里被忽略的那一层？</li>
+<li>- 如果按本章的思路行动，我下一步具体会做什么（写成可执行的一两句话）？</li>
+<li>- 这个场景里，本章的思路在哪里会失效或不够用？</li>
+</ul>
+<br/>
+<p>规则：先复述你在本章中依据的是哪一段/哪个概念，再给应用；不许把本章没有的观点算到作者头上。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 10 章里最让我兴奋的一句话是：</p>
+<br/>
+<p>「{原文句子}」</p>
+<br/>
+<p>请你围绕这一句往下推：</p>
+<ol>
+<li>1. 这句话在本章论证中承担什么功能？（它是前提、结论，还是一个过渡性的断言？）</li>
+<li>2. 如果把它当作独立命题坚持到底，会推出哪些本章没有明说但逻辑上跟着来的结论？给出 {3} 条，按「离原文最近 → 最远」排列；</li>
+<li>3. 推到哪一步时，这句话会和本章别处的说法产生张力？指出具体是哪一处；</li>
+<li>4. 最后反问我：这 3 条推论里，哪一条是我其实不敢接受的？</li>
+</ul>
+<br/>
+<p>规则：第 1、3 问只依据本章文本；第 2 问属于延伸推演，请明确标注「这是推演，非原文」。</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. 本章作者想解决的那个问题，用一句大白话说是什么？</li>
+</ol>
+<p>   提示：先别管术语，想想作者在反驳谁、或在对什么现象不满。</p>
+<ol>
+<li>2. 本章里出现最多、也最像&quot;术语&quot;的那两三个词是哪几个？作者自己是怎么用一句话解释它们的？</li>
+</ol>
+<p>   提示：直接翻回原文找作者下定义或打比方的地方。</p>
+<ol>
+<li>3. 本章分几大块？每块结束时作者得出的那句话是什么？</li>
+</ol>
+<p>   提示：找段落之间的转折词（&quot;但是&quot;&quot;因此&quot;&quot;更重要的是&quot;），那里通常是分界。</p>
+<ol>
+<li>4. 本章中作者举的那个例子（事例/思想实验/引文）是为了说明什么？如果换掉这个例子，论证还成立吗？</li>
+</ol>
+<p>   提示：例子在论证里通常承担&quot;把抽象前提变得可信&quot;的工作。</p>
+<ol>
+<li>5. 作者在本章里最想反对的那个立场是什么？他给的反对理由是哪一条？</li>
+</ol>
+<p>   提示：读懂一章常常等于读懂它在跟谁吵架。</p>
+<ol>
+<li>6. 本章的结论依赖哪个没有被证明的前提？如果这个前提不成立，结论会塌到什么程度？</li>
+</ol>
+<p>   提示：找&quot;显然&quot;&quot;当然&quot;&quot;众所周知&quot;这类词后面的东西。</p>
+<ol>
+<li>7. 你能否为本章的立场构造一个反例？作者大概会怎么回应，这个回应你满意吗？</li>
+</ol>
+<p>   提示：这是从&quot;读懂&quot;过渡到&quot;参与论证&quot;的一步，答不上来是正常的。</p>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>载营魄抱一</td><td>身体和精气神不散架，抱成一个整体，别魂不守舍。</td><td>&quot;营魄&quot;指魂魄，&quot;抱一&quot;指合一不分离；此句讲形神相守、不使魂魄离散，是《老子》中较早的形神修养命题，与后文&quot;专气致柔&quot;同属一类工夫。</td><td>河上公以&quot;营魄&quot;为魂魄，注&quot;抱一&quot;为&quot;守一&quot;；王弼则以&quot;一&quot;为&quot;无&quot;之别称，谓&quot;载&quot;犹&quot;处&quot;，人当处无而抱一，形神乃全。</td><td>河上公系统把它读成养生守一之术，谓魂魄不离则人安；王弼则以贵无论解之，把&quot;抱一&quot;接到&quot;以无为本&quot;上，形神问题被本体化；道教内丹家（如《周易参同契》一系）更把它当作炼精化气的依据，讲&quot;营魄&quot;为水火二气之交。三者同解一句，路径迥异：一为身，一为本体，一为丹道。</td></tr>
+<tr><td>抟气致柔</td><td>把气息调匀、聚拢，让身心柔软得像婴儿一样。</td><td>&quot;抟&quot;通&quot;专&quot;，谓结聚、专一；&quot;致柔&quot;指达到柔顺之境。此句讲聚气不散、以柔为用，与&quot;专气致柔，能婴儿乎&quot;连读，婴儿是老子常用的德性意象。</td><td>王弼注&quot;专气致柔&quot;谓&quot;任自然之气&quot;而不以躁动扰之，柔非软弱而是不争之至；成玄英以重玄义解，谓气之专乃&quot;遣之又遣&quot;后之自然。</td><td>河上公与道教养生家读作调息之法，近于后世&quot;胎息&quot;之说；王弼则以玄学义理释之，柔是从&quot;无&quot;发用的状态，非技术性的呼吸控制；苏辙以佛理解老，谓&quot;专气&quot;即&quot;无心&quot;，柔即无我。近代陈鼓应指出此句体现老子&quot;柔弱胜刚强&quot;的一贯思路，属处世哲学而非纯养生口诀。</td></tr>
+<tr><td>涤除玄览</td><td>把心里那面镜子擦干净，别让杂念和偏见蒙住它。</td><td>&quot;涤除&quot;谓洗去尘垢，&quot;玄览&quot;（一作&quot;玄鉴&quot;）指幽深玄妙的观照能力；此句讲清除心中障蔽，使观照澄明，是《老子》中少见的直接谈&quot;心&quot;与&quot;知&quot;的句子。</td><td>王弼本作&quot;玄览&quot;，注谓&quot;玄览&quot;犹&quot;玄鉴&quot;，涤除者涤去妄见，使鉴无垢而能照；高亨、陈鼓应等认为&quot;览&quot;借为&quot;鉴&quot;，取镜喻义。</td><td>王弼以玄学释之，鉴无垢则能&quot;无不知&quot;，但其所照仍是&quot;无&quot;，故与庄子&quot;用心若镜&quot;近而不同：庄子之镜是&quot;不将不迎&quot;，王弼之鉴是本体的虚明。禅宗以&quot;明镜本无台&quot;翻转此喻，谓涤除本身亦是妄；海德格尔论&quot;无蔽&quot;（Unverborgenheit）与真理，则提示&quot;澄明&quot;总伴随遮蔽，与老子单向涤除的乐观不同。</td></tr>
+<tr><td>无为</td><td>不硬来、不瞎折腾，顺着事情本身的道理去做。</td><td>老子核心范畴之一，指不妄为、不强作，非什么都不做；在政治上指君主不以私意干预，在修养上指去甚去奢去泰。本章具体落在&quot;爱民治国，能无为乎&quot;。</td><td>王弼以&quot;无&quot;为体，无为即&quot;以无为心&quot;、&quot;顺自然而行&quot;，注谓&quot;不塞其原&quot;、&quot;不禁其性&quot;；郭象则谓无为非&quot;拱默&quot;，而是&quot;各安其分&quot;、任物自为。</td><td>儒家一系（如荀子）批评道家无为近于&quot;蔽于天而不知人&quot;，主张以礼义化性起伪，无为须以有为的教化垫底；法家韩非作《解老》《喻老》，把无为读成君主&quot;不自操事&quot;而任法术之势，是权术化解读；黄老学派则以&quot;无为而无不为&quot;为治术纲领，讲君逸臣劳。现代刘笑敢区分&quot;无为&quot;的&quot;境界说&quot;与&quot;治术说&quot;，认为二者在文本中并存。</td></tr>
+<tr><td>天门开阖</td><td>感官和心窍一开一合、与外界打交道的时候，你守得住吗？</td><td>&quot;天门&quot;解说不一：或指感官之门（耳目口鼻），或指自然造化之门户，或指心之出入之处；&quot;开阖&quot;谓动静、应物与收敛。此句问在应接外物之际能否守柔不争。</td><td>王弼以&quot;天门&quot;为&quot;天下之所由从&quot;，谓开阖即万物之出入，人当&quot;守雌&quot;而不为唱；河上公则以天门为&quot;鼻孔&quot;，开阖即呼吸，落实为养生。成玄英以重玄双遣解之，谓开亦遣、阖亦遣。</td><td>河上公一系把它解成呼吸吐纳的养生关窍，与《黄庭经》以下的内修传统相承；王弼一系解为万物出入的本体论门户，功夫落在&quot;不为主&quot;；庄子&quot;心斋&quot;&quot;坐忘&quot;则另开一路，讲&quot;徇耳目内通&quot;，把开阖转为心的自返。三家之别在于：一以身解，一以体解，一以心解。</td></tr>
+<tr><td>为雌</td><td>处在被动、柔顺、接纳的那一边，不争着当主角。</td><td>&quot;雌&quot;与&quot;雄&quot;对举，&quot;为雌&quot;即守柔、处下、不先不唱；本章作&quot;天门开阖，能为雌乎&quot;，与《老子》全书&quot;知其雄，守其雌&quot;（第28章）同一思路，是&quot;守柔曰强&quot;的具体化。</td><td>王弼注&quot;为雌&quot;谓&quot;不唱而和&quot;，即以柔顺应物而不为物先；河上公以雌为&quot;安静&quot;之德，谓&quot;能守静&quot;则神安。</td><td>王弼从贵无论出发，把雌读成&quot;无&quot;的发用方式，柔顺即不立本体之执；河上公与道教养生家则读为保精守静、以静制动的修炼原则，近于&quot;守一&quot;；而在政治解读脉络中（如黄老与韩非），&quot;为雌&quot;被读成君主的&quot;后动&quot;之术，即先察臣下之动而后应。同一&quot;雌&quot;字，本体、养生、权术三种读法并存。</td></tr>
+<tr><td>玄德</td><td>生养万物却不占为己有、不邀功、不当主宰，这种德很深很远。</td><td>&quot;玄&quot;谓幽深难名，&quot;德&quot;谓得于道者；本章末&quot;生而不有，为而不恃，长而不宰，是谓玄德&quot;，以三&quot;不&quot;界定玄德，是《老子》&quot;道—德&quot;关系的关键表述，与第51章&quot;生而不有&quot;重复呼应。</td><td>王弼注&quot;玄德&quot;谓&quot;德之极&quot;，谓其&quot;不有&quot;&quot;不恃&quot;&quot;不宰&quot;皆因&quot;以无为用&quot;，故德不可见而深；苏辙以&quot;无心&quot;释之，谓其生非有心于生。</td><td>王弼以&quot;无&quot;解玄德，德之所以玄在于不居其德，是本体论意义的&quot;不有&quot;；儒家（如《中庸》&quot;诚者自成&quot;、荀子&quot;化性起伪&quot;）则强调德须有实在的化成之功，批评道家&quot;不宰&quot;近于放任；怀特海过程哲学讲万物相摄而成（prehension），&quot;生而不有&quot;可与之类比，但其根据是过程而非&quot;无&quot;；刘笑敢指出&quot;玄德&quot;三句体现老子&quot;不生之生&quot;的独特思路，与西方创造者—被造者的模式根本不同。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">载营魄抱一</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">身体和精气神不散架，抱成一个整体，别魂不守舍。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;营魄&quot;指魂魄，&quot;抱一&quot;指合一不分离；此句讲形神相守、不使魂魄离散，是《老子》中较早的形神修养命题，与后文&quot;专气致柔&quot;同属一类工夫。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">河上公以&quot;营魄&quot;为魂魄，注&quot;抱一&quot;为&quot;守一&quot;；王弼则以&quot;一&quot;为&quot;无&quot;之别称，谓&quot;载&quot;犹&quot;处&quot;，人当处无而抱一，形神乃全。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公系统把它读成养生守一之术，谓魂魄不离则人安；王弼则以贵无论解之，把&quot;抱一&quot;接到&quot;以无为本&quot;上，形神问题被本体化；道教内丹家（如《周易参同契》一系）更把它当作炼精化气的依据，讲&quot;营魄&quot;为水火二气之交。三者同解一句，路径迥异：一为身，一为本体，一为丹道。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">抟气致柔</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">把气息调匀、聚拢，让身心柔软得像婴儿一样。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;抟&quot;通&quot;专&quot;，谓结聚、专一；&quot;致柔&quot;指达到柔顺之境。此句讲聚气不散、以柔为用，与&quot;专气致柔，能婴儿乎&quot;连读，婴儿是老子常用的德性意象。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注&quot;专气致柔&quot;谓&quot;任自然之气&quot;而不以躁动扰之，柔非软弱而是不争之至；成玄英以重玄义解，谓气之专乃&quot;遣之又遣&quot;后之自然。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公与道教养生家读作调息之法，近于后世&quot;胎息&quot;之说；王弼则以玄学义理释之，柔是从&quot;无&quot;发用的状态，非技术性的呼吸控制；苏辙以佛理解老，谓&quot;专气&quot;即&quot;无心&quot;，柔即无我。近代陈鼓应指出此句体现老子&quot;柔弱胜刚强&quot;的一贯思路，属处世哲学而非纯养生口诀。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">涤除玄览</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">把心里那面镜子擦干净，别让杂念和偏见蒙住它。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;涤除&quot;谓洗去尘垢，&quot;玄览&quot;（一作&quot;玄鉴&quot;）指幽深玄妙的观照能力；此句讲清除心中障蔽，使观照澄明，是《老子》中少见的直接谈&quot;心&quot;与&quot;知&quot;的句子。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼本作&quot;玄览&quot;，注谓&quot;玄览&quot;犹&quot;玄鉴&quot;，涤除者涤去妄见，使鉴无垢而能照；高亨、陈鼓应等认为&quot;览&quot;借为&quot;鉴&quot;，取镜喻义。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以玄学释之，鉴无垢则能&quot;无不知&quot;，但其所照仍是&quot;无&quot;，故与庄子&quot;用心若镜&quot;近而不同：庄子之镜是&quot;不将不迎&quot;，王弼之鉴是本体的虚明。禅宗以&quot;明镜本无台&quot;翻转此喻，谓涤除本身亦是妄；海德格尔论&quot;无蔽&quot;（Unverborgenheit）与真理，则提示&quot;澄明&quot;总伴随遮蔽，与老子单向涤除的乐观不同。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">无为</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不硬来、不瞎折腾，顺着事情本身的道理去做。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子核心范畴之一，指不妄为、不强作，非什么都不做；在政治上指君主不以私意干预，在修养上指去甚去奢去泰。本章具体落在&quot;爱民治国，能无为乎&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼以&quot;无&quot;为体，无为即&quot;以无为心&quot;、&quot;顺自然而行&quot;，注谓&quot;不塞其原&quot;、&quot;不禁其性&quot;；郭象则谓无为非&quot;拱默&quot;，而是&quot;各安其分&quot;、任物自为。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">儒家一系（如荀子）批评道家无为近于&quot;蔽于天而不知人&quot;，主张以礼义化性起伪，无为须以有为的教化垫底；法家韩非作《解老》《喻老》，把无为读成君主&quot;不自操事&quot;而任法术之势，是权术化解读；黄老学派则以&quot;无为而无不为&quot;为治术纲领，讲君逸臣劳。现代刘笑敢区分&quot;无为&quot;的&quot;境界说&quot;与&quot;治术说&quot;，认为二者在文本中并存。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">天门开阖</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">感官和心窍一开一合、与外界打交道的时候，你守得住吗？</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;天门&quot;解说不一：或指感官之门（耳目口鼻），或指自然造化之门户，或指心之出入之处；&quot;开阖&quot;谓动静、应物与收敛。此句问在应接外物之际能否守柔不争。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼以&quot;天门&quot;为&quot;天下之所由从&quot;，谓开阖即万物之出入，人当&quot;守雌&quot;而不为唱；河上公则以天门为&quot;鼻孔&quot;，开阖即呼吸，落实为养生。成玄英以重玄双遣解之，谓开亦遣、阖亦遣。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公一系把它解成呼吸吐纳的养生关窍，与《黄庭经》以下的内修传统相承；王弼一系解为万物出入的本体论门户，功夫落在&quot;不为主&quot;；庄子&quot;心斋&quot;&quot;坐忘&quot;则另开一路，讲&quot;徇耳目内通&quot;，把开阖转为心的自返。三家之别在于：一以身解，一以体解，一以心解。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">为雌</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">处在被动、柔顺、接纳的那一边，不争着当主角。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;雌&quot;与&quot;雄&quot;对举，&quot;为雌&quot;即守柔、处下、不先不唱；本章作&quot;天门开阖，能为雌乎&quot;，与《老子》全书&quot;知其雄，守其雌&quot;（第28章）同一思路，是&quot;守柔曰强&quot;的具体化。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注&quot;为雌&quot;谓&quot;不唱而和&quot;，即以柔顺应物而不为物先；河上公以雌为&quot;安静&quot;之德，谓&quot;能守静&quot;则神安。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼从贵无论出发，把雌读成&quot;无&quot;的发用方式，柔顺即不立本体之执；河上公与道教养生家则读为保精守静、以静制动的修炼原则，近于&quot;守一&quot;；而在政治解读脉络中（如黄老与韩非），&quot;为雌&quot;被读成君主的&quot;后动&quot;之术，即先察臣下之动而后应。同一&quot;雌&quot;字，本体、养生、权术三种读法并存。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">玄德</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">生养万物却不占为己有、不邀功、不当主宰，这种德很深很远。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;玄&quot;谓幽深难名，&quot;德&quot;谓得于道者；本章末&quot;生而不有，为而不恃，长而不宰，是谓玄德&quot;，以三&quot;不&quot;界定玄德，是《老子》&quot;道—德&quot;关系的关键表述，与第51章&quot;生而不有&quot;重复呼应。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注&quot;玄德&quot;谓&quot;德之极&quot;，谓其&quot;不有&quot;&quot;不恃&quot;&quot;不宰&quot;皆因&quot;以无为用&quot;，故德不可见而深；苏辙以&quot;无心&quot;释之，谓其生非有心于生。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;解玄德，德之所以玄在于不居其德，是本体论意义的&quot;不有&quot;；儒家（如《中庸》&quot;诚者自成&quot;、荀子&quot;化性起伪&quot;）则强调德须有实在的化成之功，批评道家&quot;不宰&quot;近于放任；怀特海过程哲学讲万物相摄而成（prehension），&quot;生而不有&quot;可与之类比，但其根据是过程而非&quot;无&quot;；刘笑敢指出&quot;玄德&quot;三句体现老子&quot;不生之生&quot;的独特思路，与西方创造者—被造者的模式根本不同。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 10 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 10 章]
+
+载营魄抱一，能无离乎？抟气致柔，能婴儿乎？涤除玄览，能无疵乎？爱国治民，能无为乎？天门开阖，能为雌乎？明白四达，能无知乎？生之，畜之。生而不有，为而不恃，长而不宰，是谓玄德。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_10_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 73 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 73/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_72/site/index.html" title="第 72 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_74/site/index.html" title="第 74 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 73 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>勇于敢则杀，勇于不敢则活，此两者或利或害。天之所恶，孰知其故？是以圣人犹难之。天之道，不争而善胜，不言而善应，不召而自来，繟然而善谋。天网恢恢，疏而不失。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 73 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章老子把“勇”劈成两半：敢闯敢拼的“勇于敢”往往送命，敢按住不动的“勇于不敢”反而活下来。但利害并非一眼能算清——天讨厌谁、为什么讨厌，圣人也不敢妄断。于是老子亮出天道的四张底牌：不争而胜、不言而应、不召自来、宽缓却善谋，最后用“天网恢恢，疏而不失”收网。最有趣的收获是：老子不是劝你怂，而是提醒你——真正的勇气里必须包含“不敢”的分寸感，而世界自有一套你算不尽、也漏不掉的账本。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote><strong>如果</strong>你因为“敢冲”栽了大跟头，回头再看“勇于敢则杀”，你会把“勇”重新定义成什么？</blockquote>
+<p>&gt;</p>
+<blockquote><strong>如果</strong>你相信“天网恢恢，疏而不失”，你还会在没人看见的地方做亏心事吗？为什么？</blockquote>
+<p>&gt;</p>
+<blockquote><strong>如果</strong>“不争而善胜”是真的，那比赛、竞争、辩论还有意义吗？你该怎么“争”才算不违天道？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote><strong>荀子</strong>：主张“制天命而用之”，认为天没有意志、不奖善罚恶，人要靠礼义和制度自己建立秩序——与老子“天网自张”形成鲜明对立。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>韩非子</strong>：也讲“网”，但那是法家之网——赏罚二柄、刑名参验，靠国家机器保证“疏而不失”；老子靠的是天道自然，韩非靠的是制度强制。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>王阳明</strong>：讲“良知即天理”，认为善恶之报不在外在天网，而在你当下意念的自我审判——“勇于不敢”在他那里就是良知知止的功夫。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>康德</strong>：道德律令要求人为义务而义务，不靠后果奖惩来驱动；老子用“杀/活”的利害谈勇，康德会说这仍是“他律”，真正的勇应出自理性自律。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：关注三个点——①“勇于敢”与“勇于不敢”这对反义词组如何并置；②“天之所恶，孰知其故”这一反问的语气（是确定还是存疑）；③天道四个“而”字句的排比节奏（不争/不言/不召/繟然）。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：必看两个论证——第一，“此两者或利或害”到“圣人犹难之”：老子为什么在给出“杀/活”的粗判后立刻踩刹车，说连圣人都拿不准？这暴露了他对因果报应机制的审慎态度。第二，“天网恢恢，疏而不失”的“疏”字：网眼大（宽疏）与不漏失之间的张力——如果真疏，怎么可能不失？这个悖论才是全章的思辨枢纽。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：该追问的开放问题——<strong>“天网恢恢”到底是一个真实的宇宙法则，还是老子为劝人向善而设的修辞威慑？</strong> 如果它只是隐喻，那“勇于不敢”的最终依据还能立在哪里？</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+p1["勇于敢则杀，勇于不敢则活，此两者或利或害"]
+p2["天之所恶，孰知其故？是以圣人犹难之"]
+p3["天之道：不争而善胜，不言而善应，不召而自来，繟然而善谋"]
+p4["天网恢恢，疏而不失"]
+yg["勇于敢"]
+ybg["勇于不敢"]
+td["天之道"]
+yg -->|supports| p1
+ybg -->|supports| p1
+yg -->|relates_to| ybg
+p1 -->|relates_to| p2
+td -->|relates_to| p3
+p2 -->|supports| p4
+p3 -->|supports| p4
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章辨析“勇于敢”与“勇于不敢”的利害，指出天之所恶难知而圣人犹难之，并阐释天道不争而善胜、不言而善应、不召而自来、繟然而善谋，最终以“天网恢恢，疏而不失”警示行为后果。</div>
+<h3>📌 核心命题</h3><ol>
+<li>勇于敢则杀，勇于不敢则活，这两种勇的利害并不简单。</li>
+<li>天之所恶的原因难以知晓，所以圣人对此也慎重为难。</li>
+<li>天之道不争而善胜、不言而善应、不召而自来、繟然而善谋。</li>
+<li>天网恢恢，虽宽疏却不会漏失。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>勇于敢则杀，勇于不敢则活，此两者或利或害。</li>
+<li>天之所恶，孰知其故？是以圣人犹难之。</li>
+<li>天之道，不争而善胜，不言而善应，不召而自来，繟然而善谋。</li>
+<li>天网恢恢，疏而不失。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>勇于敢</strong></summary><div class="case-body">指敢于逞强妄进的那种勇。</div></details>
+<details><summary><strong>勇于不敢</strong></summary><div class="case-body">指敢于有所不为、不逞强妄进的勇。</div></details>
+<details><summary><strong>天之道</strong></summary><div class="case-body">指不争却能胜、不言却能应、不召却能自来、宽缓却善于谋划的天道。</div></details>
+<details><summary><strong>天网恢恢，疏而不失</strong></summary><div class="case-body">指天道之网广大宽疏，却不会漏失。</div></details>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 73 章。下面是我对本章主线的一段复述：</p>
+<br/>
+<p>「{我的复述}」</p>
+<br/>
+<p>请你做两件事：</p>
+<ol>
+<li>1. 对照本章实际论证，指出我复述里遗漏的主线环节、顺序错乱处，以及我加进去的、书上其实没说的东西；</li>
+<li>2. 从我这段话里挑出 {2-3} 个关键概念（例如本章反复出现的术语），逐个问我：它在书里的定义是什么、它和相邻概念的界限在哪、用错会怎样。不要替我回答，只提问，等我答完再逐条点评。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>请你扮演本章立场的最强反方，不要客气，也不要先声明“这只是角色扮演”。</p>
+<br/>
+<p>针对第 73 章的核心主张「{用一句话概括本章主张}」，请你：</p>
+<ol>
+<li>1. 给出 {3} 条最难回应的反驳，每条都要说明它攻击的是本章哪个前提，而不是泛泛而谈；</li>
+<li>2. 指出本章作者最可能用什么方式回应，以及这个回应为什么仍然不够；</li>
+<li>3. 最后问我：如果反方成立，我原来接受本章的哪一部分必须放弃？我能不能只放弃一小块而保住其余？</li>
+</ul>
+<br/>
+<p>我的初始接受程度是：{很接受 / 半信半疑 / 基本不接受}，理由：{我的理由}。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>第 73 章我读完了。请用本章的思想解释下面三个场景，每个场景都要说清楚：本章的哪个概念在起作用、如果不用这套思想我会怎么看错、用过头又会错在哪。</p>
+<br/>
+<p>场景 1：{工作/生活中的具体情境}</p>
+<p>场景 2：{具体情境}</p>
+<p>场景 3：{具体情境}</p>
+<br/>
+<p>要求：不要泛泛说“这体现了本章的深刻洞见”，要落到具体判断上；如果某个场景其实不适合用本章框架，请直接说，并说明为什么。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 73 章里最让我兴奋的一句话是：</p>
+<br/>
+<p>「{原文引用}」</p>
+<br/>
+<p>请围绕这句话往下推：</p>
+<ol>
+<li>1. 这句话在本章论证里承担什么功能？它是前提、推论，还是修辞性总结？</li>
+<li>2. 如果把它当作独立命题一路推下去，会得到哪些作者本人没说、但逻辑上顺着的结论？</li>
+<li>3. 这些推论里，哪一条最可能反过来威胁本章自己的立场？</li>
+<li>4. 在思想史上，有没有人真的沿着这个方向推过？如果有，是谁、在哪本书里、推到了哪一步？</li>
+</ul>
+<br/>
+<p>最后反问我一个问题，检验我是不是真的想清楚了这句话的代价。</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. 第 73 章里，作者想解决的“问题”用一句大白话该怎么问？——先别管答案，先把问题问对，哲学阅读多半输在问题没弄清。</li>
+<li>2. 本章有没有一个你读完仍然不懂的词？把它圈出来，先猜一个意思，再回原文核对。——猜错比不猜强，错误理解是可以被修正的。</li>
+<li>3. 作者在本章最想说服你相信的那一句话是什么？你能用自己的话重说一遍吗？——找“主张句”，是有哲学基础之前最实用的技术。</li>
+<li>4. 本章用了什么例子或类比？这个例子能撑住作者的结论吗？——例子是论证的承重墙，也是新手最容易发现问题的地方。</li>
+<li>5. 如果本章的结论是假的，世界会有什么不同？——用反事实测试检验你是否真的理解了主张的力度。</li>
+<li>6. 本章的论证依赖哪些没被证明的前提？这些前提在本章之前的章节里被论证过吗？——开始做“论证结构”而非“内容摘要”。</li>
+<li>7. 同一位作者在别的章节、或思想史上别的学派，有没有人对本章这一步提出过异议？他站在什么立场上？——进入思想史对照层，适合已有一定阅读积累的读者。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>勇于敢</td><td>就是那种什么都不怕、抢着往前冲、非要逞强的胆量，老子说这种勇会招祸。</td><td>「勇于敢」出自《道德经》第七十三章，指逞强好胜、无所畏忌的刚强之勇，与「勇于不敢」相对。老子谓「勇于敢则杀」，即一味逞强会招致杀身之祸。</td><td>原文：「勇于敢则杀，勇于不敢则活。此两者，或利或害。」王弼注：「勇于敢则杀，勇于不敢则活，必然之理也。」河上公注以「敢」为「刚强」，谓刚强之人「不得其死」。</td><td>韩非《解老》以「勇于敢」为「不达于道」的妄动，与「勇于不敢」对举，归之于法家式的审慎；河上公从养生立论，以「敢」为「争强」伤生；王弼以贵无之学释之，谓「敢」是逐末「有为」而「不敢」是「因循」之「无为」；苏辙《老子解》谓「世之所谓勇者，勇于敢而已」。法理、养生、玄学、儒道调和，取向各不相同。</td></tr>
+<tr><td>勇于不敢</td><td>敢「不去做」的那种勇气——能忍住、不逞强、收得住手，老子说这才是保命的勇。</td><td>「勇于不敢」亦出《道德经》第七十三章，指敢于有所不为、克制而不逞强的勇。老子以为「勇于不敢则活」，与「勇于敢」同为「勇」，而利害正相反。</td><td>原文：「勇于敢则杀，勇于不敢则活。」王弼注：「勇于不敢则活，必然之理也。」苏辙《老子解》曰：「世之所谓勇者，勇于敢而已；圣人之勇，勇于不敢。」成玄英《道德经义疏》以重玄双遣为说，谓「敢」与「不敢」两忘方为「至勇」。</td><td>庄子《秋水》篇以「勇于不敢」为真勇，谓「勇悍」未必是勇；苏辙以「大勇」许之，与世俗之「小勇」对举；成玄英以「重玄」遣执，谓执「敢」执「不敢」皆病，两遣乃「至勇」；王夫之《老子衍》从「气化」立论，以为「不敢」是「顺气」而非怯懦，与宋明儒「义理之勇」说相映。</td></tr>
+<tr><td>天之道</td><td>老天办事的方式——不争不抢反而赢，不吭声反而有人应，不叫人来人自来，看着慢吞吞却最会谋划。</td><td>「天之道」指天道运行的法则。第七十三章以「不争而善胜，不言而善应，不召而自来，繟然而善谋」四句状之，强调天道以「无为」方式成一切事，与人之「有为」相对。</td><td>原文：「天之道，不争而善胜，不言而善应，不召而自来，繟然而善谋。」王弼注：「天之道，不争而善胜，不言而善应，不召而自来，繟然而善谋。」河上公注以「天道」为「自然」，谓「天不与人争」而万物自归。</td><td>王弼以「自然无为」释天道，谓「不争」即「任其自然」；河上公以天道为「神明」赏善罚恶之施，带汉代天人感应色彩；苏辙《老子解》以「理」释之，谓天道即「万物之理」；现代陈鼓应《老子今注今译》以为此处是自然规律的拟人化表述，刘笑敢《老子古今》则强调「天之道」是「人文自然」的价值设定，而非客观科学法则。</td></tr>
+<tr><td>天网恢恢，疏而不失</td><td>天道的网眼大得很，看着松松散散，可该落网的跑不掉一个。</td><td>「天网恢恢，疏而不失」为《道德经》第七十三章名句，喻天道如大网，看似宽疏，实则善恶无所遗漏。后世成语「天网恢恢，疏而不漏」即由此演化。</td><td>原文：「天网恢恢，疏而不失。」王弼注：「天网恢恢，疏而不失。」河上公注：「天所网罗，恢恢甚大，虽疏远，司察人善恶，无有所失。」</td><td>王弼以「无」为本，解「疏而不失」为「无为而无不为」，谓天道不察而自无失；河上公把「天网」解为「司察善恶」的报应之网；韩非《解老》以「天网」喻「法网」，谓法网虽疏而不可逃；葛兆光《中国思想史》指出此语在民间演化为「天网恢恢，疏而不漏」的因果箴言，与道教劝善书、民间报应信仰合流。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">勇于敢</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">就是那种什么都不怕、抢着往前冲、非要逞强的胆量，老子说这种勇会招祸。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">「勇于敢」出自《道德经》第七十三章，指逞强好胜、无所畏忌的刚强之勇，与「勇于不敢」相对。老子谓「勇于敢则杀」，即一味逞强会招致杀身之祸。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文：「勇于敢则杀，勇于不敢则活。此两者，或利或害。」王弼注：「勇于敢则杀，勇于不敢则活，必然之理也。」河上公注以「敢」为「刚强」，谓刚强之人「不得其死」。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">韩非《解老》以「勇于敢」为「不达于道」的妄动，与「勇于不敢」对举，归之于法家式的审慎；河上公从养生立论，以「敢」为「争强」伤生；王弼以贵无之学释之，谓「敢」是逐末「有为」而「不敢」是「因循」之「无为」；苏辙《老子解》谓「世之所谓勇者，勇于敢而已」。法理、养生、玄学、儒道调和，取向各不相同。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">勇于不敢</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">敢「不去做」的那种勇气——能忍住、不逞强、收得住手，老子说这才是保命的勇。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">「勇于不敢」亦出《道德经》第七十三章，指敢于有所不为、克制而不逞强的勇。老子以为「勇于不敢则活」，与「勇于敢」同为「勇」，而利害正相反。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文：「勇于敢则杀，勇于不敢则活。」王弼注：「勇于不敢则活，必然之理也。」苏辙《老子解》曰：「世之所谓勇者，勇于敢而已；圣人之勇，勇于不敢。」成玄英《道德经义疏》以重玄双遣为说，谓「敢」与「不敢」两忘方为「至勇」。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">庄子《秋水》篇以「勇于不敢」为真勇，谓「勇悍」未必是勇；苏辙以「大勇」许之，与世俗之「小勇」对举；成玄英以「重玄」遣执，谓执「敢」执「不敢」皆病，两遣乃「至勇」；王夫之《老子衍》从「气化」立论，以为「不敢」是「顺气」而非怯懦，与宋明儒「义理之勇」说相映。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">天之道</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">老天办事的方式——不争不抢反而赢，不吭声反而有人应，不叫人来人自来，看着慢吞吞却最会谋划。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">「天之道」指天道运行的法则。第七十三章以「不争而善胜，不言而善应，不召而自来，繟然而善谋」四句状之，强调天道以「无为」方式成一切事，与人之「有为」相对。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文：「天之道，不争而善胜，不言而善应，不召而自来，繟然而善谋。」王弼注：「天之道，不争而善胜，不言而善应，不召而自来，繟然而善谋。」河上公注以「天道」为「自然」，谓「天不与人争」而万物自归。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以「自然无为」释天道，谓「不争」即「任其自然」；河上公以天道为「神明」赏善罚恶之施，带汉代天人感应色彩；苏辙《老子解》以「理」释之，谓天道即「万物之理」；现代陈鼓应《老子今注今译》以为此处是自然规律的拟人化表述，刘笑敢《老子古今》则强调「天之道」是「人文自然」的价值设定，而非客观科学法则。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">天网恢恢，疏而不失</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">天道的网眼大得很，看着松松散散，可该落网的跑不掉一个。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">「天网恢恢，疏而不失」为《道德经》第七十三章名句，喻天道如大网，看似宽疏，实则善恶无所遗漏。后世成语「天网恢恢，疏而不漏」即由此演化。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文：「天网恢恢，疏而不失。」王弼注：「天网恢恢，疏而不失。」河上公注：「天所网罗，恢恢甚大，虽疏远，司察人善恶，无有所失。」</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以「无」为本，解「疏而不失」为「无为而无不为」，谓天道不察而自无失；河上公把「天网」解为「司察善恶」的报应之网；韩非《解老》以「天网」喻「法网」，谓法网虽疏而不可逃；葛兆光《中国思想史》指出此语在民间演化为「天网恢恢，疏而不漏」的因果箴言，与道教劝善书、民间报应信仰合流。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 73 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 73 章]
+
+勇于敢则杀，勇于不敢则活，此两者或利或害。天之所恶，孰知其故？是以圣人犹难之。天之道，不争而善胜，不言而善应，不召而自来，繟然而善谋。天网恢恢，疏而不失。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_73_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

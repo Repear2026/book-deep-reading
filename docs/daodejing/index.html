@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》 · 伴读总入口</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+    --good: #16a34a;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 980px; margin: 0 auto; padding: 24px 18px 80px; }
+  header.book { background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 24px 28px; margin-bottom: 24px; }
+  h1 { font-size: 28px; margin: 0 0 6px; color: #10263c; }
+  h2 { font-size: 22px; color: var(--accent); border-bottom: 2px solid var(--border);
+    padding-bottom: 6px; margin-top: 36px; }
+  h3.part-head { font-size: 16px; color: var(--muted); margin-top: 18px; font-weight: 500; }
+  .meta { color: var(--muted); font-size: 14px; margin: 4px 0; }
+  .badges { display: flex; gap: 12px; margin-top: 12px; flex-wrap: wrap; }
+  .badge { background: #fff; border: 1px solid var(--border);
+    border-radius: 6px; padding: 6px 12px; font-size: 14px; }
+  .badge b { color: var(--accent); font-size: 18px; margin-right: 4px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px; margin: 14px 0; }
+  .card { background: #fff; border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 16px; transition: 0.2s; }
+  .card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.05); transform: translateY(-1px); }
+  .card.read { background: #f0fdf4; border-left: 3px solid var(--good); }
+  .card-title { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
+  .ch-filter { display: flex; align-items: center; gap: 12px; margin: 10px 0 4px; flex-wrap: wrap; }
+  .ch-filter input {
+    flex: 1; min-width: 200px; max-width: 420px; padding: 8px 14px;
+    border: 1px solid var(--border); border-radius: 20px; background: #fff;
+    color: var(--fg); font-size: 14px; outline: none; transition: .2s;
+  }
+  .ch-filter input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(176,140,78,.1); }
+  .status { margin-right: 4px; }
+  .card blockquote.hook { font-size: 13px; color: #555; font-style: italic;
+    border-left: 3px solid var(--border); margin: 8px 0; padding: 4px 10px; }
+  .stats-row { font-size: 12px; color: var(--muted); display: flex; gap: 14px; margin: 6px 0; }
+  .card-link a { color: var(--accent); text-decoration: none; font-size: 14px; }
+  .card-link a:hover { text-decoration: underline; }
+  .preview-banner { background: #fff7e0; border: 1px solid #e5c97a; border-radius: 8px;
+    padding: 12px 16px; margin-bottom: 18px; font-size: 14px; line-height: 1.8; }
+  .preview-banner code { background: #fff; padding: 2px 6px; border-radius: 3px;
+    font-size: 12px; word-break: break-all; }
+  .mark-read { float: right; background: transparent; border: 1px solid var(--border);
+    color: var(--muted); padding: 2px 8px; font-size: 12px; border-radius: 3px;
+    cursor: pointer; }
+  .mark-read:hover { background: var(--good); color: #fff; border-color: var(--good); }
+  .cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { display: inline-flex; align-items: center; gap: 4px;
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 3px 10px; font-size: 13px; }
+  .chip i { color: var(--accent); font-style: normal; font-size: 11px; font-weight: 600; }
+  .people-list { list-style: none; padding: 0; column-count: 3; column-gap: 24px; }
+  .people-list li { padding: 4px 0; font-size: 14px; break-inside: avoid; }
+  .progress-wrap { background: #fff; border: 1px solid var(--border);
+    border-radius: 6px; padding: 14px 18px; margin: 18px 0; }
+  .progress-bar { height: 12px; background: var(--border); border-radius: 6px;
+    overflow: hidden; margin: 6px 0; }
+  .progress-fill { height: 100%; background: var(--good);
+    transition: width 0.4s; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px;
+    overflow: auto; border: 1px solid var(--border); max-height: 600px; }
+  .mermaid { text-align: center; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0;
+    margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border);
+    z-index: 10; font-size: 14px; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  @media (max-width: 600px) {
+    body { padding: 14px 10px; }
+    h1 { font-size: 22px; }
+    .people-list { column-count: 1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <a href="#chapter-list">📚 章节</a>
+  <a href="#full-graph">🕸 全书图谱</a>
+  <a href="#concepts">💡 概念云</a>
+  <a href="#people">👥 人物</a>
+  <a href="#wrongs">❓ 错题</a>
+</div>
+
+<header class="book">
+  <h1>📖 道德经</h1>
+  <p class="meta">老子 著</p>
+  <div class="badges">
+    <div class="badge"><b>81</b>章</div>
+    <div class="badge"><b>1773</b>条笔记</div>
+    <div class="badge"><b>1090</b>节点</div>
+    <div class="badge" style="background:#dcfce7;border-color:#86efac"><b>75/81</b> PASS · 92%</div>
+  </div>
+</header>
+
+<div class="progress-wrap">
+  <div class="meta">📖 阅读进度（本地存储，可点"标记已读"累加）</div>
+  <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+  <p class="meta"><span id="prog-text">0 / 81 章已读</span></p>
+</div>
+
+<h2 id="chapter-list">📚 章节列表</h2>
+<div class="ch-filter">
+  <input id="ch-search" type="search" placeholder="搜章号或关键词（如 水 / 无为 / 8），按 / 聚焦" autocomplete="off"/>
+  <span id="ch-count" class="meta"></span>
+</div>
+<h3 class="part-head">📂 老子五千言</h3>
+<div class="cards">
+<div class="card" data-chapter="01"
+     data-search="01 第 1 章 道 名 无 有 玄">
+  <div class="card-title"><span class="status">✅</span> 第 1 章</div>
+  
+  <div class="stats-row">
+    <span>📝 20 笔记</span>
+    <span>🕸 15 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_01/site/index.html" data-chap="01" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="01">标记已读</button>
+</div>
+<div class="card" data-chapter="02"
+     data-search="02 第 2 章 美之为美，斯恶已 善之为善，斯不善已 有无相生 难易相成 长短相较 高下相倾 音声相和 前后相随 无为之事 不言之教 生而不有 为而不恃 功成而弗居 弗居，是以弗去">
+  <div class="card-title"><span class="status">✅</span> 第 2 章</div>
+  
+  <div class="stats-row">
+    <span>📝 34 笔记</span>
+    <span>🕸 26 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_02/site/index.html" data-chap="02" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="02">标记已读</button>
+</div>
+<div class="card" data-chapter="03"
+     data-search="03 第 3 章 尚贤 难得之货 可欲 无知无欲 无为">
+  <div class="card-title"><span class="status">✅</span> 第 3 章</div>
+  
+  <div class="stats-row">
+    <span>📝 25 笔记</span>
+    <span>🕸 12 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_03/site/index.html" data-chap="03" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="03">标记已读</button>
+</div>
+<div class="card" data-chapter="04"
+     data-search="04 第 4 章 道冲 不盈 万物之宗 挫其锐，解其纷 和其光，同其尘 湛兮似或存 象帝之先">
+  <div class="card-title"><span class="status">✅</span> 第 4 章</div>
+  
+  <div class="stats-row">
+    <span>📝 24 笔记</span>
+    <span>🕸 13 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_04/site/index.html" data-chap="04" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="04">标记已读</button>
+</div>
+<div class="card" data-chapter="05"
+     data-search="05 第 5 章 刍狗 橐龠 守中">
+  <div class="card-title"><span class="status">✅</span> 第 5 章</div>
+  
+  <div class="stats-row">
+    <span>📝 13 笔记</span>
+    <span>🕸 15 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_05/site/index.html" data-chap="05" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="05">标记已读</button>
+</div>
+<div class="card" data-chapter="06"
+     data-search="06 第 6 章 谷神 玄牝 玄牝之门 天地根 绵绵若存 用之不勤">
+  <div class="card-title"><span class="status">✅</span> 第 6 章</div>
+  
+  <div class="stats-row">
+    <span>📝 16 笔记</span>
+    <span>🕸 9 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_06/site/index.html" data-chap="06" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="06">标记已读</button>
+</div>
+<div class="card" data-chapter="07"
+     data-search="07 第 7 章 不自生 后其身 外其身 成其私">
+  <div class="card-title"><span class="status">✅</span> 第 7 章</div>
+  
+  <div class="stats-row">
+    <span>📝 21 笔记</span>
+    <span>🕸 16 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_07/site/index.html" data-chap="07" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="07">标记已读</button>
+</div>
+<div class="card" data-chapter="08"
+     data-search="08 第 8 章 上善若水 几于道 不争 处众人之所恶 七善 无尤">
+  <div class="card-title"><span class="status">✅</span> 第 8 章</div>
+  
+  <div class="stats-row">
+    <span>📝 19 笔记</span>
+    <span>🕸 19 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_08/site/index.html" data-chap="08" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="08">标记已读</button>
+</div>
+<div class="card" data-chapter="09"
+     data-search="09 第 9 章 持而盈之 揣而锐之 自遗其咎 功成身退 天之道">
+  <div class="card-title"><span class="status">✅</span> 第 9 章</div>
+  
+  <div class="stats-row">
+    <span>📝 20 笔记</span>
+    <span>🕸 10 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_09/site/index.html" data-chap="09" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="09">标记已读</button>
+</div>
+<div class="card" data-chapter="10"
+     data-search="10 第 10 章 载营魄抱一 抟气致柔 涤除玄览 无为 天门开阖 为雌 玄德">
+  <div class="card-title"><span class="status">✅</span> 第 10 章</div>
+  
+  <div class="stats-row">
+    <span>📝 26 笔记</span>
+    <span>🕸 21 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_10/site/index.html" data-chap="10" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="10">标记已读</button>
+</div>
+<div class="card" data-chapter="11"
+     data-search="11 第 11 章 毂 埏埴 户牖 有之以为利 无之以为用">
+  <div class="card-title"><span class="status">✅</span> 第 11 章</div>
+  
+  <div class="stats-row">
+    <span>📝 22 笔记</span>
+    <span>🕸 8 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_11/site/index.html" data-chap="11" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="11">标记已读</button>
+</div>
+<div class="card" data-chapter="12"
+     data-search="12 第 12 章 五色 五音 五味 口爽 难得之货 为腹不为目 去彼取此">
+  <div class="card-title"><span class="status">✅</span> 第 12 章</div>
+  
+  <div class="stats-row">
+    <span>📝 23 笔记</span>
+    <span>🕸 13 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_12/site/index.html" data-chap="12" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="12">标记已读</button>
+</div>
+<div class="card" data-chapter="13"
+     data-search="13 第 13 章 宠辱若惊 贵大患若身 贵以身为天下 爱以身为天下">
+  <div class="card-title"><span class="status">✅</span> 第 13 章</div>
+  
+  <div class="stats-row">
+    <span>📝 17 笔记</span>
+    <span>🕸 15 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_13/site/index.html" data-chap="13" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="13">标记已读</button>
+</div>
+<div class="card" data-chapter="14"
+     data-search="14 第 14 章 夷 希 微 惚恍 道纪">
+  <div class="card-title"><span class="status">✅</span> 第 14 章</div>
+  
+  <div class="stats-row">
+    <span>📝 28 笔记</span>
+    <span>🕸 14 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_14/site/index.html" data-chap="14" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="14">标记已读</button>
+</div>
+<div class="card" data-chapter="15"
+     data-search="15 第 15 章 善为士者 微妙玄通 深不可识 强为之容 豫兮若冬涉川 犹兮若畏四邻 俨兮其若客 涣兮若冰之将释 敦兮其若朴 旷兮其若谷 浑兮其若浊 浊以静之徐清 安以久动之徐生 不欲盈 蔽不新成">
+  <div class="card-title"><span class="status">✅</span> 第 15 章</div>
+  
+  <div class="stats-row">
+    <span>📝 27 笔记</span>
+    <span>🕸 17 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_15/site/index.html" data-chap="15" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="15">标记已读</button>
+</div>
+<div class="card" data-chapter="16"
+     data-search="16 第 16 章 致虚极 守静笃 观复 归根 复命 常 明 妄作 容 公 王 天 道 久 没身不殆">
+  <div class="card-title"><span class="status">✅</span> 第 16 章</div>
+  
+  <div class="stats-row">
+    <span>📝 32 笔记</span>
+    <span>🕸 19 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_16/site/index.html" data-chap="16" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="16">标记已读</button>
+</div>
+<div class="card" data-chapter="17"
+     data-search="17 第 17 章 太上 贵言 自然">
+  <div class="card-title"><span class="status">✅</span> 第 17 章</div>
+  
+  <div class="stats-row">
+    <span>📝 15 笔记</span>
+    <span>🕸 7 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_17/site/index.html" data-chap="17" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="17">标记已读</button>
+</div>
+<div class="card" data-chapter="18"
+     data-search="18 第 18 章 大道 仁义 智慧 大伪 六亲 孝慈 忠臣">
+  <div class="card-title"><span class="status">✅</span> 第 18 章</div>
+  
+  <div class="stats-row">
+    <span>📝 19 笔记</span>
+    <span>🕸 8 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_18/site/index.html" data-chap="18" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="18">标记已读</button>
+</div>
+<div class="card" data-chapter="19"
+     data-search="19 第 19 章 绝圣弃智 绝仁弃义 绝巧弃利 见素抱朴 少私寡欲">
+  <div class="card-title"><span class="status">✅</span> 第 19 章</div>
+  
+  <div class="stats-row">
+    <span>📝 20 笔记</span>
+    <span>🕸 15 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_19/site/index.html" data-chap="19" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="19">标记已读</button>
+</div>
+<div class="card" data-chapter="20"
+     data-search="20 第 20 章 绝学无忧 唯之与阿 贵食母">
+  <div class="card-title"><span class="status">✅</span> 第 20 章</div>
+  
+  <div class="stats-row">
+    <span>📝 21 笔记</span>
+    <span>🕸 14 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_20/site/index.html" data-chap="20" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="20">标记已读</button>
+</div>
+<div class="card" data-chapter="21"
+     data-search="21 第 21 章 孔德 道之为物 恍兮惚兮 象 精 信 众甫">
+  <div class="card-title"><span class="status">✅</span> 第 21 章</div>
+  
+  <div class="stats-row">
+    <span>📝 23 笔记</span>
+    <span>🕸 13 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_21/site/index.html" data-chap="21" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="21">标记已读</button>
+</div>
+<div class="card" data-chapter="22"
+     data-search="22 第 22 章 曲则全 枉则直 洼则盈 敝则新 少则得，多则惑 抱一 不争">
+  <div class="card-title"><span class="status">✅</span> 第 22 章</div>
+  
+  <div class="stats-row">
+    <span>📝 26 笔记</span>
+    <span>🕸 21 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_22/site/index.html" data-chap="22" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="22">标记已读</button>
+</div>
+<div class="card" data-chapter="23"
+     data-search="23 第 23 章 希言自然 飘风不终朝，骤雨不终日 同于道、同于德、同于失 信不足焉，有不信焉">
+  <div class="card-title"><span class="status">✅</span> 第 23 章</div>
+  
+  <div class="stats-row">
+    <span>📝 20 笔记</span>
+    <span>🕸 11 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_23/site/index.html" data-chap="23" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="23">标记已读</button>
+</div>
+<div class="card" data-chapter="24"
+     data-search="24 第 24 章 企者不立 跨者不行 余食赘行">
+  <div class="card-title"><span class="status">✅</span> 第 24 章</div>
+  
+  <div class="stats-row">
+    <span>📝 15 笔记</span>
+    <span>🕸 11 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_24/site/index.html" data-chap="24" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="24">标记已读</button>
+</div>
+<div class="card" data-chapter="25"
+     data-search="25 第 25 章 道 大 逝 远 反 四大 自然">
+  <div class="card-title"><span class="status">✅</span> 第 25 章</div>
+  
+  <div class="stats-row">
+    <span>📝 24 笔记</span>
+    <span>🕸 13 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_25/site/index.html" data-chap="25" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="25">标记已读</button>
+</div>
+<div class="card" data-chapter="26"
+     data-search="26 第 26 章 重为轻根 静为躁君 辎重 荣观 燕处超然 万乘之主 轻则失本 躁则失君">
+  <div class="card-title"><span class="status">✅</span> 第 26 章</div>
+  
+  <div class="stats-row">
+    <span>📝 26 笔记</span>
+    <span>🕸 13 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_26/site/index.html" data-chap="26" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="26">标记已读</button>
+</div>
+<div class="card" data-chapter="27"
+     data-search="27 第 27 章 善行 善言 善数 善闭 善结 袭明 师 资 要妙">
+  <div class="card-title"><span class="status">✅</span> 第 27 章</div>
+  
+  <div class="stats-row">
+    <span>📝 23 笔记</span>
+    <span>🕸 16 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_27/site/index.html" data-chap="27" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="27">标记已读</button>
+</div>
+<div class="card" data-chapter="28"
+     data-search="28 第 28 章 天下溪 常德 婴儿 天下式 无极 天下谷 朴 器 官长 大制不割">
+  <div class="card-title"><span class="status">✅</span> 第 28 章</div>
+  
+  <div class="stats-row">
+    <span>📝 23 笔记</span>
+    <span>🕸 14 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_28/site/index.html" data-chap="28" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="28">标记已读</button>
+</div>
+<div class="card" data-chapter="29"
+     data-search="29 第 29 章 神器 无为 无执 去甚、去奢、去泰">
+  <div class="card-title"><span class="status">✅</span> 第 29 章</div>
+  
+  <div class="stats-row">
+    <span>📝 18 笔记</span>
+    <span>🕸 13 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_29/site/index.html" data-chap="29" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="29">标记已读</button>
+</div>
+<div class="card" data-chapter="30"
+     data-search="30 第 30 章 果 好还 物壮则老 不道">
+  <div class="card-title"><span class="status">✅</span> 第 30 章</div>
+  
+  <div class="stats-row">
+    <span>📝 20 笔记</span>
+    <span>🕸 9 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_30/site/index.html" data-chap="30" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="30">标记已读</button>
+</div>
+<div class="card" data-chapter="31"
+     data-search="31 第 31 章 佳兵 不祥之器 恬淡为上 乐杀人 丧礼处之">
+  <div class="card-title"><span class="status">✅</span> 第 31 章</div>
+  
+  <div class="stats-row">
+    <span>📝 26 笔记</span>
+    <span>🕸 17 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_31/site/index.html" data-chap="31" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="31">标记已读</button>
+</div>
+<div class="card" data-chapter="32"
+     data-search="32 第 32 章 道常无名 朴 自宾 知止 不殆">
+  <div class="card-title"><span class="status">✅</span> 第 32 章</div>
+  
+  <div class="stats-row">
+    <span>📝 22 笔记</span>
+    <span>🕸 11 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_32/site/index.html" data-chap="32" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="32">标记已读</button>
+</div>
+<div class="card" data-chapter="33"
+     data-search="33 第 33 章 自知 自胜 知足 强行 不失其所 死而不亡">
+  <div class="card-title"><span class="status">✅</span> 第 33 章</div>
+  
+  <div class="stats-row">
+    <span>📝 28 笔记</span>
+    <span>🕸 20 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_33/site/index.html" data-chap="33" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="33">标记已读</button>
+</div>
+<div class="card" data-chapter="34"
+     data-search="34 第 34 章 大道泛兮 不辞 不名有 衣养万物 不为主 不自为大">
+  <div class="card-title"><span class="status">✅</span> 第 34 章</div>
+  
+  <div class="stats-row">
+    <span>📝 22 笔记</span>
+    <span>🕸 12 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_34/site/index.html" data-chap="34" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="34">标记已读</button>
+</div>
+<div class="card" data-chapter="35"
+     data-search="35 第 35 章 大象 安平太 乐与饵 道之出口">
+  <div class="card-title"><span class="status">⚠️</span> 第 35 章</div>
+  
+  <div class="stats-row">
+    <span>📝 18 笔记</span>
+    <span>🕸 4 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_35/site/index.html" data-chap="35" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="35">标记已读</button>
+</div>
+<div class="card" data-chapter="36"
+     data-search="36 第 36 章 微明 柔弱胜刚强 国之利器">
+  <div class="card-title"><span class="status">✅</span> 第 36 章</div>
+  
+  <div class="stats-row">
+    <span>📝 28 笔记</span>
+    <span>🕸 8 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_36/site/index.html" data-chap="36" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="36">标记已读</button>
+</div>
+<div class="card" data-chapter="37"
+     data-search="37 第 37 章 无为而无不为 自化 无名之朴 不欲以静">
+  <div class="card-title"><span class="status">✅</span> 第 37 章</div>
+  
+  <div class="stats-row">
+    <span>📝 18 笔记</span>
+    <span>🕸 8 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_37/site/index.html" data-chap="37" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="37">标记已读</button>
+</div>
+<div class="card" data-chapter="38"
+     data-search="38 第 38 章 上德 下德 无以为 有以为 前识 忠信之薄 乱之首 道之华 愚之始 处厚不居薄 处实不居华 去彼取此">
+  <div class="card-title"><span class="status">✅</span> 第 38 章</div>
+  
+  <div class="stats-row">
+    <span>📝 28 笔记</span>
+    <span>🕸 23 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_38/site/index.html" data-chap="38" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="38">标记已读</button>
+</div>
+<div class="card" data-chapter="39"
+     data-search="39 第 39 章 得一 孤、寡、不谷">
+  <div class="card-title"><span class="status">⚠️</span> 第 39 章</div>
+  
+  <div class="stats-row">
+    <span>📝 18 笔记</span>
+    <span>🕸 8 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_39/site/index.html" data-chap="39" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="39">标记已读</button>
+</div>
+<div class="card" data-chapter="40"
+     data-search="40 第 40 章 反 弱 有 无">
+  <div class="card-title"><span class="status">✅</span> 第 40 章</div>
+  
+  <div class="stats-row">
+    <span>📝 19 笔记</span>
+    <span>🕸 9 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_40/site/index.html" data-chap="40" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="40">标记已读</button>
+</div>
+<div class="card" data-chapter="41"
+     data-search="41 第 41 章 上士 中士 下士 明道若昧 进道若退 夷道若类 上德若谷 大白若辱 广德若不足 建德若偷 质真若渝 大方无隅 大器晚成 大音希声 大象无形 道隐无名 善贷且成">
+  <div class="card-title"><span class="status">✅</span> 第 41 章</div>
+  
+  <div class="stats-row">
+    <span>📝 37 笔记</span>
+    <span>🕸 21 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_41/site/index.html" data-chap="41" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="41">标记已读</button>
+</div>
+<div class="card" data-chapter="42"
+     data-search="42 第 42 章 道生一 一生二 二生三 三生万物 负阴而抱阳 冲气以为和 孤、寡、不谷 损之而益 益之而损 强梁者不得其死 教父">
+  <div class="card-title"><span class="status">✅</span> 第 42 章</div>
+  
+  <div class="stats-row">
+    <span>📝 26 笔记</span>
+    <span>🕸 16 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_42/site/index.html" data-chap="42" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="42">标记已读</button>
+</div>
+<div class="card" data-chapter="43"
+     data-search="43 第 43 章 至柔 至坚 无有 无间 无为之益 不言之教">
+  <div class="card-title"><span class="status">✅</span> 第 43 章</div>
+  
+  <div class="stats-row">
+    <span>📝 22 笔记</span>
+    <span>🕸 15 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_43/site/index.html" data-chap="43" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="43">标记已读</button>
+</div>
+<div class="card" data-chapter="44"
+     data-search="44 第 44 章 甚爱 多藏 知足 知止">
+  <div class="card-title"><span class="status">✅</span> 第 44 章</div>
+  
+  <div class="stats-row">
+    <span>📝 20 笔记</span>
+    <span>🕸 16 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_44/site/index.html" data-chap="44" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="44">标记已读</button>
+</div>
+<div class="card" data-chapter="45"
+     data-search="45 第 45 章 大成若缺 大盈若冲 大直若屈 大巧若拙 大辩若讷 清静为天下正">
+  <div class="card-title"><span class="status">✅</span> 第 45 章</div>
+  
+  <div class="stats-row">
+    <span>📝 20 笔记</span>
+    <span>🕸 11 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_45/site/index.html" data-chap="45" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="45">标记已读</button>
+</div>
+<div class="card" data-chapter="46"
+     data-search="46 第 46 章 却走马以粪 戎马生于郊 知足之足 常足">
+  <div class="card-title"><span class="status">✅</span> 第 46 章</div>
+  
+  <div class="stats-row">
+    <span>📝 18 笔记</span>
+    <span>🕸 13 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_46/site/index.html" data-chap="46" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="46">标记已读</button>
+</div>
+<div class="card" data-chapter="47"
+     data-search="47 第 47 章 不出户，知天下 不窥牖，见天道 其出弥远，其知弥少 不行而知 不见而明 不为而成">
+  <div class="card-title"><span class="status">✅</span> 第 47 章</div>
+  
+  <div class="stats-row">
+    <span>📝 20 笔记</span>
+    <span>🕸 14 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_47/site/index.html" data-chap="47" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="47">标记已读</button>
+</div>
+<div class="card" data-chapter="48"
+     data-search="48 第 48 章 为学日益 为道日损 损之又损 无为 无不为 取天下 无事 有事">
+  <div class="card-title"><span class="status">✅</span> 第 48 章</div>
+  
+  <div class="stats-row">
+    <span>📝 22 笔记</span>
+    <span>🕸 12 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_48/site/index.html" data-chap="48" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="48">标记已读</button>
+</div>
+<div class="card" data-chapter="49"
+     data-search="49 第 49 章 无常心 德善 德信 怵怵 浑其心 孩之">
+  <div class="card-title"><span class="status">✅</span> 第 49 章</div>
+  
+  <div class="stats-row">
+    <span>📝 21 笔记</span>
+    <span>🕸 15 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_49/site/index.html" data-chap="49" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="49">标记已读</button>
+</div>
+<div class="card" data-chapter="50"
+     data-search="50 第 50 章 出生入死 生生之厚 善摄生者 无死地">
+  <div class="card-title"><span class="status">⚠️</span> 第 50 章</div>
+  
+  <div class="stats-row">
+    <span>📝 17 笔记</span>
+    <span>🕸 4 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_50/site/index.html" data-chap="50" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="50">标记已读</button>
+</div>
+<div class="card" data-chapter="51"
+     data-search="51 第 51 章 道 德 势 玄德">
+  <div class="card-title"><span class="status">✅</span> 第 51 章</div>
+  
+  <div class="stats-row">
+    <span>📝 17 笔记</span>
+    <span>🕸 14 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_51/site/index.html" data-chap="51" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="51">标记已读</button>
+</div>
+<div class="card" data-chapter="52"
+     data-search="52 第 52 章 母 子 兑 门 习常">
+  <div class="card-title"><span class="status">✅</span> 第 52 章</div>
+  
+  <div class="stats-row">
+    <span>📝 22 笔记</span>
+    <span>🕸 11 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_52/site/index.html" data-chap="52" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="52">标记已读</button>
+</div>
+<div class="card" data-chapter="53"
+     data-search="53 第 53 章 大道 施 径 盗夸">
+  <div class="card-title"><span class="status">✅</span> 第 53 章</div>
+  
+  <div class="stats-row">
+    <span>📝 16 笔记</span>
+    <span>🕸 11 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_53/site/index.html" data-chap="53" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="53">标记已读</button>
+</div>
+<div class="card" data-chapter="54"
+     data-search="54 第 54 章 善建者不拔 善抱者不脱 德真 德余 德长 德丰 德普 以身观身">
+  <div class="card-title"><span class="status">✅</span> 第 54 章</div>
+  
+  <div class="stats-row">
+    <span>📝 21 笔记</span>
+    <span>🕸 13 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_54/site/index.html" data-chap="54" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="54">标记已读</button>
+</div>
+<div class="card" data-chapter="55"
+     data-search="55 第 55 章 赤子 精之至 和之至 知和曰常 知常曰明 益生曰祥 心使气曰强 物壮则老 不道早已 含德之厚者比于赤子，毒虫不螫、猛兽不据、攫鸟不搏，骨弱筋柔而">
+  <div class="card-title"><span class="status">✅</span> 第 55 章</div>
+  
+  <div class="stats-row">
+    <span>📝 32 笔记</span>
+    <span>🕸 18 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_55/site/index.html" data-chap="55" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="55">标记已读</button>
+</div>
+<div class="card" data-chapter="56"
+     data-search="56 第 56 章 玄同">
+  <div class="card-title"><span class="status">⚠️</span> 第 56 章</div>
+  
+  <div class="stats-row">
+    <span>📝 12 笔记</span>
+    <span>🕸 9 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_56/site/index.html" data-chap="56" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="56">标记已读</button>
+</div>
+<div class="card" data-chapter="57"
+     data-search="57 第 57 章 以正治国 以奇用兵 以无事取天下 忌讳 利器 伎巧 奇物 法令滋彰 无为 好静 无事 无欲">
+  <div class="card-title"><span class="status">✅</span> 第 57 章</div>
+  
+  <div class="stats-row">
+    <span>📝 33 笔记</span>
+    <span>🕸 21 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_57/site/index.html" data-chap="57" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="57">标记已读</button>
+</div>
+<div class="card" data-chapter="58"
+     data-search="58 第 58 章 闷闷 淳淳 察察 缺缺 祸福倚伏 其无正 正复为奇 善复为妖 方而不割 廉而不刿 直而不肆 光而不耀">
+  <div class="card-title"><span class="status">✅</span> 第 58 章</div>
+  
+  <div class="stats-row">
+    <span>📝 25 笔记</span>
+    <span>🕸 16 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_58/site/index.html" data-chap="58" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="58">标记已读</button>
+</div>
+<div class="card" data-chapter="59"
+     data-search="59 第 59 章 啬 早服 重积德 有国之母 深根固柢">
+  <div class="card-title"><span class="status">✅</span> 第 59 章</div>
+  
+  <div class="stats-row">
+    <span>📝 19 笔记</span>
+    <span>🕸 16 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_59/site/index.html" data-chap="59" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="59">标记已读</button>
+</div>
+<div class="card" data-chapter="60"
+     data-search="60 第 60 章 治大国若烹小鲜 以道莅天下 其鬼不神 两不相伤 德交归焉">
+  <div class="card-title"><span class="status">✅</span> 第 60 章</div>
+  
+  <div class="stats-row">
+    <span>📝 20 笔记</span>
+    <span>🕸 14 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_60/site/index.html" data-chap="60" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="60">标记已读</button>
+</div>
+<div class="card" data-chapter="61"
+     data-search="61 第 61 章 下流 牝 牡 以静为下 兼畜人 入事人">
+  <div class="card-title"><span class="status">✅</span> 第 61 章</div>
+  
+  <div class="stats-row">
+    <span>📝 20 笔记</span>
+    <span>🕸 20 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_61/site/index.html" data-chap="61" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="61">标记已读</button>
+</div>
+<div class="card" data-chapter="62"
+     data-search="62 第 62 章 万物之奥 不善人之所保">
+  <div class="card-title"><span class="status">⚠️</span> 第 62 章</div>
+  
+  <div class="stats-row">
+    <span>📝 22 笔记</span>
+    <span>🕸 11 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_62/site/index.html" data-chap="62" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="62">标记已读</button>
+</div>
+<div class="card" data-chapter="63"
+     data-search="63 第 63 章 为无为 事无事 味无味 报怨以德 图难于其易 为大于其细 轻诺必寡信 多易必多难">
+  <div class="card-title"><span class="status">✅</span> 第 63 章</div>
+  
+  <div class="stats-row">
+    <span>📝 26 笔记</span>
+    <span>🕸 15 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_63/site/index.html" data-chap="63" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="63">标记已读</button>
+</div>
+<div class="card" data-chapter="64"
+     data-search="64 第 64 章 无为 无执 慎终如始 欲不欲 学不学 辅万物之自然">
+  <div class="card-title"><span class="status">✅</span> 第 64 章</div>
+  
+  <div class="stats-row">
+    <span>📝 27 笔记</span>
+    <span>🕸 13 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_64/site/index.html" data-chap="64" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="64">标记已读</button>
+</div>
+<div class="card" data-chapter="65"
+     data-search="65 第 65 章 稽式 玄德 大顺">
+  <div class="card-title"><span class="status">✅</span> 第 65 章</div>
+  
+  <div class="stats-row">
+    <span>📝 23 笔记</span>
+    <span>🕸 20 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_65/site/index.html" data-chap="65" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="65">标记已读</button>
+</div>
+<div class="card" data-chapter="66"
+     data-search="66 第 66 章 善下之：善于把自己放在低下的位置。 百谷王：众多河流汇聚归往之处，比喻处于下位反而为众所归。 不争：不与人相争，因而天下没有人能与他相争。 江海（自然类比）：以江海处于低下而汇纳百谷，说明“善下”能成其大。">
+  <div class="card-title"><span class="status">✅</span> 第 66 章</div>
+  
+  <div class="stats-row">
+    <span>📝 19 笔记</span>
+    <span>🕸 10 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_66/site/index.html" data-chap="66" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="66">标记已读</button>
+</div>
+<div class="card" data-chapter="67"
+     data-search="67 第 67 章 道大 似不肖 三宝 慈 俭 不敢为天下先 成器长 以慈卫之">
+  <div class="card-title"><span class="status">✅</span> 第 67 章</div>
+  
+  <div class="stats-row">
+    <span>📝 27 笔记</span>
+    <span>🕸 21 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_67/site/index.html" data-chap="67" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="67">标记已读</button>
+</div>
+<div class="card" data-chapter="68"
+     data-search="68 第 68 章 不争之德 用人之力 配天 古之极">
+  <div class="card-title"><span class="status">✅</span> 第 68 章</div>
+  
+  <div class="stats-row">
+    <span>📝 25 笔记</span>
+    <span>🕸 11 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_68/site/index.html" data-chap="68" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="68">标记已读</button>
+</div>
+<div class="card" data-chapter="69"
+     data-search="69 第 69 章 为主 为客 行无行 攘无臂 扔无敌 执无兵 轻敌 吾宝 哀者">
+  <div class="card-title"><span class="status">✅</span> 第 69 章</div>
+  
+  <div class="stats-row">
+    <span>📝 22 笔记</span>
+    <span>🕸 14 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_69/site/index.html" data-chap="69" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="69">标记已读</button>
+</div>
+<div class="card" data-chapter="70"
+     data-search="70 第 70 章 言有宗 事有君 被褐怀玉 知我者希，则我者贵">
+  <div class="card-title"><span class="status">✅</span> 第 70 章</div>
+  
+  <div class="stats-row">
+    <span>📝 22 笔记</span>
+    <span>🕸 14 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_70/site/index.html" data-chap="70" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="70">标记已读</button>
+</div>
+<div class="card" data-chapter="71"
+     data-search="71 第 71 章 知不知 不知知 病病">
+  <div class="card-title"><span class="status">✅</span> 第 71 章</div>
+  
+  <div class="stats-row">
+    <span>📝 15 笔记</span>
+    <span>🕸 7 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_71/site/index.html" data-chap="71" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="71">标记已读</button>
+</div>
+<div class="card" data-chapter="72"
+     data-search="72 第 72 章 威 大威 无狭其所居 无厌其所生 自知不自见 自爱不自贵 去彼取此">
+  <div class="card-title"><span class="status">✅</span> 第 72 章</div>
+  
+  <div class="stats-row">
+    <span>📝 23 笔记</span>
+    <span>🕸 12 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_72/site/index.html" data-chap="72" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="72">标记已读</button>
+</div>
+<div class="card" data-chapter="73"
+     data-search="73 第 73 章 勇于敢 勇于不敢 天之道 天网恢恢，疏而不失">
+  <div class="card-title"><span class="status">✅</span> 第 73 章</div>
+  
+  <div class="stats-row">
+    <span>📝 17 笔记</span>
+    <span>🕸 7 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_73/site/index.html" data-chap="73" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="73">标记已读</button>
+</div>
+<div class="card" data-chapter="74"
+     data-search="74 第 74 章 司杀者 代司杀者杀 代大匠斫 为奇者">
+  <div class="card-title"><span class="status">✅</span> 第 74 章</div>
+  
+  <div class="stats-row">
+    <span>📝 18 笔记</span>
+    <span>🕸 9 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_74/site/index.html" data-chap="74" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="74">标记已读</button>
+</div>
+<div class="card" data-chapter="75"
+     data-search="75 第 75 章 食税之多 上之有为 求生之厚 无以生为 贵生">
+  <div class="card-title"><span class="status">✅</span> 第 75 章</div>
+  
+  <div class="stats-row">
+    <span>📝 17 笔记</span>
+    <span>🕸 9 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_75/site/index.html" data-chap="75" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="75">标记已读</button>
+</div>
+<div class="card" data-chapter="76"
+     data-search="76 第 76 章 柔弱：指生命体柔软脆弱的状态，象征生机。 坚强：指生命体僵硬强固的状态，象征死亡。 死之徒：属于走向死亡的一类。 生之徒：属于保有生机的一类。 强大处下：强盛刚硬的事物反而处于下位。 柔弱处上：柔软弱小的事物反而处于上位。 以兵强、木强为喻说明坚强致败（无具体人物案例）">
+  <div class="card-title"><span class="status">⚠️</span> 第 76 章</div>
+  
+  <div class="stats-row">
+    <span>📝 20 笔记</span>
+    <span>🕸 16 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_76/site/index.html" data-chap="76" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="76">标记已读</button>
+</div>
+<div class="card" data-chapter="77"
+     data-search="77 第 77 章 天之道 人之道 张弓 有道者 为而不恃，功成而不处 不欲见贤">
+  <div class="card-title"><span class="status">✅</span> 第 77 章</div>
+  
+  <div class="stats-row">
+    <span>📝 19 笔记</span>
+    <span>🕸 10 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_77/site/index.html" data-chap="77" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="77">标记已读</button>
+</div>
+<div class="card" data-chapter="78"
+     data-search="78 第 78 章 柔弱胜刚强 正言若反 受国之垢、受国不祥">
+  <div class="card-title"><span class="status">✅</span> 第 78 章</div>
+  
+  <div class="stats-row">
+    <span>📝 17 笔记</span>
+    <span>🕸 9 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_78/site/index.html" data-chap="78" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="78">标记已读</button>
+</div>
+<div class="card" data-chapter="79"
+     data-search="79 第 79 章 大怨 余怨 左契 司契 司彻 天道无亲 善人">
+  <div class="card-title"><span class="status">✅</span> 第 79 章</div>
+  
+  <div class="stats-row">
+    <span>📝 23 笔记</span>
+    <span>🕸 11 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_79/site/index.html" data-chap="79" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="79">标记已读</button>
+</div>
+<div class="card" data-chapter="80"
+     data-search="80 第 80 章 小国寡民 什伯之器 重死 结绳 不相往来">
+  <div class="card-title"><span class="status">✅</span> 第 80 章</div>
+  
+  <div class="stats-row">
+    <span>📝 21 笔记</span>
+    <span>🕸 11 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_80/site/index.html" data-chap="80" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="80">标记已读</button>
+</div>
+<div class="card" data-chapter="81"
+     data-search="81 第 81 章 信言 美言 不积 为而不争">
+  <div class="card-title"><span class="status">✅</span> 第 81 章</div>
+  
+  <div class="stats-row">
+    <span>📝 23 笔记</span>
+    <span>🕸 20 节点</span>
+  </div>
+  <div class="card-link"><a href="chapter_81/site/index.html" data-chap="81" target="_blank">进入 →</a></div>
+  <button class="mark-read" data-chap="81">标记已读</button>
+</div>
+</div>
+
+<h2 id="full-graph">🕸 全书知识图谱（合并）</h2>
+<p class="meta">14 章 Mermaid 节点去重合并。节点数 = 合并去重后的唯一节点。边去重后保留。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+    P3["命题：有无难易等对立相生相成"]
+    P1["命题：美恶相依存，知美则恶显"]
+    P4["命题：圣人处无为之事，行不言之教"]
+    P2["命题：善不善相依存，知善则不善显"]
+    P5["命题：生而不有、为而不恃、功成弗居"]
+    p1["道虚空而作用不会满溢穷竭"]
+    p2["道深远幽深，好像是万物的宗主"]
+    P6["命题：唯弗居，是以弗去"]
+    p3["道磨去锋芒、化解纷扰、收敛光芒、混同尘世"]
+    C4["概念：难易相成"]
+    p4["道幽深隐约，似乎存在又似乎不存在"]
+    C3["概念：有无相生"]
+    p5["道不知从何而来，好像在天帝之前就已存在"]
+    C1["概念：美之为美，斯恶已"]
+    C2["概念：善之为善，斯不善已"]
+    C5["概念：长短相较"]
+    C6["概念：高下相倾"]
+    C7["概念：音声相和"]
+    C_buzheng["概念：不争"]
+    c2["概念：唯之与阿"]
+    p6["吉事尚左、凶事尚右，用兵应以丧礼对待"]
+    c1["概念：绝学无忧"]
+    A1["论据：天下皆知美之为美，斯恶已"]
+    C_qishan["概念：七善"]
+    C8["概念：前后相随"]
+    C9["概念：无为之事"]
+    c3["概念：贵食母"]
+    c4["概念：婴儿之未孩"]
+    c_dao["道"]
+    p7["杀人多应以哀悲哭泣，战胜也应以丧礼处理"]
+    A3["论据：有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随"]
+    P7["命题：生而不有、为而不恃、长而不宰，是谓玄德"]
+    P_hh["无状之状、无物之象，是谓惚恍"]
+    c5["概念：若遗若昏"]
+    P_xiangfan["相反相成的辩证智慧"]
+    c_changde["常德"]
+    a2["论据：天下神器，不可为也，不可执也"]
+    Core["命题：理想社会是\"]
+    C10["概念：不言之教"]
+    C12["概念：为而不恃"]
+    A2["论据：皆知善之为善，斯不善已"]
+    A4["论据：圣人处无为之事，行不言之教"]
+    C_men["玄牝之门"]
+    c_buzheng["概念：不争"]
+    C_wuwei["概念：五味"]
+    a5["论据：众人皆有余，而我独若遗"]
+    P_shenxiu["修身四不自的功用"]
+    p_bahei["知白守黑可为天下式，常德不忒而复归无极"]
+    p_rongru["知荣守辱可为天下谷，常德充足而复归朴"]
+    C_wushi["无事"]
+
+    P4 -->|supports| P2
+    C5 -->|supports| P4
+    A2 -->|supports| P1
+    P3 -->|relates_to| P1
+    P3 -->|supports| P5
+    P2 -->|supports| P4
+    P1 -->|relates_to| P5
+    p2 -->|supports| p1
+    A2 -->|supports| P2
+    P5 -->|relates_to| C4
+    P3 -->|supports| P6
+    C5 -->|introduces| P5
+    C8 -->|relates_to| P1
+    C7 -->|instance_of| P3
+    C7 -->|supports| P6
+    P5 -->|supports| P1
+    C7 -->|relates_to| P5
+    C4 -->|relates_to| C10
+    C5 -->|relates_to| P2
+    p4 -->|supports| p6
+    C9 -->|relates_to| P6
+    Core -->|relates_to| C1
+    p1 -->|supports| p4
+    C5 -->|relates_to| P4
+    A1 -->|introduces| C1
+    c1 -->|instance_of| p2
+    C4 -->|introduces| P4
+    p1 -->|supports| p5
+    C4 -->|supports| P1
+    C7 -->|relates_to| P7
+    A1 -->|supports| Core
+    c1 -->|relates_to| p1
+    C4 -->|supports| P2
+    C_men -->|supports| P2
+    C_qishan -->|relates_to| C_buzheng
+    p2 -->|supports| p4
+    C3 -->|relates_to| C4
+    c2 -->|relates_to| p1
+    p2 -->|supports| p5
+    a2 -->|supports| p1
+    A3 -->|supports| Core
+    c5 -->|relates_to| p7
+    C3 -->|supports| P2
+    C6 -->|supports| P4
+    C5 -->|supports| P3
+    C2 -->|introduces| P2
+    P2 -->|supports| P3
+    A4 -->|supports| P4
+    C3 -->|supports| P4
+    P4 -->|supports| P3
+    C6 -->|relates_to| P4
+    C2 -->|supports| P1
+    C4 -->|relates_to| P2
+    C3 -->|relates_to| P4
+    A1 -->|relates_to| C2
+    C1 -->|relates_to| C2
+    c1 -->|relates_to| p4
+    C1 -->|introduces| P1
+    C4 -->|relates_to| P4
+    C9 -->|relates_to| C3
+    c3 -->|supports| p3
+    C_wushi -->|relates_to| P6
+    P6 -->|relates_to| P3
+    P1 -->|relates_to| C2
+    p2 -->|relates_to| p3
+    a5 -->|supports| p3
+    P5 -->|supports| P3
+    A1 -->|supports| P_xiangfan
+    c2 -->|relates_to| a2
+    P5 -->|relates_to| P3
+    C_qishan -->|supports| P3
+    C6 -->|relates_to| P7
+    A1 -->|supports| P1
+    P2 -->|relates_to| C2
+    C2 -->|relates_to| P1
+    c2 -->|relates_to| p3
+    C9 -->|relates_to| C2
+    p5 -->|introduces| c4
+    p_rongru -->|introduces| c_changde
+    P4 -->|relates_to| C7
+    p5 -->|supports| p6
+    C6 -->|supports| P3
+    P3 -->|supports| P1
+    C3 -->|supports| P3
+    C5 -->|supports| P5
+    P1 -->|relates_to| P2
+    P2 -->|supports| P5
+    C5 -->|instance_of| P3
+    c5 -->|relates_to| p4
+    C7 -->|relates_to| P1
+    C3 -->|relates_to| P3
+    P4 -->|supports| P5
+    P3 -->|relates_to| P4
+    P2 -->|supports| P6
+    P4 -->|supports| P6
+    C4 -->|relates_to| P3
+    P6 -->|supports| P5
+    C6 -->|relates_to| C7
+    A1 -->|introduces| P3
+    C12 -->|instance_of| P5
+
+%% Top 50 节点（按连接度） · 100 边
+
+</pre>
+</div>
+
+<h2 id="concepts">💡 全书关键概念云</h2>
+<p class="meta">概念后数字 = 跨章出现次数。点击不放高亮。</p>
+<div class="cloud">
+<span class="chip" title="出现 6 次">无为<i>6</i></span>
+<span class="chip" title="出现 4 次">道<i>4</i></span>
+<span class="chip" title="出现 3 次">天之道<i>3</i></span>
+<span class="chip" title="出现 3 次">玄德<i>3</i></span>
+<span class="chip" title="出现 3 次">去彼取此<i>3</i></span>
+<span class="chip" title="出现 2 次">无<i>2</i></span>
+<span class="chip" title="出现 2 次">有<i>2</i></span>
+<span class="chip" title="出现 2 次">不言之教<i>2</i></span>
+<span class="chip" title="出现 2 次">难得之货<i>2</i></span>
+<span class="chip" title="出现 2 次">不争<i>2</i></span>
+<span class="chip" title="出现 2 次">自然<i>2</i></span>
+<span class="chip" title="出现 2 次">大道<i>2</i></span>
+<span class="chip" title="出现 2 次">反<i>2</i></span>
+<span class="chip" title="出现 2 次">朴<i>2</i></span>
+<span class="chip" title="出现 2 次">无执<i>2</i></span>
+<span class="chip" title="出现 2 次">物壮则老<i>2</i></span>
+<span class="chip" title="出现 2 次">知止<i>2</i></span>
+<span class="chip" title="出现 2 次">知足<i>2</i></span>
+<span class="chip" title="出现 2 次">柔弱胜刚强<i>2</i></span>
+<span class="chip" title="出现 2 次">孤、寡、不谷<i>2</i></span>
+<span class="chip" title="出现 2 次">无事<i>2</i></span>
+<span class="chip" title="出现 1 次">名<i>1</i></span>
+<span class="chip" title="出现 1 次">玄<i>1</i></span>
+<span class="chip" title="出现 1 次">美之为美，斯恶已<i>1</i></span>
+<span class="chip" title="出现 1 次">善之为善，斯不善已<i>1</i></span>
+<span class="chip" title="出现 1 次">有无相生<i>1</i></span>
+<span class="chip" title="出现 1 次">难易相成<i>1</i></span>
+<span class="chip" title="出现 1 次">长短相较<i>1</i></span>
+<span class="chip" title="出现 1 次">高下相倾<i>1</i></span>
+<span class="chip" title="出现 1 次">音声相和<i>1</i></span>
+</div>
+
+<h2 id="people">👥 全书人物 / 案例</h2>
+<p class='meta'>（本书暂无人物统计）</p>
+
+<h2 id="wrongs">❓ 全书错题本</h2>
+<p class="meta">localStorage 跨章汇总。</p>
+<ul id="wrongs-list"></ul>
+
+<hr/>
+<p class="meta">
+本书总入口页 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const BOOK_ID = '《道德经》 · 伴读总入口';
+const STORE_PROG = BOOK_ID + '_progress';
+const STORE_WRONG = BOOK_ID + '_wrongs';
+
+function loadProgress() {
+  try { return JSON.parse(localStorage.getItem(STORE_PROG) || '{}'); } catch (e) { return {}; }
+}
+function saveProgress(p) { localStorage.setItem(STORE_PROG, JSON.stringify(p)); renderProgress(); }
+function renderProgress() {
+  const p = loadProgress();
+  const done = Object.values(p).filter(Boolean).length;
+  const total = document.querySelectorAll('.card').length;
+  const pct = total ? Math.round(done * 100 / total) : 0;
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-text').textContent = done + ' / ' + total + ' 章已读（' + pct + '%）';
+  document.querySelectorAll('.card').forEach(c => {
+    const cid = c.dataset.chapter;
+    if (p[cid]) c.classList.add('read');
+    else c.classList.remove('read');
+  });
+}
+function loadWrongs() {
+  try { return JSON.parse(localStorage.getItem(STORE_WRONG) || '[]'); } catch (e) { return []; }
+}
+function saveWrongs(arr) { localStorage.setItem(STORE_WRONG, JSON.stringify(arr)); renderWrongs(); }
+function renderWrongs() {
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {
+    ul.innerHTML = '<li style="color:#888">还没有错题。</li>';
+    return;
+  }
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' + escapeHtml(w.text.slice(0, 200)) +
+    ' <em style="color:#888">(' + (w.chap || '?') + ')</em>' +
+    ' <button data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {
+    b.onclick = () => { const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); };
+  });
+}
+function escapeHtml(s) {
+  return (s+'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+// 跨协议链接路由：workbuddy preview 面板（http://）点不开 file:// 之外的相对路径
+// 链接策略：
+//   ① 本地双击（file://）→ 相对路径天然可用
+//   ② 本地 http server → 相对路径可用
+//   ③ WorkBuddy 单文件预览（http://127.0.0.1:.../static-html/<hash>/）→ 相对路径解析不到，浏览器也禁止 http→file
+//      → 只能提示用户改用 ①②
+const CHAP_LINKS = [];
+const BOOK_FILE_URL = '';
+
+window.addEventListener('DOMContentLoaded', () => {
+  renderProgress();
+  renderWrongs();
+
+  // ===== 章节搜索 =====
+  const chSearch = document.getElementById('ch-search');
+  const chCount = document.getElementById('ch-count');
+  const allCards = Array.from(document.querySelectorAll('.card'));
+  function applyChFilter() {
+    const q = (chSearch.value || '').trim().toLowerCase();
+    let shown = 0;
+    allCards.forEach(c => {
+      const hit = !q || (c.dataset.search || '').includes(q);
+      c.style.display = hit ? '' : 'none';
+      if (hit) shown++;
+    });
+    // 部分标题（部分组）无可见卡片时隐藏
+    document.querySelectorAll('.part-head').forEach(h => {
+      let sib = h.nextElementSibling, any = false;
+      while (sib && (sib.classList.contains('cards'))) {
+        if (Array.from(sib.querySelectorAll('.card')).some(x => x.style.display !== 'none')) any = true;
+        sib = sib.nextElementSibling;
+      }
+      h.style.display = (q && !any) ? 'none' : '';
+    });
+    chCount.textContent = q ? ('匹配 ' + shown + ' / ' + allCards.length + ' 章') : ('共 ' + allCards.length + ' 章');
+  }
+  if (chSearch) {
+    chSearch.addEventListener('input', applyChFilter);
+    applyChFilter();
+    document.addEventListener('keydown', e => {
+      if (e.key === '/' && document.activeElement !== chSearch) { e.preventDefault(); chSearch.focus(); }
+      if (e.key === 'Escape' && document.activeElement === chSearch) {
+        chSearch.value = ''; applyChFilter(); chSearch.blur();
+      }
+    });
+  }
+
+  document.querySelectorAll('.mark-read').forEach(b => {
+    b.onclick = () => {
+      const cid = b.dataset.chap;
+      const p = loadProgress();
+      p[cid] = !p[cid];
+      saveProgress(p);
+    };
+  });
+  // 章节卡链接：显式标目标章节 id（提示用）
+  document.querySelectorAll('.card-link a[data-chap]').forEach(a => {
+    const cid = a.dataset.chap;
+    const target = CHAP_LINKS.find(c => c.id === cid);
+    if (target) a.title = '打开：' + target.rel;
+  });
+  // WorkBuddy 单文件预览：相对路径失效，给引导
+  const isStaticHtmlPreview = /\/static-html\//.test(location.pathname);
+  if (isStaticHtmlPreview && BOOK_FILE_URL) {
+    const banner = document.createElement('div');
+    banner.className = 'preview-banner';
+    banner.innerHTML =
+      '<strong>📌 当前是 WorkBuddy 单文件预览，章节链接在此环境无法跳转</strong><br/>' +
+      '请任选其一：<br/>' +
+      '① 浏览器打开本地服务器：<code id="srv-url">启动中…</code><br/>' +
+      '② 或直接双击本地文件：<code>' + BOOK_FILE_URL + '/index.html</code>';
+    document.body.insertBefore(banner, document.body.firstChild);
+    // 探测常见的本地服务器端口
+    ['8123', '8000', '8080'].forEach(p => {
+      fetch('http://127.0.0.1:' + p + '/index.html', {method: 'HEAD'})
+        .then(r => { if (r.ok) { const el = document.getElementById('srv-url'); if (el) el.textContent = 'http://127.0.0.1:' + p + '/index.html'; } })
+        .catch(() => {});
+    });
+  }
+});
+</script>
+</body>
+</html>

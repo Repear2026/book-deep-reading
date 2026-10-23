@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 38 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 38/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_37/site/index.html" title="第 37 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_39/site/index.html" title="第 39 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 38 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>上德不德，是以有德；下德不失德，是以无德。上德无为而无以为；下德为之而有以为。上仁为之而无以为；上义为之而有以为。上礼为之而莫之应，则攘臂而扔之。故失道而后德，失德而后仁，失仁而后义，失义而后礼。夫礼者，忠信之薄，而乱之首。前识者，道之华，而愚之始。是以大丈夫处其厚，不居其薄；处其实，不居其华。故去彼取此。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 38 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>本章是《德经》开篇，老子在此集中分辨“上德”与“下德”：真正的德不把德当招牌，一心想守住德名反而失了德。由此展开“道→德→仁→义→礼”的递降序列——礼不是文明的顶峰，而是忠信淡薄、祸乱将起的信号。章末以“处厚不居薄、处实不居华”收束，给出大丈夫的立身取舍。最重要收获：老子教你把“看起来有德”和“真的有德”分开看。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>- 如果你做善事时心里想着“我真是个好人”，这算上德还是下德？</blockquote>
+<blockquote>- 如果一个社会必须靠繁复礼仪和明文规范维持秩序，说明它更文明了，还是更虚弱了？</blockquote>
+<blockquote>- 如果有人能预判一切、凡事抢占先机，这是聪明，还是老子说的“道之华，愚之始”？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote>- <strong>荀子</strong>：与老子针锋相对。荀子主张“人之性恶，其善者伪也”，正因人性需要矫治，礼义才是必需的教化工具——礼不是衰败的标志，而是文明的成就。</blockquote>
+<blockquote>- <strong>韩非</strong>：在《解老》《喻老》中最早系统注解本章，把“德”解释为万物所禀受的内在根据，同时以“法”替代“礼”作为治理主轴，与老子一样不信任外在仪节。</blockquote>
+<blockquote>- <strong>王阳明</strong>：讲“良知”自然发用、不假安排，与“上德无为而无以为”高度呼应——真正的道德行动不是照着格套做出来的。</blockquote>
+<blockquote>- <strong>涂尔干</strong>：从社会学看，仪式（礼）恰恰是集体情感与道德团结的生成机制，是社会赖以凝聚的正向力量；这与老子把礼判为“忠信之薄”形成直接张力。</blockquote>
+<blockquote>- <strong>维特根斯坦</strong>：后期讨论“遵守规则”时指出，规则不能自行决定其应用，背后总有一种未经言明的实践与训练——可借来追问：礼作为明文化规则，是否恰恰暴露了默会共识的丧失？</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：抓三个点——①“上德/下德”这对概念怎么用“不德/不失德”互换定义；②“道→德→仁→义→礼”的递降链条，注意每一环都是前一环“失”了才出现；③结尾“处厚/处实”与“居薄/居华”的对比，落到“去彼取此”的取舍姿态上。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：必看两处论证——①“上德无为而无以为；下德为之而有以为”：关键在“无以为/有以为”这一对，它们区分的是有没有造作意图，不是做不做；②“夫礼者，忠信之薄，而乱之首”：要看清老子是把礼当作忠信不足的<strong>征兆</strong>还是<strong>病因</strong>，原文“之薄”“之首”的措辞留有余地，值得逐字掂量。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：追问一个开放问题——如果“礼”真是忠信淡薄后的补救，那么一个完全没有礼、只凭“上德”自然运行的社会，在现实中可能维持吗？老子的递降叙事究竟是对文明的反讽，还是对“不要以末为本”的提醒？这个问题的答案，决定你站在老子一边还是荀子一边。</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+  p_shangde["命题：上德不德，是以有德；下德不失德，是以无德"]
+  p_wuwei["命题：上德无为而无以为，下德为之而有以为"]
+  p_shixu["命题：失道而后德，失德而后仁，失仁而后义，失义而后礼"]
+  p_li_luan["命题：夫礼者，忠信之薄，而乱之首"]
+  p_qianshi["命题：前识者，道之华，而愚之始"]
+  p_dazhangfu["命题：大丈夫处厚不居薄，处实不居华，去彼取此"]
+
+  c_shangde["概念：上德"]
+  c_xiade["概念：下德"]
+  c_wuyiwei["概念：无以为"]
+  c_youyiwei["概念：有以为"]
+  c_qianshi["概念：前识"]
+  c_zhongxinbo["概念：忠信之薄"]
+  c_luanshou["概念：乱之首"]
+  c_daozhihua["概念：道之华"]
+  c_yuzhishi["概念：愚之始"]
+  c_chuhou["概念：处厚不居薄"]
+  c_chushi["概念：处实不居华"]
+  c_qubi["概念：去彼取此"]
+  c_dao["概念：道"]
+  c_de["概念：德"]
+  c_ren["概念：仁"]
+  c_yi["概念：义"]
+  c_li["概念：礼"]
+
+  p_shangde --supports--> p_wuwei
+  p_shangde --supports--> p_shixu
+  p_shixu --supports--> p_li_luan
+  p_li_luan --supports--> p_dazhangfu
+  p_qianshi --supports--> p_dazhangfu
+
+  c_shangde --relates_to--> c_xiade
+  c_shangde --relates_to--> c_wuyiwei
+  c_xiade --relates_to--> c_youyiwei
+  c_qianshi --relates_to--> c_daozhihua
+  c_qianshi --relates_to--> c_yuzhishi
+  c_li --relates_to--> c_zhongxinbo
+  c_li --relates_to--> c_luanshou
+  c_chuhou --relates_to--> c_qubi
+  c_chushi --relates_to--> c_qubi
+
+  c_shangde --relates_to--> p_shangde
+  c_xiade --relates_to--> p_shangde
+  c_wuyiwei --relates_to--> p_wuwei
+  c_youyiwei --relates_to--> p_wuwei
+  c_qianshi --relates_to--> p_qianshi
+  c_daozhihua --relates_to--> p_qianshi
+  c_yuzhishi --relates_to--> p_qianshi
+  c_zhongxinbo --relates_to--> p_li_luan
+  c_luanshou --relates_to--> p_li_luan
+  c_chuhou --relates_to--> p_dazhangfu
+  c_chushi --relates_to--> p_dazhangfu
+  c_qubi --relates_to--> p_dazhangfu
+
+  c_dao --relates_to--> p_shixu
+  c_de --relates_to--> p_shixu
+  c_ren --relates_to--> p_shixu
+  c_yi --relates_to--> p_shixu
+  c_li --relates_to--> p_shixu
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>《道德经》第三十八章为德经开篇，集中区分上德与下德，并以道—德—仁—义—礼的递降序列说明礼出现于忠信淡薄之后；章末以“处厚不居薄、处实不居华、去彼取此”提出大丈夫的立身取舍。</div>
+<h3>📌 核心命题</h3><ol>
+<li>上德不以德自居，因此有德；下德执守德名，因此无德。</li>
+<li>上德无为而无以为，下德为之而有以为。</li>
+<li>仁、义、礼依次是道与德失落后的产物，礼是忠信淡薄和祸乱的开端。</li>
+<li>前识是道的浮华、愚昧的开端。</li>
+<li>大丈夫应处厚实而不居薄华，去彼取此。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>上德不德，是以有德；下德不失德，是以无德。</li>
+<li>上德无为而无以为；下德为之而有以为。</li>
+<li>故失道而后德，失德而后仁，失仁而后义，失义而后礼。</li>
+<li>夫礼者，忠信之薄，而乱之首。</li>
+<li>前识者，道之华，而愚之始。</li>
+<li>是以大丈夫处其厚，不居其薄；处其实，不居其华。故去彼取此。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>上德</strong></summary><div class="case-body">不把德当作可标榜之名而自然有德的状态。</div></details>
+<details><summary><strong>下德</strong></summary><div class="case-body">唯恐失去德名而有意守德的状态。</div></details>
+<details><summary><strong>无以为</strong></summary><div class="case-body">不为了某种目的或造作而为之。</div></details>
+<details><summary><strong>有以为</strong></summary><div class="case-body">带有目的、有意造作地为之。</div></details>
+<details><summary><strong>前识</strong></summary><div class="case-body">文本称为道的浮华和愚昧开端的那种预先设定的聪明。</div></details>
+<details><summary><strong>忠信之薄</strong></summary><div class="case-body">忠信变得淡薄。</div></details>
+<details><summary><strong>乱之首</strong></summary><div class="case-body">祸乱的开端。</div></details>
+<details><summary><strong>道之华</strong></summary><div class="case-body">道的浮华外表。</div></details>
+<details><summary><strong>愚之始</strong></summary><div class="case-body">愚昧的开始。</div></details>
+<details><summary><strong>处厚不居薄</strong></summary><div class="case-body">立身于敦厚而不停留在浅薄。</div></details>
+<details><summary><strong>处实不居华</strong></summary><div class="case-body">立身于朴实而不停留在浮华。</div></details>
+<details><summary><strong>去彼取此</strong></summary><div class="case-body">舍弃薄华而选取厚实。</div></details>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 38 章。下面是我对本章主线的一句概括，请你按&quot;主线提取 + 关键概念检查&quot;两步来检验我：</p>
+<br/>
+<p>【我的概括】{我的一句话概括}</p>
+<br/>
+<p>请做三件事：</p>
+<ol>
+<li>1. 先把本章的主线拆成 3–5 个环节，逐条与我的概括比对，指出我漏掉了哪些环节、把哪些环节的先后顺序或因果关系弄错了；</li>
+<li>2. 列出本章出现的 3–5 个关键概念，针对每一个追问我：&quot;这个概念在本章里被用来解决什么问题？如果把它换成日常近义词，会丢掉什么？&quot;——请以提问形式给我，不要直接给答案；</li>
+<li>3. 最后指出：我的概括中哪一处最可能是&quot;用自己的先入之见替换了作者原意&quot;，并说明理由。</li>
+</ul>
+<br/>
+<p>注意：所有判断只依据本章原文，不要引入本章之外的材料。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>请你扮演&quot;最强反方&quot;，目标是让我对第 38 章的接受度经受一次真正的压力测试，而不是让我舒服。</p>
+<br/>
+<p>【本章我接受的核心主张】{我认为本章最有说服力的主张}</p>
+<p>【我接受它的理由】{我的理由}</p>
+<br/>
+<p>要求：</p>
+<ol>
+<li>1. 站在与本章立场相反的位置，构造一个尽可能强的反驳：不是挑边角料，而是攻击该主张的根基（前提是否可置疑？推理是否有隐含跳跃？反例是否存在？概念是否在关键处偷换？）；</li>
+<li>2. 反驳要分三层递进：先攻前提，再攻推理，最后攻结论的实践后果；</li>
+<li>3. 每层反驳之后，替作者给出一个他可能的回应，并指出这个回应是否足够；</li>
+<li>4. 最后告诉我：经过这轮交锋，我原先的理由中哪一条已经站不住，哪一条仍然成立。</li>
+</ul>
+<br/>
+<p>不要为了平衡而稀释反驳力度；不要虚构本章没出现的论点当靶子。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>请把第 38 章的思想落到我的真实处境里，用三个场景检验它是否真的能&quot;用&quot;。</p>
+<br/>
+<p>【场景 1】{一个我工作/生活中的具体情境，含人物、冲突、我要做的决定}</p>
+<p>【场景 2】{另一个情境}</p>
+<p>【场景 3】{再一个情境}</p>
+<br/>
+<p>对每个场景请回答：</p>
+<ol>
+<li>1. 用本章的概念重新描述这个情境——描述完之后，哪些原本显眼的细节变得不重要了，哪些原本被忽略的细节变得关键了？</li>
+<li>2. 本章的思路会让我做出什么与&quot;凭直觉处理&quot;不同的具体动作？请给到可执行的一步。</li>
+<li>3. 这个场景中，本章思路明显失灵或力不能及的地方在哪里？</li>
+</ul>
+<br/>
+<p>三个场景请覆盖不同的&quot;失灵程度&quot;：一个高度契合、一个部分契合、一个基本不契合，并说明你为什么这样分配。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 38 章里最让我兴奋的一句话是：</p>
+<br/>
+<p>【原句】&quot;{我挑出的那句话}&quot;</p>
+<p>【我为什么被它击中】{我的直觉反应}</p>
+<br/>
+<p>请围绕这句话做&quot;那这样推下去还有什么？&quot;的四步深挖：</p>
+<br/>
+<ol>
+<li>1. 拆开这句话：它预设了什么？它排除了什么？它用的是哪一种意义上的关键词（可替换成同义表述测试一下）？</li>
+<li>2. 若这句话成立，本章内还有哪 2–3 个论断是它的必然推论？作者本人是否真的推到了那一步？</li>
+<li>3. 若这句话成立，它会与本章之外什么常见立场发生冲突？（可以引入学术史上注家/学派的不同说法，但必须写明是谁的说法）</li>
+<li>4. 给出 3 个&quot;再往前一步&quot;的追问，其中至少一个是作者本人可能拒绝回答的。</li>
+</ul>
+<br/>
+<p>最后用一句话说明：我的&quot;兴奋&quot;里，有多少是这句话本身的力量，有多少是我自己带进去的期待。</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. 这一章你读完后，能用一句大白话说明&quot;作者到底想说服你相信什么&quot;吗？</li>
+</ol>
+<p>   提示：先别管论证，只说结论；说不出来就说明你还没抓住主线，回去找本章反复出现的那个词。</p>
+<br/>
+<ol>
+<li>2. 本章里有没有哪个词，作者用得和日常说话不一样？</li>
+</ol>
+<p>   提示：找那些出现三次以上、且你换成日常近义词后句子意思会变的词，这就是本章的关键概念。</p>
+<br/>
+<ol>
+<li>3. 作者在这一章里，是在反驳某个对手，还是在建立一个自己的说法？</li>
+</ol>
+<p>   提示：留意&quot;但是&quot;&quot;并非&quot;&quot;真正的&quot;这类转折词，它们标记了作者的用力点。</p>
+<br/>
+<ol>
+<li>4. 本章的论证是从一个前提往下推，还是从一些例子往上归纳？</li>
+</ol>
+<p>   提示：如果是往下推，那个前提本身有没有被论证？如果是往上归纳，那些例子够不够撑住结论？</p>
+<br/>
+<ol>
+<li>5. 你能不能替本章设想一个最直接的反对意见？作者在文中是否已经预先回应过它？</li>
+</ol>
+<p>   提示：先自己想一个，再回文里找；找不到回应，就是本章的薄弱处。</p>
+<br/>
+<ol>
+<li>6. 这一章的结论如果为真，会要求你改变什么具体的看法或做法？如果它其实不改变任何东西，那它是在解决谁的问题？</li>
+</ol>
+<p>   提示：哲学命题的&quot;分量&quot;往往体现在它排除了哪些原本可行的选项。</p>
+<br/>
+<ol>
+<li>7. 这一章的立场在思想史上大致属于哪一类？后世有哪些注家或学派对它提出过系统性异议？</li>
+</ol>
+<p>   提示：试着把本章归入&quot;理性主义 / 经验主义&quot;&quot;实在论 / 反实在论&quot;这类对立轴之一，再查证是否有代表性学者站在对面——注意区分&quot;作者的敌人&quot;和&quot;后来的批评者&quot;。</p>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>上德</td><td>真正有德的人，不觉得自己在“做好事”，也不图回报。</td><td>老子用语，指最高的“德”，即得道者的德。它不刻意表现德行，也不以德为名，是自然而然的流露，因此“有德”而不自知为德。</td><td>“上德不德，是以有德”——上德者不以德为德，无德之名而有德之实；与“下德不失德，是以无德”相对。王弼注：“上德之人，唯道是用，不德其德，无执无用。”</td><td>王弼以“无”释之，认为上德是“无”的体现，不执着于德之名；河上公从养生角度解为“德”内藏不露，合于元气；郭象则强调“自然”即德，反对有意为之的“德”；儒家（如朱熹）批评这种“不德之德”近于“无实”，认为德须有实理内容。</td></tr>
+<tr><td>下德</td><td>嘴上、行动上努力“守德”，反而说明已经离德远了。</td><td>与“上德”相对，指刻意持守德目、唯恐失德的层次。老子认为这种“不失德”的努力恰恰暴露了德的失落，故称“无德”。</td><td>“下德不失德，是以无德”——下德者执守德之名相，故落于对待。王弼注：“下德求而得之，为而成之，则立善以治物，故德名有焉。”</td><td>王弼认为下德已落“有”的层面，是有为之德；成玄英以重玄义解为“执德”，须遣去；韩非《解老》则从功利角度读“德”为“得”，下德是“得”于外而非内足，与老子原意有张力。</td></tr>
+<tr><td>无以为</td><td>做事没有“我在为了什么”的算计，纯粹自然。</td><td>指不以某种目的、功利为动机而行。老子用以形容上德者的行为方式：无为而无不为，不因“为德”而为之。</td><td>“上德无为而无以为”——“无以为”即无所以为，无造作之因。王弼注：“无以为者，无所不为也。”与“有以为”相对，构成“无为—无以为”的双重否定结构。</td><td>王弼以“无”统摄，认为无以为即因循自然、不立事功之心；郭象注《庄子》强调“无以为”是“自尔”，非有意求无；海德格尔式的解读（如某些比较哲学研究）将其类比为“非对象化的行动”，但刘笑敢提醒这易过度诠释。</td></tr>
+<tr><td>有以为</td><td>做事心里有个明确的“目的”和“为了”，已经落了下乘。</td><td>与“无以为”相对，指有特定目的、动机而为之。老子用以下德及仁义礼诸层次的递降，说明越强调“为”，离道越远。</td><td>“下德为之而有以为”——王弼注：“有以为者，为之而有以为也。”在“仁义—礼”的层层退坠中，“有以为”标志着人为造作的加深。</td><td>河上公从治身治国解为“有以为”则伤神劳形；韩非以“有以为”为“恃术”，肯定其治理功能而老子贬之，形成法家与道家对“为”的评价分歧；陈鼓应指出这是老子对“人为礼法”的批判性诊断。</td></tr>
+<tr><td>前识</td><td>事情还没发生就急着预判、卖弄聪明，其实是道的浮华。</td><td>老子用语，指预先设定、预设的见识、成见或机巧的预知，被老子贬为“道之华而愚之始”。</td><td>“前识者，道之华，而愚之始”——王弼注：“前识者，前人而识也，即下德之伦也。”指在事象未至之前预设知解，落于“有为之识”。</td><td>王弼以“前识”为“下德之伦”，属有为有执；河上公解为“不知而言知”的妄知；韩非《解老》却把“前识”解为“无缘而妄意度”，并加以理性主义批评，与老子反智倾向形成有趣对照；成玄英以重玄双遣，连“前识”之遣亦遣。</td></tr>
+<tr><td>忠信之薄</td><td>社会越强调“忠信”，说明忠信本身已经稀薄了。</td><td>老子对礼义忠信的评价：忠信的衰落是“礼”兴起的背景，礼是忠信不足的产物而非根源。</td><td>“夫礼者，忠信之薄，而乱之首”——礼生于忠信之薄，故礼非本而末。王弼注：“礼者，所始首于忠信不笃，通简不阳，责备于表，机微争制。”</td><td>王弼认为礼是忠信衰落后的补救，属“有为之极”；荀子一系儒家则反主张“礼”正是忠信的文理制度化，不可谓薄；苏辙以“礼”为“道之末”，承认其必要性而贬其本末倒置；现代学者陈鼓应视此为老子对宗法礼制异化的批判。</td></tr>
+<tr><td>乱之首</td><td>“礼”这套讲究，正是祸乱的开端。</td><td>老子判“礼”为祸乱之首，因礼以外在规范强制人心，引发争竞与虚伪。与“忠信之薄”连读，构成对礼的系谱学批判。</td><td>“礼者，忠信之薄，而乱之首”——王弼注：“夫礼也，所始首于忠信不笃……”礼尚往来、报施之道生，则“争”随之。</td><td>王弼、成玄英均以礼为“有为”之极、乱之端；荀子则正相反，主张“礼者，法之大分，类之纲纪”，是治乱之具，构成儒道根本分歧；王夫之以气化论解，认为礼失其本则流为虚文而致乱。</td></tr>
+<tr><td>道之华</td><td>前面那种“聪明预判”，只是道开出来的花，好看但不结果。</td><td>老子将“前识”比作“道之华”，即道的浮华、末节，非道之实。华对实而言，华美在外而内虚无实。</td><td>“前识者，道之华”——王弼注以“华”为“末”，与“实”相对；河上公注：“华，华薄也。”指浮薄不实。</td><td>王弼以“华”为“末”而“实”为“本”，强调崇本息末；河上公以“华薄”解，偏于养生之“精气不固”；苏辙以“华”为道之散，主张“去华就实”；现代诠释（如楼宇烈）指出“华—实”对举是老子反智论的语言标志。</td></tr>
+<tr><td>愚之始</td><td>耍小聪明，正是变蠢的开始。</td><td>老子指“前识”为愚昧的开端：自以为有知，反落于大愚。与“大智若愚”义理相通。</td><td>“前识者，道之华，而愚之始”——王弼注：“虽有大智，非道之明，故曰愚之始。”以“前识”为“非道之明”。</td><td>王弼以“大智”非“道明”则成愚始；河上公解为“愚，闇昧也”，指妄知障道；韩非则反其意，肯定“前识”之智的价值，形成法家与道家的对立读法；禅宗“无心是道”可与“去前识”相呼应。</td></tr>
+<tr><td>处厚不居薄</td><td>做人要站得厚道实在，不要停在浅薄那一头。</td><td>老子主张“处其厚，不居其薄”，厚指忠信之实，薄指礼文之浮。是“去彼取此”的具体落实。</td><td>“是以大丈夫处其厚，不居其薄”——王弼注：“处厚，谓处忠信也；居薄，谓居礼也。”厚薄即本末、实文之别。</td><td>王弼以厚薄为本末之辨，主张崇本；河上公从“治身”解为“处身于敦厚，不处身于薄薄”；苏辙以“厚”为道之实、“薄”为礼之文；王夫之以“气”之厚薄论，别有物质性解释。</td></tr>
+<tr><td>处实不居华</td><td>要抓住实在的内核，不要贪图表面的花哨。</td><td>老子主张“处其实，不居其华”，实指道与德之真，华指前识礼文之饰。与“处厚不居薄”并列，构成去取标准。</td><td>“处其实，不居其华”——王弼注：“处实，谓处道也；居华，谓居前识也。”实即本，华即末。</td><td>王弼以“实”为道、“华”为前识，贯穿其“崇本息末”的方法论；河上公以“实”为“精气”，“华”为“华饰”，偏养生；成玄英以重玄“遣华取实”，进而“实华俱遣”；现代刘笑敢认为这是老子“价值排序”的典型表达。</td></tr>
+<tr><td>去彼取此</td><td>丢掉那一头，选这一头，做个明白的选择。</td><td>老子用语，总结上文：去掉“薄”与“华”（礼、前识），取“厚”与“实”（忠信、道）。是本章的归结性选择命题。</td><td>“故去彼取此”——王弼注：“去彼华薄，取此厚实。”为老子价值抉择的句式，亦见于《老子》其他章（如十二章、七十二章）。</td><td>王弼以“去彼取此”为“崇本息末”的实践命题；河上公解为“去彼华薄，取此敦厚”，归向治身治国；苏辙以“去华取实”为学道之要；陈鼓应指出此句体现老子“鲜明的价值取舍姿态”，与儒家“文质彬彬”的中道形成对照。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">上德</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">真正有德的人，不觉得自己在“做好事”，也不图回报。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子用语，指最高的“德”，即得道者的德。它不刻意表现德行，也不以德为名，是自然而然的流露，因此“有德”而不自知为德。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">“上德不德，是以有德”——上德者不以德为德，无德之名而有德之实；与“下德不失德，是以无德”相对。王弼注：“上德之人，唯道是用，不德其德，无执无用。”</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”释之，认为上德是“无”的体现，不执着于德之名；河上公从养生角度解为“德”内藏不露，合于元气；郭象则强调“自然”即德，反对有意为之的“德”；儒家（如朱熹）批评这种“不德之德”近于“无实”，认为德须有实理内容。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">下德</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">嘴上、行动上努力“守德”，反而说明已经离德远了。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">与“上德”相对，指刻意持守德目、唯恐失德的层次。老子认为这种“不失德”的努力恰恰暴露了德的失落，故称“无德”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">“下德不失德，是以无德”——下德者执守德之名相，故落于对待。王弼注：“下德求而得之，为而成之，则立善以治物，故德名有焉。”</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼认为下德已落“有”的层面，是有为之德；成玄英以重玄义解为“执德”，须遣去；韩非《解老》则从功利角度读“德”为“得”，下德是“得”于外而非内足，与老子原意有张力。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">无以为</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">做事没有“我在为了什么”的算计，纯粹自然。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指不以某种目的、功利为动机而行。老子用以形容上德者的行为方式：无为而无不为，不因“为德”而为之。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">“上德无为而无以为”——“无以为”即无所以为，无造作之因。王弼注：“无以为者，无所不为也。”与“有以为”相对，构成“无为—无以为”的双重否定结构。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”统摄，认为无以为即因循自然、不立事功之心；郭象注《庄子》强调“无以为”是“自尔”，非有意求无；海德格尔式的解读（如某些比较哲学研究）将其类比为“非对象化的行动”，但刘笑敢提醒这易过度诠释。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">有以为</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">做事心里有个明确的“目的”和“为了”，已经落了下乘。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">与“无以为”相对，指有特定目的、动机而为之。老子用以下德及仁义礼诸层次的递降，说明越强调“为”，离道越远。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">“下德为之而有以为”——王弼注：“有以为者，为之而有以为也。”在“仁义—礼”的层层退坠中，“有以为”标志着人为造作的加深。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公从治身治国解为“有以为”则伤神劳形；韩非以“有以为”为“恃术”，肯定其治理功能而老子贬之，形成法家与道家对“为”的评价分歧；陈鼓应指出这是老子对“人为礼法”的批判性诊断。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">前识</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">事情还没发生就急着预判、卖弄聪明，其实是道的浮华。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子用语，指预先设定、预设的见识、成见或机巧的预知，被老子贬为“道之华而愚之始”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">“前识者，道之华，而愚之始”——王弼注：“前识者，前人而识也，即下德之伦也。”指在事象未至之前预设知解，落于“有为之识”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“前识”为“下德之伦”，属有为有执；河上公解为“不知而言知”的妄知；韩非《解老》却把“前识”解为“无缘而妄意度”，并加以理性主义批评，与老子反智倾向形成有趣对照；成玄英以重玄双遣，连“前识”之遣亦遣。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">忠信之薄</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">社会越强调“忠信”，说明忠信本身已经稀薄了。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子对礼义忠信的评价：忠信的衰落是“礼”兴起的背景，礼是忠信不足的产物而非根源。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">“夫礼者，忠信之薄，而乱之首”——礼生于忠信之薄，故礼非本而末。王弼注：“礼者，所始首于忠信不笃，通简不阳，责备于表，机微争制。”</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼认为礼是忠信衰落后的补救，属“有为之极”；荀子一系儒家则反主张“礼”正是忠信的文理制度化，不可谓薄；苏辙以“礼”为“道之末”，承认其必要性而贬其本末倒置；现代学者陈鼓应视此为老子对宗法礼制异化的批判。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">乱之首</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">“礼”这套讲究，正是祸乱的开端。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子判“礼”为祸乱之首，因礼以外在规范强制人心，引发争竞与虚伪。与“忠信之薄”连读，构成对礼的系谱学批判。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">“礼者，忠信之薄，而乱之首”——王弼注：“夫礼也，所始首于忠信不笃……”礼尚往来、报施之道生，则“争”随之。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼、成玄英均以礼为“有为”之极、乱之端；荀子则正相反，主张“礼者，法之大分，类之纲纪”，是治乱之具，构成儒道根本分歧；王夫之以气化论解，认为礼失其本则流为虚文而致乱。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">道之华</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">前面那种“聪明预判”，只是道开出来的花，好看但不结果。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子将“前识”比作“道之华”，即道的浮华、末节，非道之实。华对实而言，华美在外而内虚无实。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">“前识者，道之华”——王弼注以“华”为“末”，与“实”相对；河上公注：“华，华薄也。”指浮薄不实。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“华”为“末”而“实”为“本”，强调崇本息末；河上公以“华薄”解，偏于养生之“精气不固”；苏辙以“华”为道之散，主张“去华就实”；现代诠释（如楼宇烈）指出“华—实”对举是老子反智论的语言标志。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">愚之始</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">耍小聪明，正是变蠢的开始。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子指“前识”为愚昧的开端：自以为有知，反落于大愚。与“大智若愚”义理相通。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">“前识者，道之华，而愚之始”——王弼注：“虽有大智，非道之明，故曰愚之始。”以“前识”为“非道之明”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“大智”非“道明”则成愚始；河上公解为“愚，闇昧也”，指妄知障道；韩非则反其意，肯定“前识”之智的价值，形成法家与道家的对立读法；禅宗“无心是道”可与“去前识”相呼应。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">处厚不居薄</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">做人要站得厚道实在，不要停在浅薄那一头。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子主张“处其厚，不居其薄”，厚指忠信之实，薄指礼文之浮。是“去彼取此”的具体落实。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">“是以大丈夫处其厚，不居其薄”——王弼注：“处厚，谓处忠信也；居薄，谓居礼也。”厚薄即本末、实文之别。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以厚薄为本末之辨，主张崇本；河上公从“治身”解为“处身于敦厚，不处身于薄薄”；苏辙以“厚”为道之实、“薄”为礼之文；王夫之以“气”之厚薄论，别有物质性解释。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">处实不居华</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">要抓住实在的内核，不要贪图表面的花哨。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子主张“处其实，不居其华”，实指道与德之真，华指前识礼文之饰。与“处厚不居薄”并列，构成去取标准。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">“处其实，不居其华”——王弼注：“处实，谓处道也；居华，谓居前识也。”实即本，华即末。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“实”为道、“华”为前识，贯穿其“崇本息末”的方法论；河上公以“实”为“精气”，“华”为“华饰”，偏养生；成玄英以重玄“遣华取实”，进而“实华俱遣”；现代刘笑敢认为这是老子“价值排序”的典型表达。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">去彼取此</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">丢掉那一头，选这一头，做个明白的选择。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子用语，总结上文：去掉“薄”与“华”（礼、前识），取“厚”与“实”（忠信、道）。是本章的归结性选择命题。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">“故去彼取此”——王弼注：“去彼华薄，取此厚实。”为老子价值抉择的句式，亦见于《老子》其他章（如十二章、七十二章）。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“去彼取此”为“崇本息末”的实践命题；河上公解为“去彼华薄，取此敦厚”，归向治身治国；苏辙以“去华取实”为学道之要；陈鼓应指出此句体现老子“鲜明的价值取舍姿态”，与儒家“文质彬彬”的中道形成对照。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 38 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 38 章]
+
+上德不德，是以有德；下德不失德，是以无德。上德无为而无以为；下德为之而有以为。上仁为之而无以为；上义为之而有以为。上礼为之而莫之应，则攘臂而扔之。故失道而后德，失德而后仁，失仁而后义，失义而后礼。夫礼者，忠信之薄，而乱之首。前识者，道之华，而愚之始。是以大丈夫处其厚，不居其薄；处其实，不居其华。故去彼取此。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_38_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

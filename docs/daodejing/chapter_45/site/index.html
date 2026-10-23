@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 45 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 45/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_44/site/index.html" title="第 44 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_46/site/index.html" title="第 46 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 45 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>大成若缺，其用不弊。大盈若冲，其用不穷。大直若屈，大巧若拙，大辩若讷。躁胜寒，静胜热。清静为天下正。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 45 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章用一组反常的句式——“大成若缺”“大盈若冲”“大直若屈”“大巧若拙”“大辩若讷”——告诉你：真正完满、充盈、正直、灵巧、善辩的东西，看上去偏偏像它的反面。为什么有趣？因为它颠覆了我们“好就该看起来好”的直觉，把“用”而非“貌”作为判断标准。最重要的收获是一个判断尺度：不要被表面的欠缺、空虚、笨拙骗了，要看它能不能长久地起作用。最后一句“清静为天下正”把话收在治世与修身的根上。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>如果你精心准备的一份方案故意留了一处“缺口”，结果反而被夸考虑周全——你会怎么理解这种“缺”与“成”的关系？</blockquote>
+<p>&gt;</p>
+<blockquote>如果你遇到一个说话结巴木讷的人，聊完却发现句句切中要害——你以后还只凭“会说话”来判断谁有真本事吗？</blockquote>
+<p>&gt;</p>
+<blockquote>如果你自己明明很躁动、很着急，却硬逼自己“静下来”再做决定——你觉得“静胜热”在这里是策略，还是一种更根本的生存姿态？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote>- <strong>维特根斯坦</strong>：他在《哲学研究》里反复拆解“表面语法”与“实际用法”的落差，主张意义在用法中而不在语词的外表——这和“大辩若讷”是一个路数：会不会辩，不看话头漂不漂亮，看它实际起不起作用。</blockquote>
+<blockquote>- <strong>荀子</strong>：《荀子·儒效》里讲“大巧在所不为，大智在所不虑”，同样承认最高层次的巧与智反而表现为有所不为、有所不虑——与“大巧若拙”可以互训，但荀子更强调“积”与“伪”，老子更强调“反”，一个重人为积累，一个重自然归朴。</blockquote>
+<blockquote>- <strong>王阳明</strong>：讲“此心光明，亦复何言”，真确信处不需要修饰性的言辞来撑场面——可与“大辩若讷”对读：讷不是不会说，是说到不必再添。</blockquote>
+<blockquote>- <strong>福柯</strong>：在讨论古希腊“直言”（parrhesia）时指出，说真话的人往往不靠修辞包装，而以朴素甚至冒险的方式把话摆出来——与“大辩若讷”形成跨文化的呼应：真话的力量不在辞藻而在关系与承担。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：先盯住三处。一是六个“大 X 若 Y”的排布顺序，从“成/盈”到“直/巧/辩”，看老子从器物层面滑向为人处世层面；二是每句后半截的“其用不弊”“其用不穷”，这是老子给出的检验标准，别只看前半截的“若”；三是结尾两句“躁胜寒，静胜热。清静为天下正”，注意它是从身体感受过渡到治世原则，是全章唯一的“正面直说”。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：抠两处论证。第一处，“大成若缺，其用不弊”——为什么“缺”反而是“不弊”的条件？这里的“用”指什么？是靠不断修补来维持，还是留出余地才不被撑破？第二处，“清静为天下正”——凭什么“清静”能从“胜热”直接推到“为天下正”？中间省掉了什么环节？是省掉了“躁动会耗尽自身”这一层，还是省掉了“正”本身就是不折腾？</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：追问一个开放问题——“大直若屈”与真正的“屈”在现象上无法区分，那么老子凭什么说一个是“大直”一个是“屈”？判断标准若不在外表，是否只能落在“其用”上？可“用”的好坏又由谁、在什么时间尺度上来判？这个追问会逼你回到“清静”的位置：是不是只有站在清静处，才能看出“若缺”背后的“成”？</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+    dacheng["大成若缺：至完满似有欠缺"]
+    daying["大盈若冲：至充盈似空虚"]
+    dazhi["大直若屈：真直似弯曲"]
+    daqiao["大巧若拙：真巧似笨拙"]
+    dabian["大辩若讷：真辩似木讷"]
+    qingjing["清静为天下正"]
+
+    p1["命题：完满者似缺而其用不弊"]
+    p2["命题：充盈者似虚而其用不穷"]
+    p3["命题：大直大巧大辩皆以相反形态显现"]
+    p4["命题：躁胜寒，静胜热"]
+    p5["命题：清静可为天下之正道"]
+
+    dacheng --supports--> p1
+    daying --supports--> p2
+    dazhi --supports--> p3
+    daqiao --supports--> p3
+    dabian --supports--> p3
+    p1 --relates_to--> p2
+    p2 --relates_to--> p3
+    p4 --supports--> p5
+    qingjing --supports--> p5
+    p3 --relates_to--> p5
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章以一组“大…若…”的辩证表述，揭示真正完满、充盈、正直、灵巧、善辩常以相反形态显现；并以“躁胜寒，静胜热”过渡到“清静为天下正”，收束于清静无为的治世与修身原则。</div>
+<h3>📌 核心命题</h3><ol>
+<li>真正完满的事物看似有欠缺，但其作用不会败坏。</li>
+<li>真正充盈的事物看似空虚，但其作用不会穷尽。</li>
+<li>真正正直、灵巧、善辩的表现可能分别像弯曲、笨拙、木讷。</li>
+<li>躁动可胜寒，安静可胜热，清静可以成为天下的正道。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>大成若缺，其用不弊。</li>
+<li>大盈若冲，其用不穷。</li>
+<li>大直若屈，大巧若拙，大辩若讷。</li>
+<li>躁胜寒，静胜热。</li>
+<li>清静为天下正。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>大成若缺</strong></summary><div class="case-body">最大的成就或完满看似有欠缺。</div></details>
+<details><summary><strong>大盈若冲</strong></summary><div class="case-body">最大的充盈看似空虚。</div></details>
+<details><summary><strong>大直若屈</strong></summary><div class="case-body">真正的直看似弯曲。</div></details>
+<details><summary><strong>大巧若拙</strong></summary><div class="case-body">真正的灵巧看似笨拙。</div></details>
+<details><summary><strong>大辩若讷</strong></summary><div class="case-body">真正的善辩看似木讷。</div></details>
+<details><summary><strong>清静为天下正</strong></summary><div class="case-body">清静可以成为天下的正道或准则。</div></details>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<p><strong>理解检查</strong></p>
+<p>```</p>
+<p>我刚读完第 45 章。我的概括是：{你的一句话概括}。</p>
+<p>请你做两件事：</p>
+<ol>
+<li>1. 主线提取：用 3–5 个要点列出本章的论证主线（从 {本章开头问题} 到 {本章结论}），并指出我概括中遗漏或扭曲的环节。</li>
+<li>2. 关键概念检查：挑出本章最关键的 2–3 个概念（如 {关键概念A}、{关键概念B}），逐一问我“它在本章中的定义是什么、它和哪个概念对立/关联”，然后根据我的回答判断我是否真的理解。</li>
+</ol>
+<p>不要替我回答，先提问，等我答完再给反馈。</p>
+<p>```</p>
+<br/>
+<p><strong>强反驳</strong></p>
+<p>```</p>
+<p>请扮演第 45 章最强硬、最有学理的反方。我的立场是：{我对本章核心论点的接受陈述，例如“我接受作者关于 X 的结论”}。</p>
+<p>要求：</p>
+<ol>
+<li>1. 从相反视角出发，构造 3 个最强反驳（每个反驳都要引用或指向本章的某个具体论点/前提，说明它为什么可疑）。</li>
+<li>2. 针对我的接受态度，追问：我接受它是因为论证有力，还是因为 {我的隐含预设/情感偏好}？</li>
+<li>3. 最后给我一个“反方最佳一击”：如果只能保留一个反驳，你选哪个，为什么？</li>
+</ol>
+<p>不要温和化，不要替我辩护。</p>
+<p>```</p>
+<br/>
+<p><strong>连现实</strong></p>
+<p>```</p>
+<p>我刚读完第 45 章，本章核心思想是 {用一句话写出你理解的核心思想}。</p>
+<p>请给我 3 个真实生活/工作场景（分别来自 {场景领域1：如职场决策}、{场景领域2：如人际冲突}、{场景领域3：如公共议题}），并针对每个场景解释：</p>
+<ol>
+<li>1. 本章的哪个概念/论证步骤能用来分析这个场景？</li>
+<li>2. 如果严格按本章思想行动，会得出什么反直觉的结论？</li>
+<li>3. 这个应用在哪里会失效或需要修正？</li>
+</ol>
+<p>场景要具体到有角色、有冲突、有选择，不要泛泛而谈。</p>
+<p>```</p>
+<br/>
+<p><strong>深挖</strong></p>
+<p>```</p>
+<p>第 45 章最让我兴奋的一句话是：“{原文或你的转述}”。</p>
+<p>请围绕这句话做“那这样推下去还有什么？”的展开：</p>
+<ol>
+<li>1. 这句话隐含了哪些未明说的前提？</li>
+<li>2. 如果把它推到底，会得出哪些本章没有明说、但逻辑上可能的结论（至少 3 个）？</li>
+<li>3. 这些推论中，哪一个最危险/最反直觉？为什么？</li>
+<li>4. 回到本章，作者是否已经意识到这个推论？用本章的文本证据（{章节位置/段落}）说明他是在支持、回避还是限制它。</li>
+</ol>
+<p>```</p>
+<br/>
+<h2>2）5–7 个新手引导问题</h2>
+<br/>
+<ol>
+<li>1. 这一章标题里的词，你之前听说过吗？先用自己的话猜一下它可能指什么。  </li>
+</ol>
+<p>   提示：别急着翻定义，先写下你的第一印象，读完再回来对照。</p>
+<br/>
+<ol>
+<li>2. 本章反复出现的一个词或短语是什么？  </li>
+</ol>
+<p>   提示：快速扫一遍，数一数哪个名词/动词出现次数最多，它就是本章的“路标”。</p>
+<br/>
+<ol>
+<li>3. 作者在本章开头提出了什么问题？结尾又给了什么回答？  </li>
+</ol>
+<p>   提示：找问号和“因此/所以/可见”后面的句子，把它们连成一句话。</p>
+<br/>
+<ol>
+<li>4. 本章有没有出现“但是”“然而”“有人会说”这样的转折？  </li>
+</ol>
+<p>   提示：转折后面往往是作者要反驳的观点，先搞清楚他在反对谁。</p>
+<br/>
+<ol>
+<li>5. 如果本章的核心结论是假的，世界会有什么不同？  </li>
+</ol>
+<p>   提示：做一个思想实验：假设作者说错了，找一个反例或反常识后果。</p>
+<br/>
+<ol>
+<li>6. 本章的论证依赖哪个没有明说的前提？  </li>
+</ol>
+<p>   提示：问“凭什么”——作者从 A 推到 B，中间缺了哪块跳板？</p>
+<br/>
+<ol>
+<li>7. 你能否用本章的一个概念，解释一件最近发生的新闻或你身边的日常经验？  </li>
+</ol>
+<p>   提示：选一个具体事件，强行套用本章框架，看看哪里套不上——套不上的地方就是理解的缺口。</p>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>大成若缺</td><td>真正完满的东西，看上去好像还有欠缺，但它的作用不会衰败。</td><td>语出《老子》第四十五章：&quot;大成若缺，其用不弊。&quot;意为最完满的成就呈现出若有所缺的样子，正因其不自满、不逞尽，所以功用才不会竭败。老子借此表达&quot;反者道之动&quot;的辩证智慧：凡事推向极盛圆满之表象，反而易于走向衰败；留有余地、含藏不尽的&quot;若缺&quot;，才是长久之道。</td><td>王弼注：&quot;随物而成，不为一象，故若缺也。&quot;以&quot;无&quot;为体，谓至成不立成形，故不见其成迹。河上公注则从养生立说，谓&quot;大成&quot;者道德大成于内，不自彰显于外。成玄英《道德经义疏》以重玄双遣释之：成与缺两忘，方为真成。</td><td>王弼以&quot;贵无&quot;为本，主张至成不著形迹，因其&quot;不为一象&quot;故若缺；郭象注《庄》倡&quot;独化&quot;，反对有一超越的本体创生万物，会将&quot;大成若缺&quot;读作物各任其性、不假外饰的自然自足，而非由&quot;无&quot;生&quot;有&quot;；河上公与道教内丹传统则把它解为养生术，谓精气内守不泄于外，故外若亏缺而内实充盈；苏辙《老子解》以&quot;道之全&quot;对照&quot;物之偏&quot;，认为圣人得其全而自视若缺，是修养上的谦抑。</td></tr>
+<tr><td>大盈若冲</td><td>真正充盈的东西，看上去好像空的一样，但它的作用不会穷尽。</td><td>语出《老子》第四十五章：&quot;大盈若冲，其用不穷。&quot;&quot;冲&quot;即虚、空。意为最充实的盈满状态表现为虚空之象，正因虚而不塞，才能容受不竭、其用无穷。与&quot;大器晚成&quot;&quot;虚而不屈&quot;等句同属老子&quot;虚用&quot;思想，强调虚才能生用、实满则无以受物。</td><td>王弼注：&quot;大盈充足，随物而与，无所爱矜，故若冲也。&quot;谓至盈者不自有其盈，随物施与而无吝惜，故其象若虚。河上公注以&quot;冲&quot;为中和之气，谓道德充盈于内，谦虚不求满。成玄英疏以&quot;遣&quot;释&quot;冲&quot;，谓盈冲双遣，不滞于盈相。</td><td>王弼从&quot;以无为用&quot;立论，认为真正的充盈恰在于不自居其盈、随物而与，因此表现为&quot;冲&quot;（虚）；郭象式的独化论则会说，物各自足其性而无待于外，盈与冲只是同一自足状态的两面，无所谓一个更高的&quot;虚&quot;作本原；《庄子·天下》引关尹、老聃&quot;以空虚不毁万物为实&quot;，可视为&quot;大盈若冲&quot;的另一表述；王夫之以&quot;气化&quot;解老，认为盈虚只是太虚之气聚散的不同状态，反对把&quot;冲&quot;当作绝对的虚无；海德格尔论&quot;无&quot;（das Nichts）为存在之遮蔽与敞开之所，可与&quot;冲&quot;之容受性相参照，但他所谈是存在论境域，与老子由&quot;虚&quot;言&quot;用&quot;的生成论指向并不相同。</td></tr>
+<tr><td>大直若屈</td><td>真正正直的东西，看上去好像弯曲，但它的伸展终不会受阻。</td><td>语出《老子》第四十五章：&quot;大直若屈，其用不绌。&quot;（&quot;绌&quot;或作&quot;诎&quot;，义为屈折、穷尽。）意为最正直的品格或最顺直的走势，表面上看似迂曲委顺，实则因其不硬碰、不强争，故能长久伸展而不受挫。与&quot;曲则全&quot;&quot;枉则直&quot;（第二十二章）互为呼应，体现老子以退为进、以柔克刚的处世智慧。</td><td>王弼注：&quot;随物而直，直不在一，故若屈也。&quot;谓至直者不执一隅之直，随物曲成，故其形若屈。河上公注以&quot;屈&quot;为&quot;屈己从人&quot;，谓圣人直道而行而不自申，故外若屈折。苏辙则以&quot;直&quot;为循理而动，理直者不与人争曲直，故似屈。</td><td>王弼主张&quot;直不在一&quot;，即不执著于单一标准的直，故随物而曲、曲而复直；郭象注《庄子·人间世》&quot;曲辕之栎&quot;一类寓言，强调&quot;曲者自全&quot;是各适其性的自然结果，而非有意为之的策略，可与老子的&quot;若屈&quot;对读；儒家（如《论语》&quot;直道而行&quot;、孟子&quot;浩然之气&quot;）多以直为德性之正、不假委曲，与老子&quot;大直若屈&quot;的辩证表述构成张力——儒者或批评此为权谋，老学则谓此正是不逞小直而成大直；韩非《解老》《喻老》则将此句工具化为君人南面之术，读作君主不露锋芒以控御臣下的政治技术；王夫之从气化流行立论，认为直屈只是气之屈伸往来的节律，&quot;大直&quot;即在屈伸不已之中，别无一个悬空的直体。</td></tr>
+<tr><td>大巧若拙</td><td>真正高明的技巧，看上去好像很笨拙，因为不雕琢、不逞巧。</td><td>语出《老子》第四十五章：&quot;大巧若拙。&quot;意为最高超的技艺不显斧凿之痕，外表看来朴拙无巧。老子借此反对人为的机巧造作，主张返归自然无为：&quot;为无为，事无事&quot;，真正的巧在于顺应自然、不以巧自炫。此句与&quot;大智若愚&quot;&quot;大辩若讷&quot;构成同一组&quot;大X若Y&quot;的辩证句式。</td><td>王弼注：&quot;大巧因自然以成器，不造为异端，故若拙也。&quot;强调巧在于&quot;因自然&quot;，而非刻意造作。河上公注以&quot;拙&quot;为&quot;无所造为&quot;，谓圣人技术不施于人。成玄英疏以&quot;巧拙两忘&quot;释之，属重玄双遣的理路。苏辙则谓&quot;巧之至者，不见巧之迹&quot;。</td><td>王弼以&quot;因自然&quot;解巧，认为真正的巧是对自然的顺从，而非人为造作，与郭象&quot;独化&quot;论中&quot;不为而自为&quot;的自得之境可相参照，但郭象反对有一个&quot;自然&quot;作为外在范本；《庄子》&quot;庖丁解牛&quot;&quot;轮扁斫轮&quot;&quot;梓庆削木&quot;诸寓言，把&quot;大巧若拙&quot;具体化为技艺与道合一的境界，强调&quot;以天合天&quot;、忘机而后成；儒家则重&quot;工欲善其事，必先利其器&quot;（《论语》），肯定人力的精进与规矩的积累，与老子怀疑机巧的立场不同；韩非《喻老》以&quot;巧诈不如拙诚&quot;式的政治解读，将&quot;若拙&quot;读为君主藏巧于拙以御下；维特根斯坦晚期论&quot;遵守规则&quot;与&quot;无须言说的实践掌握&quot;，强调技艺的熟练并不依赖显性的规则表述，可与&quot;大巧若拙&quot;的&quot;不可言说之巧&quot;作跨文化对读，但其语境是语言哲学而非修养论。</td></tr>
+<tr><td>大辩若讷</td><td>真正善于辩论的人，看上去好像嘴笨，因为不逞口舌之利。</td><td>语出《老子》第四十五章：&quot;大辩若讷。&quot;&quot;讷&quot;指言语迟钝、不善辞令。意为真正有辩才、明真理的人，外表看似木讷寡言，因其不事唇舌之争、不以言辞取胜。老子一贯主张&quot;善者不辩，辩者不善&quot;（第八十一章）、&quot;多言数穷&quot;（第五章），&quot;大辩若讷&quot;正是这一&quot;希言自然&quot;取向的凝练表达。</td><td>王弼注：&quot;大辩因物而言，己无所造，故若讷也。&quot;谓至辩者顺物之宜而应，不预设成说，故其言若迟钝。河上公注以&quot;讷&quot;为&quot;口不疾言&quot;，谓圣人守中不言而万物自化。苏辙谓&quot;辩之至者，无言而人自信&quot;。</td><td>王弼以&quot;因物而言、己无所造&quot;释&quot;若讷&quot;，把言说理解为对物的顺应，而非主体的建构，这与郭象&quot;寄言以出意&quot;、反对执言为实的立场有可比性；《庄子·齐物论》主张&quot;大辩不言&quot;，以&quot;辩&quot;本身为有待（有所依待）而不得其正，故&quot;大辩&quot;恰恰超越是非之争，可与老子的&quot;若讷&quot;合观，但庄子的落点是&quot;齐物&quot;，老子更多是&quot;守朴&quot;；儒家（孔孟荀）重视言语的教化与正名功能，《论语》&quot;君子欲讷于言而敏于行&quot;虽也推重讷，但仍以言有其实、名当其分为前提，与老子对言说本身的怀疑不同；韩非重&quot;辩&quot;以明法，主张&quot;明主之道，一法而不求智&quot;，其实更近于以法代辩；维特根斯坦&quot;对于不可言说之物必须保持沉默&quot;（《逻辑哲学论》命题7）在&quot;语言的界限&quot;这一点上可与&quot;大辩若讷&quot;对读，但他意在划出可说与不可说的界线，而老子是以&quot;讷&quot;消解争辩本身。</td></tr>
+<tr><td>清静为天下正</td><td>清静无为才是治理天下的正道，躁动多欲只会把天下搞乱。</td><td>语出《老子》第四十五章：&quot;躁胜寒，静胜热，清静为天下正。&quot;&quot;正&quot;有&quot;长&quot;&quot;主&quot;&quot;标准&quot;之义，谓清静无为乃天下治理的根本准则。老子以为治身治国皆当以静制动、以无为为本，与&quot;我好静而民自正&quot;（第五十七章）、&quot;重为轻根，静为躁君&quot;（第二十六章）相呼应，构成老子政治哲学的核心命题。</td><td>王弼注：&quot;静则全物之真，躁则犯物之性，故唯清静乃能得大有为之正。&quot;以&quot;全物之真&quot;为静之效用，仍归于贵无论。河上公以&quot;清静&quot;为养神之道，谓人神好清而心扰之。成玄英以重玄双遣释&quot;正&quot;，谓正无所正，方为正。苏辙谓&quot;静&quot;为万物之本，躁为末。</td><td>王弼主张&quot;静则全物之真&quot;，以清静为全物之性的条件，并把&quot;正&quot;解为无为而治的效验；河上公与道教传统把&quot;清静&quot;落到治身，讲&quot;清静&quot;为养神存真之术，内丹家更以&quot;静&quot;为筑基之要；郭象独化论则不承认有一个外在的&quot;静&quot;作为治理标准，会把&quot;天下正&quot;读为万物各正其性、自正而非由治者使之正；儒家（如荀子&quot;虚壹而静&quot;、《大学》&quot;静而后能安&quot;）也讲静，但其静是认知与修养的准备，目的是更好的有为，与老子以静为正、以无为治的取向有别；韩非《解老》将此句政治化，释为君主去好恶、虚静以待下，是&quot;术&quot;的运用；现代研究者陈鼓应强调此章&quot;清静为天下正&quot;是老子无为政治的总纲，刘笑敢则指出老子&quot;自然&quot;&quot;无为&quot;在竹简本与通行本之间存在诠释空间，不宜一律读为消极不治。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">大成若缺</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">真正完满的东西，看上去好像还有欠缺，但它的作用不会衰败。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第四十五章：&quot;大成若缺，其用不弊。&quot;意为最完满的成就呈现出若有所缺的样子，正因其不自满、不逞尽，所以功用才不会竭败。老子借此表达&quot;反者道之动&quot;的辩证智慧：凡事推向极盛圆满之表象，反而易于走向衰败；留有余地、含藏不尽的&quot;若缺&quot;，才是长久之道。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;随物而成，不为一象，故若缺也。&quot;以&quot;无&quot;为体，谓至成不立成形，故不见其成迹。河上公注则从养生立说，谓&quot;大成&quot;者道德大成于内，不自彰显于外。成玄英《道德经义疏》以重玄双遣释之：成与缺两忘，方为真成。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;贵无&quot;为本，主张至成不著形迹，因其&quot;不为一象&quot;故若缺；郭象注《庄》倡&quot;独化&quot;，反对有一超越的本体创生万物，会将&quot;大成若缺&quot;读作物各任其性、不假外饰的自然自足，而非由&quot;无&quot;生&quot;有&quot;；河上公与道教内丹传统则把它解为养生术，谓精气内守不泄于外，故外若亏缺而内实充盈；苏辙《老子解》以&quot;道之全&quot;对照&quot;物之偏&quot;，认为圣人得其全而自视若缺，是修养上的谦抑。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">大盈若冲</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">真正充盈的东西，看上去好像空的一样，但它的作用不会穷尽。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第四十五章：&quot;大盈若冲，其用不穷。&quot;&quot;冲&quot;即虚、空。意为最充实的盈满状态表现为虚空之象，正因虚而不塞，才能容受不竭、其用无穷。与&quot;大器晚成&quot;&quot;虚而不屈&quot;等句同属老子&quot;虚用&quot;思想，强调虚才能生用、实满则无以受物。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;大盈充足，随物而与，无所爱矜，故若冲也。&quot;谓至盈者不自有其盈，随物施与而无吝惜，故其象若虚。河上公注以&quot;冲&quot;为中和之气，谓道德充盈于内，谦虚不求满。成玄英疏以&quot;遣&quot;释&quot;冲&quot;，谓盈冲双遣，不滞于盈相。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼从&quot;以无为用&quot;立论，认为真正的充盈恰在于不自居其盈、随物而与，因此表现为&quot;冲&quot;（虚）；郭象式的独化论则会说，物各自足其性而无待于外，盈与冲只是同一自足状态的两面，无所谓一个更高的&quot;虚&quot;作本原；《庄子·天下》引关尹、老聃&quot;以空虚不毁万物为实&quot;，可视为&quot;大盈若冲&quot;的另一表述；王夫之以&quot;气化&quot;解老，认为盈虚只是太虚之气聚散的不同状态，反对把&quot;冲&quot;当作绝对的虚无；海德格尔论&quot;无&quot;（das Nichts）为存在之遮蔽与敞开之所，可与&quot;冲&quot;之容受性相参照，但他所谈是存在论境域，与老子由&quot;虚&quot;言&quot;用&quot;的生成论指向并不相同。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">大直若屈</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">真正正直的东西，看上去好像弯曲，但它的伸展终不会受阻。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第四十五章：&quot;大直若屈，其用不绌。&quot;（&quot;绌&quot;或作&quot;诎&quot;，义为屈折、穷尽。）意为最正直的品格或最顺直的走势，表面上看似迂曲委顺，实则因其不硬碰、不强争，故能长久伸展而不受挫。与&quot;曲则全&quot;&quot;枉则直&quot;（第二十二章）互为呼应，体现老子以退为进、以柔克刚的处世智慧。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;随物而直，直不在一，故若屈也。&quot;谓至直者不执一隅之直，随物曲成，故其形若屈。河上公注以&quot;屈&quot;为&quot;屈己从人&quot;，谓圣人直道而行而不自申，故外若屈折。苏辙则以&quot;直&quot;为循理而动，理直者不与人争曲直，故似屈。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼主张&quot;直不在一&quot;，即不执著于单一标准的直，故随物而曲、曲而复直；郭象注《庄子·人间世》&quot;曲辕之栎&quot;一类寓言，强调&quot;曲者自全&quot;是各适其性的自然结果，而非有意为之的策略，可与老子的&quot;若屈&quot;对读；儒家（如《论语》&quot;直道而行&quot;、孟子&quot;浩然之气&quot;）多以直为德性之正、不假委曲，与老子&quot;大直若屈&quot;的辩证表述构成张力——儒者或批评此为权谋，老学则谓此正是不逞小直而成大直；韩非《解老》《喻老》则将此句工具化为君人南面之术，读作君主不露锋芒以控御臣下的政治技术；王夫之从气化流行立论，认为直屈只是气之屈伸往来的节律，&quot;大直&quot;即在屈伸不已之中，别无一个悬空的直体。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">大巧若拙</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">真正高明的技巧，看上去好像很笨拙，因为不雕琢、不逞巧。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第四十五章：&quot;大巧若拙。&quot;意为最高超的技艺不显斧凿之痕，外表看来朴拙无巧。老子借此反对人为的机巧造作，主张返归自然无为：&quot;为无为，事无事&quot;，真正的巧在于顺应自然、不以巧自炫。此句与&quot;大智若愚&quot;&quot;大辩若讷&quot;构成同一组&quot;大X若Y&quot;的辩证句式。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;大巧因自然以成器，不造为异端，故若拙也。&quot;强调巧在于&quot;因自然&quot;，而非刻意造作。河上公注以&quot;拙&quot;为&quot;无所造为&quot;，谓圣人技术不施于人。成玄英疏以&quot;巧拙两忘&quot;释之，属重玄双遣的理路。苏辙则谓&quot;巧之至者，不见巧之迹&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;因自然&quot;解巧，认为真正的巧是对自然的顺从，而非人为造作，与郭象&quot;独化&quot;论中&quot;不为而自为&quot;的自得之境可相参照，但郭象反对有一个&quot;自然&quot;作为外在范本；《庄子》&quot;庖丁解牛&quot;&quot;轮扁斫轮&quot;&quot;梓庆削木&quot;诸寓言，把&quot;大巧若拙&quot;具体化为技艺与道合一的境界，强调&quot;以天合天&quot;、忘机而后成；儒家则重&quot;工欲善其事，必先利其器&quot;（《论语》），肯定人力的精进与规矩的积累，与老子怀疑机巧的立场不同；韩非《喻老》以&quot;巧诈不如拙诚&quot;式的政治解读，将&quot;若拙&quot;读为君主藏巧于拙以御下；维特根斯坦晚期论&quot;遵守规则&quot;与&quot;无须言说的实践掌握&quot;，强调技艺的熟练并不依赖显性的规则表述，可与&quot;大巧若拙&quot;的&quot;不可言说之巧&quot;作跨文化对读，但其语境是语言哲学而非修养论。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">大辩若讷</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">真正善于辩论的人，看上去好像嘴笨，因为不逞口舌之利。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第四十五章：&quot;大辩若讷。&quot;&quot;讷&quot;指言语迟钝、不善辞令。意为真正有辩才、明真理的人，外表看似木讷寡言，因其不事唇舌之争、不以言辞取胜。老子一贯主张&quot;善者不辩，辩者不善&quot;（第八十一章）、&quot;多言数穷&quot;（第五章），&quot;大辩若讷&quot;正是这一&quot;希言自然&quot;取向的凝练表达。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;大辩因物而言，己无所造，故若讷也。&quot;谓至辩者顺物之宜而应，不预设成说，故其言若迟钝。河上公注以&quot;讷&quot;为&quot;口不疾言&quot;，谓圣人守中不言而万物自化。苏辙谓&quot;辩之至者，无言而人自信&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;因物而言、己无所造&quot;释&quot;若讷&quot;，把言说理解为对物的顺应，而非主体的建构，这与郭象&quot;寄言以出意&quot;、反对执言为实的立场有可比性；《庄子·齐物论》主张&quot;大辩不言&quot;，以&quot;辩&quot;本身为有待（有所依待）而不得其正，故&quot;大辩&quot;恰恰超越是非之争，可与老子的&quot;若讷&quot;合观，但庄子的落点是&quot;齐物&quot;，老子更多是&quot;守朴&quot;；儒家（孔孟荀）重视言语的教化与正名功能，《论语》&quot;君子欲讷于言而敏于行&quot;虽也推重讷，但仍以言有其实、名当其分为前提，与老子对言说本身的怀疑不同；韩非重&quot;辩&quot;以明法，主张&quot;明主之道，一法而不求智&quot;，其实更近于以法代辩；维特根斯坦&quot;对于不可言说之物必须保持沉默&quot;（《逻辑哲学论》命题7）在&quot;语言的界限&quot;这一点上可与&quot;大辩若讷&quot;对读，但他意在划出可说与不可说的界线，而老子是以&quot;讷&quot;消解争辩本身。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">清静为天下正</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">清静无为才是治理天下的正道，躁动多欲只会把天下搞乱。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第四十五章：&quot;躁胜寒，静胜热，清静为天下正。&quot;&quot;正&quot;有&quot;长&quot;&quot;主&quot;&quot;标准&quot;之义，谓清静无为乃天下治理的根本准则。老子以为治身治国皆当以静制动、以无为为本，与&quot;我好静而民自正&quot;（第五十七章）、&quot;重为轻根，静为躁君&quot;（第二十六章）相呼应，构成老子政治哲学的核心命题。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;静则全物之真，躁则犯物之性，故唯清静乃能得大有为之正。&quot;以&quot;全物之真&quot;为静之效用，仍归于贵无论。河上公以&quot;清静&quot;为养神之道，谓人神好清而心扰之。成玄英以重玄双遣释&quot;正&quot;，谓正无所正，方为正。苏辙谓&quot;静&quot;为万物之本，躁为末。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼主张&quot;静则全物之真&quot;，以清静为全物之性的条件，并把&quot;正&quot;解为无为而治的效验；河上公与道教传统把&quot;清静&quot;落到治身，讲&quot;清静&quot;为养神存真之术，内丹家更以&quot;静&quot;为筑基之要；郭象独化论则不承认有一个外在的&quot;静&quot;作为治理标准，会把&quot;天下正&quot;读为万物各正其性、自正而非由治者使之正；儒家（如荀子&quot;虚壹而静&quot;、《大学》&quot;静而后能安&quot;）也讲静，但其静是认知与修养的准备，目的是更好的有为，与老子以静为正、以无为治的取向有别；韩非《解老》将此句政治化，释为君主去好恶、虚静以待下，是&quot;术&quot;的运用；现代研究者陈鼓应强调此章&quot;清静为天下正&quot;是老子无为政治的总纲，刘笑敢则指出老子&quot;自然&quot;&quot;无为&quot;在竹简本与通行本之间存在诠释空间，不宜一律读为消极不治。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 45 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 45 章]
+
+大成若缺，其用不弊。大盈若冲，其用不穷。大直若屈，大巧若拙，大辩若讷。躁胜寒，静胜热。清静为天下正。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_45_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

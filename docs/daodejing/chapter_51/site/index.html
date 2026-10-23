@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 51 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 51/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_50/site/index.html" title="第 50 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_52/site/index.html" title="第 52 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 51 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>道生之，德畜之，物形之，势成之。是以万物莫不尊道而贵德。道之尊，德之贵，夫莫之命而常自然。故道生之，德畜之。长之育之，亭之毒之，养之覆之。生而不有，为而不恃，长而不宰。是谓玄德。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 51 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章回答一个朴素又根本的问题：万物从哪里来、又靠什么长大？老子给出四个环节——“道生之，德畜之，物形之，势成之”：道是源头，德是养育的力量，物给它形体，势让它最终成就。更妙的是，万物尊道贵德并非被谁命令，而是自然而然的。全章最重要的收获，是末尾那句“生而不有，为而不恃，长而不宰，是谓玄德”——真正的伟大，是给了生命却不占有、出了力却不居功、养大了却不控制。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>1. 如果你是父母，生养了孩子，你能做到“生而不有”——不把孩子当作自己的所有物吗？</blockquote>
+<blockquote>2. 如果你是团队领导，做出了成绩，你能“为而不恃”——不把功劳记在自己名下吗？</blockquote>
+<blockquote>3. 如果有人告诉你，万物生长背后没有发号施令的主宰，只是“常自然”，你会松一口气，还是感到不安？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote>- <strong>荀子</strong>：主张“制天命而用之”，强调人主动裁制自然、化性起伪，与老子“长而不宰”、任其自然的姿态形成鲜明对照——一个要出手干预，一个要退让不控。</blockquote>
+<blockquote>- <strong>韩非</strong>：把“道”解释为客观法则，把“德”落在赏罚刑名上，《解老》《喻老》将老子玄虚的“玄德”转为君主治理术，恰是“生而不有”的反面——什么都想握在手里。</blockquote>
+<blockquote>- <strong>王阳明</strong>：讲“万物一体之仁”，生养万物出于本心自然流露，与老子“莫之命而常自然”有相通处，但阳明把它归给良知，老子则归于道。</blockquote>
+<blockquote>- <strong>维特根斯坦</strong>：认为许多“根源”问题是我们语言的误用所致，“道生之”这类表述更像是一种看世界的方式，而非可验证的因果说明。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：关注三个点——①“道、德、物、势”四个字分别承担什么角色，谁生、谁养、谁赋形、谁促成；②“莫之命而常自然”一句，注意老子如何解释万物尊道贵德的原因；③末尾“生而不有、为而不恃、长而不宰”三句排比，记下它们共同的姿态：给予而不控制。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：必看两个论证。其一，“道生之，德畜之，物形之，势成之”——看老子如何把万物生成拆成四个环节，道与德是根源与养育，物与势是条件与促成，缺一不可；其二，“夫莫之命而常自然”——这是全章的枢纽：尊道贵德不是被命令的，而是自然如此，正因无人强迫，这种尊崇才最真实、最稳固。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：一个值得追问的开放问题——“生而不有，为而不恃，长而不宰”作为“玄德”，在现实中真的可能吗？一个生养者若完全不“有”、不“恃”、不“宰”，养育关系还成立吗？还是说老子讲的是一种分寸，而不是彻底放手？</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+  dao["道：生发万物的根源"]
+  de["德：畜养万物的力量"]
+  wu["物：赋予万物形体"]
+  shi["势：促成万物成就的条件"]
+  xuande["玄德：生而不有、为而不恃、长而不宰"]
+  p1["命题：道生之，德畜之，物形之，势成之"]
+  p2["命题：万物莫不尊道而贵德"]
+  p3["命题：莫之命而常自然"]
+  p4["命题：道德长育、亭毒、养覆万物"]
+  p5["命题：生而不有、为而不恃、长而不宰，是谓玄德"]
+  a1["论据：“道生之，德畜之，物形之，势成之”"]
+  a2["论据：“是以万物莫不尊道而贵德”"]
+  a3["论据：“夫莫之命而常自然”"]
+  a4["论据：“生而不有，为而不恃，长而不宰”"]
+
+  dao --> p1
+  de --> p1
+  wu --> p1
+  shi --> p1
+  p1 --> p2
+  p1 --> p4
+  p2 --> p3
+  p4 --> p5
+  xuande --> p5
+  a1 --> p1
+  a2 --> p2
+  a3 --> p3
+  a4 --> p5
+  dao --> de
+  p2 --> p5
+  p4 --> p2
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章集中阐述道与德生养、畜育万物的根源性作用，说明万物尊道贵德出于自然，并以“生而不有、为而不恃、长而不宰”界定“玄德”。</div>
+<h3>📌 核心命题</h3><ol>
+<li>道生发万物，德畜养万物，物赋予万物形体，势促成万物成就。</li>
+<li>万物没有不尊崇道而珍贵德的。</li>
+<li>道之尊与德之贵，并非出于谁的命令，而是常常自然而然。</li>
+<li>道生养万物，德畜养万物，并长育、亭毒、养覆万物。</li>
+<li>生养万物却不占有，作为却不恃功，长养却不主宰，这叫作玄德。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>“道生之，德畜之，物形之，势成之。”</li>
+<li>“是以万物莫不尊道而贵德。”</li>
+<li>“夫莫之命而常自然。”</li>
+<li>“生而不有，为而不恃，长而不宰。是谓玄德。”</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>道</strong></summary><div class="case-body">文中指生发万物的根源。</div></details>
+<details><summary><strong>德</strong></summary><div class="case-body">文中指畜养万物的力量。</div></details>
+<details><summary><strong>势</strong></summary><div class="case-body">文中指促成万物成就的条件。</div></details>
+<details><summary><strong>玄德</strong></summary><div class="case-body">文中指生而不有、为而不恃、长而不宰的德。</div></details>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```text</p>
+<p>我刚读完第 51 章。下面是我对本章主线的复述：</p>
+<br/>
+<p>{我的复述}</p>
+<br/>
+<p>请你严格对照本章原文做三件事，不要替我补全，也不要先讲你的版本：</p>
+<p>1）逐句标出我这段复述里「准确 / 遗漏 / 扭曲」的地方，遗漏和扭曲要指到具体是哪一句原文；</p>
+<p>2）列出本章的 3–5 个关键概念，逐个检查我在复述里是否用对了它们，如果用错了，指出我是在哪一步滑掉的；</p>
+<p>3）最后只问我一个问题，让我自己把最大的那处偏差改回来。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```text</p>
+<p>请扮演第 51 章立场的最强反方，不要客气，也不要用「但另一方面」来软化。</p>
+<br/>
+<p>本章的核心主张我概括为：{核心主张}</p>
+<p>我接受它的主要理由是：{我的接受理由}</p>
+<br/>
+<p>请依次做：</p>
+<p>1）构造三个最强反驳。每个反驳都要先准确说出本章最有道理的那一步，再指出它在哪里偷偷多走了一步；</p>
+<p>2）点出我上面那条接受理由中，哪一处是循环论证、哪一处是诉诸直觉或诉诸权威；</p>
+<p>3）最后告诉我：如果我还想守住本章立场，最必须补上的那块论证是什么，以及补不上会怎样。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```text</p>
+<p>第 51 章的思想，我需要在真实处境里用出来。下面是我遇到的三个场景：</p>
+<br/>
+<p>场景一：{场景一}</p>
+<p>场景二：{场景二}</p>
+<p>场景三：{场景三}</p>
+<br/>
+<p>请针对每个场景：</p>
+<p>1）先判断本章的哪一条论点真正适用于它，哪一条其实不适用（不要硬套）；</p>
+<p>2）给出一个具体的、可执行的动作或判断标准，而不是&quot;要有批判性思维&quot;这类空话；</p>
+<p>3）指出如果按本章思路做，最可能付出什么代价、这个代价在什么情况下不值得付。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```text</p>
+<p>第 51 章里最让我兴奋的一句话是：</p>
+<br/>
+<p>「{原句}」</p>
+<br/>
+<p>请围绕这一句往下推，不要停在解释它：</p>
+<p>1）先确认这句话在本章论证链条里承担的是什么角色——是前提、推论，还是作者顺手抛出的断言？</p>
+<p>2）如果这句话为真，并且一直推到底，会连带出哪些作者本人没有明说、但难以回避的结论？</p>
+<p>3）这些推论里，哪一条会反过来威胁本章的其他主张？</p>
+<p>4）最后给我一个可以继续往下追的方向：这句话在思想史上通常被谁接过、又被谁拧向了相反的方向。</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题</h2>
+<br/>
+<ol>
+<li>1. 这一章作者最想让你相信的那一句话是什么？—— 提示：用你自己的话写，不超过 25 个字，写完再回原文核对。</li>
+<li>2. 本章里有没有一个词反复出现，但你其实说不清它到底什么意思？—— 提示：圈出来，先写下你此刻的猜测，别急着查。</li>
+<li>3. 作者在这一章主要是在反对谁？—— 提示：找出被他点名或暗指的对手，以及他给对方贴的那个标签。</li>
+<li>4. 这一章的论证是从一个例子出发，还是从一个定义出发？—— 提示：找到全章第一个&quot;因为……所以……&quot;出现的位置。</li>
+<li>5. 如果本章的核心主张是假的，世界会有什么不一样？—— 提示：这是检验一个论点到底有没有内容的最快办法。</li>
+<li>6. 这一章和上一章之间是递进、转折，还是修正？—— 提示：把上一章最后一句和本章第一句并排读一遍。</li>
+<li>7. 本章哪个论断让你有点不舒服，却又一时反驳不了？—— 提示：那个不舒服的位置，通常就是你自己尚未想清楚的地方，值得停下来。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>道</td><td>万物都是从它那里长出来的那个总根子。</td><td>老子哲学的最高范畴，指宇宙万物的本原与根本规律。《老子》第二十五章谓&quot;有物混成，先天地生……强字之曰道&quot;；第五十一章则从生成论角度说道&quot;生之&quot;，即道是万物得以生的根源。与&quot;德&quot;相对而言，道是未分化的本根，德是道落实于万物之中的具体禀受。</td><td>帛书甲乙本与王弼本第五十一章作&quot;道生之，德畜之&quot;，道为&quot;生&quot;之源，德为&quot;畜&quot;之力。王弼注：&quot;道者，物之所由也。&quot;以&quot;无&quot;释道，强调&quot;不塞其原&quot;&quot;不禁其性&quot;。陈鼓应《老子今注今译》指出此章&quot;道&quot;是&quot;客观存在的终极根源&quot;，非人格神。刘笑敢区分&quot;老子之道&quot;的本源义、规律义与境界义三系。</td><td>王弼以&quot;贵无&quot;立说，认为道即&quot;无&quot;，万物&quot;以无为体&quot;而自生自化；河上公则把道解为&quot;自然长生之道&quot;，重在治身养生，谓人能体道则&quot;精神不劳&quot;。郭象注《庄》主&quot;独化&quot;，反对在万物之上另立一个生成者，认为&quot;道&quot;只是&quot;物之所由&quot;的空名，这与老子本章的生成论形成张力。海德格尔晚期讲&quot;道说&quot;（Sage）与大化（Ereignis），被部分学者比附为老子之道，但其&quot;存在之真理&quot;并不承担宇宙论的生成本源义，二者只是结构上的呼应而非内容上的等同。</td></tr>
+<tr><td>德</td><td>万物从根子那里得到、并据以存活的那份本钱。</td><td>指道赋予万物的具体禀性，以及畜养、护持万物的力量。《老子》第五十一章&quot;德畜之&quot;，与&quot;道生之&quot;对举：道是普遍的生成根源，德是使万物各成其性的内在依据。后世常&quot;道&quot;&quot;德&quot;连称，但老子书中二者有体用、普遍与分殊之别。</td><td>王弼注：&quot;德者，物之所得也。&quot;即万物从道那里&quot;得&quot;到的东西即为德，此说本于《管子·心术上》&quot;德者，得也&quot;。成玄英以重玄义疏解，谓&quot;道生德畜&quot;皆为方便言诠，实则&quot;道德&quot;双遣。陈鼓应释&quot;德&quot;为&quot;道寓于万物之中的部分&quot;，是&quot;道&quot;的分殊化落实。</td><td>河上公把&quot;德&quot;解为&quot;德一&quot;，谓&quot;一&quot;即道之子，人守德一则可&quot;不劳&quot;而养生，此章由此被读作内丹修养的纲领。王夫之以气化立论，认为&quot;道&quot;与&quot;德&quot;只是&quot;太和絪缊&quot;之气在通与分两个层面的称谓，道是&quot;统之&quot;、德是&quot;分之&quot;，反对把德看成从道那里外借来的东西。儒家自孔孟以降以&quot;德&quot;指道德品行（仁、义、忠、信），与老子此处本体论、宇宙论意义上的&quot;德&quot;判然有别，宋儒如朱熹虽读《老》，仍以&quot;德&quot;归之于性理，此即两家分野之所在。</td></tr>
+<tr><td>势</td><td>万物之所以能长成、能成就的那股助推条件。</td><td>指促成万物生长发育、成就自身的客观条件与趋势。《老子》第五十一章&quot;势成之&quot;，与&quot;道生&quot;&quot;德畜&quot;&quot;物形&quot;并列，构成万物生成的四个环节。势在此非权谋之势，而是自然条件、时位、环境所构成的促成力量。法家（如《韩非子·难势》）言&quot;势&quot;多指君主之位势，与此自然义之&quot;势&quot;不同。</td><td>王弼本此句作&quot;势成之&quot;，帛书甲乙本亦有&quot;势成之&quot;之文；部分注家读&quot;势&quot;为&quot;器&quot;或&quot;埶&quot;，训为形势、条件。王弼注以&quot;不塞其原&quot;为说，谓万物&quot;各得其成&quot;，势即自然成就之所由。蒋锡昌《老子校诂》释&quot;势&quot;为&quot;环境之力&quot;。陈鼓应取&quot;形势、条件&quot;义，认为此环节表明老子生成论包含客观条件维度，非纯粹唯心。</td><td>韩非在《难势》中把&quot;势&quot;界定为君主所居之位，主张&quot;抱法处势则治&quot;，是政治权位意义上的&quot;势&quot;，与老子此处自然条件义完全不同，但二者共享&quot;凭借外在条件而成事&quot;的语义结构。王夫之以气化释之，认为&quot;势&quot;即阴阳之气&quot;相感相取&quot;所成之态势，万物之成乃是气机之必然，非有主宰者使之然。怀特海的过程哲学以&quot;合生&quot;（concrescence）解释现实实有的生成，强调每一事件由既往事件&quot;客观化&quot;提供条件而成就，与&quot;势成之&quot;的条件性生成有可比较之处，但怀特海仍保留主体性摄受，老子则不言主体。</td></tr>
+<tr><td>玄德</td><td>生了却不占有、做了却不自夸、养大了却不控制——这种德很深很远。</td><td>指&quot;生而不有，为而不恃，长而不宰&quot;之德，是《老子》第五十一章对最高德性的概括。玄，幽深不测；德，畜养成就之功。玄德即不居功、不宰制、任万物自成的深德，与第十章&quot;生而不有，为而不恃，长而不宰，是谓玄德&quot;文句相合，可见此语为《老子》核心命题之一。</td><td>王弼注：&quot;玄德深矣远矣，与物反矣，然后乃至大顺。&quot;强调玄德之&quot;反&quot;，即返回于无、不居其功。苏辙《老子解》以&quot;不有&quot;&quot;不恃&quot;&quot;不宰&quot;为&quot;无心&quot;之德，谓&quot;圣人无心而万物自遂&quot;。成玄英重玄一系则谓&quot;玄德&quot;亦属方便名相，最终&quot;德&quot;&quot;玄&quot;两忘。陈鼓应释为&quot;最深远的德&quot;，即不含有任何占有欲与支配欲的生成之德。</td><td>河上公以养生解之，谓人能&quot;生而不有&quot;则&quot;精神不去&quot;，玄德即长生久视之德，把伦理命题转为身中修炼的口诀。郭象注《庄》主&quot;独化&quot;&quot;无心&quot;，认为圣人只是&quot;任万物之自为&quot;，故不有、不恃、不宰并非道德克制，而是根本无&quot;有之&quot;&quot;恃之&quot;之心，这与老子的&quot;玄德&quot;表述可相互发明。王夫之则认为&quot;生而不有&quot;正是气化之自然，天地无心而成化，非有意于&quot;不有&quot;。佛学中观以&quot;缘起性空&quot;说一切法无自性，禅宗讲&quot;无心是道&quot;，与&quot;长而不宰&quot;的无所执取有结构相似，但中观破的是自性见，老子立的是生成之德，出发点并不相同。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">道</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">万物都是从它那里长出来的那个总根子。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子哲学的最高范畴，指宇宙万物的本原与根本规律。《老子》第二十五章谓&quot;有物混成，先天地生……强字之曰道&quot;；第五十一章则从生成论角度说道&quot;生之&quot;，即道是万物得以生的根源。与&quot;德&quot;相对而言，道是未分化的本根，德是道落实于万物之中的具体禀受。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">帛书甲乙本与王弼本第五十一章作&quot;道生之，德畜之&quot;，道为&quot;生&quot;之源，德为&quot;畜&quot;之力。王弼注：&quot;道者，物之所由也。&quot;以&quot;无&quot;释道，强调&quot;不塞其原&quot;&quot;不禁其性&quot;。陈鼓应《老子今注今译》指出此章&quot;道&quot;是&quot;客观存在的终极根源&quot;，非人格神。刘笑敢区分&quot;老子之道&quot;的本源义、规律义与境界义三系。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;贵无&quot;立说，认为道即&quot;无&quot;，万物&quot;以无为体&quot;而自生自化；河上公则把道解为&quot;自然长生之道&quot;，重在治身养生，谓人能体道则&quot;精神不劳&quot;。郭象注《庄》主&quot;独化&quot;，反对在万物之上另立一个生成者，认为&quot;道&quot;只是&quot;物之所由&quot;的空名，这与老子本章的生成论形成张力。海德格尔晚期讲&quot;道说&quot;（Sage）与大化（Ereignis），被部分学者比附为老子之道，但其&quot;存在之真理&quot;并不承担宇宙论的生成本源义，二者只是结构上的呼应而非内容上的等同。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">德</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">万物从根子那里得到、并据以存活的那份本钱。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指道赋予万物的具体禀性，以及畜养、护持万物的力量。《老子》第五十一章&quot;德畜之&quot;，与&quot;道生之&quot;对举：道是普遍的生成根源，德是使万物各成其性的内在依据。后世常&quot;道&quot;&quot;德&quot;连称，但老子书中二者有体用、普遍与分殊之别。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;德者，物之所得也。&quot;即万物从道那里&quot;得&quot;到的东西即为德，此说本于《管子·心术上》&quot;德者，得也&quot;。成玄英以重玄义疏解，谓&quot;道生德畜&quot;皆为方便言诠，实则&quot;道德&quot;双遣。陈鼓应释&quot;德&quot;为&quot;道寓于万物之中的部分&quot;，是&quot;道&quot;的分殊化落实。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公把&quot;德&quot;解为&quot;德一&quot;，谓&quot;一&quot;即道之子，人守德一则可&quot;不劳&quot;而养生，此章由此被读作内丹修养的纲领。王夫之以气化立论，认为&quot;道&quot;与&quot;德&quot;只是&quot;太和絪缊&quot;之气在通与分两个层面的称谓，道是&quot;统之&quot;、德是&quot;分之&quot;，反对把德看成从道那里外借来的东西。儒家自孔孟以降以&quot;德&quot;指道德品行（仁、义、忠、信），与老子此处本体论、宇宙论意义上的&quot;德&quot;判然有别，宋儒如朱熹虽读《老》，仍以&quot;德&quot;归之于性理，此即两家分野之所在。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">势</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">万物之所以能长成、能成就的那股助推条件。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指促成万物生长发育、成就自身的客观条件与趋势。《老子》第五十一章&quot;势成之&quot;，与&quot;道生&quot;&quot;德畜&quot;&quot;物形&quot;并列，构成万物生成的四个环节。势在此非权谋之势，而是自然条件、时位、环境所构成的促成力量。法家（如《韩非子·难势》）言&quot;势&quot;多指君主之位势，与此自然义之&quot;势&quot;不同。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼本此句作&quot;势成之&quot;，帛书甲乙本亦有&quot;势成之&quot;之文；部分注家读&quot;势&quot;为&quot;器&quot;或&quot;埶&quot;，训为形势、条件。王弼注以&quot;不塞其原&quot;为说，谓万物&quot;各得其成&quot;，势即自然成就之所由。蒋锡昌《老子校诂》释&quot;势&quot;为&quot;环境之力&quot;。陈鼓应取&quot;形势、条件&quot;义，认为此环节表明老子生成论包含客观条件维度，非纯粹唯心。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">韩非在《难势》中把&quot;势&quot;界定为君主所居之位，主张&quot;抱法处势则治&quot;，是政治权位意义上的&quot;势&quot;，与老子此处自然条件义完全不同，但二者共享&quot;凭借外在条件而成事&quot;的语义结构。王夫之以气化释之，认为&quot;势&quot;即阴阳之气&quot;相感相取&quot;所成之态势，万物之成乃是气机之必然，非有主宰者使之然。怀特海的过程哲学以&quot;合生&quot;（concrescence）解释现实实有的生成，强调每一事件由既往事件&quot;客观化&quot;提供条件而成就，与&quot;势成之&quot;的条件性生成有可比较之处，但怀特海仍保留主体性摄受，老子则不言主体。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">玄德</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">生了却不占有、做了却不自夸、养大了却不控制——这种德很深很远。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指&quot;生而不有，为而不恃，长而不宰&quot;之德，是《老子》第五十一章对最高德性的概括。玄，幽深不测；德，畜养成就之功。玄德即不居功、不宰制、任万物自成的深德，与第十章&quot;生而不有，为而不恃，长而不宰，是谓玄德&quot;文句相合，可见此语为《老子》核心命题之一。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;玄德深矣远矣，与物反矣，然后乃至大顺。&quot;强调玄德之&quot;反&quot;，即返回于无、不居其功。苏辙《老子解》以&quot;不有&quot;&quot;不恃&quot;&quot;不宰&quot;为&quot;无心&quot;之德，谓&quot;圣人无心而万物自遂&quot;。成玄英重玄一系则谓&quot;玄德&quot;亦属方便名相，最终&quot;德&quot;&quot;玄&quot;两忘。陈鼓应释为&quot;最深远的德&quot;，即不含有任何占有欲与支配欲的生成之德。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以养生解之，谓人能&quot;生而不有&quot;则&quot;精神不去&quot;，玄德即长生久视之德，把伦理命题转为身中修炼的口诀。郭象注《庄》主&quot;独化&quot;&quot;无心&quot;，认为圣人只是&quot;任万物之自为&quot;，故不有、不恃、不宰并非道德克制，而是根本无&quot;有之&quot;&quot;恃之&quot;之心，这与老子的&quot;玄德&quot;表述可相互发明。王夫之则认为&quot;生而不有&quot;正是气化之自然，天地无心而成化，非有意于&quot;不有&quot;。佛学中观以&quot;缘起性空&quot;说一切法无自性，禅宗讲&quot;无心是道&quot;，与&quot;长而不宰&quot;的无所执取有结构相似，但中观破的是自性见，老子立的是生成之德，出发点并不相同。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 51 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 51 章]
+
+道生之，德畜之，物形之，势成之。是以万物莫不尊道而贵德。道之尊，德之贵，夫莫之命而常自然。故道生之，德畜之。长之育之，亭之毒之，养之覆之。生而不有，为而不恃，长而不宰。是谓玄德。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_51_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

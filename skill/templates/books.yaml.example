@@ -1,0 +1,206 @@
+# 《世界的逻辑》书目配置
+# 换书 = 改这一份 yaml。新书填 id/标题/作者/章节区间，跑同一套流水线
+# 流水线脚本只会读这一份文件
+
+- id: shijie_deluoji
+  title: "世界的逻辑：如何让我们生活的世界更理性、更可控"
+  author: 马兆远
+  publisher: 浙江科学技术出版社·湛庐
+  isbn: 9787573918949
+  year: 2025
+  language: zh-CN
+  # ---- 书架展示字段（可选；缺省时自动推断）----
+  category: 哲学
+  tags: [科学哲学, 逻辑, 科学史, 通识]
+  cover_color: "#8B6F47"     # 书脊色（赭石）
+  description: "以「逻辑」为金线，把古希腊哲学、数学史、物理学、量子力学编织成一张通识知识网络。从毕达哥拉斯到哥德尔，追问：确定性从哪来，不确定性又是什么。"
+  volumes:
+    - id: shang
+      path: shijie_deluoji_shang.pdf      # 相对 code/inputs/
+      pages: 217
+    - id: xia
+      path: shijie_deluoji_xia.pdf
+      pages: 336
+
+  # 解析粒度：
+  # - 引言区（preface）一般跨多页
+  # - 章区间：用 [volume, start_page, end_page] 描述（含 start, 含 end）
+  #   PDF 页号是从 1 开始的
+  preface:
+    - id: yin
+      label: "引言 · 认识世界的必经之路"
+      hook_text: ""   # 引言无名人 hook
+      # 上册 PDF 第 25-36 页
+      volume: shang
+      pages: [25, 36]
+
+  chapters:
+    # 上册
+    - id: "01"
+      label: "第 1 章 · 语言，人类文明形成的关键因素"
+      hook: "我语言的边界便是我思想的边界。——维特根斯坦"
+      volume: shang
+      pages: [39, 59]    # 21 页
+      part: 一·人类对确定性的追求
+      status: todo       # todo / wip / done
+
+    - id: "02"
+      label: "第 2 章 · 宗教，古代人类对确定性的终极追求"
+      hook: "凡有限之知识，皆属科学；凡超越有限知识之信条，皆属神学。——伯特兰·罗素"
+      volume: shang
+      pages: [60, 78]
+      part: 一·人类对确定性的追求
+      status: todo
+
+    - id: "03"
+      label: "第 3 章 · 古希腊哲学，从理性的角度追求确定性"
+      hook: ""
+      volume: shang
+      pages: [81, 130]
+      part: 二·理性认知的基础
+      status: todo
+
+    - id: "04"
+      label: "第 4 章 · 古典逻辑，塑造整个现代科学的根基"
+      hook: ""
+      volume: shang
+      pages: [131, 175]
+      part: 二·理性认知的基础
+      status: todo
+
+    - id: "05"
+      label: "第 5 章 · 理性，建立俯视宇宙的信心"
+      hook: ""
+      volume: shang
+      pages: [176, 217]
+      part: 二·理性认知的基础
+      status: todo
+
+    # 下册
+    - id: "06"
+      label: "第 6 章 · 实践，获取知识的重要途径"
+      hook: ""
+      volume: xia
+      pages: [5, 22]
+      part: 三·应对不确定性的武器
+      status: todo
+
+    - id: "07"
+      label: "第 7 章 · 古典理性的灾难，数学的三次危机"
+      hook: ""
+      volume: xia
+      pages: [23, 74]
+      part: 三·应对不确定性的武器
+      status: todo
+
+    - id: "08"
+      label: "第 8 章 · 不完备性，不断扩展知识的边界"
+      hook: ""
+      volume: xia
+      pages: [75, 109]
+      part: 三·应对不确定性的武器
+      status: todo
+
+    - id: "09"
+      label: "第 9 章 · 回归直觉，认知过程中的核心角色"
+      hook: ""
+      volume: xia
+      pages: [110, 134]
+      part: 三·应对不确定性的武器
+      status: todo
+
+    - id: "10"
+      label: "第 10 章 · AI，时代的终曲和新篇"
+      hook: ""
+      volume: xia
+      pages: [135, 156]
+      part: 三·应对不确定性的武器
+      status: todo
+
+    - id: "11"
+      label: "第 11 章 · 混沌，宇宙的基本特征"
+      hook: ""
+      volume: xia
+      pages: [157, 189]
+      part: 三·应对不确定性的武器
+      status: todo
+
+    - id: "12"
+      label: "第 12 章 · 概率，描述信心的数学工具"
+      hook: ""
+      volume: xia
+      pages: [190, 244]
+      part: 三·应对不确定性的武器
+      status: todo
+
+    - id: "13"
+      label: "第 13 章 · 量子逻辑，改变对自然界的认知"
+      hook: ""
+      volume: xia
+      pages: [245, 308]
+      part: 三·应对不确定性的武器
+      status: todo
+
+    - id: "14"
+      label: "第 14 章 · 务实，找到有效解决问题的方法"
+      hook: ""
+      volume: xia
+      pages: [311, 335]
+      part: 四·科学与技术发展的哲学基础
+      status: todo
+
+  # 模型白名单（同步自 ~/.workbuddy/models.json，**严禁使用非此 5 个的模型**）
+  model_whitelist:
+    - deepseek-v4-flash       # 推理强
+    - doubao-seed-2.1-lite    # 多模态/图
+    - glm-5.3                  # 通用对话
+    - kimi-k3                  # 长文本/多模态
+    - MiniMax-M3              # 1M 上下文
+
+  model_routing:
+    socrates_main: deepseek-v4-flash
+    notes_extract: deepseek-v4-flash
+    graph_render: deepseek-v4-flash
+    image_caption: doubao-seed-2.1-lite
+    long_context: kimi-k3
+    cheap_dialogue: glm-5.3
+    self: MiniMax-M3
+
+  # 这些"公版"模型永远禁调：
+  model_blacklist: [DeepSeek-V3, DeepSeek-R1, GLM-4, GLM-4.5, GLM-4.6, Qwen3-Max, Qwen3-Plus, Qwen3-Turbo, "ERNIE-4", "ERNIE-4.5", Doubao-1.5-pro, Doubao-pro]
+
+# ============================================================
+# 公版书：道德经（81 章 · 王弼本）
+# 文本型书籍：source_type=text，用 01b_split_text_book.py 拆章
+# ============================================================
+- id: daodejing
+  title: "道德经"
+  author: 老子
+  publisher: 公有领域
+  year: ""
+  language: zh-Hant
+  source_type: text
+  text_source: daodejing.json
+  auto_chapters: 81
+  auto_label_format: "第 {n} 章"
+  auto_part: "老子五千言"
+  # ---- 书架展示字段 ----
+  category: 国学
+  tags: [道家, 先秦哲学, 经典, 公版]
+  cover_color: "#2E4756"
+  description: "五千言，八十一章。中国思想最深的源头之一：道、德、无为、反者道之动。每一章都值得反复读——它的难不在字句，在于你读的时候正处在什么处境里。"
+  model_whitelist:
+    - deepseek-v4-flash
+    - doubao-seed-2.1-lite
+    - glm-5.3
+    - kimi-k3
+    - MiniMax-M3
+  model_routing:
+    socrates_main: deepseek-v4-flash
+    notes_extract: deepseek-v4-flash
+    graph_render: deepseek-v4-flash
+    image_caption: doubao-seed-2.1-lite
+    long_context: kimi-k3
+    cheap_dialogue: glm-5.3
+    self: MiniMax-M3
+  model_blacklist: [DeepSeek-V3, DeepSeek-R1, GLM-4, GLM-4.5, GLM-4.6, Qwen3-Max, Qwen3-Plus, Qwen3-Turbo, "ERNIE-4", "ERNIE-4.5", Doubao-1.5-pro, Doubao-pro]

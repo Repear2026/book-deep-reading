@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 57 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 57/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_56/site/index.html" title="第 56 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_58/site/index.html" title="第 58 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 57 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>以正治国，以奇用兵，以无事取天下。吾何以知其然哉？以此。天下多忌讳，而民弥贫；民多利器，国家滋昏；人多伎巧，奇物滋起；法令滋彰，盗贼多有。故圣人云：我无为而民自化，我好静而民自正，我无事而民自富，我无欲而民自朴。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 57 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章是老子政治哲学的一段纲领：治国靠正道，用兵靠奇变，而“取天下”的关键却是——不折腾。老子用一条条反证链（忌讳多→民贫困，利器多→国昏乱，伎巧多→奇物起，法令多→盗贼多）来说明：政令越繁杂，秩序反而越混乱。最有意思的是，它把“治国好不好”的标准从“管得严不严”翻转成“扰不扰民”。最大的收获是结尾四句：无为而民自化，好静而民自正，无事而民自富，无欲而民自朴。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote><strong>如果</strong>你所在的小区物业把规章从十条加到一百条，你的生活会更有序还是更憋闷？</blockquote>
+<p>&gt;</p>
+<blockquote><strong>如果</strong>一家公司严禁一切“越界”做法，员工还会不会做出新产品、新办法？</blockquote>
+<p>&gt;</p>
+<blockquote><strong>如果</strong>政府把所有想得到的不良行为都写进法律，剩下的“法外空间”会由谁来填？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote><strong>韩非</strong>（《韩非子·有度》）：与老子正好相反，“奉法者强则国强”——法要明、要公布、要严格执行，秩序不来自少法，而来自法必行、赏罚必信。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>荀子</strong>（《荀子·富国》等）：人“群而无分则争”，所以必须靠礼义法度来划定界限。他不认为去掉规范就能自然有序，反而认为规范是人群得以共存的前提。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>王阳明</strong>：走的是老子的同侧——理不在外面的条文章程里，而在“良知”之中；把条目越订越细，未必能让人变好，反容易“务外而遗内”。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>维特根斯坦</strong>（《哲学研究》§201 关于“遵守规则”的讨论）：任何规则都无法自行决定下一步怎么应用，规则总是靠共同的生活实践来支撑。这从语言哲学一侧，提示了“法令滋彰”为何不能自动产生秩序。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>福柯</strong>（《规训与惩罚》）：监狱与规训机制并不消除违法，反而在生产一种可被管理的“过失犯罪”人群。这与老子“法令滋彰，盗贼多有”构成一种现代的呼应，但福柯的结论是权力无所不在，而非“无欲而民自朴”。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：抓住三个关注点——开头三句纲领（正、奇、无事，分别对应治国、用兵、取天下三件事，不要混用）；中间四个“多则……”形成的反证链；结尾圣人四“自”的对照（无为、好静、无事、无欲，对应自化、自正、自富、自朴）。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：重点抠两处论证。第一处是“法令滋彰，盗贼多有”：老子凭什么说外在强制越多、越不生秩序？这里的因果是“民被逼得无路可走”，还是“禁令本身激出规避行为”？第二处是结尾四句的对应关系：为什么“无为”对“自化”、“无欲”对“自朴”？这四组是不是层层递进，还是并列列举？想清楚这两点，全章的逻辑骨架就立起来了。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：留给自己的开放问题是——如果“少发政令、少造事”就是好政治，那么面对食品安全、环境污染、公共卫生这类“不管就出事”的领域，“无事”的边界应该划在哪里？老子没有正面回答，而这正是这一章最值得追问的地方。</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+P1["以正治国，以奇用兵，以无事取天下"]
+P1a["治国当以正道为本"]
+P1b["用兵当以奇变为法"]
+P1c["取天下当以不扰民、不造事为原则"]
+P2["忌讳多则民更贫困"]
+P3["利器多则国家滋昏"]
+P4["伎巧多则奇物滋起"]
+P5["法令滋彰则盗贼多有"]
+P6["圣人无为而民自化、好静而民自正、无事而民自富、无欲而民自朴"]
+C_zheng["以正治国"]
+C_qi["以奇用兵"]
+C_wushi_tq["以无事取天下"]
+C_jihui["忌讳"]
+C_liqi["利器"]
+C_jiqiao["伎巧"]
+C_qiwu["奇物"]
+C_faling["法令滋彰"]
+C_wuwei["无为"]
+C_haojing["好静"]
+C_wushi["无事"]
+C_wuyu["无欲"]
+P1a -->|supports| P1
+P1b -->|supports| P1
+P1c -->|supports| P1
+C_zheng -->|relates_to| P1a
+C_qi -->|relates_to| P1b
+C_wushi_tq -->|relates_to| P1c
+C_jihui -->|relates_to| P2
+C_liqi -->|relates_to| P3
+C_jiqiao -->|relates_to| P4
+C_qiwu -->|relates_to| P4
+C_faling -->|relates_to| P5
+P2 -->|supports| P6
+P3 -->|supports| P6
+P4 -->|supports| P6
+P5 -->|supports| P6
+C_wuwei -->|relates_to| P6
+C_haojing -->|relates_to| P6
+C_wushi -->|relates_to| P6
+C_wuyu -->|relates_to| P6
+P2 -->|relates_to| P3
+P3 -->|relates_to| P4
+P4 -->|relates_to| P5
+C_wushi -->|relates_to| C_wushi_tq
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章集中阐述老子的治国用兵原则与无为政治逻辑：以正道治国、以奇变用兵、以不扰事取天下，并通过“忌讳—贫困”“利器—昏乱”“伎巧—奇物”“法令—盗贼”的因果链，反证为政者少干涉、少造事、少贪欲的必要性。</div>
+<h3>📌 核心命题</h3><ol>
+<li>以正治国，以奇用兵，以无事取天下。</li>
+<li>天下忌讳多则民更贫困。</li>
+<li>民多利器则国家滋昏。</li>
+<li>人多伎巧则奇物滋起。</li>
+<li>法令滋彰则盗贼多有。</li>
+<li>圣人无为而民自化，好静而民自正，无事而民自富，无欲而民自朴。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>治国当以正道为本，用兵当以奇变为法，取天下当以不扰民、不造事为原则。</li>
+<li>为政者禁令忌讳越多，民众越受束缚而趋于贫困。</li>
+<li>民众掌握过多锐利器物或武器，国家反而容易陷入昏乱。</li>
+<li>民间技艺巧作越繁盛，奇异之物越容易滋生。</li>
+<li>法令越彰显繁多，盗贼反而越多，说明外在强制未必带来秩序。</li>
+<li>为政者若能做到无为、好静、无事、无欲，民众将自化、自正、自富、自朴。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>以正治国</strong></summary><div class="case-body">用正道治理国家。</div></details>
+<details><summary><strong>以奇用兵</strong></summary><div class="case-body">用奇变之法用兵。</div></details>
+<details><summary><strong>以无事取天下</strong></summary><div class="case-body">以不扰事的方式取得天下。</div></details>
+<details><summary><strong>忌讳</strong></summary><div class="case-body">禁令与禁忌。</div></details>
+<details><summary><strong>利器</strong></summary><div class="case-body">锐利的器物或武器。</div></details>
+<details><summary><strong>伎巧</strong></summary><div class="case-body">技艺与巧作。</div></details>
+<details><summary><strong>奇物</strong></summary><div class="case-body">奇异之物。</div></details>
+<details><summary><strong>法令滋彰</strong></summary><div class="case-body">法令越发彰显繁多。</div></details>
+<details><summary><strong>无为</strong></summary><div class="case-body">为政者不以烦扰之举干预民众。</div></details>
+<details><summary><strong>好静</strong></summary><div class="case-body">为政者保持安静不扰。</div></details>
+<details><summary><strong>无事</strong></summary><div class="case-body">为政者不制造事端。</div></details>
+<details><summary><strong>无欲</strong></summary><div class="case-body">为政者不贪求。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>可与老子关于“无为而治”的章节互相参照，理解为政者少干预与民众自化的关系。</li>
+<li>可与批评“法令繁多”“智巧滋起”的章节关联，比较外在规制与自然秩序的不同治理思路。</li>
+<li>可与“少私寡欲”“不扰民”的治理主张关联，观察“无欲而民自朴”的思想线索。</li>
+<li>可与后文关于政令宽严与民风关系的章节对照，理解“无事”与“好静”的政治含义。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<p>```</p>
+<p>我正在读《{书名}》第 57 章。以下是我对本章主线的一段自述：</p>
+<br/>
+<p>「{我的复述}」</p>
+<br/>
+<p>请你做两件事：</p>
+<ol>
+<li>1. 主线提取：用不超过 5 个要点，复述本章的论证/叙事主线，标明每一步在原文中的落点（引用关键词或短句）。</li>
+<li>2. 关键概念检查：列出本章出现的 3–5 个关键概念，逐一比对——我的复述里哪些用对了、哪些用偏了、哪些完全没提到。对每处偏差，指出我可能混淆的是哪个概念。</li>
+</ol>
+<p>最后给我一个判断：我的复述属于「抓住了骨架」「抓住了部分枝叶」还是「跑偏到别的问题上」。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<p>```</p>
+<p>我正在读《{书名}》第 57 章，我基本接受了本章的立场：{我接受的论点}。</p>
+<br/>
+<p>请你扮演最强反方，不要把话说软，也不要先恭维我。要求：</p>
+<ol>
+<li>1. 从与本章相反的视角，构造一个尽可能强的反驳：指出本章论证中最脆弱的那个前提，并说明为什么它可以被合理否认。</li>
+<li>2. 给出这个反驳在思想史上的真实盟友（哪一派、哪位思想家、大致什么主张），不要编造书名。</li>
+<li>3. 预判本章作者可能如何回应，再指出这个回应为什么仍不充分。</li>
+<li>4. 最后告诉我：如果反方成立，我原先接受的哪个结论必须放弃，哪个还能保住。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<p>```</p>
+<p>我刚读完《{书名}》第 57 章，本章的核心思想我理解为：{我的理解}。</p>
+<br/>
+<p>请给我 3 个真实生活/工作场景，要求：</p>
+<ul>
+<li>- 场景 1：{个人日常层面}</li>
+<li>- 场景 2：{职业/组织层面}</li>
+<li>- 场景 3：{公共或社会层面}</li>
+</ul>
+<br/>
+<p>对每个场景：先用两三句话把场景写具体（有具体角色、具体抉择、具体代价），再说明本章思想在这里如何实际起作用——它能帮人看到什么原本看不见的东西、会改变哪个决定、以及用错了会有什么副作用。不要泛泛而谈&quot;要有批判思维&quot;。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<p>```</p>
+<p>《{书名}》第 57 章里，最让我兴奋的一句话是：</p>
+<br/>
+<p>「{原句}」</p>
+<br/>
+<p>请不要评价我选得好不好，直接围绕这句话往下推：</p>
+<ol>
+<li>1. 这句话在原文脉络里承担什么功能？它是在回应前文的哪个问题？</li>
+<li>2. 如果把这个判断推到极端，会得出什么本章作者未必愿意接受的结论？</li>
+<li>3. 这句话隐含了哪些未被明说的前提？逐个列出来，并标注哪个前提最可疑。</li>
+<li>4. 沿这条线继续追问，下一个应该被提出的问题是什么？给我 2–3 个可以继续追的方向，并说明哪个方向在思想史上已有现成的争论。</li>
+</ol>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅到深）</h2>
+<br/>
+<ol>
+<li>1. 这一章大概在讲一件什么事？用三句话讲给完全没读过这本书的朋友听。——先别管术语，能讲清&quot;谁在跟谁争什么&quot;就算成功。</li>
+<li>2. 这章里有没有哪个词反复出现、但你其实说不清它什么意思？把它挑出来。——反复出现的词往往就是本章的关键概念，先锁定它。</li>
+<li>3. 作者在本章最想反对的是哪一种说法？他把谁当成对手？——找到对手，论证的方向就清楚了一半。</li>
+<li>4. 本章有没有一个例子或比喻？作者用它想让你接受什么？——例子通常是论证的浓缩版，读懂例子等于读懂一半论证。</li>
+<li>5. 你读的时候有没有哪一处心里&quot;咯噔&quot;一下、觉得不太对？把那句话抄下来。——这处不适感往往就是你真正的思考入口，别急着说服自己。</li>
+<li>6. 如果本章的核心主张成立，你自己生活里的哪件事会需要重新看待？——能落到一个具体事例上，说明你真的理解了，而不只是记住了。</li>
+<li>7. 本章的论证依赖哪个未经证明的前提？如果这个前提被推翻，整章还剩下什么？——这是从&quot;读懂&quot;过渡到&quot;评估&quot;的分界线，五年左右的爱好者应当能在此站稳。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>以正治国</td><td>用正当、清明、合乎常规的办法治理国家。</td><td>语出《老子》第五十七章。“正”指清静无为之正道、常法，与“奇”相对。老子认为治国当以正，不以权术。</td><td>王弼本作“以正治国”，王弼注：“以道治国，崇本以息末；以正治国，立辟以攻末。”河上公注：“正，正道也。治国当以正道。”陈鼓应译“以清静之道治国”。“正”与“奇”构成经与权、常与变的对举。</td><td>王弼认为“以正治国”仍属“立辟以攻末”，不如“以道治国”崇本；河上公则以“正道”为治国之本，偏重治身与治国一体；苏辙《老子解》以“正”为“常”，认为“正”能胜“奇”；韩非《解老》以“理”释道、主张法度公开明确，可视为对“正”的法家式转写。</td></tr>
+<tr><td>以奇用兵</td><td>用出其不意、灵活多变的方法用兵。</td><td>“奇”与“正”相对，指权变、诈术、出人意料的战术。老子认为用兵不同于治国，可用奇。</td><td>河上公注：“奇，诈也。用兵当以诈。”王弼注：“以正治国，立辟以攻末……故必至于奇用兵也。”苏辙以“奇”为“非正也”。陈鼓应译“以奇术用兵”。“奇正”范畴后为兵家《孙子》所发挥。</td><td>河上公以“诈”解“奇”，近于兵家权谋；王弼则认为“奇”是“正”之穷，是“立辟攻末”的必然后果，带有批评意味；苏辙以“奇正相生”解，与《孙子》“奇正”之说相通；刘笑敢指出老子对“兵”持保留态度，“以奇用兵”是不得已而为之。</td></tr>
+<tr><td>以无事取天下</td><td>不扰民、不生事，才能取得天下。</td><td>“无事”即不制造烦苛政事、不扰攘百姓。“取天下”不是武力夺取，而是天下归附。</td><td>河上公注：“无事，无徭役征召之事也。”王弼注：“无事，则民自富。”蒋锡昌：“无事即无扰也。”陈鼓应译“以不扰攘人民来治理天下”。</td><td>王弼以“无”为本，认为“无事”是“崇本息末”的政治表现；河上公把“无事”与治身结合，主张“不烦不扰，精神内守”；黄老学派《管子·心术》讲“君无为而臣有为”，把“无事”理解为君主不亲细务；刘笑敢认为“无事”是“不强行干预”，与“自然”互为表里。</td></tr>
+<tr><td>忌讳</td><td>统治者设下的种种禁令和禁忌。</td><td>本章“天下多忌讳，而民弥贫”，“忌讳”指统治者制定的禁令、防禁，越多则百姓越贫困。</td><td>河上公注：“忌讳，防禁也。”王弼注：“多忌讳，则民弥贫。”陈鼓应译“禁忌戒律”。帛书甲乙本并作“忌讳”，与通行本同。</td><td>河上公从治身角度解“忌讳”为“防禁”，认为防禁过多伤民；王弼从“崇本息末”出发，认为忌讳多则民失其自然；韩非主张法应公开简明，反对隐秘难测的禁令，可与老子此句相参；陈鼓应指出这是老子对当时“政令烦苛”的批评。</td></tr>
+<tr><td>利器</td><td>统治者手中的权谋、权柄和锐利工具。</td><td>本章“民多利器，国家滋昏”，“利器”指权谋、权柄、兵甲等。</td><td>河上公注：“利器者，权谋也。”王弼注：“利器，利国之器也。”苏辙：“利器，权谋也。”陈鼓应译“利器”为“权谋”，亦有解为“锐利武器”者。</td><td>河上公以“权谋”解，认为民多权谋则国昏；王弼以“利国之器”解，认为“利器”是君主所执权柄，若下移则国昏；苏辙与三十六章“利器不可以示人”互文，认为权谋不可示民；楼宇烈指出“利器”兼含“权谋”与“兵器”二义。</td></tr>
+<tr><td>伎巧</td><td>各种机巧、巧诈和过度的手工技艺。</td><td>本章“人多伎巧，奇物滋起”，“伎巧”指机巧、巧诈，也指过度工艺。</td><td>河上公注：“伎巧，巧诈也。”王弼注：“民多智慧，则巧伪生。”帛书作“人多知（智）”，知通智。陈鼓应译“伎巧”为“巧诈”。</td><td>河上公从治身出发，认为“伎巧”伤朴；王弼以“智慧”释“伎巧”，认为巧伪生于智慧，与其“崇本息末”一致；庄子《天地》讲“有机事者必有机心”，《胠箧》主张“掊斗折衡而民不争”，可与老子“伎巧”相参；陈鼓应认为老子反对的是“巧诈”而非一切工艺。</td></tr>
+<tr><td>奇物</td><td>稀奇古怪、奢侈邪僻的东西。</td><td>本章“奇物滋起”，“奇物”指邪僻奇怪之物、奢侈之物。</td><td>河上公注：“奇物，邪事也。”王弼注：“奇物，奇怪之物也。”陈鼓应译“邪奇之物”。有版本作“邪事”。</td><td>河上公以“邪事”解，偏重道德教化；王弼以“奇怪之物”解，认为奇物生于“伎巧”；苏辙从“常”与“奇”对举，认为“奇物”是“不正”之物；现代学者指出“奇物”或指奢侈品、珍玩，与十二章“为腹不为目”相通。</td></tr>
+<tr><td>法令滋彰</td><td>法令条文越来越多、越来越严。</td><td>本章“法令滋彰，盗贼多有”，“滋”是更加，“彰”是显明。老子认为法令越繁，盗贼越多。</td><td>王弼本作“法物滋彰”，河上公本作“法令滋彰”。王弼注：“法物，谓法令也。”河上公注：“法物，好物也。”陈鼓应据河上公本作“法令滋彰”，译“法令条文越彰显，盗贼反而越多”。</td><td>河上公把“法物”解为“好物”，偏重治身；王弼解为“法令”，认为“法物”是“末”，“滋彰”则“本”失；韩非主张法应公开、必行，与老子此句形成张力——韩非《解老》强调法的客观性，老子则警惕法令膨胀；陈鼓应认为这是对“法治”过度化的批评，不是反对一切法。</td></tr>
+<tr><td>无为</td><td>不妄为、不强加干预，顺其自然。</td><td>老子核心概念。“无为”不是什么都不做，而是不妄为、不违反自然规律地干预。</td><td>王弼注：“自然已足，为则败也。”河上公注：“无为，不施为也。”陈鼓应译“不妄为”。刘笑敢指出“无为”是“行为主体对自然状态的辅助”。</td><td>王弼以“无”为本，认为“无为”是“崇本息末”；河上公以“治身”解“无为”，主张“精神内守”；黄老学派讲“君无为而臣有为”，《管子·心术上》以“心”喻君；庄子把“无为”推向“逍遥”“齐物”的精神自由；王夫之《老子衍》则批评“无为”若任其自然，将废人之有为。</td></tr>
+<tr><td>好静</td><td>统治者喜好清静、不躁动。</td><td>本章“我好静而民自正”，“静”与“躁”相对，指清静、不扰民。</td><td>王弼注：“静，无欲也。”河上公注：“静，谓无欲也。”苏辙：“静者，不扰之谓也。”陈鼓应译“清静”。</td><td>王弼以“静”为“无欲”的表现，与其“贵无”一致；河上公以“静”为治身之要，主张“安静”以养神；庄子讲“心斋”“坐忘”，把“静”推向精神修养；陈鼓应认为“好静”是“不扰民”的政治态度。</td></tr>
+<tr><td>无事</td><td>不生事、不制造麻烦。</td><td>本章“我无事而民自富”，“无事”即不以烦苛政事扰民。</td><td>河上公注：“无事，无徭役征召之事。”王弼注：“无事，则民自富。”陈鼓应译“不搅扰”。</td><td>王弼以“无事”为“崇本息末”；河上公以“无事”为“不烦不扰”；黄老学派讲“君无事而臣有事”，把“无事”理解为君主不亲细务；刘笑敢认为“无事”是“不强行干预”，与“自然”互为表里。</td></tr>
+<tr><td>无欲</td><td>没有贪欲、不贪求。</td><td>本章“我无欲而民自朴”，“无欲”不是没有任何欲望，而是没有贪欲、不贪求。</td><td>王弼注：“无欲，无求也。”河上公注：“无欲，无贪欲也。”陈鼓应译“无贪欲”。</td><td>王弼以“无欲”为“无求”，与其“贵无”一致；河上公以“无欲”为治身之要，主张“少私寡欲”；庄子讲“无己”“无功”“无名”，把“无欲”推向精神境界；陈鼓应指出“无欲”非“绝欲”，而是“不贪求”。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">以正治国</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">用正当、清明、合乎常规的办法治理国家。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第五十七章。“正”指清静无为之正道、常法，与“奇”相对。老子认为治国当以正，不以权术。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼本作“以正治国”，王弼注：“以道治国，崇本以息末；以正治国，立辟以攻末。”河上公注：“正，正道也。治国当以正道。”陈鼓应译“以清静之道治国”。“正”与“奇”构成经与权、常与变的对举。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼认为“以正治国”仍属“立辟以攻末”，不如“以道治国”崇本；河上公则以“正道”为治国之本，偏重治身与治国一体；苏辙《老子解》以“正”为“常”，认为“正”能胜“奇”；韩非《解老》以“理”释道、主张法度公开明确，可视为对“正”的法家式转写。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">以奇用兵</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">用出其不意、灵活多变的方法用兵。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">“奇”与“正”相对，指权变、诈术、出人意料的战术。老子认为用兵不同于治国，可用奇。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">河上公注：“奇，诈也。用兵当以诈。”王弼注：“以正治国，立辟以攻末……故必至于奇用兵也。”苏辙以“奇”为“非正也”。陈鼓应译“以奇术用兵”。“奇正”范畴后为兵家《孙子》所发挥。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以“诈”解“奇”，近于兵家权谋；王弼则认为“奇”是“正”之穷，是“立辟攻末”的必然后果，带有批评意味；苏辙以“奇正相生”解，与《孙子》“奇正”之说相通；刘笑敢指出老子对“兵”持保留态度，“以奇用兵”是不得已而为之。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">以无事取天下</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不扰民、不生事，才能取得天下。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">“无事”即不制造烦苛政事、不扰攘百姓。“取天下”不是武力夺取，而是天下归附。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">河上公注：“无事，无徭役征召之事也。”王弼注：“无事，则民自富。”蒋锡昌：“无事即无扰也。”陈鼓应译“以不扰攘人民来治理天下”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，认为“无事”是“崇本息末”的政治表现；河上公把“无事”与治身结合，主张“不烦不扰，精神内守”；黄老学派《管子·心术》讲“君无为而臣有为”，把“无事”理解为君主不亲细务；刘笑敢认为“无事”是“不强行干预”，与“自然”互为表里。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">忌讳</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">统治者设下的种种禁令和禁忌。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">本章“天下多忌讳，而民弥贫”，“忌讳”指统治者制定的禁令、防禁，越多则百姓越贫困。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">河上公注：“忌讳，防禁也。”王弼注：“多忌讳，则民弥贫。”陈鼓应译“禁忌戒律”。帛书甲乙本并作“忌讳”，与通行本同。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公从治身角度解“忌讳”为“防禁”，认为防禁过多伤民；王弼从“崇本息末”出发，认为忌讳多则民失其自然；韩非主张法应公开简明，反对隐秘难测的禁令，可与老子此句相参；陈鼓应指出这是老子对当时“政令烦苛”的批评。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">利器</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">统治者手中的权谋、权柄和锐利工具。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">本章“民多利器，国家滋昏”，“利器”指权谋、权柄、兵甲等。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">河上公注：“利器者，权谋也。”王弼注：“利器，利国之器也。”苏辙：“利器，权谋也。”陈鼓应译“利器”为“权谋”，亦有解为“锐利武器”者。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以“权谋”解，认为民多权谋则国昏；王弼以“利国之器”解，认为“利器”是君主所执权柄，若下移则国昏；苏辙与三十六章“利器不可以示人”互文，认为权谋不可示民；楼宇烈指出“利器”兼含“权谋”与“兵器”二义。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">伎巧</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">各种机巧、巧诈和过度的手工技艺。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">本章“人多伎巧，奇物滋起”，“伎巧”指机巧、巧诈，也指过度工艺。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">河上公注：“伎巧，巧诈也。”王弼注：“民多智慧，则巧伪生。”帛书作“人多知（智）”，知通智。陈鼓应译“伎巧”为“巧诈”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公从治身出发，认为“伎巧”伤朴；王弼以“智慧”释“伎巧”，认为巧伪生于智慧，与其“崇本息末”一致；庄子《天地》讲“有机事者必有机心”，《胠箧》主张“掊斗折衡而民不争”，可与老子“伎巧”相参；陈鼓应认为老子反对的是“巧诈”而非一切工艺。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">奇物</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">稀奇古怪、奢侈邪僻的东西。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">本章“奇物滋起”，“奇物”指邪僻奇怪之物、奢侈之物。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">河上公注：“奇物，邪事也。”王弼注：“奇物，奇怪之物也。”陈鼓应译“邪奇之物”。有版本作“邪事”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以“邪事”解，偏重道德教化；王弼以“奇怪之物”解，认为奇物生于“伎巧”；苏辙从“常”与“奇”对举，认为“奇物”是“不正”之物；现代学者指出“奇物”或指奢侈品、珍玩，与十二章“为腹不为目”相通。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">法令滋彰</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">法令条文越来越多、越来越严。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">本章“法令滋彰，盗贼多有”，“滋”是更加，“彰”是显明。老子认为法令越繁，盗贼越多。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼本作“法物滋彰”，河上公本作“法令滋彰”。王弼注：“法物，谓法令也。”河上公注：“法物，好物也。”陈鼓应据河上公本作“法令滋彰”，译“法令条文越彰显，盗贼反而越多”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公把“法物”解为“好物”，偏重治身；王弼解为“法令”，认为“法物”是“末”，“滋彰”则“本”失；韩非主张法应公开、必行，与老子此句形成张力——韩非《解老》强调法的客观性，老子则警惕法令膨胀；陈鼓应认为这是对“法治”过度化的批评，不是反对一切法。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">无为</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不妄为、不强加干预，顺其自然。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子核心概念。“无为”不是什么都不做，而是不妄为、不违反自然规律地干预。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“自然已足，为则败也。”河上公注：“无为，不施为也。”陈鼓应译“不妄为”。刘笑敢指出“无为”是“行为主体对自然状态的辅助”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，认为“无为”是“崇本息末”；河上公以“治身”解“无为”，主张“精神内守”；黄老学派讲“君无为而臣有为”，《管子·心术上》以“心”喻君；庄子把“无为”推向“逍遥”“齐物”的精神自由；王夫之《老子衍》则批评“无为”若任其自然，将废人之有为。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">好静</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">统治者喜好清静、不躁动。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">本章“我好静而民自正”，“静”与“躁”相对，指清静、不扰民。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“静，无欲也。”河上公注：“静，谓无欲也。”苏辙：“静者，不扰之谓也。”陈鼓应译“清静”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“静”为“无欲”的表现，与其“贵无”一致；河上公以“静”为治身之要，主张“安静”以养神；庄子讲“心斋”“坐忘”，把“静”推向精神修养；陈鼓应认为“好静”是“不扰民”的政治态度。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">无事</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不生事、不制造麻烦。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">本章“我无事而民自富”，“无事”即不以烦苛政事扰民。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">河上公注：“无事，无徭役征召之事。”王弼注：“无事，则民自富。”陈鼓应译“不搅扰”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无事”为“崇本息末”；河上公以“无事”为“不烦不扰”；黄老学派讲“君无事而臣有事”，把“无事”理解为君主不亲细务；刘笑敢认为“无事”是“不强行干预”，与“自然”互为表里。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">无欲</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">没有贪欲、不贪求。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">本章“我无欲而民自朴”，“无欲”不是没有任何欲望，而是没有贪欲、不贪求。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“无欲，无求也。”河上公注：“无欲，无贪欲也。”陈鼓应译“无贪欲”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无欲”为“无求”，与其“贵无”一致；河上公以“无欲”为治身之要，主张“少私寡欲”；庄子讲“无己”“无功”“无名”，把“无欲”推向精神境界；陈鼓应指出“无欲”非“绝欲”，而是“不贪求”。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 57 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 57 章]
+
+以正治国，以奇用兵，以无事取天下。吾何以知其然哉？以此。天下多忌讳，而民弥贫；民多利器，国家滋昏；人多伎巧，奇物滋起；法令滋彰，盗贼多有。故圣人云：我无为而民自化，我好静而民自正，我无事而民自富，我无欲而民自朴。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_57_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

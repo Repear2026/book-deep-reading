@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 18 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 18/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_17/site/index.html" title="第 17 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_19/site/index.html" title="第 19 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 18 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>大道废，有仁义；智慧出，有大伪；六亲不和，有孝慈；国家昏乱，有忠臣。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 18 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章只有四句话，讲四组&quot;配对&quot;：大道废了才有仁义，智慧冒出来才有大伪，六亲不和睦才显出孝慈，国家昏乱才冒忠臣。有趣之处在于它颠倒常识——我们以为仁义、孝慈、忠臣是好东西，老子却把它们当成&quot;生病的症状&quot;，而非&quot;健康的证明&quot;。最重要的收获：学会把被人称颂的价值，看成某种缺失的补偿信号。（198 字）</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<br/>
+<blockquote><strong>如果</strong>你所在的公司突然开始大力表彰&quot;诚信员工&quot;，你会觉得公司更诚信了，还是更可疑了？</blockquote>
+<br/>
+<blockquote><strong>如果</strong>一个家庭需要天天强调&quot;我很爱这个家&quot;，是不是恰恰说明有些东西已经不对了？</blockquote>
+<br/>
+<blockquote><strong>如果</strong>&quot;孝慈&quot;&quot;忠臣&quot;这些词存在的意义，就是应对不和与昏乱——那么它们消失，究竟是退步还是好事？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<br/>
+<p><strong>王弼</strong>（《老子注》）顺着本章讲：大道施行时无需&quot;施惠立善&quot;，一旦失去无为，才不得不&quot;以施惠立善为政&quot;，仁义之名于是可见——名号的出现即是本真状态的退场。</p>
+<br/>
+<p><strong>庄子</strong>（《胠箧》）走到更激烈处：&quot;窃钩者诛，窃国者为诸侯，诸侯之门而仁义存焉&quot;，指出仁义之名不仅后起，还可能被权力据为己有，成为遮羞布。</p>
+<br/>
+<p><strong>韩非</strong>（《解老》）则把这条线索倒过来用：正因为道不可直接施行于俗世，才需要以法度为&quot;道&quot;的替身；他承认名号的补偿功能，但认为这是必要而非可悲。</p>
+<br/>
+<p><strong>荀子</strong>（《性恶》可参照）立场相反：人本来就没有现成的善，礼义不是堕落的标志，而是&quot;化性起伪&quot;的建设性工程——他大概会说老子把&quot;药&quot;错当成了&quot;病&quot;。</p>
+<br/>
+<p><strong>涂尔干</strong>在《自杀论》中提出的&quot;失范&quot;（anomie）概念可对照：规范的高调浮现，往往出现在社会整合松动的时刻；但涂尔干认为补上规范是出路，老子则警惕规范本身。</p>
+<br/>
+<p><strong>维特根斯坦</strong>（语言游戏、生活形式）会提醒：不必急着判断&quot;孝慈&quot;是症状还是良药，先看它在什么样的生活形式中被使用、被谁使用、用来做什么。</p>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<br/>
+<p><strong>（1）第一遍（速览）</strong>：只盯三件事——第一，四句话是不是同一个句式结构；第二，每一句里&quot;前者&quot;和&quot;后者&quot;分别是什么；第三，四组之间的排列有没有由内向外（人心→家→国）的推进感。</p>
+<br/>
+<p><strong>（2）第二遍（细抠）</strong>：必看两处论证。一是&quot;大道废，有仁义&quot;，注意&quot;有&quot;这个字——它只讲时间上的先后伴随，还是暗示了因果？这个字如何解，决定了你能否成立全章的批判力度。二是&quot;智慧出，有大伪&quot;，注意老子用的是&quot;大伪&quot;而非&quot;伪&quot;，这个&quot;大&quot;字是否在说：不是小骗术增多，而是伪本身成了一种规模性的东西。</p>
+<br/>
+<p><strong>（3）第三遍（思辨）</strong>：该追问的开放问题——如果所有的道德名号都只是失序的征候，那么一个&quot;大道&quot;未废的世界里，人和人之间靠什么彼此确认？换句话说：取消了症状，是治愈了病，还是只是让它无法被说出口？</p>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+dadao["大道"] --> p1["大道废，有仁义"]
+renyi["仁义"] --> p1
+zhihui["智慧"] --> p2["智慧出，有大伪"]
+dawei["大伪"] --> p2
+liuqin["六亲"] --> p3["六亲不和，有孝慈"]
+xiaoci["孝慈"] --> p3
+guojia["国家昏乱"] --> p4["国家昏乱，有忠臣"]
+zhongchen["忠臣"] --> p4
+p1 --> fanzhao["反向对照式论述结构"]
+p2 --> fanzhao
+p3 --> fanzhao
+p4 --> fanzhao
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章通过四组对应关系，揭示仁义、智慧、孝慈、忠臣等价值称谓与大道废、大伪、六亲不和、国家昏乱等失序状态之间的联系，呈现一种反向对照式的论述结构。</div>
+<h3>📌 核心命题</h3><ol>
+<li>本页提出“大道废”与“有仁义”的对应关系。</li>
+<li>本页提出“智慧出”与“有大伪”的对应关系。</li>
+<li>本页提出“六亲不和”与“有孝慈”的对应关系。</li>
+<li>本页提出“国家昏乱”与“有忠臣”的对应关系。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>大道废，有仁义；</li>
+<li>智慧出，有大伪；</li>
+<li>六亲不和，有孝慈；</li>
+<li>国家昏乱，有忠臣。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>大道</strong></summary><div class="case-body">文中指被“废”的那个“大道”。</div></details>
+<details><summary><strong>仁义</strong></summary><div class="case-body">文中指在“大道废”之后出现的“仁义”。</div></details>
+<details><summary><strong>智慧</strong></summary><div class="case-body">文中指与“大伪”并提的“智慧”。</div></details>
+<details><summary><strong>大伪</strong></summary><div class="case-body">文中指随“智慧出”而出现的“大伪”。</div></details>
+<details><summary><strong>六亲</strong></summary><div class="case-body">文中指“不和”的主体“六亲”。</div></details>
+<details><summary><strong>孝慈</strong></summary><div class="case-body">文中指在“六亲不和”之后出现的“孝慈”。</div></details>
+<details><summary><strong>忠臣</strong></summary><div class="case-body">文中指在“国家昏乱”之后出现的“忠臣”。</div></details>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 18 章，以下是我对本章主线的概括：</p>
+<br/>
+<p>&quot;{我的概括}&quot;</p>
+<br/>
+<p>请你按三步回应，不要先夸我：</p>
+<ol>
+<li>1. 【遗漏】列出我这个概括里漏掉的本章关键点（最多 5 条），每条注明它在原文/笔记中的依据位置；</li>
+<li>2. 【失真】指出我表述中用词不准、偷换或过度引申的地方，各给一句更贴切的改写；</li>
+<li>3. 【检验】最后用一个问题考我：如果我只答得出概念、答不出概念之间的推论关系，就说明我没读懂——请出这道题。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>你现在扮演第 18 章立场的最强反方，不要替我调和，先把我逼到墙角。</p>
+<br/>
+<p>我最想捍卫的本章结论是：&quot;{我想捍卫的结论}&quot;</p>
+<br/>
+<p>请只基于本章文本与论证做三件事：</p>
+<ol>
+<li>1. 定位本章论证最薄弱的 1–2 个环节，说清攻击点在哪；</li>
+<li>2. 构造一个完整反方论证（前提 → 推论 → 结论），不许稻草人，要给对手最强版本；</li>
+<li>3. 告诉我：如果我仍要守住这个结论，必须额外补上什么前提或证据，以及补上之后要付出什么代价。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>假设我真心接受了第 18 章的核心主张。我的日常身份是：{我的职业/生活角色}。</p>
+<br/>
+<p>请给我 3 个我明天就可能遇到的真实场景（工作 / 生活 / 人际各一个），要求：</p>
+<ul>
+<li>- 场景要具体到我这个普通人，不要宏大叙事；</li>
+<li>- 每个场景说明：本章的哪个概念或区分，能让我看到别人看不到的东西；</li>
+<li>- 再指出：如果我把这一章的思想用过头，会在这个场景里犯什么错（过度应用的反噬）。</li>
+</ul>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 18 章里最让我兴奋的一句话是：</p>
+<br/>
+<p>&quot;{那句话}&quot;</p>
+<br/>
+<p>请围绕它做&quot;推到底&quot;练习，四问四答：</p>
+<ol>
+<li>1. 这句话在原文中服务于什么论证？把它删掉，论证还成立吗？</li>
+<li>2. 如果这句话为真，顺着它还能推出哪 3 个本章没明说、但逻辑上应然的结论？</li>
+<li>3. 这 3 个推论里，哪一个最可能让本章作者本人也感到不安？为什么？</li>
+<li>4. 有没有反例能让这句话失效？它的适用边界在哪里？</li>
+</ol>
+<p>```</p>
+<br/>
+<h2>2）5–7 个新手引导问题</h2>
+<br/>
+<ol>
+<li>1. 用你自己的大白话，一句话说出第 18 章到底想解决什么问题。</li>
+</ol>
+<p>   提示：先别用书里的术语，讲给一个完全没读过的人听，讲不清就是还没抓住。</p>
+<br/>
+<ol>
+<li>2. 本章最关键的概念是哪两三个？它们各自是为了对付什么困难才被引入的？</li>
+</ol>
+<p>   提示：概念不是名词解释，要说清&quot;没有它会怎样&quot;。</p>
+<br/>
+<ol>
+<li>3. 作者在本章主要在反驳谁、或反驳什么立场？那个立场的最强版本长什么样？</li>
+</ol>
+<p>   提示：说不出对手，往往说明还没抓住论证的靶子。</p>
+<br/>
+<ol>
+<li>4. 本章的核心论证走的是哪条路：定义→推论，反驳对手→扬弃，还是举例→归纳？</li>
+</ol>
+<p>   提示：看作者推进段落的方式，不要只看结论。</p>
+<br/>
+<ol>
+<li>5. 本章哪个结论最依赖一个没有明说的前提？那个前提是什么？</li>
+</ol>
+<p>   提示：重点找&quot;读起来最顺&quot;的那句话，默认假设常藏在那里。</p>
+<br/>
+<ol>
+<li>6. 如果把第 18 章整章删掉，全书的论证会在哪里断裂？</li>
+</ol>
+<p>   提示：这是把本章放回整体结构里的检验，答不出说明章节还是孤立的。</p>
+<br/>
+<ol>
+<li>7. 你知道本章在学术史上通常被归入哪场争论吗？主要对立立场各由谁代表？</li>
+</ol>
+<p>   提示：这题需要外部知识，答不出可以查，但必须写清&quot;这是谁的说法&quot;，不许含糊带过。</p>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>大道</td><td>最本真、最自然的那条路，大家都顺着走的时候，反而没人特意去说它。</td><td>老子哲学的最高范畴，指宇宙万物的本原与运行的总规律。《老子》第二十五章&quot;有物混成，先天地生……强字之曰道&quot;，第十八章则从&quot;废&quot;的角度反显大道：大道行世时，仁义之名不彰。</td><td>帛书乙本作&quot;大道废，安有仁义&quot;，&quot;安&quot;作&quot;于是&quot;解，句式为条件—结果结构。&quot;道&quot;在通行本中兼有本原义（生成论）与规律义（自然无为），此章偏重后者，指社会自然秩序的整体状态。</td><td>王弼以&quot;无&quot;为本，认为大道无形无名，一旦&quot;废&quot;而落到有名有形的仁义层面上，已是退而求其次；郭象主张&quot;独化&quot;，认为仁义本在性分之中，不必待大道废而后有，与老子此章的退化叙事有张力；陈鼓应认为此章是老子对儒家伦理&quot;人为造作&quot;的批判，属&quot;辩证的反显&quot;笔法。</td></tr>
+<tr><td>仁义</td><td>标榜做好人、讲道理，恰恰说明人心已经不古了。</td><td>儒家核心伦理范畴。仁指爱人之心，义指行事之宜。老子认为仁义是大道废弛后的替补品，故第十八章将其置于&quot;大道废&quot;之后。</td><td>&quot;仁&quot;在《论语》中为&quot;爱人&quot;（颜渊篇），&quot;义&quot;为&quot;义以为质&quot;（卫灵公篇）；老子则用&quot;大道—仁义&quot;的层级下降结构，将二者视为&quot;失道而后德&quot;链条中的次级德目（参第三十八章&quot;失德而后仁，失仁而后义&quot;）。</td><td>王弼注此句谓&quot;仁义自生，非由大道&quot;，但承认其出现本身标志朴素之失；成玄英以重玄学解之，认为仁义是&quot;迹&quot;而非&quot;本&quot;，执迹则失真；朱熹从理学立场反批评老子&quot;欲扫除仁义&quot;，认为其说&quot;有害于名教&quot;；刘笑敢指出老子并非否定仁义本身，而是批判&quot;以仁义为标榜&quot;的矫饰倾向。</td></tr>
+<tr><td>智慧</td><td>人一旦开始耍聪明、动心机，假东西就跟着来了。</td><td>此处&quot;智慧&quot;含贬义，指机巧智谋、人为的聪明算计，非现代意义上的智慧。与《老子》第十九章&quot;绝圣弃智&quot;义近。</td><td>&quot;智&quot;在先秦多指分辨、机巧之能；老子以&quot;大伪&quot;对举，构成&quot;智—伪&quot;的因果链。高明《帛书老子校注》指出帛书甲本作&quot;知慧出，案有大伪&quot;，&quot;知&quot;通&quot;智&quot;，强调其&quot;人为造作&quot;义。</td><td>河上公注以养生解之，谓&quot;智慧&quot;为&quot;奸巧&quot;之心，伤精神而乱和气；王弼则从&quot;名&quot;的角度说，智慧出则名分兴，名分兴则伪饰生；韩非《解老》以此章论&quot;人主用智则臣下饰伪&quot;，从法家术论角度作政治化解读。</td></tr>
+<tr><td>大伪</td><td>最大的假，是那种看起来特别像真的假。</td><td>指严重的虚伪、矫饰。与&quot;智慧出&quot;相承，谓机巧智谋盛行则普遍的伪诈随之而生。</td><td>&quot;伪&quot;在先秦有&quot;人为&quot;义（《荀子·性恶》&quot;人之性恶，其善者伪也&quot;），老子此处兼有&quot;人为造作&quot;与&quot;虚假&quot;二义。大伪非小伪，指整体性的道德虚伪状态。</td><td>苏辙《老子解》谓&quot;智出而伪随之，犹影响也&quot;，以因果必然性解之；王夫之《老子衍》从气化论角度认为&quot;伪&quot;生于&quot;智&quot;之&quot;凝滞&quot;，非智本身有罪；庄子学派则以此发挥&quot;真人&quot;理想——真人对&quot;伪&quot;的批判正与此章呼应（参《庄子·渔父》&quot;真者，精诚之至也&quot;）。</td></tr>
+<tr><td>六亲</td><td>家里最亲的那几个人——父母、兄弟、夫妻。</td><td>指父子、兄弟、夫妇。具体所指历代有异说：王弼注谓&quot;父子兄弟夫妇&quot;，也有注家扩为&quot;诸父诸舅诸兄&quot;等。第十八章&quot;六亲不和，有孝慈&quot;谓家庭失和才显出孝慈之名。</td><td>《老子》第十七章、十八章的&quot;六亲&quot;与《吕氏春秋》《白虎通》所述&quot;六亲&quot;范围不一，属先秦常用而外延浮动之词。河上公注定为&quot;父子兄弟夫妇&quot;，为通行说。</td><td>王弼注&quot;六亲，父子兄弟夫妇也&quot;，并谓&quot;孝慈&quot;之名生于&quot;不和&quot;，与&quot;仁义&quot;生于&quot;大道废&quot;同构；河上公从养生角度释六亲为&quot;一身之六亲&quot;（耳目口鼻等），属道教内修化的独特解读；儒家《白虎通·三纲六纪》则从人伦本然立论，不承认&quot;不和&quot;是&quot;孝慈&quot;存在的前提，与老子此章形成直接对立。</td></tr>
+<tr><td>孝慈</td><td>儿女孝顺、父母慈爱——可这两个字被大声喊出来的时候，往往家里已经不太平了。</td><td>孝指善事父母，慈指父母爱子女。老子认为孝慈之名显扬，恰是六亲失和的结果，故与&quot;仁义&quot;同属&quot;反面彰显&quot;的结构。</td><td>&quot;孝&quot;在《论语》中为&quot;仁之本&quot;（学而篇），&quot;慈&quot;见于《老子》第十八章及《管子》等。老子不否认孝慈之实，而质疑其&quot;名&quot;的凸显——名显则实衰，此即&quot;正言若反&quot;的辩证表达。</td><td>王弼注谓&quot;孝慈&quot;之名因&quot;六亲不和&quot;而立，犹&quot;仁义&quot;因&quot;大道废&quot;而显；苏辙进一步说&quot;名曰孝慈，则已有不孝不慈者矣&quot;；郭象则从&quot;名教即自然&quot;立场认为孝慈本于天性，不因不和而有无，与老子此章的反名教倾向相左；现代学者陈鼓应认为老子此说是对&quot;形式化道德&quot;的警惕，非否定孝慈本身。</td></tr>
+<tr><td>忠臣</td><td>国家乱成一锅粥的时候，才看得出谁是真正靠得住的大臣。</td><td>指忠贞事君之臣。老子认为国家昏乱之际忠臣之名才显现，与&quot;大道废有仁义&quot;&quot;六亲不和有孝慈&quot;构成三重同构反讽。</td><td>&quot;忠&quot;在春秋已为重要德目（《左传》《国语》多见），《老子》第十八章将&quot;忠臣&quot;置于&quot;国家昏乱&quot;之后，与《论语·微子》&quot;天下有道，丘不与易也&quot;的乱世语境可对照。帛书乙本作&quot;邦家昏乱，案有贞臣&quot;，&quot;贞&quot;通&quot;忠&quot;。</td><td>王弼注谓&quot;忠臣&quot;之名显于&quot;昏乱&quot;，犹&quot;孝慈&quot;显于&quot;不和&quot;，皆&quot;名生于不足&quot;；韩非《解老》则作政治术解，认为人主明则臣自忠，不待昏乱而见忠臣之名，与老子构成法家式修正；黄老学派（如《经法》）强调&quot;忠&quot;须合于&quot;道&quot;，否则为&quot;愚忠&quot;；刘笑敢指出老子此章是&quot;对儒家式道德标榜的解构&quot;，而非对忠臣德性本身的否定。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">大道</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">最本真、最自然的那条路，大家都顺着走的时候，反而没人特意去说它。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子哲学的最高范畴，指宇宙万物的本原与运行的总规律。《老子》第二十五章&quot;有物混成，先天地生……强字之曰道&quot;，第十八章则从&quot;废&quot;的角度反显大道：大道行世时，仁义之名不彰。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">帛书乙本作&quot;大道废，安有仁义&quot;，&quot;安&quot;作&quot;于是&quot;解，句式为条件—结果结构。&quot;道&quot;在通行本中兼有本原义（生成论）与规律义（自然无为），此章偏重后者，指社会自然秩序的整体状态。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，认为大道无形无名，一旦&quot;废&quot;而落到有名有形的仁义层面上，已是退而求其次；郭象主张&quot;独化&quot;，认为仁义本在性分之中，不必待大道废而后有，与老子此章的退化叙事有张力；陈鼓应认为此章是老子对儒家伦理&quot;人为造作&quot;的批判，属&quot;辩证的反显&quot;笔法。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">仁义</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">标榜做好人、讲道理，恰恰说明人心已经不古了。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">儒家核心伦理范畴。仁指爱人之心，义指行事之宜。老子认为仁义是大道废弛后的替补品，故第十八章将其置于&quot;大道废&quot;之后。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;仁&quot;在《论语》中为&quot;爱人&quot;（颜渊篇），&quot;义&quot;为&quot;义以为质&quot;（卫灵公篇）；老子则用&quot;大道—仁义&quot;的层级下降结构，将二者视为&quot;失道而后德&quot;链条中的次级德目（参第三十八章&quot;失德而后仁，失仁而后义&quot;）。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼注此句谓&quot;仁义自生，非由大道&quot;，但承认其出现本身标志朴素之失；成玄英以重玄学解之，认为仁义是&quot;迹&quot;而非&quot;本&quot;，执迹则失真；朱熹从理学立场反批评老子&quot;欲扫除仁义&quot;，认为其说&quot;有害于名教&quot;；刘笑敢指出老子并非否定仁义本身，而是批判&quot;以仁义为标榜&quot;的矫饰倾向。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">智慧</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">人一旦开始耍聪明、动心机，假东西就跟着来了。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">此处&quot;智慧&quot;含贬义，指机巧智谋、人为的聪明算计，非现代意义上的智慧。与《老子》第十九章&quot;绝圣弃智&quot;义近。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;智&quot;在先秦多指分辨、机巧之能；老子以&quot;大伪&quot;对举，构成&quot;智—伪&quot;的因果链。高明《帛书老子校注》指出帛书甲本作&quot;知慧出，案有大伪&quot;，&quot;知&quot;通&quot;智&quot;，强调其&quot;人为造作&quot;义。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公注以养生解之，谓&quot;智慧&quot;为&quot;奸巧&quot;之心，伤精神而乱和气；王弼则从&quot;名&quot;的角度说，智慧出则名分兴，名分兴则伪饰生；韩非《解老》以此章论&quot;人主用智则臣下饰伪&quot;，从法家术论角度作政治化解读。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">大伪</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">最大的假，是那种看起来特别像真的假。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指严重的虚伪、矫饰。与&quot;智慧出&quot;相承，谓机巧智谋盛行则普遍的伪诈随之而生。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;伪&quot;在先秦有&quot;人为&quot;义（《荀子·性恶》&quot;人之性恶，其善者伪也&quot;），老子此处兼有&quot;人为造作&quot;与&quot;虚假&quot;二义。大伪非小伪，指整体性的道德虚伪状态。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">苏辙《老子解》谓&quot;智出而伪随之，犹影响也&quot;，以因果必然性解之；王夫之《老子衍》从气化论角度认为&quot;伪&quot;生于&quot;智&quot;之&quot;凝滞&quot;，非智本身有罪；庄子学派则以此发挥&quot;真人&quot;理想——真人对&quot;伪&quot;的批判正与此章呼应（参《庄子·渔父》&quot;真者，精诚之至也&quot;）。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">六亲</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">家里最亲的那几个人——父母、兄弟、夫妻。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指父子、兄弟、夫妇。具体所指历代有异说：王弼注谓&quot;父子兄弟夫妇&quot;，也有注家扩为&quot;诸父诸舅诸兄&quot;等。第十八章&quot;六亲不和，有孝慈&quot;谓家庭失和才显出孝慈之名。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》第十七章、十八章的&quot;六亲&quot;与《吕氏春秋》《白虎通》所述&quot;六亲&quot;范围不一，属先秦常用而外延浮动之词。河上公注定为&quot;父子兄弟夫妇&quot;，为通行说。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼注&quot;六亲，父子兄弟夫妇也&quot;，并谓&quot;孝慈&quot;之名生于&quot;不和&quot;，与&quot;仁义&quot;生于&quot;大道废&quot;同构；河上公从养生角度释六亲为&quot;一身之六亲&quot;（耳目口鼻等），属道教内修化的独特解读；儒家《白虎通·三纲六纪》则从人伦本然立论，不承认&quot;不和&quot;是&quot;孝慈&quot;存在的前提，与老子此章形成直接对立。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">孝慈</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">儿女孝顺、父母慈爱——可这两个字被大声喊出来的时候，往往家里已经不太平了。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">孝指善事父母，慈指父母爱子女。老子认为孝慈之名显扬，恰是六亲失和的结果，故与&quot;仁义&quot;同属&quot;反面彰显&quot;的结构。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;孝&quot;在《论语》中为&quot;仁之本&quot;（学而篇），&quot;慈&quot;见于《老子》第十八章及《管子》等。老子不否认孝慈之实，而质疑其&quot;名&quot;的凸显——名显则实衰，此即&quot;正言若反&quot;的辩证表达。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼注谓&quot;孝慈&quot;之名因&quot;六亲不和&quot;而立，犹&quot;仁义&quot;因&quot;大道废&quot;而显；苏辙进一步说&quot;名曰孝慈，则已有不孝不慈者矣&quot;；郭象则从&quot;名教即自然&quot;立场认为孝慈本于天性，不因不和而有无，与老子此章的反名教倾向相左；现代学者陈鼓应认为老子此说是对&quot;形式化道德&quot;的警惕，非否定孝慈本身。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">忠臣</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">国家乱成一锅粥的时候，才看得出谁是真正靠得住的大臣。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指忠贞事君之臣。老子认为国家昏乱之际忠臣之名才显现，与&quot;大道废有仁义&quot;&quot;六亲不和有孝慈&quot;构成三重同构反讽。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;忠&quot;在春秋已为重要德目（《左传》《国语》多见），《老子》第十八章将&quot;忠臣&quot;置于&quot;国家昏乱&quot;之后，与《论语·微子》&quot;天下有道，丘不与易也&quot;的乱世语境可对照。帛书乙本作&quot;邦家昏乱，案有贞臣&quot;，&quot;贞&quot;通&quot;忠&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼注谓&quot;忠臣&quot;之名显于&quot;昏乱&quot;，犹&quot;孝慈&quot;显于&quot;不和&quot;，皆&quot;名生于不足&quot;；韩非《解老》则作政治术解，认为人主明则臣自忠，不待昏乱而见忠臣之名，与老子构成法家式修正；黄老学派（如《经法》）强调&quot;忠&quot;须合于&quot;道&quot;，否则为&quot;愚忠&quot;；刘笑敢指出老子此章是&quot;对儒家式道德标榜的解构&quot;，而非对忠臣德性本身的否定。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 18 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 18 章]
+
+大道废，有仁义；智慧出，有大伪；六亲不和，有孝慈；国家昏乱，有忠臣。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_18_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

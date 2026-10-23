@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 34 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 34/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_33/site/index.html" title="第 33 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_35/site/index.html" title="第 35 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 34 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>大道泛兮，其可左右。万物恃之而生而不辞，功成不名有。衣养万物而不为主，常无欲，可名于小；万物归焉而不为主，可名为大。以其终不自为大，故能成其大。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 34 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<br/>
+<p>这一章讲“道”到底是怎么运作的。老子说大道像水一样四处漫流，万物靠它生长，它却不推辞、不邀功、不占有、不控制。有意思的是，老子用“小”和“大”这对反义词来描摹道：它永远不逞强当主子，看起来“小”；万物却都归向它，这才是真正的“大”。最重要的收获是一句反直觉的智慧——正因为从不自封伟大，反而成就了伟大。这既是对道体的描画，也是一种处世姿态的示范。</p>
+<br/>
+<h2>②多问题意识关联</h2>
+<br/>
+<ol>
+<li>1. 如果你做了事却“功成不名有”，也就是功劳不归自己，长期下来你还愿意继续做事吗？</li>
+<li>2. 如果资源都归向你不等于你要去支配它们，一个“不为主”的管理者或父母，现实中做得到吗？</li>
+<li>3. 如果把“不自为大”当成手段去“成其大”，那它还是不自大吗，还是变成了最高级的自大？</li>
+</ul>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<br/>
+<ul>
+<li>- <strong>韩非</strong>：法家恰好反着来。他主张君主必须牢牢握住“二柄”（赏罚），明明白白地“为主”。在老子的“不为主”处，韩非看到的不是美德，而是权力真空的危险。</li>
+<li>- <strong>王阳明</strong>：良知学讲“万物一体之仁”，与“衣养万物”有相通处；但阳明强调“心”要主动承担、感应无隔，而老子强调的却是退一步、不居功、不宰制，两者对“担当”的理解方向不同。</li>
+<li>- <strong>福柯</strong>：福柯对“不为主”的权力叙事高度警惕。在他看来，“不控制、只养育”的话语本身可能就是一种更精细的权力技术——越是宣称无欲无求的治理，越可能把对象纳入更深的规训之中。</li>
+</ul>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<br/>
+<p><strong>（1）第一遍（速览）</strong>：抓住三个关注点——“大道泛兮，其可左右”写道之无所不在；“功成不名有”“衣养万物而不为主”写道之功成而不居；“常无欲，可名于小；万物归焉而不为主，可名为大”写小大之辨。先感受语气：老子是在描述道，还是在借道说人。</p>
+<br/>
+<p><strong>（2）第二遍（细抠）</strong>：两个论证必须看。一是“衣养万物而不为主……可名于小；万物归焉而不为主，可名为大”——同一个“不为主”，前半说它卑下不起眼故“小”，后半说它承载万物归附故“大”，正反两面咬合在一起；二是结尾“以其终不自为大，故能成其大”——这是全章的因果枢纽，要看清“不自为大”是前提、“成其大”是结果，中间不是算计。</p>
+<br/>
+<p><strong>（3）第三遍（思辨）</strong>：留一个问题给自己追问——如果“不自为大”真的只是不求大名的自然结果，那它和“以退为进”的权谋术到底差在哪里？你能否从文本里找到证据，说明老子讲的不是策略，而是品格？</p>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+  C1["概念：大道泛兮"]
+  C2["概念：不辞"]
+  C3["概念：不名有"]
+  C4["概念：衣养万物"]
+  C5["概念：不为主"]
+  C6["概念：不自为大"]
+
+  P1["命题：大道广泛流行，可左可右，无所不在"]
+  P2["命题：万物恃道而生，道不推辞"]
+  P3["命题：道成就万物而不占有功名"]
+  P4["命题：道养育万物而不做主宰"]
+  P5["命题：常无欲可名于小，万物归而不为主可名为大"]
+  P6["命题：终不自为大，故能成其大"]
+
+  C1 -->|relates_to| P1
+  C2 -->|relates_to| P2
+  C3 -->|relates_to| P3
+  C4 -->|relates_to| P4
+  C5 -->|relates_to| P5
+  C6 -->|relates_to| P6
+
+  P1 -->|supports| P2
+  P2 -->|supports| P5
+  P3 -->|supports| P5
+  P4 -->|supports| P5
+  P5 -->|supports| P6
+  P4 -->|supports| P6
+  P2 -->|relates_to| P3
+  P3 -->|relates_to| P4
+  P1 -->|supports| P5
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章集中论述道的普遍流行、生成养育万物而不占有、不主宰的品格，并通过“小”与“大”的辩证统一，揭示“不自为大故能成其大”的智慧，是对道体与道用关系的核心说明。</div>
+<h3>📌 核心命题</h3><ol>
+<li>大道广泛流行，可左可右，无所不在。</li>
+<li>万物依赖道生长，道不推辞。</li>
+<li>道成就万物而不占有功名。</li>
+<li>道养育万物而不做主宰。</li>
+<li>道常无欲可称为小；万物归附而不主宰可称为大。</li>
+<li>正因道始终不自称大，所以能成就其大。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>大道泛兮，其可左右。</li>
+<li>万物恃之而生而不辞，功成不名有。</li>
+<li>衣养万物而不为主，常无欲，可名于小；万物归焉而不为主，可名为大。</li>
+<li>以其终不自为大，故能成其大。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>大道泛兮</strong></summary><div class="case-body">道广大流行，无处不在。</div></details>
+<details><summary><strong>不辞</strong></summary><div class="case-body">不推辞、不拒绝万物。</div></details>
+<details><summary><strong>不名有</strong></summary><div class="case-body">不占有功名。</div></details>
+<details><summary><strong>衣养万物</strong></summary><div class="case-body">像衣服覆盖一样养护万物。</div></details>
+<details><summary><strong>不为主</strong></summary><div class="case-body">不做万物的主宰。</div></details>
+<details><summary><strong>不自为大</strong></summary><div class="case-body">不自以为大。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>本章“不为主”“不自为大”的命题，可能在第35章及以后论述“道”的章节继续展开（具体内容须以对应章节正文为准）。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我读完了第 34 章。下面是我对本章主线的一句话概括，请帮我做两件事：(1) 提取我这段话里的&quot;主线骨架&quot;，指出我抓到的核心论点链条是否完整、有没有把论证顺序搞反或漏掉关键环节；(2) 逐一检查我用到或回避的关键概念——{我提到的关键概念列表}——是否用对了、有没有混淆近义概念或漏掉本章对它的特殊界定。如果我讲得太笼统，请追问我 2-3 个具体问题，逼我说出细节。</p>
+<br/>
+<p>我的概括：{我的一句话概括}</p>
+<p>我自认为理解了的概念：{概念1、概念2、概念3}</p>
+<p>我还没把握的地方：{不确定之处}</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>请你扮演第 34 章最强硬的反方。不是泛泛地说&quot;这章有争议&quot;，而是要构造一个立场相反、逻辑自洽、并且能针对本章核心论证发起正面攻击的对手。要求：(1) 先复述本章最核心的那个主张，确认你攻击的是它而不是稻草人；(2) 给出反方最强的 2-3 步论证，每一步都要说清前提；(3) 指出本章作者最可能的两条回应，并说明为什么反方认为这两条回应不够；(4) 最后告诉我：如果我读完这章就全盘接受，我最可能忽略了哪个反例或哪种替代解释。</p>
+<br/>
+<p>本章我接受的核心主张：{我认为本章主张的是……}</p>
+<p>我目前的接受程度：{完全接受/有保留/半信半疑}</p>
+<p>我最不想被挑战的点：{……}</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 34 章。请给我 3 个具体的真实生活/工作场景（不要抽象举例，要有人、有事、有冲突），分别对应本章思想的不同侧面，并解释：(1) 在这个场景里，本章的哪个概念/区分能帮我看清什么；(2) 如果不用本章的框架，我会误判成什么；(3) 应用时的边界在哪里——什么情况下这个框架会失效或反噬。</p>
+<br/>
+<p>第 34 章我抓到的核心思想：{……}</p>
+<p>我的生活/工作领域：{行业或日常情境}</p>
+<p>我最想用它解决的问题类型：{……}</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 34 章里有一句话让我很兴奋：&quot;{原文或我的转述}&quot;。请围绕这句做&quot;推到底&quot;的深挖：(1) 这句话在本章论证中承担什么功能，是前提、结论还是过渡杠杆？(2) 如果把它当成独立命题认真对待，它还能推出哪些本章没明说、但逻辑上顺延的结论？(3) 往这个方向再推两步，会不会推出作者自己都不会接受的东西？如果会，断点在哪里？(4) 这句话和思想史上哪个已知立场最接近，又在哪一点上分道扬镳？</p>
+<br/>
+<p>让我兴奋的原句：{……}</p>
+<p>我兴奋的原因是：{……}</p>
+<p>我希望你重点展开的方向：{逻辑推演/思想史定位/与我的经验对照}</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. 第 34 章作者最想让我记住的一句话是什么？——先别管论证，只找&quot;作者如果只能说一句会说什么&quot;。</li>
+<li>2. 这一章里出现了哪几个反复出现的词？——把出现 3 次以上的术语圈出来，它们通常是本章的骨架。</li>
+<li>3. 作者是在反驳谁？——找出本章的&quot;假想敌&quot;，哪怕作者没点名，也能从&quot;不是……而是……&quot;的句式里看出来。</li>
+<li>4. 本章的论证是从一个前提出发一步步推，还是先给结论再补理由？——判断论证结构，决定你该顺着读还是倒着读。</li>
+<li>5. 如果把本章的核心主张换成一个日常生活的例子，你会举什么？——能翻译成日常例子，才算真懂；翻不出来说明还停在术语层。</li>
+<li>6. 本章有没有哪个地方作者一笔带过、但你觉得应该展开？——这是你未来做研究或写论文的入口。</li>
+<li>7. 读完这章，你原来的哪个信念被动摇了？如果没有，是本章没说服你，还是你根本没让它靠近你？——区分&quot;不认同&quot;和&quot;没进入&quot;，这是哲学阅读的分水岭。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>大道泛兮，其可左右</td><td>道像泛滥的河水到处流，左边右边都有它，哪儿都不缺。</td><td>大道广泛流行、无所不至，可以左右逢源、周流无碍。&quot;泛&quot;形容道如大水漫溢，不局限于一隅。</td><td>王弼注：&quot;言道泛滥，无所不适，可左右上下周旋而用，则无所不至也。&quot;以&quot;泛&quot;训广泛周流，&quot;左右&quot;引申为无所偏倚、无所不至。</td><td>河上公从养生立说，以道为气、遍行周身，故&quot;可左右&quot;；成玄英重玄学以&quot;泛&quot;为不滞一边、双遣左右，道非有非无而周行；陈鼓应强调此句言道的普遍性与开放性，与《二十五章》&quot;周行而不殆&quot;互训。</td></tr>
+<tr><td>不辞</td><td>万物靠着道生长，道从不推辞、不嫌麻烦，来者不拒。</td><td>万物依靠道而生，道从不拒绝、不推辞，任万物自生自长。&quot;辞&quot;即推辞、辞谢。</td><td>王弼注：&quot;万物皆由道而生，既生而不知其所由。&quot;强调道生而不辞、不居其功；河上公训&quot;辞&quot;为&quot;辞谢&quot;，以道不辞谢万物之求。</td><td>郭象以&quot;独化&quot;解，谓万物块然自生、无待于外，本无所谓道之&quot;辞&quot;与&quot;不辞&quot;，这是对老子生成论的改造；荀子&quot;天行有常，不为尧存，不为桀亡&quot;以天为自然法则，亦不涉&quot;辞&quot;的意志；刘笑敢指出&quot;不辞&quot;体现道&quot;生而不有&quot;的非支配性。</td></tr>
+<tr><td>不有</td><td>事情做成了，道却不把功劳记在自己头上。</td><td>道成就万物，却不占有、不居功，功成而弗居。</td><td>王弼注：&quot;功成而不有，故能成其大。&quot;以&quot;无&quot;为体，功成而不自有；苏辙《老子解》以&quot;不有&quot;为不自有其功、不居其名。</td><td>郭象主张万物独化，功成乃自然之迹，本无&quot;有&quot;与&quot;不有&quot;之对；韩非《解老》以&quot;不有&quot;为不处其功、不争名位，偏向君人南面之术；王夫之以气化言，功成是气之聚散自然，不有即不滞于迹。</td></tr>
+<tr><td>衣养万物</td><td>道像一件大衣服，把万物都盖住、护着，养着它们。</td><td>道覆盖、养护万物，如衣之被体。&quot;衣养&quot;即以衣覆养，喻道对万物的庇护与滋养。</td><td>&quot;衣&quot;读去声，动词，覆盖。河上公注&quot;衣养万物&quot;为道如衣被万物，偏养生解；王弼以&quot;衣养&quot;为道之覆育，与&quot;不为主&quot;连读。</td><td>河上公、道教内丹以&quot;衣养&quot;为精气覆护周身、温养百骸；成玄英重玄学以&quot;衣养&quot;为养而无养、不滞于养；怀特海过程哲学以万物相互&quot;摄入&quot;（prehension）为养护关系，近于关系性的&quot;养&quot;，但无&quot;衣&quot;的覆盖意象。</td></tr>
+<tr><td>不为主</td><td>道养着万物，却不把自己当老板、不当万物的主人。</td><td>道虽覆养万物，却不做万物的主宰，任其自然发展。</td><td>王弼注：&quot;万物归焉而不为主，可名为大。&quot;以&quot;不为主&quot;为道之&quot;无&quot;德；河上公以&quot;不为主&quot;为不宰制、不专制于物。</td><td>郭象以&quot;独化&quot;反对立&quot;主&quot;，万物各适其性，无主宰者；庄子&quot;齐物&quot;谓道&quot;未始有封&quot;，不立主宰；中观缘起以&quot;无自性&quot;破主宰之执，禅宗&quot;无心&quot;近之；海德格尔以&quot;存在&quot;非存在者之最高主宰，与此有可比性。</td></tr>
+<tr><td>不自为大</td><td>道从不觉得自己了不起，正因如此，它才真正伟大。</td><td>道始终不自以为大，所以能成就其大。这是老子的辩证智慧：不自大反而成其大。</td><td>王弼注：&quot;以其终不自为大，故能成其大。&quot;以&quot;无&quot;为体，不自大故能大；苏辙以&quot;不自大&quot;为道之谦德，与&quot;大国者下流&quot;相贯。</td><td>郭象以&quot;独化&quot;解&quot;自大&quot;为妄立，不自大即任自然；韩非《解老》以&quot;不自大&quot;为君人南面之术，不争而自大；王夫之以气化言，大是自然之量，不自大则无执；海德格尔&quot;泰然任之&quot;（Gelassenheit）近于不自大而让存在者存在，但语境不同。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">大道泛兮，其可左右</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">道像泛滥的河水到处流，左边右边都有它，哪儿都不缺。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">大道广泛流行、无所不至，可以左右逢源、周流无碍。&quot;泛&quot;形容道如大水漫溢，不局限于一隅。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;言道泛滥，无所不适，可左右上下周旋而用，则无所不至也。&quot;以&quot;泛&quot;训广泛周流，&quot;左右&quot;引申为无所偏倚、无所不至。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公从养生立说，以道为气、遍行周身，故&quot;可左右&quot;；成玄英重玄学以&quot;泛&quot;为不滞一边、双遣左右，道非有非无而周行；陈鼓应强调此句言道的普遍性与开放性，与《二十五章》&quot;周行而不殆&quot;互训。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">不辞</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">万物靠着道生长，道从不推辞、不嫌麻烦，来者不拒。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">万物依靠道而生，道从不拒绝、不推辞，任万物自生自长。&quot;辞&quot;即推辞、辞谢。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;万物皆由道而生，既生而不知其所由。&quot;强调道生而不辞、不居其功；河上公训&quot;辞&quot;为&quot;辞谢&quot;，以道不辞谢万物之求。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">郭象以&quot;独化&quot;解，谓万物块然自生、无待于外，本无所谓道之&quot;辞&quot;与&quot;不辞&quot;，这是对老子生成论的改造；荀子&quot;天行有常，不为尧存，不为桀亡&quot;以天为自然法则，亦不涉&quot;辞&quot;的意志；刘笑敢指出&quot;不辞&quot;体现道&quot;生而不有&quot;的非支配性。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">不有</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">事情做成了，道却不把功劳记在自己头上。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">道成就万物，却不占有、不居功，功成而弗居。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;功成而不有，故能成其大。&quot;以&quot;无&quot;为体，功成而不自有；苏辙《老子解》以&quot;不有&quot;为不自有其功、不居其名。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">郭象主张万物独化，功成乃自然之迹，本无&quot;有&quot;与&quot;不有&quot;之对；韩非《解老》以&quot;不有&quot;为不处其功、不争名位，偏向君人南面之术；王夫之以气化言，功成是气之聚散自然，不有即不滞于迹。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">衣养万物</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">道像一件大衣服，把万物都盖住、护着，养着它们。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">道覆盖、养护万物，如衣之被体。&quot;衣养&quot;即以衣覆养，喻道对万物的庇护与滋养。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;衣&quot;读去声，动词，覆盖。河上公注&quot;衣养万物&quot;为道如衣被万物，偏养生解；王弼以&quot;衣养&quot;为道之覆育，与&quot;不为主&quot;连读。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公、道教内丹以&quot;衣养&quot;为精气覆护周身、温养百骸；成玄英重玄学以&quot;衣养&quot;为养而无养、不滞于养；怀特海过程哲学以万物相互&quot;摄入&quot;（prehension）为养护关系，近于关系性的&quot;养&quot;，但无&quot;衣&quot;的覆盖意象。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">不为主</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">道养着万物，却不把自己当老板、不当万物的主人。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">道虽覆养万物，却不做万物的主宰，任其自然发展。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;万物归焉而不为主，可名为大。&quot;以&quot;不为主&quot;为道之&quot;无&quot;德；河上公以&quot;不为主&quot;为不宰制、不专制于物。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">郭象以&quot;独化&quot;反对立&quot;主&quot;，万物各适其性，无主宰者；庄子&quot;齐物&quot;谓道&quot;未始有封&quot;，不立主宰；中观缘起以&quot;无自性&quot;破主宰之执，禅宗&quot;无心&quot;近之；海德格尔以&quot;存在&quot;非存在者之最高主宰，与此有可比性。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">不自为大</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">道从不觉得自己了不起，正因如此，它才真正伟大。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">道始终不自以为大，所以能成就其大。这是老子的辩证智慧：不自大反而成其大。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;以其终不自为大，故能成其大。&quot;以&quot;无&quot;为体，不自大故能大；苏辙以&quot;不自大&quot;为道之谦德，与&quot;大国者下流&quot;相贯。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">郭象以&quot;独化&quot;解&quot;自大&quot;为妄立，不自大即任自然；韩非《解老》以&quot;不自大&quot;为君人南面之术，不争而自大；王夫之以气化言，大是自然之量，不自大则无执；海德格尔&quot;泰然任之&quot;（Gelassenheit）近于不自大而让存在者存在，但语境不同。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 34 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 34 章]
+
+大道泛兮，其可左右。万物恃之而生而不辞，功成不名有。衣养万物而不为主，常无欲，可名于小；万物归焉而不为主，可名为大。以其终不自为大，故能成其大。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_34_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

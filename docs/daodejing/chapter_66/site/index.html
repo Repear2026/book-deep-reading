@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 66 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 66/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_65/site/index.html" title="第 65 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_67/site/index.html" title="第 67 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 66 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>江海所以能为百谷王者，以其善下之，故能为百谷王。是以欲上民，必以言下之。欲先民，必以身后之。是以圣人处上而民不重，处前而民不害。是以天下乐推而不厌，以其不争，故天下莫能与之争。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 66 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这章老子用“江海为什么能汇纳百川”这个自然现象作比喻：江海不往高处争，反而处于最低处，结果成了“百谷之王”。他由此推出治理智慧——统治者若想真正居上、领先，反而要言辞谦下、把自身退到民众之后。反直觉的结论是：正因为不与人争，天下没人能与他争。最重要的收获是把“谦下”从道德姿态翻转成一种结构性优势：位置越低，汇聚力越强；姿态越退，拥戴越牢。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>1. 如果你在团队里明明是负责人，却每次表态都把功劳让给别人，团队会更服你还是更轻视你？</blockquote>
+<blockquote>2. 如果每次争论你都主动退一步、不争输赢，长期看是吃亏了，还是反而没人愿意跟你对立？</blockquote>
+<blockquote>3. 如果一个领导者总把“我不过是替大家跑腿的”挂在嘴边，这到底是真谦卑，还是一种更高级的掌控术？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote>- <strong>韩非子</strong>：主张君主必须紧握“势”与“术”，靠赏罚二柄和威势压服群臣，而不是靠言辞谦下、身居人后——与老子的“善下”针锋相对，他认为权力不能被“让”出来。</blockquote>
+<blockquote>- <strong>荀子</strong>：讲“隆礼重法”，认为秩序靠外在的礼义规范和等级名分来维持，而非靠个人往低处退的品性；他更相信制度性的“分”而非姿态性的“下”。</blockquote>
+<blockquote>- <strong>马基雅维利</strong>：在《君主论》里说君主应兼具狐狸的狡猾与狮子的凶猛，必要时果断用强力，这与“不争”“处下”正相反——他关心的是如何夺取并保持权力，而非如何让人“乐推而不厌”。</blockquote>
+<blockquote>- <strong>福柯</strong>：会提醒你，权力是弥散的关系网络，不存在纯粹“不争”的退让；所谓“言下之”“身后之”，本身也可以被读作一种更精细的权力技术——谦卑姿态本身就在生产服从。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：抓三个关注点——①“江海所以能为百谷王者，以其善下之”这个自然类比的因果结构（下→王）；②“欲上民必以言下之，欲先民必以身后之”这组表面矛盾的对应关系（上/下、先/后）；③结尾“以其不争，故天下莫能与之争”这个悖论式收束。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：必看两处论证——①“言下之”与“身后之”如何区分：一个是<strong>言辞</strong>姿态，一个是<strong>位置</strong>安排，老子把“谦下”拆成了说的层面和做的层面，看它们如何配合；②“处上而民不重，处前而民不害”如何为“不争”提供经验证据：上/前本是压人、碍人的位置，圣人却做到“不重”“不害”，这个反差正是全章的逻辑枢纽。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：值得追问的开放问题——“善下”如果是一种为了“上民”“先民”而采取的策略，那它和真正的谦卑还有区别吗？老子讲的究竟是一种道德境界，还是一种更高效的政治智慧？把这个问题想透，才能判断“不争”到底是退让还是最高明的争。</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+P1["江海善下而为百谷王"]
+P2["欲上民必以言下之"]
+P3["欲先民必以身后之"]
+P4["圣人处上民不重，处前民不害"]
+P5["不争故天下莫能与之争"]
+C_shanxia["善下之"]
+C_baigu["百谷王"]
+C_buzheng["不争"]
+Case_jh["江海（自然类比）"]
+A_laozi["老子"]
+Case_jh -->|instance_of| P1
+P1 -->|supports| P2
+P1 -->|supports| P3
+P2 -->|supports| P4
+P3 -->|supports| P4
+P4 -->|supports| P5
+P5 -->|relates_to| C_buzheng
+C_shanxia -->|relates_to| P1
+C_baigu -->|relates_to| P1
+C_shanxia -->|relates_to| P2
+C_buzheng -->|relates_to| P4
+A_laozi -->|relates_to| P1
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章以江海汇纳百谷为自然类比，阐明统治者应善处下位、言辞谦下、把自身置于民众之后，从而获得民众拥戴而不使人感到负担或妨害；核心是“善下”与“不争”的治理智慧。</div>
+<h3>📌 核心命题</h3><ol>
+<li>江海之所以能成为百谷之王，是因为它善于处在低下的位置。</li>
+<li>想要居于民众之上，必须言辞谦下。</li>
+<li>想要走在民众之前，必须把自身放在后面。</li>
+<li>圣人居上位而民众不感到负担，走在前面而民众不感到妨害。</li>
+<li>正因为不与人争，所以天下没有谁能与他争。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>江海所以能为百谷王者，以其善下之，故能为百谷王。</li>
+<li>是以欲上民，必以言下之。</li>
+<li>欲先民，必以身后之。</li>
+<li>是以圣人处上而民不重，处前而民不害。</li>
+<li>是以天下乐推而不厌，以其不争，故天下莫能与之争。</li>
+</ol>
+<h3>📚 案例</h3>
+<details><summary><strong>江海（自然类比）：以江海处于低下而汇纳百谷，说明“善下”能成其大。</strong></summary><div class="case-body"></div></details>
+<p>江海（自然类比）：以江海处于低下而汇纳百谷，说明“善下”能成其大。</p>
+<h3>💡 新概念</h3>
+<details><summary><strong>善下之：善于把自己放在低下的位置。</strong></summary><div class="case-body"></div></details>
+<details><summary><strong>百谷王：众多河流汇聚归往之处，比喻处于下位反而为众所归。</strong></summary><div class="case-body"></div></details>
+<details><summary><strong>不争：不与人相争，因而天下没有人能与他相争。</strong></summary><div class="case-body"></div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>本章“不争”“处下”的处世与治理思路，可能在后续章节（如第67章）继续展开。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《{书名}》第 {章号} 章。以下是我对这一章主线的概括：</p>
+<br/>
+<p>&quot;{我的概括}&quot;</p>
+<br/>
+<p>请你做两件事：</p>
+<ol>
+<li>1. 主线提取：用不超过 5 句话复述这一章的核心论证链条（从起点问题 → 中间关键转折 → 结论），并标出我的概括漏掉了哪一环。</li>
+<li>2. 关键概念检查：列出本章 3-5 个不能含糊带过的关键概念/术语，逐个问我&quot;你所说的 X 具体指什么&quot;，指出我概括中对该概念的用法是否与本章原文一致（若有偏移，指出偏在哪里）。</li>
+</ol>
+<p>最后给出：如果我只记住一句话，应该记住哪一句，为什么。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>你现在的任务不是帮我理解《{书名}》第 {章号} 章，而是做它最强的反方。</p>
+<br/>
+<p>我在读完这一章后，倾向于接受它的这个结论：&quot;{我的接受点}&quot;</p>
+<br/>
+<p>请：</p>
+<ol>
+<li>1. 站在与作者相反的立场，构造一个尽可能强、尽可能善意的反驳（不要稻草人），指出本章论证中最脆弱的前提是哪一个。</li>
+<li>2. 说明这个反驳如果成立，会连带推翻本章的哪些次级结论，哪些结论仍能幸存。</li>
+<li>3. 最后再切换回中立裁判：作者可能有哪些现成的回应？这些回应的强度如何？</li>
+</ol>
+<p>请明确区分&quot;作者在原文中确实说过的话&quot;与&quot;你替他补的辩护&quot;。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《{书名}》第 {章号} 章，想检验自己是否真懂，而不是只会复述。</p>
+<br/>
+<p>请给我 3 个真实生活/工作场景（要具体到有角色、有冲突、有决策点，不要抽象口号式的&quot;职场沟通&quot;），分别是：</p>
+<ul>
+<li>- 一个日常人际场景</li>
+<li>- 一个职业/组织决策场景</li>
+<li>- 一个涉及自我认知或长期选择的场景</li>
+</ul>
+<br/>
+<p>对每个场景：</p>
+<ol>
+<li>1. 先用本章的思想框架分析它（明确点出用的是本章哪个概念或区分）；</li>
+<li>2. 再给出&quot;如果照本章逻辑行动&quot;会得出的具体做法；</li>
+<li>3. 最后指出本章框架在这个场景里失灵或过度拉伸的地方——即哪里现实比理论更复杂。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>在《{书名}》第 {章号} 章里，最让我兴奋的一句话是：</p>
+<br/>
+<p>&quot;{原句}&quot;</p>
+<br/>
+<p>请围绕这句话做&quot;推下去&quot;的深挖，分四步：</p>
+<ol>
+<li>1. 拆解：这句话里最吃重的词是哪个？换掉它会怎样？</li>
+<li>2. 推演：如果这句话成立，它在逻辑上还会强制我们接受什么（给出 2-3 个不那么显眼、但难以回避的推论）？</li>
+<li>3. 边界：这些推论在什么条件下会失效？作者本人是否意识到这些边界？</li>
+<li>4. 接续：这句话在思想史上被谁接过去、往哪个方向推得更远？请注明具体人物与著作，并说明那是延伸还是扭曲。</li>
+</ol>
+<p>```</p>
+<br/>
+<h2>2）5-7 个新手引导问题</h2>
+<br/>
+<ol>
+<li>1. 这一章作者想解决的&quot;问题&quot;是什么？用一句你自己的话把它说出来。—— 先别管答案，把问号找准，后面的阅读才有落点。</li>
+<li>2. 本章有没有出现一个反复出现的词？把它圈出来，数一数出现几次。—— 高频词通常就是作者在暗中下定义的地方。</li>
+<li>3. 作者在这一章里，最想说服的&quot;对手&quot;是谁？他心里在跟谁吵架？—— 找出隐含对话者，论证结构会立刻清晰。</li>
+<li>4. 如果只能保留本章的一个论证，删掉其余全部，你会保留哪个？为什么？—— 这是在训练你分辨主梁与装饰。</li>
+<li>5. 本章有没有一句话让你觉得&quot;这不对&quot;？先别急着反驳，写下你觉得不对的那个瞬间。—— 不适感往往是理解的入口，而不是障碍。</li>
+<li>6. 作者用了哪个例子？如果把例子换成一个反例，论证还站得住吗？—— 例子是论证的承重墙还是贴纸，一试便知。</li>
+<li>7. 这一章如果放到今天，最可能被哪一类人用来支持什么主张？他们会不会用错？—— 从&quot;读懂&quot;跨到&quot;判断&quot;，这是爱好者与思考者的分界线。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>善下之</td><td>真正厉害的人，懂得把自己摆在低处，不端架子。</td><td>语出《老子》第六十六章：&quot;江海所以能为百谷王者，以其善下之。&quot;意为江海之所以能成为百川汇归之处，正因为它善于处在低下之位。老子由此引出&quot;欲上民，必以言下之；欲先民，必以身后之&quot;的治世之道，把&quot;处下&quot;作为得众、成事的根本方法。</td><td>&quot;下&quot;在老子中既是空间性的&quot;卑下&quot;&quot;低下&quot;，又是价值性的&quot;谦下&quot;&quot;不争&quot;。王弼注此章着眼于&quot;以其能下，故能为百谷王&quot;，将&quot;下&quot;解为不居功、不争上的自然之德；河上公注则从治身角度训&quot;下&quot;为&quot;谦下自守&quot;，与养生保真相联系。陈鼓应指出，&quot;下&quot;与老子全书&quot;柔弱胜刚强&quot;&quot;大者宜为下&quot;构成一贯的处世与政治原则，非权谋之术，而是&quot;法自然&quot;的体现。</td><td>王弼以&quot;无&quot;为本，认为江海之能为王不在其形之低，而在其&quot;不有&quot;&quot;不恃&quot;，与&quot;无&quot;的本体地位相通；河上公《老子道德经河上公章句》把&quot;善下&quot;落在治身养生上，谓谦下则神气不散、精气内守；郭象注《庄》主张&quot;独化&quot;，会强调江海之&quot;下&quot;非有意为之，而是性分自然、各当其分；韩非《解老》《喻老》则以&quot;术&quot;读之，把&quot;善下&quot;视为君主驾驭臣下、收揽人心的政治权术，与老子的自然之德已有距离；苏辙《老子解》以&quot;道无心而万物自归&quot;解之，近于佛老交融的&quot;无心得众&quot;。</td></tr>
+<tr><td>百谷王</td><td>千百条河都往那儿流的地方，象征众望所归。</td><td>&quot;百谷&quot;指众多山谷溪流，&quot;百谷王&quot;即百川所归之王，比喻能以谦下而聚众、为天下所归附者。《老子》第六十六章以江海为喻：&quot;江海所以能为百谷王者，以其善下之，故能为百谷王。&quot;后成为形容居下而得众、以柔克刚的经典意象。</td><td>河上公注：&quot;百谷者，众水也；王，往也。&quot;以&quot;王&quot;训&quot;往&quot;，谓众水归往之处，突出&quot;归&quot;的动态义；王弼则释&quot;王&quot;为&quot;主&quot;，强调其为众所宗主的地位。成玄英以重玄义解此喻，谓&quot;谷&quot;取空虚能容之义，江海以下为德，正合&quot;虚而能纳&quot;的道性。刘笑敢指出，此类&quot;江海—百谷&quot;的自然比喻在《老子》中构成一套&quot;以自然事象证成人文价值&quot;的论证方式，是其说理的基本语法。</td><td>河上公以&quot;王，往也&quot;训诂，把重点放在众水自然归往，暗含&quot;不召而自来&quot;的黄老无为之意；成玄英重玄学以&quot;谷&quot;之空虚解之，与佛教&quot;空能容万法&quot;之说互相映照；王夫之《老子衍》以气化论视江海为&quot;气之聚而虚者&quot;，认为百谷归之是&quot;势&quot;之自然，非有心为之；禅宗则常借&quot;百川归海&quot;喻万法归心、归于一性，与老子的政治喻义已别有取径。</td></tr>
+<tr><td>不争</td><td>不跟人抢，所以天下没人抢得过他。</td><td>语出《老子》第六十六章：&quot;以其不争，故天下莫能与之争。&quot;又见第二十二章&quot;夫唯不争，故天下莫能与之争&quot;。老子以&quot;不争&quot;为圣人之德的重要一端，与&quot;柔弱&quot;&quot;处下&quot;&quot;无为&quot;相贯通，指不逞强、不居功、不与物竞，从而无人能与之相争。后世多以此为处世智慧与政治原则。</td><td>&quot;争&quot;在老子语境中兼指争名、争功、争强；&quot;不争&quot;非消极退避，而是&quot;为而不争&quot;&quot;功成而不居&quot;。王弼注强调&quot;不争&quot;源于&quot;无欲&quot;与&quot;不有&quot;，与&quot;贵无&quot;之旨一致；河上公则解为&quot;不与俗人争&quot;，归于治身谦退。陈鼓应、楼宇烈均指出，&quot;不争&quot;在老子中是与&quot;无为&quot;&quot;自然&quot;同构的价值，不是策略性的以退为进；刘笑敢进一步辨析老子的&quot;不争&quot;含有&quot;不争而争&quot;的张力，需与《庄子》的&quot;无待&quot;&quot;齐物&quot;区分。</td><td>王弼以&quot;无&quot;为本，认为&quot;不争&quot;是体无者自然之迹，非有意不争；郭象主张&quot;独化&quot;&quot;各安其分&quot;，认为争与不争皆是性分之自然表现，与其说&quot;不争&quot;是德，不如说是&quot;无待于争&quot;；韩非《喻老》把&quot;不争&quot;读为君主不与人臣争能、藏器于身的统治术；庄子一派则以&quot;齐物&quot;&quot;逍遥&quot;解之，争与不争的对立在&quot;无待&quot;层面已被消解；佛学中观以&quot;缘起性空&quot;观之，争与不争皆无自性，禅宗更以&quot;无心&quot;为不争之极致，与老子偏重政治伦理的&quot;不争&quot;取径不同。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">善下之</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">真正厉害的人，懂得把自己摆在低处，不端架子。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第六十六章：&quot;江海所以能为百谷王者，以其善下之。&quot;意为江海之所以能成为百川汇归之处，正因为它善于处在低下之位。老子由此引出&quot;欲上民，必以言下之；欲先民，必以身后之&quot;的治世之道，把&quot;处下&quot;作为得众、成事的根本方法。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;下&quot;在老子中既是空间性的&quot;卑下&quot;&quot;低下&quot;，又是价值性的&quot;谦下&quot;&quot;不争&quot;。王弼注此章着眼于&quot;以其能下，故能为百谷王&quot;，将&quot;下&quot;解为不居功、不争上的自然之德；河上公注则从治身角度训&quot;下&quot;为&quot;谦下自守&quot;，与养生保真相联系。陈鼓应指出，&quot;下&quot;与老子全书&quot;柔弱胜刚强&quot;&quot;大者宜为下&quot;构成一贯的处世与政治原则，非权谋之术，而是&quot;法自然&quot;的体现。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，认为江海之能为王不在其形之低，而在其&quot;不有&quot;&quot;不恃&quot;，与&quot;无&quot;的本体地位相通；河上公《老子道德经河上公章句》把&quot;善下&quot;落在治身养生上，谓谦下则神气不散、精气内守；郭象注《庄》主张&quot;独化&quot;，会强调江海之&quot;下&quot;非有意为之，而是性分自然、各当其分；韩非《解老》《喻老》则以&quot;术&quot;读之，把&quot;善下&quot;视为君主驾驭臣下、收揽人心的政治权术，与老子的自然之德已有距离；苏辙《老子解》以&quot;道无心而万物自归&quot;解之，近于佛老交融的&quot;无心得众&quot;。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">百谷王</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">千百条河都往那儿流的地方，象征众望所归。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;百谷&quot;指众多山谷溪流，&quot;百谷王&quot;即百川所归之王，比喻能以谦下而聚众、为天下所归附者。《老子》第六十六章以江海为喻：&quot;江海所以能为百谷王者，以其善下之，故能为百谷王。&quot;后成为形容居下而得众、以柔克刚的经典意象。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">河上公注：&quot;百谷者，众水也；王，往也。&quot;以&quot;王&quot;训&quot;往&quot;，谓众水归往之处，突出&quot;归&quot;的动态义；王弼则释&quot;王&quot;为&quot;主&quot;，强调其为众所宗主的地位。成玄英以重玄义解此喻，谓&quot;谷&quot;取空虚能容之义，江海以下为德，正合&quot;虚而能纳&quot;的道性。刘笑敢指出，此类&quot;江海—百谷&quot;的自然比喻在《老子》中构成一套&quot;以自然事象证成人文价值&quot;的论证方式，是其说理的基本语法。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以&quot;王，往也&quot;训诂，把重点放在众水自然归往，暗含&quot;不召而自来&quot;的黄老无为之意；成玄英重玄学以&quot;谷&quot;之空虚解之，与佛教&quot;空能容万法&quot;之说互相映照；王夫之《老子衍》以气化论视江海为&quot;气之聚而虚者&quot;，认为百谷归之是&quot;势&quot;之自然，非有心为之；禅宗则常借&quot;百川归海&quot;喻万法归心、归于一性，与老子的政治喻义已别有取径。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">不争</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不跟人抢，所以天下没人抢得过他。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第六十六章：&quot;以其不争，故天下莫能与之争。&quot;又见第二十二章&quot;夫唯不争，故天下莫能与之争&quot;。老子以&quot;不争&quot;为圣人之德的重要一端，与&quot;柔弱&quot;&quot;处下&quot;&quot;无为&quot;相贯通，指不逞强、不居功、不与物竞，从而无人能与之相争。后世多以此为处世智慧与政治原则。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;争&quot;在老子语境中兼指争名、争功、争强；&quot;不争&quot;非消极退避，而是&quot;为而不争&quot;&quot;功成而不居&quot;。王弼注强调&quot;不争&quot;源于&quot;无欲&quot;与&quot;不有&quot;，与&quot;贵无&quot;之旨一致；河上公则解为&quot;不与俗人争&quot;，归于治身谦退。陈鼓应、楼宇烈均指出，&quot;不争&quot;在老子中是与&quot;无为&quot;&quot;自然&quot;同构的价值，不是策略性的以退为进；刘笑敢进一步辨析老子的&quot;不争&quot;含有&quot;不争而争&quot;的张力，需与《庄子》的&quot;无待&quot;&quot;齐物&quot;区分。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，认为&quot;不争&quot;是体无者自然之迹，非有意不争；郭象主张&quot;独化&quot;&quot;各安其分&quot;，认为争与不争皆是性分之自然表现，与其说&quot;不争&quot;是德，不如说是&quot;无待于争&quot;；韩非《喻老》把&quot;不争&quot;读为君主不与人臣争能、藏器于身的统治术；庄子一派则以&quot;齐物&quot;&quot;逍遥&quot;解之，争与不争的对立在&quot;无待&quot;层面已被消解；佛学中观以&quot;缘起性空&quot;观之，争与不争皆无自性，禅宗更以&quot;无心&quot;为不争之极致，与老子偏重政治伦理的&quot;不争&quot;取径不同。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 66 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 66 章]
+
+江海所以能为百谷王者，以其善下之，故能为百谷王。是以欲上民，必以言下之。欲先民，必以身后之。是以圣人处上而民不重，处前而民不害。是以天下乐推而不厌，以其不争，故天下莫能与之争。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_66_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

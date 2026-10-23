@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 47 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 47/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_46/site/index.html" title="第 46 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_48/site/index.html" title="第 48 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 47 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>不出户，知天下。不窥牖，见天道。其出弥远，其知弥少。是以圣人不行而知，不见而明，不为而成。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 47 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章只有四句话，却像一记反直觉的“暴击”：不出门就能知天下，不看窗外就能见天道，而走得越远反而知道得越少。老子在这里集中表达了一种反向外奔求、重内在体认的认知观——真正的“知”“明”“成”，不靠远行、窥望和造作，而靠对天道的内观与顺应。最有意思的收获是：它逼我们重新问一句——“知道”到底是怎么发生的？是跑出去收集信息，还是静下来与道相通？</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>1. 如果你足不出户却能通晓天下事，你会觉得这是玄谈，还是另一种“知”的可能？</blockquote>
+<blockquote>2. 如果你越努力向外奔走、越拼命看世界，反而离真相越远，你还会坚持“见多识广”吗？</blockquote>
+<blockquote>3. 如果一个领导者不事必躬亲、不亲临现场却能成事，这是懒政，还是另一种“为”？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote>- <strong>荀子</strong>：讲“虚壹而静”以求“大清明”，看似近于老子的内观，但他同时强调“行”与“学”不可废，《劝学》通篇在说“不登高山，不知天之高”——与老子“其出弥远，其知弥少”形成张力。</blockquote>
+<blockquote>- <strong>王阳明</strong>：倡“知行合一”，认为真知必在事上磨炼，反对悬空思索；若与本章对读，恰好可以追问：老子说的“不行而知”是否真能绕开“事上磨练”？</blockquote>
+<blockquote>- <strong>维特根斯坦</strong>：后期哲学强调“语言游戏”与“生活形式”，认为意义在公共实践中生成；他大概会质疑“不出户”所得的“知”如何可传达、可检验——私人性的内观能否构成公共的“知”？</blockquote>
+<blockquote>- <strong>罗素</strong>：区分“亲知的知识”（knowledge by acquaintance）与“描述的知识”（knowledge by description），本章“不窥牖，见天道”更像在说一种不依赖感官亲知的“知”，与罗素的经验论立场直接冲突。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：关注三个点——第一，“不出户/不窥牖”与“知天下/见天道”的对仗，看老子如何用否定式（“不……”）正面立论；第二，“其出弥远，其知弥少”的反比例句式，注意“弥……弥……”的递进节奏；第三，末句“不行而知，不见而明，不为而成”的三联排比，体会“知—明—成”三个层次的递升。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：必看两个论证。其一，“不出户，知天下。不窥牖，见天道”——注意老子并未论证“为什么”不出户能知，而是直接以断言呈现，这种“不证而断”本身即是其认知观的一部分；其二，“其出弥远，其知弥少”——这是全章唯一的“反证”，用向外奔走与所知多少的反向关系，来反衬内观之必要。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：该追问的一个开放问题是——老子说的“知天下”“见天道”，究竟是一种什么性质的“知”？它是对具体事理的掌握，还是对整体天道的体认？如果是后者，那它还能叫“知”吗，还是应叫“体道”？这个区分，决定了本章究竟是在讲认识论，还是在讲修养论。</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+    P1["命题：真正的知不必向外奔走，闭门不出也能知天下"]
+    P2["命题：不必窥望窗外，也能见天道"]
+    P3["命题：向外走得越远，所知反而越少"]
+    P4["命题：圣人不用远行、不用眼见、不用强为，就能知、能明、能成"]
+
+    C1["概念：不出户，知天下"]
+    C2["概念：不窥牖，见天道"]
+    C3["概念：其出弥远，其知弥少"]
+    C4["概念：不行而知"]
+    C5["概念：不见而明"]
+    C6["概念：不为而成"]
+
+    A1["论据：不出户，知天下"]
+    A2["论据：不窥牖，见天道"]
+    A3["论据：其出弥远，其知弥少"]
+    A4["论据：圣人不行而知，不见而明，不为而成"]
+
+    A1 -->|supports| P1
+    A2 -->|supports| P2
+    A3 -->|supports| P3
+    A4 -->|supports| P4
+
+    C1 -.->|relates_to| P1
+    C2 -.->|relates_to| P2
+    C3 -.->|relates_to| P3
+    C4 -.->|relates_to| P4
+    C5 -.->|relates_to| P4
+    C6 -.->|relates_to| P4
+
+    P1 -.->|relates_to| P2
+    P2 -.->|relates_to| P3
+    P3 -.->|relates_to| P4
+    C1 -.->|relates_to| C2
+    C2 -.->|relates_to| C3
+    C4 -.->|relates_to| C5
+    C5 -.->|relates_to| C6
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章集中呈现老子反向外奔求、重内在体认的认知观，说明真正的知、明、成不依赖远行、窥见与造作，而源于对天道的内观与顺应。</div>
+<h3>📌 核心命题</h3><ol>
+<li>真正的知不必向外奔走，闭门不出也能知天下。</li>
+<li>不必窥望窗外，也能见天道。</li>
+<li>向外走得越远，所知反而越少。</li>
+<li>圣人不用远行、不用眼见、不用强为，就能知、能明、能成。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>不出户，知天下。</li>
+<li>不窥牖，见天道。</li>
+<li>其出弥远，其知弥少。</li>
+<li>是以圣人不行而知，不见而明，不为而成。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>不出户，知天下</strong></summary><div class="case-body">不用出门远行，也能通晓天下的事理。</div></details>
+<details><summary><strong>不窥牖，见天道</strong></summary><div class="case-body">不用往窗外张望，也能看见天道的运行。</div></details>
+<details><summary><strong>其出弥远，其知弥少</strong></summary><div class="case-body">向外奔走得越远，所得的知反而越少。</div></details>
+<details><summary><strong>不行而知</strong></summary><div class="case-body">不靠远行实践，也能有所知。</div></details>
+<details><summary><strong>不见而明</strong></summary><div class="case-body">不靠亲眼看见，也能看得明白。</div></details>
+<details><summary><strong>不为而成</strong></summary><div class="case-body">不靠刻意造作，也能把事情做成。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>本章“其出弥远，其知弥少”所指向的反向外求、重内观的思路，可能在第48章继续展开。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《{书名}》第 47 章。下面是我尝试复述本章主线的一段话：</p>
+<br/>
+<p>「{我的一段陈述}」</p>
+<br/>
+<p>请做两件事，不要替我补答案：</p>
+<br/>
+<ol>
+<li>1. 主线提取：用不超过 5 条列出本章论证的主干（主张 → 理由 → 结论），并明确指出我这段话里漏掉、压缩或说反了哪一环。</li>
+<li>2. 关键概念检查：挑出本章 3 个不可替代的核心概念，逐个追问我「它在这里具体指什么」「如果把它换成一个近义词，论证会不会塌」，并把我的回答与原文用法对照。</li>
+</ul>
+<br/>
+<p>最后列出 2 个我没答上来的点，指回原文大致位置（小标题/段落），让我自己重读。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>你现在是《{书名}》第 47 章最强的反方，不是挑刺，是正面立论。</p>
+<br/>
+<p>我对本章核心论点的概括是：{一句话}</p>
+<p>我接受它的主要理由是：{我的理由}</p>
+<br/>
+<p>请按顺序：</p>
+<br/>
+<ol>
+<li>1. 先不否定我，而是用本章自己的前提推出一个它没预料到的反例或困境；</li>
+<li>2. 再站到相反立场给出替代解释，说明同样的现象它解释得更好在哪；</li>
+<li>3. 指出我这个「接受理由」里最脆弱的一环，用最锋利的说法把它重述一遍；</li>
+<li>4. 最后告诉我：如果我仍想守住本章立场，最低限度要付出什么代价——放弃哪条直觉，或接受哪个反直觉结论。</li>
+</ul>
+<br/>
+<p>不要和稀泥，结尾不要出现「双方都有道理」。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《{书名}》第 47 章，想把它接上现实。这是我的三个真实场景：</p>
+<br/>
+<ol>
+<li>1. {场景一}</li>
+<li>2. {场景二}</li>
+<li>3. {场景三}</li>
+</ul>
+<br/>
+<p>对每个场景请分别给出：</p>
+<ul>
+<li>- 本章哪条论点或哪个区分能真正用上（引用原文关键词，不要泛泛而谈「这很有启发」）；</li>
+<li>- 用与不用这套框架，我在这个场景里的判断会有什么具体不同；</li>
+<li>- 哪里套不上：本章没谈到、或谈到了也不适用于此处的地方，直接点出来。</li>
+</ul>
+<br/>
+<p>三个场景里如果有任何一个其实不该用本章框架，请明确说明并给出理由。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>《{书名}》第 47 章里，这句话让我最兴奋：</p>
+<br/>
+<p>「{原文引句}」</p>
+<br/>
+<p>我兴奋的点是：{我的直觉}</p>
+<br/>
+<p>请围绕这一句往下推，不要复述原文：</p>
+<br/>
+<ol>
+<li>1. 这句话在本章论证里承担什么功能——它推翻了什么，又允许了什么？</li>
+<li>2. 如果把它当真并推到极端，会得出哪些本章没明说、但逻辑上跟着来的结论？（至少 3 条，标出最反直觉的那条）</li>
+<li>3. 这些结论里哪一条会与本章其他部分产生张力？作者大概会怎么救？</li>
+<li>4. 这句话在思想史上有哪些相似或对立的说法？（写明是谁、出自哪本著作或哪个学派）它们与这句的差别究竟在哪？</li>
+</ol>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题</h2>
+<br/>
+<ol>
+<li>1. 这章作者最想让你相信的一句话是什么？用你自己的话说一遍。</li>
+</ol>
+<p>   &gt; 提示：先不管论证，只找一个你能复述的主张；说不出来就说明还停在「读过」而非「读懂」。</p>
+<br/>
+<ol>
+<li>2. 本章有没有哪个词出现得特别频繁？作者用它时，和日常用法一样吗？</li>
+</ol>
+<p>   &gt; 提示：术语往往是作者偷偷下定义的地方，抓住一个词就能抓住半章。</p>
+<br/>
+<ol>
+<li>3. 作者在反驳谁？如果抽掉这个对手，这一章还有必要写吗？</li>
+</ol>
+<p>   &gt; 提示：哲学章节多半是应答式的，找到「靶子」，论点才会显出锋芒。</p>
+<br/>
+<ol>
+<li>4. 本章的论证是演绎、归纳还是类比？结论比前提多说了什么？</li>
+</ol>
+<p>   &gt; 提示：多出来的那部分就是论证的承重墙，也是它最容易被攻击的地方。</p>
+<br/>
+<ol>
+<li>5. 如果这章的核心论点被证明是错的，你的生活或判断会有任何变化吗？</li>
+</ol>
+<p>   &gt; 提示：检验相关性——如果一个论点错了也毫无影响，那它对你目前还不是哲学，只是知识点。</p>
+<br/>
+<ol>
+<li>6. 这一章在全书里起什么作用？它承接哪一章、又在为哪一章铺路？</li>
+</ol>
+<p>   &gt; 提示：单章脱离结构容易被误读，先定位再细读，能避免把过渡性论述当成本体论主张。</p>
+<br/>
+<ol>
+<li>7. 如果让你写一篇最强反驳，你会从哪个前提下手？为什么不是别的？</li>
+</ol>
+<p>   &gt; 提示：能挑出「最该被攻击的前提」，说明你已经能区分论证的形式有效性与前提的可疑性。</p>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>不出户，知天下</td><td>待在家里，也能弄明白天下大势。</td><td>老子认为认识天下不必依赖远行经验，主体在内在虚静中即可把握事物的普遍理则，是&quot;体道&quot;式的认知主张。</td><td>&quot;户&quot;为门户，&quot;知天下&quot;非经验积累之知，而是对&quot;道&quot;之常、万物之理的统贯之知；与下文&quot;其出弥远，其知弥少&quot;构成反衬，强调&quot;为道日损&quot;的认知路径。</td><td>王弼以&quot;贵无&quot;立论，认为若能&quot;崇本息末&quot;、以无为心，则万物之情自见于前，不必逐物以求；河上公则从养生角度解&quot;户&quot;为耳目之窍，主张闭塞外缘、精气内守而神明自照；苏辙以&quot;道在迩而求诸远&quot;为说，近于儒门&quot;反身而诚&quot;的思路。现代学者陈鼓应指出此章属老子&quot;静观&quot;、&quot;玄览&quot;的认识论，与前四十六章的&quot;知足&quot;、&quot;不欲&quot;相承。</td></tr>
+<tr><td>不窥牖，见天道</td><td>不用往窗外看，也能看清天地运行的规律。</td><td>&quot;牖&quot;为窗户。老子主张天道不待外求，主体在虚静状态中直接契会天道的运行节律，与&quot;不出户知天下&quot;互文见义。</td><td>&quot;天道&quot;指日月四时、阴阳消长之常则；&quot;不窥&quot;非否定感官，而是不以感官逐物为知之门径，即&quot;塞其兑，闭其门&quot;的工夫所成就的&quot;明&quot;。</td><td>河上公以&quot;天道&quot;为神明之气，主张&quot;掩目塞耳&quot;使神不外驰，与道教内丹&quot;收视返听&quot;之说相通；成玄英以重玄双遣解之，谓既不滞于外境，亦不执于内观，遣之又遣方见天道；王夫之从气化立论，认为天道即阴阳动静之实理，圣人以神理相通而非以目见。与西方对照，海德格尔所谓&quot;真理之无蔽&quot;须以&quot;让存在者存在&quot;的泰然任之的方式开显，与老子&quot;不窥而见&quot;有形式上的呼应，但海氏并不否定在世操劳，二者取向有别。</td></tr>
+<tr><td>其出弥远，其知弥少</td><td>往外跑得越远，知道的反倒越少。</td><td>老子认为知识的增长不取决于外求的广度，逐物愈甚则离本愈远，所得之知愈流于支离，此句为全章认识论的核心反命题。</td><td>&quot;出&quot;指外驰逐物，&quot;弥远&quot;言其方向愈偏，&quot;知&quot;在这里指对道的真知而非闻见之知；与&quot;为学日益，为道日损&quot;（四十八章）互为表里，构成老子&quot;损&quot;的工夫论。</td><td>王弼以&quot;本末&quot;为说，谓逐末者失本，愈求愈惑；郭象注《庄》主&quot;独化&quot;、&quot;任当&quot;，认为物各适其性，不须外慕远求，与老子此句可相发明但并非同调；韩非《解老》则以&quot;道理&quot;为说，强调&quot;缘道理以从事&quot;者不劳而功成，将此句解释为顺理而非逐智。刘笑敢指出老子此言并非反对一切认知，而是区分&quot;为学&quot;与&quot;为道&quot;两种取向，属价值取舍而非知识论上的反智论。</td></tr>
+<tr><td>不行而知</td><td>不用亲自跑一趟，也能明白。</td><td>老子认为真知不以行履经验为必要条件，主体在体道状态中即可通达事理，与&quot;不出户知天下&quot;同义而更凝练。</td><td>&quot;行&quot;指涉历、践履，&quot;知&quot;指体道之知；此句与&quot;不窥牖见天道&quot;、&quot;不见而明&quot;、&quot;不为而成&quot;构成三个并列命题，共同表述&quot;道&quot;层面上的无待之知与无为之功。</td><td>王弼以&quot;无&quot;为本，谓圣人之心&quot;虚而应物&quot;，不待行而理自明；河上公以养生解，谓&quot;不行&quot;者不妄涉险途，神气自安而理自达；王夫之则提出质疑，认为&quot;知&quot;非离&quot;行&quot;而独存，圣人之知正在于&quot;躬行&quot;中见理，实近于后来&quot;知行相资&quot;之说，与老子的表述形成张力。现代学者楼宇烈提醒，老子此语须在&quot;无为而无不为&quot;的整体框架中读，不可孤立作反实践论解。</td></tr>
+<tr><td>不见而明</td><td>不用亲眼看，也能看得明白。</td><td>老子以&quot;明&quot;区别于感官之&quot;见&quot;，指对道的洞照之明，不依赖于目之所及，与&quot;自知者明&quot;（三十三章）之&quot;明&quot;义脉相通。</td><td>&quot;见&quot;为目之接物，&quot;明&quot;为心之照理；老子屡言&quot;自见者不明&quot;（二十四章），故此&quot;不见而明&quot;意在屏除外逐之见而显发内在之照，属&quot;玄览&quot;、&quot;涤除玄鉴&quot;的工夫所成。</td><td>王弼以&quot;明&quot;为&quot;无&quot;之照，谓不执于所见则无所不见；成玄英以重玄义解&quot;明&quot;为双遣之照，非有非无而了然自明；禅宗北宗神秀一系主&quot;观心看净&quot;，南宗慧能则谓&quot;不见一法存无见&quot;，与老子此句在&quot;不即感官而不离觉照&quot;上可相参，但禅宗更强调般若空慧而非生成论的本源。陈鼓应指出老子的&quot;明&quot;带有直觉主义色彩，与荀子&quot;虚壹而静&quot;的&quot;大清明&quot;可对读，惟荀子仍以礼义为归。</td></tr>
+<tr><td>不为而成</td><td>不刻意去折腾，事情反而成了。</td><td>老子认为不妄作、不强为，顺任事物本性，反而能成就事功，是&quot;无为而无不为&quot;的凝练表达，与全章&quot;不行而知&quot;、&quot;不见而明&quot;同属道的功效层面。</td><td>&quot;为&quot;指人为造作、以己意强加于物；&quot;不为&quot;非枯坐无所事事，而是&quot;辅万物之自然而不敢为&quot;（六十四章）；&quot;成&quot;指事理的自我完成，即&quot;功成事遂，百姓皆谓我自然&quot;（十七章）。</td><td>王弼以&quot;无&quot;为体、&quot;无为&quot;为用，谓不造不始而万物自化；郭象主&quot;独化&quot;、&quot;各任其性&quot;，认为物皆自尔，圣人&quot;无心而顺有&quot;，与老子&quot;不为而成&quot;形似而理异，因郭象不承认有一个作为本源的&quot;道&quot;；韩非《喻老》以&quot;因&quot;释&quot;无为&quot;，谓&quot;因物以治物&quot;则事成而君逸，把此句读成君主术。西方对照，怀特海的过程哲学主张万物依内在价值自组织生成，&quot;成&quot;不需外在强制目的，其反机械干预的取向与&quot;不为而成&quot;有可比性，但怀特海保留了上帝的原初性，与老子的&quot;道法自然&quot;不同。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">不出户，知天下</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">待在家里，也能弄明白天下大势。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子认为认识天下不必依赖远行经验，主体在内在虚静中即可把握事物的普遍理则，是&quot;体道&quot;式的认知主张。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;户&quot;为门户，&quot;知天下&quot;非经验积累之知，而是对&quot;道&quot;之常、万物之理的统贯之知；与下文&quot;其出弥远，其知弥少&quot;构成反衬，强调&quot;为道日损&quot;的认知路径。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;贵无&quot;立论，认为若能&quot;崇本息末&quot;、以无为心，则万物之情自见于前，不必逐物以求；河上公则从养生角度解&quot;户&quot;为耳目之窍，主张闭塞外缘、精气内守而神明自照；苏辙以&quot;道在迩而求诸远&quot;为说，近于儒门&quot;反身而诚&quot;的思路。现代学者陈鼓应指出此章属老子&quot;静观&quot;、&quot;玄览&quot;的认识论，与前四十六章的&quot;知足&quot;、&quot;不欲&quot;相承。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">不窥牖，见天道</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不用往窗外看，也能看清天地运行的规律。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;牖&quot;为窗户。老子主张天道不待外求，主体在虚静状态中直接契会天道的运行节律，与&quot;不出户知天下&quot;互文见义。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;天道&quot;指日月四时、阴阳消长之常则；&quot;不窥&quot;非否定感官，而是不以感官逐物为知之门径，即&quot;塞其兑，闭其门&quot;的工夫所成就的&quot;明&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以&quot;天道&quot;为神明之气，主张&quot;掩目塞耳&quot;使神不外驰，与道教内丹&quot;收视返听&quot;之说相通；成玄英以重玄双遣解之，谓既不滞于外境，亦不执于内观，遣之又遣方见天道；王夫之从气化立论，认为天道即阴阳动静之实理，圣人以神理相通而非以目见。与西方对照，海德格尔所谓&quot;真理之无蔽&quot;须以&quot;让存在者存在&quot;的泰然任之的方式开显，与老子&quot;不窥而见&quot;有形式上的呼应，但海氏并不否定在世操劳，二者取向有别。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">其出弥远，其知弥少</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">往外跑得越远，知道的反倒越少。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子认为知识的增长不取决于外求的广度，逐物愈甚则离本愈远，所得之知愈流于支离，此句为全章认识论的核心反命题。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;出&quot;指外驰逐物，&quot;弥远&quot;言其方向愈偏，&quot;知&quot;在这里指对道的真知而非闻见之知；与&quot;为学日益，为道日损&quot;（四十八章）互为表里，构成老子&quot;损&quot;的工夫论。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;本末&quot;为说，谓逐末者失本，愈求愈惑；郭象注《庄》主&quot;独化&quot;、&quot;任当&quot;，认为物各适其性，不须外慕远求，与老子此句可相发明但并非同调；韩非《解老》则以&quot;道理&quot;为说，强调&quot;缘道理以从事&quot;者不劳而功成，将此句解释为顺理而非逐智。刘笑敢指出老子此言并非反对一切认知，而是区分&quot;为学&quot;与&quot;为道&quot;两种取向，属价值取舍而非知识论上的反智论。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">不行而知</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不用亲自跑一趟，也能明白。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子认为真知不以行履经验为必要条件，主体在体道状态中即可通达事理，与&quot;不出户知天下&quot;同义而更凝练。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;行&quot;指涉历、践履，&quot;知&quot;指体道之知；此句与&quot;不窥牖见天道&quot;、&quot;不见而明&quot;、&quot;不为而成&quot;构成三个并列命题，共同表述&quot;道&quot;层面上的无待之知与无为之功。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，谓圣人之心&quot;虚而应物&quot;，不待行而理自明；河上公以养生解，谓&quot;不行&quot;者不妄涉险途，神气自安而理自达；王夫之则提出质疑，认为&quot;知&quot;非离&quot;行&quot;而独存，圣人之知正在于&quot;躬行&quot;中见理，实近于后来&quot;知行相资&quot;之说，与老子的表述形成张力。现代学者楼宇烈提醒，老子此语须在&quot;无为而无不为&quot;的整体框架中读，不可孤立作反实践论解。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">不见而明</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不用亲眼看，也能看得明白。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子以&quot;明&quot;区别于感官之&quot;见&quot;，指对道的洞照之明，不依赖于目之所及，与&quot;自知者明&quot;（三十三章）之&quot;明&quot;义脉相通。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;见&quot;为目之接物，&quot;明&quot;为心之照理；老子屡言&quot;自见者不明&quot;（二十四章），故此&quot;不见而明&quot;意在屏除外逐之见而显发内在之照，属&quot;玄览&quot;、&quot;涤除玄鉴&quot;的工夫所成。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;明&quot;为&quot;无&quot;之照，谓不执于所见则无所不见；成玄英以重玄义解&quot;明&quot;为双遣之照，非有非无而了然自明；禅宗北宗神秀一系主&quot;观心看净&quot;，南宗慧能则谓&quot;不见一法存无见&quot;，与老子此句在&quot;不即感官而不离觉照&quot;上可相参，但禅宗更强调般若空慧而非生成论的本源。陈鼓应指出老子的&quot;明&quot;带有直觉主义色彩，与荀子&quot;虚壹而静&quot;的&quot;大清明&quot;可对读，惟荀子仍以礼义为归。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">不为而成</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不刻意去折腾，事情反而成了。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子认为不妄作、不强为，顺任事物本性，反而能成就事功，是&quot;无为而无不为&quot;的凝练表达，与全章&quot;不行而知&quot;、&quot;不见而明&quot;同属道的功效层面。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;为&quot;指人为造作、以己意强加于物；&quot;不为&quot;非枯坐无所事事，而是&quot;辅万物之自然而不敢为&quot;（六十四章）；&quot;成&quot;指事理的自我完成，即&quot;功成事遂，百姓皆谓我自然&quot;（十七章）。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为体、&quot;无为&quot;为用，谓不造不始而万物自化；郭象主&quot;独化&quot;、&quot;各任其性&quot;，认为物皆自尔，圣人&quot;无心而顺有&quot;，与老子&quot;不为而成&quot;形似而理异，因郭象不承认有一个作为本源的&quot;道&quot;；韩非《喻老》以&quot;因&quot;释&quot;无为&quot;，谓&quot;因物以治物&quot;则事成而君逸，把此句读成君主术。西方对照，怀特海的过程哲学主张万物依内在价值自组织生成，&quot;成&quot;不需外在强制目的，其反机械干预的取向与&quot;不为而成&quot;有可比性，但怀特海保留了上帝的原初性，与老子的&quot;道法自然&quot;不同。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 47 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 47 章]
+
+不出户，知天下。不窥牖，见天道。其出弥远，其知弥少。是以圣人不行而知，不见而明，不为而成。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_47_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

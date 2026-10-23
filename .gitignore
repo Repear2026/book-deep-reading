@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.venv/
+venv/
+env/
+
+# 输入与产出（书的内容不入库）
+inputs/
+outputs/
+*.pdf
+
+# 配置（含本地路径/模型密钥）
+config/books.yaml
+.env
+.env.*
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+
+# 日志
+*.log

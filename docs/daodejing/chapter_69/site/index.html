@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 69 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 69/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_68/site/index.html" title="第 68 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_70/site/index.html" title="第 70 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 69 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>用兵有言：吾不敢为主而为客，不敢进寸而退尺。是谓行无行，攘无臂，扔无敌，执无兵。祸莫大于轻敌，轻敌几丧吾宝。故抗兵相加，哀者胜矣。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 69 章》四步导读</h1>
+<br/>
+<h2>① 书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章是老子少有的直接谈“怎么打仗”的段落，但它的落点并不在战术，而在姿态：宁可守、不主动挑衅；宁可退、不争一寸；布阵却像没有阵形，面对敌人却像没有敌人——把锋芒全部收起来。老子随后警告：最大的灾祸是轻敌，轻敌几乎会丢掉“吾宝”；两军势均力敌时，怀有哀悯之心的一方反而获胜。最有趣的收获是：老子把“不逞强”和“不忍心”当成真正的战斗力，胜败的根据不在声势，而在心态。</blockquote>
+<br/>
+<h2>② 多问题意识关联</h2>
+<blockquote>如果一支军队刻意不显露阵形、不显露兵器、不显出敌意，它到底是更弱了，还是更难被击溃？</blockquote>
+<p>&gt;</p>
+<blockquote>如果“轻敌”被老子视为最大的祸，那么自信与傲慢之间的界线究竟划在哪里？</blockquote>
+<p>&gt;</p>
+<blockquote>如果两军实力相当、胜负取决于谁更“哀”，那么“不忍心”为什么反而是一种力量？</blockquote>
+<br/>
+<h2>③ 其他作者观点碰撞</h2>
+<blockquote><strong>荀子</strong>：主张“凡用兵攻战之本在乎壹民”，胜负根子在民心凝聚与道义，与老子“哀者胜”同样把胜负从技术层面拉回人心，但荀子更强调制度化与礼义教化。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>韩非</strong>：以“不恃人之不我攻，而恃吾不可攻”立论，重“势”与“备”；他也会赞同不轻敌，但把安全建立在法与势的硬约束上，而非守柔退让。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>克劳塞维茨</strong>：在《战争论》中强调战争是政治的延续、防御是更强的作战形式，这与老子“为客不为主”有相通处；但他同时主张决战与集中兵力，与老子“行无行、执无兵”的消隐姿态形成张力。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>维特根斯坦</strong>：后期以“语言游戏”和“生活形式”说明意义取决于实践脉络；可借来读“行无行”这类悖论式表达——它不是描述某种奇怪动作，而是在改写“什么才算军事行动”的用法。</blockquote>
+<br/>
+<h2>④ 精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：抓三个关注点——第一，“为主”与“为客”、“进寸”与“退尺”这两组对照，看老子如何把“守”确立为法则；第二，“行无行、攘无臂、扔无敌、执无兵”这四个“无”字句，注意它们排比递进的节奏；第三，结尾从“祸莫大于轻敌”转到“哀者胜矣”，看全章如何由战术姿态收束到心态判断。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：必看两处论证。其一，“轻敌几丧吾宝”——注意老子不是说轻敌会输掉战斗，而是说它会动摇所珍视的根本，这是一次从军事判断向价值判断的跳跃，值得追问“吾宝”在此指向什么。其二，“抗兵相加，哀者胜矣”——前提被限定为“实力相当”，说明老子并未许诺弱者必胜，而是说在势均力敌的临界点上，心态决定走向。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：该追问的开放问题——“哀者胜”中的“哀”，究竟是对己方伤亡的悲悯、对战争本身的哀痛，还是对敌方也将死伤的恻隐？如果是最后一种，那么这种“不忍”如何与“战胜”共存？老子是否在暗示：真正的胜利恰恰是不把对手当成“敌”来对待？</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+theme["用兵之道：以守为客，哀者胜"]
+p1["用兵有言：不敢为主而为客，不敢进寸而退尺"]
+p2["行无行，攘无臂，扔无敌，执无兵"]
+p3["祸莫大于轻敌，轻敌几丧吾宝"]
+p4["抗兵相加，哀者胜矣"]
+weizhu["为主：主动发起战事、取攻势"]
+weike["为客：被动应对、取守势"]
+xingwuxing["行无行：行军布阵不露行列形迹"]
+rangwubi["攘无臂：奋臂示意不露臂膀"]
+rengwudi["扔无敌：面对敌人不显敌对之形"]
+zhiwubing["执无兵：手持兵器不露兵器"]
+qingdi["轻敌：轻视敌人、低估对手"]
+wubao["吾宝：所珍视的根本"]
+aizhe["哀者：怀哀悯之心的一方"]
+p1 -->|supports| theme
+p2 -->|supports| theme
+p3 -->|supports| theme
+p4 -->|supports| theme
+weizhu -->|relates_to| p1
+weike -->|relates_to| p1
+weizhu -->|relates_to| weike
+xingwuxing -->|relates_to| p2
+rangwubi -->|relates_to| p2
+rengwudi -->|relates_to| p2
+zhiwubing -->|relates_to| p2
+xingwuxing -->|relates_to| rangwubi
+rengwudi -->|relates_to| zhiwubing
+qingdi -->|relates_to| p3
+wubao -->|relates_to| p3
+qingdi -->|relates_to| wubao
+aizhe -->|relates_to| p4
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章集中论述用兵之道：以守势代替主动挑衅，以不显露形迹代替逞强，以不轻敌为戒，并指出两军相当之时，怀有哀悯之心的一方能够获胜。全章由用兵法则推进到灾祸警示与胜负判断。</div>
+<h3>📌 核心命题</h3><ol>
+<li>用兵的法则是：不敢主动挑起战事而采取守势，不敢前进一寸而宁可后退一尺。</li>
+<li>做到行军却像没有行列，奋臂却像没有手臂，面对敌人却像没有敌人，手持兵器却像没有兵器。</li>
+<li>灾祸没有比轻敌更大的，轻敌几乎丧失“吾宝”。</li>
+<li>两军实力相当对抗时，怀有哀悯之心的一方会获胜。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>用兵有言：吾不敢为主而为客，不敢进寸而退尺。</li>
+<li>是谓行无行，攘无臂，扔无敌，执无兵。</li>
+<li>祸莫大于轻敌，轻敌几丧吾宝。</li>
+<li>故抗兵相加，哀者胜矣。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>为主</strong></summary><div class="case-body">指主动发起战事、采取攻势的一方。</div></details>
+<details><summary><strong>为客</strong></summary><div class="case-body">指被动应对、采取守势的一方。</div></details>
+<details><summary><strong>行无行</strong></summary><div class="case-body">行军布阵却不显露行列形迹。</div></details>
+<details><summary><strong>攘无臂</strong></summary><div class="case-body">奋臂示意却不露出臂膀。</div></details>
+<details><summary><strong>扔无敌</strong></summary><div class="case-body">面对敌人却不显现敌对相抗之形。</div></details>
+<details><summary><strong>执无兵</strong></summary><div class="case-body">手持兵器却不显露兵器。</div></details>
+<details><summary><strong>轻敌</strong></summary><div class="case-body">轻视敌人、低估对手。</div></details>
+<details><summary><strong>吾宝</strong></summary><div class="case-body">文中指所珍视的根本，轻敌会几乎使其丧失。</div></details>
+<details><summary><strong>哀者</strong></summary><div class="case-body">怀有哀悯、悲悯之心的一方。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>可能在第70章继续围绕“吾言”“吾宝”等话题展开。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚刚读完第 69 章。下面是我自己写的一段复述，请你做两件事：</p>
+<br/>
+<p>【我的复述】</p>
+<p>{我的复述原文}</p>
+<br/>
+<p>请按以下结构回应：</p>
+<ol>
+<li>1. 主线提取：用 3–5 句话还原本章的论证主线（问题 → 立场 → 关键步骤 → 结论），只依据本章笔记与原文，不要补充书里没有的内容。</li>
+<li>2. 关键概念检查：列出本章必须掌握的 {3–5} 个关键概念，逐个说明——(a) 书中原意；(b) 我的复述里是否出现、用得对不对；(c) 若用错，指出我混淆了什么。</li>
+<li>3. 遗漏与失真：我的复述漏掉了哪些本章承重的环节？哪些地方我把作者的观点替换成了我自己的常识？</li>
+<li>4. 一句话判分：我这段复述的准确度大概在什么水平（准确 / 部分失真 / 主线错位），并说明理由。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>请扮演第 69 章的最强反方，不要扮演导师，不要替我缓和。</p>
+<br/>
+<p>本章的核心主张是：{本章核心主张}</p>
+<p>我目前对它的接受程度是：{我的接受程度与理由}</p>
+<br/>
+<p>要求：</p>
+<ol>
+<li>1. 先复述我方（作者）立场的最强版本，确保你打的不是稻草人。</li>
+<li>2. 然后给出 3 条彼此独立的反驳，按杀伤力从强到弱排序。每条要说清：它攻击的是前提、推理，还是结论的范围？</li>
+<li>3. 每条反驳都要给出一个具体的反例或反思路径，而不是笼统的&quot;有人认为……&quot;。</li>
+<li>4. 指出：如果我坚持接受本章，我最必须付出代价的是哪一点？</li>
+<li>5. 最后不要给和解方案，让我自己想。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我已读完第 69 章。请把本章思想落到下面三个真实场景里，不要泛泛而谈&quot;这很有启发&quot;。</p>
+<br/>
+<p>场景 1：{生活场景}</p>
+<p>场景 2：{工作/职业场景}</p>
+<p>场景 3：{人际或公共讨论场景}</p>
+<br/>
+<p>对每个场景：</p>
+<ul>
+<li>- 用本章的框架重新描述这个场景，指出通常被忽略的那一层；</li>
+<li>- 说明本章的哪个概念在此处真正起作用，哪个概念在这里其实不适用（要敢说不适用）；</li>
+<li>- 给出一个具体到可以明天就做的动作，以及做错会是什么样。</li>
+</ul>
+<p>最后补一句：本章在什么条件下会失效，此时该退回到什么判断。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 69 章里最让我兴奋的一句话是：</p>
+<br/>
+<p>「{我挑出的原句}」</p>
+<br/>
+<p>请围绕这一句不断向下追问，不要停在第一层：</p>
+<ol>
+<li>1. 这句话在本章论证里承担什么功能？如果把它删掉，本章还成立吗？</li>
+<li>2. 它成立需要哪些未明说的前提？逐条列出，并标出哪一条最脆弱。</li>
+<li>3. 那这样推下去还有什么？请沿着这句话自身的逻辑往外推三步，每步说明它是作者会接受的推论，还是作者可能拒绝的引申。</li>
+<li>4. 如果推到第三步出现了荒谬或自相矛盾，问题出在原句、前提，还是推论？</li>
+<li>5. 与这句话最紧张的对立表述是什么？给出一个能真正与它抗衡的说法。</li>
+</ol>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. 这一章作者到底在跟谁争论？他想反驳的那个说法，用一句最朴素的话怎么讲？—— 提示：先找到&quot;靶子&quot;，比找&quot;结论&quot;更容易入门。</li>
+<li>2. 本章有没有一个日常例子？作者用它想说明什么？—— 提示：例子往往承载全章最核心的直觉，先说清例子再说清道理。</li>
+<li>3. 用自己的话把本章讲给一个没读过书的人听，60 秒内讲完，你会讲哪三句？—— 提示：讲不下去的地方，就是你还没读懂的地方。</li>
+<li>4. 本章里哪个词出现频率异常高？作者用它时和日常用法差别在哪？—— 提示：术语的偏移通常就是论证的转折点。</li>
+<li>5. 作者在本章做出的最关键一步推理是什么？这一步是演绎、类比，还是反例排除？—— 提示：把论证形式和内容分开看，才知道自己该不该被说服。</li>
+<li>6. 如果你是反方，你会攻击本章的哪个前提？作者有没有预先回应？—— 提示：找到&quot;作者已经预判到但仍坚持&quot;的地方，那里最有张力。</li>
+<li>7. 本章的立场与同一位作者在别处的说法是否一致？与此前的哲学传统相比，他放弃了什么、换来了什么？—— 提示：适合已有一定阅读积累的人，做定位而非复述。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>为主</td><td>主动挑事、先动手的一方。</td><td>指在战事中主动发起攻势、先发制人的一方；《道德经》第69章以“不敢为主而为客”表明不主动挑起兵端。</td><td>与“为客”相对，近于“先动”“唱始”；老子以“不敢为主”约束用兵之先发，体现“不以兵强天下”“不争之德”的取向。</td><td>王弼以“无”为本，主张不先造兵端，主者唱始故取客；河上公从治身解“主”为情欲先动，戒人先动；韩非《喻老》以兵事喻治国，重不先发而待时。</td></tr>
+<tr><td>为客</td><td>被动应对、后出手的一方。</td><td>指在战事中采取守势、后发应对的一方；与“为主”相对，本章以“为客”表示应而不唱、后动而不先启祸端。</td><td>与“为主”相对，近于“应”“后动”；老子以“为客”连于“不敢进寸而退尺”，通向“以退为进”“柔弱胜刚强”的用兵姿态。</td><td>王弼注老重“应而不唱”，以客为后应；苏辙《老子解》以主为造兵端、客为应敌；河上公以“客”为后动、不先犯。</td></tr>
+<tr><td>行无行</td><td>行军布阵却不摆出阵势形迹。</td><td>指用兵行军而不显露行列阵形，使对方无从捉摸；本章以“行无行”形容“无行之行”的隐蔽与不争之形。</td><td>原术语“行无行”，即行而无行之迹；与“无为而无不为”“不争之德”相通，强调有形之用出于无形之应。</td><td>王弼以“无”为用，重行而无迹；成玄英重玄学双遣有无，谓行迹俱忘；河上公从兵事解为行兵不露形。</td></tr>
+<tr><td>攘无臂</td><td>奋臂示意却不露出臂膀。</td><td>指虽作奋臂之态而不见臂膀，形容动作不露形迹；本章以“攘无臂”说明不逞强硬争、不示人以可乘之形。</td><td>原术语“攘无臂”，近于“无臂之攘”；与老子“柔弱”“不争”相贯，也通于“无用之用”的表述。</td><td>河上公从治身解“攘臂”为忿争之象，无臂即不争；庄子以“螳臂当车”喻不自量力，反衬无臂之攘；王弼以无为用，谓动作不滞于形。</td></tr>
+<tr><td>扔无敌</td><td>面对敌人却不显出敌对相抗之形。</td><td>指虽与敌相对而不露敌对相抗之形；本章以“扔无敌”说明不把对方固定为可争之敌，从而不以硬碰硬。</td><td>原术语“扔无敌”（或作“仍无敌”），近于“无敌之应”；与“不争”“无执”相通，强调应而不相对待。</td><td>郭象主“独化”，谓各安其分而不相对待；王弼以“无”为本，谓不以敌为敌；苏辙解为虽遇敌而无敌形。</td></tr>
+<tr><td>执无兵</td><td>手持兵器却不显露兵器。</td><td>指虽持兵器而不见兵器之形；本章以“执无兵”说明用兵而不耀兵、执器而不恃器。</td><td>原术语“执无兵”，近于“无兵之执”；与老子“兵者不祥之器”“不以兵强天下”相合，也通于“无用之用”。</td><td>河上公以“兵者凶器”戒争，执无兵即不恃兵；王弼以无为用，不以兵强；庄子“无用之用”可与此互观。</td></tr>
+<tr><td>轻敌</td><td>看不起对手、低估敌人。</td><td>指轻视敌人、低估对手；本章以“祸莫大于轻敌”说明轻敌是用兵之大祸。</td><td>原句“祸莫大于轻敌，轻敌几丧吾宝”；“轻敌”与“宝”对举，警示因低估对手而丧失所珍视的根本。</td><td>韩非《喻老》以老子喻治国用术，重戒轻敌而审势；王夫之以气化历史之势言兵，谓轻敌违时势；苏辙《老子解》以轻敌为取祸之端。</td></tr>
+<tr><td>吾宝</td><td>自己最珍视、最不能丢的根本。</td><td>文中指所珍视的根本；本章说“轻敌几丧吾宝”，意即轻敌几乎使根本丧失，联系老子“三宝”传统可指慈、俭、不敢为天下先。</td><td>原术语“吾宝”，与老子“我有三宝”相呼应；在军事语境中，宝可指慈爱、俭约、不先等根本原则，轻敌则几丧之。</td><td>王弼以“无”为本，以不争不先为宝；河上公从养生解宝为精气；陈鼓应等现代注家以“三宝”释“宝”，强调慈俭不先。</td></tr>
+<tr><td>哀者</td><td>怀有悲悯、哀痛之心的一方。</td><td>指怀有哀悯、悲愤之心的一方；本章“抗兵相若，哀者胜矣”谓势均力敌时，怀哀悯者往往得胜。</td><td>原句“哀者胜矣”；“哀”近于慈悯、悲愤而不逞强，与“慈故能勇”“不争之德”相通，非以暴戾取胜。</td><td>苏辙《老子解》以慈悯释哀，谓哀者得人心；王弼以不争不逞为胜道；孟子“仁者无敌”可作儒家对照，佛学则以悲心相应。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">为主</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">主动挑事、先动手的一方。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指在战事中主动发起攻势、先发制人的一方；《道德经》第69章以“不敢为主而为客”表明不主动挑起兵端。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">与“为客”相对，近于“先动”“唱始”；老子以“不敢为主”约束用兵之先发，体现“不以兵强天下”“不争之德”的取向。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，主张不先造兵端，主者唱始故取客；河上公从治身解“主”为情欲先动，戒人先动；韩非《喻老》以兵事喻治国，重不先发而待时。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">为客</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">被动应对、后出手的一方。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指在战事中采取守势、后发应对的一方；与“为主”相对，本章以“为客”表示应而不唱、后动而不先启祸端。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">与“为主”相对，近于“应”“后动”；老子以“为客”连于“不敢进寸而退尺”，通向“以退为进”“柔弱胜刚强”的用兵姿态。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼注老重“应而不唱”，以客为后应；苏辙《老子解》以主为造兵端、客为应敌；河上公以“客”为后动、不先犯。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">行无行</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">行军布阵却不摆出阵势形迹。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指用兵行军而不显露行列阵形，使对方无从捉摸；本章以“行无行”形容“无行之行”的隐蔽与不争之形。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原术语“行无行”，即行而无行之迹；与“无为而无不为”“不争之德”相通，强调有形之用出于无形之应。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为用，重行而无迹；成玄英重玄学双遣有无，谓行迹俱忘；河上公从兵事解为行兵不露形。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">攘无臂</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">奋臂示意却不露出臂膀。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指虽作奋臂之态而不见臂膀，形容动作不露形迹；本章以“攘无臂”说明不逞强硬争、不示人以可乘之形。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原术语“攘无臂”，近于“无臂之攘”；与老子“柔弱”“不争”相贯，也通于“无用之用”的表述。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公从治身解“攘臂”为忿争之象，无臂即不争；庄子以“螳臂当车”喻不自量力，反衬无臂之攘；王弼以无为用，谓动作不滞于形。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">扔无敌</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">面对敌人却不显出敌对相抗之形。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指虽与敌相对而不露敌对相抗之形；本章以“扔无敌”说明不把对方固定为可争之敌，从而不以硬碰硬。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原术语“扔无敌”（或作“仍无敌”），近于“无敌之应”；与“不争”“无执”相通，强调应而不相对待。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">郭象主“独化”，谓各安其分而不相对待；王弼以“无”为本，谓不以敌为敌；苏辙解为虽遇敌而无敌形。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">执无兵</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">手持兵器却不显露兵器。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指虽持兵器而不见兵器之形；本章以“执无兵”说明用兵而不耀兵、执器而不恃器。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原术语“执无兵”，近于“无兵之执”；与老子“兵者不祥之器”“不以兵强天下”相合，也通于“无用之用”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以“兵者凶器”戒争，执无兵即不恃兵；王弼以无为用，不以兵强；庄子“无用之用”可与此互观。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">轻敌</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">看不起对手、低估敌人。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指轻视敌人、低估对手；本章以“祸莫大于轻敌”说明轻敌是用兵之大祸。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原句“祸莫大于轻敌，轻敌几丧吾宝”；“轻敌”与“宝”对举，警示因低估对手而丧失所珍视的根本。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">韩非《喻老》以老子喻治国用术，重戒轻敌而审势；王夫之以气化历史之势言兵，谓轻敌违时势；苏辙《老子解》以轻敌为取祸之端。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">吾宝</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">自己最珍视、最不能丢的根本。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">文中指所珍视的根本；本章说“轻敌几丧吾宝”，意即轻敌几乎使根本丧失，联系老子“三宝”传统可指慈、俭、不敢为天下先。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原术语“吾宝”，与老子“我有三宝”相呼应；在军事语境中，宝可指慈爱、俭约、不先等根本原则，轻敌则几丧之。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，以不争不先为宝；河上公从养生解宝为精气；陈鼓应等现代注家以“三宝”释“宝”，强调慈俭不先。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">哀者</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">怀有悲悯、哀痛之心的一方。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指怀有哀悯、悲愤之心的一方；本章“抗兵相若，哀者胜矣”谓势均力敌时，怀哀悯者往往得胜。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原句“哀者胜矣”；“哀”近于慈悯、悲愤而不逞强，与“慈故能勇”“不争之德”相通，非以暴戾取胜。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">苏辙《老子解》以慈悯释哀，谓哀者得人心；王弼以不争不逞为胜道；孟子“仁者无敌”可作儒家对照，佛学则以悲心相应。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 69 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 69 章]
+
+用兵有言：吾不敢为主而为客，不敢进寸而退尺。是谓行无行，攘无臂，扔无敌，执无兵。祸莫大于轻敌，轻敌几丧吾宝。故抗兵相加，哀者胜矣。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_69_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

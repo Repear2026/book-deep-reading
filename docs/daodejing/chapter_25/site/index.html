@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 25 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 25/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_24/site/index.html" title="第 24 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_26/site/index.html" title="第 26 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 25 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>有物混成，先天地生。寂兮寥兮，独立而不改，周行而不殆，可以为天下母。吾不知其名，字之曰道，强为之名曰大。大曰逝，逝曰远，远曰反。故道大，天大，地大，王亦大。域中有四大，而王居其一焉。人法地，地法天，天法道，道法自然。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 25 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章是《老子》全书唯一一次完整描绘“道”的肖像：它先于天地、无声无形、独立不改、循环运行，是天下万物的母亲。老子坦承“不知其名”，只能勉强用“道”和“大”来称呼它，并由“大—逝—远—反”展示道的运行轨迹。最终落在“人法地，地法天，天法道，道法自然”——四层递进的法则，把人的行为嵌入宇宙秩序之中。最重要收获：理解“自然”不是道之外的某个东西，而是道的存在方式本身。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote><strong>如果</strong>你发现万物的源头无法命名、无法描述，你还会试图用概念去捕捉它吗？——老子的回答是“字之曰道，强为之名曰大”，命名是不得已的方便。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>如果</strong>宇宙有一个运行法则，它最终效法的是“自己如此”，而非某个更高的立法者，这会怎样改变你对“规则”的理解？</blockquote>
+<p>&gt;</p>
+<blockquote><strong>如果</strong>人与道、天、地并列为“域中四大”，你在宇宙中的位置是更尊贵了，还是责任更大了？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote><strong>斯宾诺莎</strong>：提出“能产的自然”（natura naturans）与“所产的自然”（natura naturata）之分，认为神即自然，万物依内在必然性运行——与“道法自然”取消外在立法者的思路高度呼应。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>王阳明</strong>：主张“心即理”，认为天理不在心外，反对在人心之上另设一个外在的“道”作为效法对象——这与老子“人法地，地法天”的层级递进形成张力：究竟法则内在于人，还是外在于人？</blockquote>
+<p>&gt;</p>
+<blockquote><strong>荀子</strong>：在《天论》中提出“明于天人之分”，主张“制天命而用之”，反对人被动效法天——与老子“人法地，地法天”的顺从式法则构成先秦内部最尖锐的对立之一。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>维特根斯坦</strong>（前期）：在《逻辑哲学论》末尾说“对于不可说的东西，必须保持沉默”——老子“不知其名”却仍“字之曰道”，恰好展示了面对不可说者时，沉默与言说之间的另一种可能：以权宜之名指向不可名者。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<br/>
+<p><strong>（1）第一遍（速览）：3 个关注点</strong></p>
+<ul>
+<li>- 找出老子描述“道”的六个特征词：混成、先天地生、寂寥、独立不改、周行不殆、为天下母——先建立一个整体印象。</li>
+<li>- 注意“字之曰道，强为之名曰大”中的“字”和“强”二字：老子明确知道自己在使用临时标签，不是下定义。</li>
+<li>- 留意最后一句的链条方向：人→地→天→道→自然，四层递进，终点不是“道”，而是“自然”。</li>
+</ul>
+<br/>
+<p><strong>（2）第二遍（细抠）：2 个必看的论证</strong></p>
+<ul>
+<li>- <strong>“大曰逝，逝曰远，远曰反”</strong>：这不是四个并列的形容词，而是一条运动轨迹——大（无限延展）→逝（向外运行）→远（抵达极处）→反（返回本源）。道的运行是循环的，不是单向的，这直接支撑了“周行而不殆”的判断。</li>
+<li>- <strong>“道法自然”的句法结构</strong>：按同一句式（人法地、地法天、天法道），法者是前一主语，所法者是后一对象——那么“道法自然”中，“自然”是什么？是道之上的更高存在，还是道自身的运行方式？这是全章最关键也最易误读的一步，需细读原文句法本身。</li>
+</ul>
+<br/>
+<p><strong>（3）第三遍（思辨）：1 个该追问的开放问题</strong></p>
+<ul>
+<li>- 如果“道法自然”意味着道效法自己的自发运行，那么“自然”就不是一个比道更高的实体——但这样一来，“人法地，地法天，天法道，道法自然”这条递进链的终点就变成了“自己如此”而非某个超越者。这究竟是在说人应当效法宇宙的层级秩序，还是在暗示整条链条最终指向的是“无需效法任何外在者，回到自身”？</li>
+</ul>
+<br/>
+<hr/>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+P1["有物混成，先天地生"]
+P2["寂寥独立不改，周行不殆，为天下母"]
+P3["字之曰道，强名曰大"]
+P4["大曰逝，逝曰远，远曰反"]
+P5["域中有四大，王居其一"]
+P6["人法地，地法天，天法道，道法自然"]
+Dao["道"]
+Da["大"]
+Shi["逝"]
+Yuan["远"]
+Fan["反"]
+Sida["四大"]
+Ziran["自然"]
+P1 -->|supports| P3
+P2 -->|supports| P3
+P3 -->|supports| P4
+P4 -->|supports| P5
+P5 -->|supports| P6
+Dao ---|relates_to| P1
+Dao ---|relates_to| P2
+Dao ---|relates_to| P3
+Dao ---|relates_to| P6
+Da ---|relates_to| P3
+Da ---|relates_to| P4
+Shi ---|relates_to| P4
+Yuan ---|relates_to| P4
+Fan ---|relates_to| P4
+Da ---|relates_to| Shi
+Shi ---|relates_to| Yuan
+Yuan ---|relates_to| Fan
+Sida ---|relates_to| P5
+Sida ---|relates_to| Da
+Sida ---|relates_to| Dao
+Ziran ---|relates_to| P6
+Dao ---|relates_to| Ziran
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章集中描述“道”的先在性、独立性与周行性，并由“大—逝—远—反”的称名递进引出域中“四大”，最终落到“人法地，地法天，天法道，道法自然”的层级法则，是理解道之本性及其与天地人关系的关键章节。</div>
+<h3>📌 核心命题</h3><ol>
+<li>有物混成，先于天地而存在。</li>
+<li>该物寂寥、独立而不改、周行而不殆，可以为天下母。</li>
+<li>不知其名，故字之曰道，强为之名曰大。</li>
+<li>大曰逝，逝曰远，远曰反。</li>
+<li>域中有四大：道大、天大、地大、王亦大，王居其一。</li>
+<li>人法地，地法天，天法道，道法自然。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>有物混成，先天地生。</li>
+<li>寂兮寥兮，独立而不改，周行而不殆，可以为天下母。</li>
+<li>吾不知其名，字之曰道，强为之名曰大。</li>
+<li>大曰逝，逝曰远，远曰反。</li>
+<li>故道大，天大，地大，王亦大。</li>
+<li>域中有四大，而王居其一焉。</li>
+<li>人法地，地法天，天法道，道法自然。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>道</strong></summary><div class="case-body">原文说不知其名而字之曰道，指先天地生、独立不改、周行不殆者。</div></details>
+<details><summary><strong>大</strong></summary><div class="case-body">原文说强为之名曰大，并由大引出逝、远、反。</div></details>
+<details><summary><strong>逝</strong></summary><div class="case-body">原文以“大曰逝”说明大与逝的称名递进关系。</div></details>
+<details><summary><strong>远</strong></summary><div class="case-body">原文以“逝曰远”说明逝与远的称名递进关系。</div></details>
+<details><summary><strong>反</strong></summary><div class="case-body">原文以“远曰反”说明远与反的称名递进关系。</div></details>
+<details><summary><strong>四大</strong></summary><div class="case-body">原文说域中有四大，即道大、天大、地大、王亦大。</div></details>
+<details><summary><strong>自然</strong></summary><div class="case-body">原文说“道法自然”，即道所法者为自然。</div></details>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 25 章。我的概括是：{我的一句话概括}。</p>
+<br/>
+<p>请做三件事，按顺序来：</p>
+<p>1）对照本章原文主线（作者从哪里出发 → 中间的关键转折 → 最后落在什么结论）检查我的概括：我漏了什么、把什么说重了、有没有把作者的话换成我自己的话。</p>
+<p>2）列出本章 3–5 个关键概念：{概念A}、{概念B}…… 逐个问我&quot;它在本章中具体指什么、它在反对什么、它和哪个相邻概念必须区分开&quot;，然后停下来等我的回答。</p>
+<p>3）我答完后，指出我哪些回答是&quot;用常识填补的&quot;，哪些是真的贴着原文。</p>
+<p>不要替我回答，也不要提前给出答案。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>你现在的任务不是帮我理解第 25 章，而是做它的最强反方。</p>
+<br/>
+<p>我对本章的接受点是：{我接受的核心主张}。</p>
+<p>我接受它的理由是：{我的理由}。</p>
+<br/>
+<p>请：</p>
+<p>1）从与作者相反的立场出发，构造一个比作者本人更锋利、更强硬的反驳——不是稻草人，而是那种&quot;如果成立，本章就得重写&quot;的反驳。</p>
+<p>2）指出我这个&quot;接受理由&quot;里最脆弱的一环，并说明它是被反驳，还是被绕过了（这两者不同）。</p>
+<p>3）给我一次辩护机会：让我尝试回应，你再判定我的回应是化解了反驳、还是只是重申了立场。</p>
+<p>不要为了照顾我的感受而软化反驳。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 25 章，想看看它到底能接到哪里。</p>
+<br/>
+<p>我给出的三个场景是：</p>
+<p>1）{生活场景}</p>
+<p>2）{工作场景}</p>
+<p>3）{公共/社会场景}</p>
+<br/>
+<p>请针对每个场景：</p>
+<ul>
+<li>- 说明本章的哪个具体论点、区分或概念真正能&quot;落&quot;进去（要指名，不要泛泛说&quot;这体现了作者的思想&quot;）；</li>
+<li>- 说明这个论点在场景中会得出什么与直觉相反的结论；</li>
+<li>- 指出这个论点在这个场景里会失效的地方——即它的适用边界在哪里。</li>
+</ul>
+<p>如果某个场景其实接不上本章，直接说接不上，并说明为什么。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 25 章里最让我兴奋的一句话是：「{原句}」。</p>
+<br/>
+<p>不要急着解释它。请围绕它做&quot;推下去&quot;的连锁：</p>
+<p>1）这句话如果成立，它必须先成立的前提有哪些？逐个列出来。</p>
+<p>2）沿着这句话再往前推一步、两步、三步——推到作者自己没写、但逻辑上必须承认的地方。</p>
+<p>3）推到哪一步时，这句话会和本章其他段落、或作者在其他地方的立场发生冲突？</p>
+<p>4）最后告诉我：这句话是本章的&quot;承重墙&quot;，还是只是一句修辞？依据是什么。</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（从 0 基础 → 5 年爱好者）</h2>
+<br/>
+<ol>
+<li>1. 本章作者最想让你相信的一句话是什么？用你自己的话讲一遍，不许抄原文。</li>
+</ol>
+<p>　提示：先找结论，再回头找它是被什么推出来的。</p>
+<br/>
+<ol>
+<li>2. 本章里哪个词反复出现，但作者始终没给它下定义？</li>
+</ol>
+<p>　提示：一个作者懒得定义的词，往往是他最不想被追问的地方。</p>
+<br/>
+<ol>
+<li>3. 作者在这一章里主要在反驳谁？那个&quot;对手&quot;如果开口，第一句会说什么？</li>
+</ol>
+<p>　提示：把对手写得比作者还强，你才算真读懂作者在跟什么较劲。</p>
+<br/>
+<ol>
+<li>4. 本章的论证是从什么前提出发、推到什么结论？中间哪一步最经不起推敲？</li>
+</ol>
+<p>　提示：盯住&quot;因此&quot;&quot;所以&quot;&quot;由此可见&quot;这些词，脆弱环节通常就在它们前后。</p>
+<br/>
+<ol>
+<li>5. 如果本章是对的，你原来相信的哪件事必须放弃？</li>
+</ol>
+<p>　提示：判断一个哲学主张，先算它的代价；没有代价的主张通常是空的。</p>
+<br/>
+<ol>
+<li>6. 本章建立的那个核心区分，你能构造出一个把它推翻的边界案例吗？</li>
+</ol>
+<p>　提示：区分靠&quot;典型例子&quot;成立，也常常死在&quot;边缘例子&quot;上。</p>
+<br/>
+<ol>
+<li>7. 这一章在整本书的论证链条里承担什么功能？它和前面哪一章构成张力甚至自相矛盾？</li>
+</ol>
+<p>　提示：注意章节位置——第 25 章通常不是起点，它一定在回应什么。</p>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>道</td><td>有个东西在天地之前就存在，无始无终地运行，我们叫不出它的名字，只好给它起个名叫&quot;道&quot;。</td><td>老子第二十五章提出&quot;有物混成，先天地生&quot;，&quot;寂兮寥兮，独立而不改，周行而不殆&quot;，可以为天下母；&quot;吾不知其名，字之曰道，强为之名曰大&quot;。道是浑然一体、先于天地而存在的存在本源，它不依待他物、恒常不改、循环运行而不止息。&quot;道&quot;是不得已而起的&quot;字&quot;，并非对其实在的界定。</td><td>原文以&quot;字之&quot;与&quot;强为之名&quot;区分命名层级：&quot;字&quot;是表德之称，&quot;名&quot;是强加之号，二者皆非对道的定义性把握。道在此章被表述为&quot;混成&quot;&quot;独立&quot;&quot;周行&quot;三重规定：混成言其未分之整体性，独立言其无对待，周行言其运行的循环性。可与第一章&quot;道可道，非常道&quot;、第二十一章&quot;恍兮惚兮&quot;互训，构成老子对道之不可名状性的多重表述。</td><td>王弼以&quot;无&quot;训道，谓&quot;道者，无之称也&quot;，强调其不可名而强名，重在以无为体；河上公则以&quot;道&quot;为可循之经术，注此章偏于长生久视、导引养神，把&quot;独立不改&quot;读作形神抱一。郭象注庄而有&quot;独化&quot;之说，反对在万物之上另立一本体，若以此读&quot;先天地生&quot;，则易生争议：道究竟是生成之源还是言说之权便？成玄英以重玄双遣解&quot;强名&quot;，谓名与无名俱遣，方契道真。苏辙以&quot;道之在天下，犹水之在地中&quot;为喻，重在即物见道。王夫之从气化立论，谓道即阴阳和合之气化流行之条理，反对道为悬空独立之物。现代研究中，陈鼓应强调此章确立了道的&quot;实体性&quot;与&quot;运动性&quot;双重规定；刘笑敢则指出老子的&quot;道&quot;兼具&quot;根源义&quot;与&quot;方法义&quot;，不宜单作实体解。海德格尔以&quot;存在&quot;与&quot;存在者&quot;的区分相参照，认为老子的道近于使万物得以在场的开显之境，与西方本体论的最高实体不同。</td></tr>
+<tr><td>大</td><td>因为它无所不包、无处不至，勉强给它一个名号，就叫&quot;大&quot;。</td><td>&quot;强为之名曰大&quot;，是老子在&quot;字之曰道&quot;之后追加的称名。&quot;大&quot;不是大小之大，而是无外之谓、无所不包之谓。由此名引出&quot;逝&quot;&quot;远&quot;&quot;反&quot;三个递进的称述。</td><td>&quot;大&quot;在此为&quot;强名&quot;，与&quot;字&quot;分属不同命名层级，体现老子对语言限度的自觉：名愈强加，义愈转出。王弼注&quot;大&quot;为&quot;其可左右&quot;式的无所不至。此&quot;大&quot;与第二十五章末&quot;道大、天大、地大、王亦大&quot;之&quot;大&quot;构成同一语词的不同用法，前者为道的状词，后者为存在者的位阶表述。</td><td>王弼以&quot;无&quot;释道，则&quot;大&quot;是不见其形而遍在之谓，非形体之广；河上公重在&quot;大&quot;者包含天地、含养万物，读作德用的周遍。成玄英以重玄义解&quot;大&quot;为&quot;大名&quot;、&quot;强名&quot;，主张遣去此名方契。苏辙谓&quot;大&quot;则无外，无外则不可分，可与佛学&quot;无边&quot;之说不期而合。西方语境中，怀特海的过程哲学以&quot;摄入&quot;与&quot;扩延&quot;描述实在的无限关联性，可与&quot;大曰逝&quot;所表达的无界限性相参照，但其出发点为过程性事件，与老子之道作为本源不同。</td></tr>
+<tr><td>逝</td><td>因为它大而无外，所以流行不止、往而不停，这就叫&quot;逝&quot;。</td><td>&quot;大曰逝&quot;，谓道之大体现为运行不已、往而不返的动态。&quot;逝&quot;与下文&quot;远&quot;连读为&quot;逝曰远&quot;，说明由流行之不已转出辽远无际之义。</td><td>&quot;逝&quot;在老子中与&quot;周行而不殆&quot;呼应，指向道的动态性规定：道非静止之本体，而是流行不息的过程。&quot;逝&quot;非消逝、亡失之义，而是&quot;往&quot;义，即流行向前、无所凝滞。此与《论语》&quot;逝者如斯夫&quot;之&quot;逝&quot;同源而异用：孔子言川流以喻道体之不已，老子则以此状道之运行。</td><td>王弼以&quot;逝&quot;为&quot;行而不已&quot;，但强调其行非有为之动，乃&quot;自然&quot;之动；河上公则以&quot;逝&quot;为精气流行于天地之间，可通于内丹&quot;周天运转&quot;之说。郭象不承认有一超越之道在运行，故其读&quot;逝&quot;只能落在万物各自独化、日新不已之上，反对有一个&quot;周行者&quot;。王夫之以气化言&quot;逝&quot;，谓阴阳升降、屈伸相感即是逝，道不离气。现代学者如楼宇烈指出，&quot;逝—远—反&quot;三字构成一个描述道的动态圆周结构，不可割裂理解。</td></tr>
+<tr><td>远</td><td>流行不已就越来越远，无处不到，这就叫&quot;远&quot;。</td><td>&quot;逝曰远&quot;，由运行之不止推出空间的辽远与周遍。远者，无所不至之谓，与&quot;大&quot;之无外相承。</td><td>&quot;远&quot;在此非距离概念，而是&quot;不极&quot;之谓，即不滞于一处、不限于一方。由&quot;远&quot;转出&quot;反&quot;，构成&quot;大—逝—远—反&quot;的称名链条，其结构是一个自我回归的圆环，而非直线。这是老子对道的运行方式的整体刻画，可与第十六章&quot;夫物芸芸，各复归其根&quot;互参。</td><td>王弼以&quot;远&quot;为&quot;不御&quot;之谓，即无所拘系；其&quot;反&quot;则释为&quot;返&quot;，归于虚静之本，构成贵无论的循环图式。河上公从养生立说，以&quot;远&quot;为神游太虚、周历四极，而&quot;反&quot;为还归丹田，具有明显的身体修炼色彩。成玄英以重玄解&quot;远&quot;，谓&quot;远&quot;犹有迹，须遣远而归于无远不远的双遣之境。现代研究者如陈鼓应认为，&quot;反&quot;兼有&quot;相反&quot;与&quot;返回&quot;二义，是老子的辩证法核心，这一点在&quot;远曰反&quot;中最为显豁。</td></tr>
+<tr><td>反</td><td>走得再远也要回头，最终回到出发点，这就叫&quot;反&quot;。</td><td>&quot;远曰反&quot;。&quot;反&quot;兼有&quot;返回&quot;与&quot;相反&quot;二义：一者循环往复、复归本根；一者物极必反、对立转化。二者在老子思想中统一于道之运行。</td><td>&quot;反&quot;是老子哲学的核心范畴。第四十章&quot;反者道之动&quot;是其总纲；本章&quot;远曰反&quot;则从称名链条上落实此义。&quot;反&quot;既表运动的方向（复归），也表运动的机制（对待相生、物极必反）。它与&quot;周行而不殆&quot;构成同一规定：正因为&quot;反&quot;，&quot;周行&quot;才不殆，即循环而非直线，故能不已。</td><td>王弼释&quot;反&quot;为&quot;返&quot;，归于虚静，与&quot;归根曰静&quot;相通，其贵无论由此展开：万物由无而生，终复归于无。河上公解&quot;反&quot;为还返其身，与内丹&quot;返本还元&quot;&quot;逆则成丹&quot;之说一脉相承，道教内丹学尤重此义。郭象反对有一固定本根可返，其&quot;独化&quot;说只承认万物各安其分、无待而自化，&quot;反&quot;因而被消解为无返回的当下自足。成玄英则双遣&quot;往&quot;与&quot;返&quot;，谓有返有归犹是二边。佛学中观以缘起性空论循环，不承认有实体的回归，与老子&quot;复归其根&quot;的实在论意味形成对照。王夫之以屈伸相感言反，谓&quot;反&quot;是气化之必然节律，非有一寂然之本为其归宿。现代研究中，刘笑敢强调&quot;反&quot;的&quot;相反&quot;义与&quot;返回&quot;义在中国哲学史上常被混同，需依文脉分别。</td></tr>
+<tr><td>四大</td><td>宇宙之中有四种&quot;大&quot;：道、天、地，还有作为人君的王。</td><td>&quot;故道大，天大，地大，王亦大。域中有四大，而王居其一焉。&quot;老子将人与道、天、地并列为宇宙中的四种&quot;大&quot;，彰显人在宇宙中的位阶。通行本作&quot;王亦大&quot;，傅奕本、范应元本作&quot;人亦大&quot;，一字之异牵涉解释分歧。</td><td>&quot;域中&quot;即&quot;宇宙之内&quot;，与&quot;道&quot;之先天地生形成层次区分：四大皆在&quot;域中&quot;，而道作为&quot;先天地生&quot;者又在域中为最大，此中隐含道与四大关系的张力。&quot;王亦大&quot;与后文&quot;人法地&quot;相承，构成&quot;道—天—地—王（人）&quot;的四重结构。王弼注本作&quot;王亦大&quot;，并释&quot;王&quot;为&quot;人之主&quot;，与河上公本、傅奕本&quot;人亦大&quot;形成版本脉络之争。</td><td>王弼本作&quot;王亦大&quot;而注&quot;天地之性人为贵&quot;，把&quot;王&quot;解为&quot;人之主&quot;，实以&quot;人&quot;为归，其贵无论在此章突出&quot;道&quot;为四大之首而&quot;法自然&quot;。河上公本从治身治国立说，以&quot;王&quot;为君人南面之术的承担者，四大并列为政治秩序的宇宙论根据。唐代李约、宋代范应元等主&quot;人亦大&quot;，认为老子重人，不当专指王者，此说为现代多数学者如陈鼓应所取。郭象不立本体，对此四大的层级结构自有保留，其&quot;独化&quot;论更强调万物各当其分，不以道为统摄者。现代学者葛兆光指出，四大说体现了中国古代&quot;宇宙—政治—身体&quot;同构的思维模式，道、天、地、王的并置本身就是一种秩序想象。</td></tr>
+<tr><td>自然</td><td>道之上没有更高的东西，它以自己的样子为法，这叫&quot;道法自然&quot;。</td><td>&quot;人法地，地法天，天法道，道法自然。&quot;此处&quot;自然&quot;非今日&quot;自然界&quot;之义，而是&quot;自己如此&quot;&quot;自然而然&quot;，即自本自根、无所效法于外。全句构成层层效法的递进，最终归于&quot;自然&quot;，说明道以自身为法，别无更高者。</td><td>&quot;自然&quot;在《老子》中凡五见（第十七、二十三、二十五、五十一、六十四章），皆作&quot;自己如此&quot;的状词，而非名词性的实体。&quot;道法自然&quot;不是说道之上另有一&quot;自然&quot;为其所法，而是说道之运行即是自然而然，无所勉强。此句在文法上为&quot;道—法—自然&quot;，实则&quot;自然&quot;是&quot;道&quot;的同位语或状述，非更高的本原。王弼注&quot;道不违自然，乃得其性，法自然者，在方而法方，在圆而法圆，于自然无所违也&quot;，可为定解。</td><td>王弼以&quot;在方而法方，在圆而法圆&quot;释&quot;法自然&quot;，谓道无别法，唯不违其性，与其贵无论&quot;以无为用&quot;贯通：正是因为道&quot;无&quot;所执，故能顺万物之自然。河上公以&quot;自然&quot;为&quot;道性自然，无所法也&quot;，偏于治身，谓人当效道之无为而全其生。郭象注庄&quot;自然&quot;为&quot;自尔&quot;&quot;块然自生&quot;，彻底取消一切外在效法关系，其&quot;独化&quot;论与老子层层相法之说有根本分歧。成玄英以重玄双遣解&quot;法自然&quot;，谓&quot;自然&quot;亦不可执，遣之又遣方为至道。苏辙以&quot;自然而然&quot;为道之极致，谓圣人法道正在于不设法。王夫之从气化立论，谓自然者&quot;气之自化&quot;之条理，反对以&quot;自然&quot;为悬空之名。现代研究中，刘笑敢指出老子之&quot;自然&quot;是&quot;人文自然&quot;，其对立面是人为造作而非自然界；陈鼓应强调&quot;道法自然&quot;表明老子并未设定一个超越性的创世者，道之本身即是最终依据。西方语境中，海德格尔晚年与《老子》对话，以&quot;letting-be&quot;（让存在）比附&quot;自然&quot;，认为其反对技术性强制，但海氏之&quot;存在&quot;与老子之&quot;道&quot;仍有开显与生成之别；维特根斯坦论语言界限，谓不可说者只能显示，与老子&quot;强名&quot;&quot;字之&quot;的语言自觉可相对照，然一重逻辑分析，一重体道实践，旨趣不同。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">道</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">有个东西在天地之前就存在，无始无终地运行，我们叫不出它的名字，只好给它起个名叫&quot;道&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子第二十五章提出&quot;有物混成，先天地生&quot;，&quot;寂兮寥兮，独立而不改，周行而不殆&quot;，可以为天下母；&quot;吾不知其名，字之曰道，强为之名曰大&quot;。道是浑然一体、先于天地而存在的存在本源，它不依待他物、恒常不改、循环运行而不止息。&quot;道&quot;是不得已而起的&quot;字&quot;，并非对其实在的界定。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">原文以&quot;字之&quot;与&quot;强为之名&quot;区分命名层级：&quot;字&quot;是表德之称，&quot;名&quot;是强加之号，二者皆非对道的定义性把握。道在此章被表述为&quot;混成&quot;&quot;独立&quot;&quot;周行&quot;三重规定：混成言其未分之整体性，独立言其无对待，周行言其运行的循环性。可与第一章&quot;道可道，非常道&quot;、第二十一章&quot;恍兮惚兮&quot;互训，构成老子对道之不可名状性的多重表述。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;训道，谓&quot;道者，无之称也&quot;，强调其不可名而强名，重在以无为体；河上公则以&quot;道&quot;为可循之经术，注此章偏于长生久视、导引养神，把&quot;独立不改&quot;读作形神抱一。郭象注庄而有&quot;独化&quot;之说，反对在万物之上另立一本体，若以此读&quot;先天地生&quot;，则易生争议：道究竟是生成之源还是言说之权便？成玄英以重玄双遣解&quot;强名&quot;，谓名与无名俱遣，方契道真。苏辙以&quot;道之在天下，犹水之在地中&quot;为喻，重在即物见道。王夫之从气化立论，谓道即阴阳和合之气化流行之条理，反对道为悬空独立之物。现代研究中，陈鼓应强调此章确立了道的&quot;实体性&quot;与&quot;运动性&quot;双重规定；刘笑敢则指出老子的&quot;道&quot;兼具&quot;根源义&quot;与&quot;方法义&quot;，不宜单作实体解。海德格尔以&quot;存在&quot;与&quot;存在者&quot;的区分相参照，认为老子的道近于使万物得以在场的开显之境，与西方本体论的最高实体不同。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">大</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">因为它无所不包、无处不至，勉强给它一个名号，就叫&quot;大&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;强为之名曰大&quot;，是老子在&quot;字之曰道&quot;之后追加的称名。&quot;大&quot;不是大小之大，而是无外之谓、无所不包之谓。由此名引出&quot;逝&quot;&quot;远&quot;&quot;反&quot;三个递进的称述。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;大&quot;在此为&quot;强名&quot;，与&quot;字&quot;分属不同命名层级，体现老子对语言限度的自觉：名愈强加，义愈转出。王弼注&quot;大&quot;为&quot;其可左右&quot;式的无所不至。此&quot;大&quot;与第二十五章末&quot;道大、天大、地大、王亦大&quot;之&quot;大&quot;构成同一语词的不同用法，前者为道的状词，后者为存在者的位阶表述。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;释道，则&quot;大&quot;是不见其形而遍在之谓，非形体之广；河上公重在&quot;大&quot;者包含天地、含养万物，读作德用的周遍。成玄英以重玄义解&quot;大&quot;为&quot;大名&quot;、&quot;强名&quot;，主张遣去此名方契。苏辙谓&quot;大&quot;则无外，无外则不可分，可与佛学&quot;无边&quot;之说不期而合。西方语境中，怀特海的过程哲学以&quot;摄入&quot;与&quot;扩延&quot;描述实在的无限关联性，可与&quot;大曰逝&quot;所表达的无界限性相参照，但其出发点为过程性事件，与老子之道作为本源不同。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">逝</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">因为它大而无外，所以流行不止、往而不停，这就叫&quot;逝&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;大曰逝&quot;，谓道之大体现为运行不已、往而不返的动态。&quot;逝&quot;与下文&quot;远&quot;连读为&quot;逝曰远&quot;，说明由流行之不已转出辽远无际之义。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;逝&quot;在老子中与&quot;周行而不殆&quot;呼应，指向道的动态性规定：道非静止之本体，而是流行不息的过程。&quot;逝&quot;非消逝、亡失之义，而是&quot;往&quot;义，即流行向前、无所凝滞。此与《论语》&quot;逝者如斯夫&quot;之&quot;逝&quot;同源而异用：孔子言川流以喻道体之不已，老子则以此状道之运行。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;逝&quot;为&quot;行而不已&quot;，但强调其行非有为之动，乃&quot;自然&quot;之动；河上公则以&quot;逝&quot;为精气流行于天地之间，可通于内丹&quot;周天运转&quot;之说。郭象不承认有一超越之道在运行，故其读&quot;逝&quot;只能落在万物各自独化、日新不已之上，反对有一个&quot;周行者&quot;。王夫之以气化言&quot;逝&quot;，谓阴阳升降、屈伸相感即是逝，道不离气。现代学者如楼宇烈指出，&quot;逝—远—反&quot;三字构成一个描述道的动态圆周结构，不可割裂理解。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">远</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">流行不已就越来越远，无处不到，这就叫&quot;远&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;逝曰远&quot;，由运行之不止推出空间的辽远与周遍。远者，无所不至之谓，与&quot;大&quot;之无外相承。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;远&quot;在此非距离概念，而是&quot;不极&quot;之谓，即不滞于一处、不限于一方。由&quot;远&quot;转出&quot;反&quot;，构成&quot;大—逝—远—反&quot;的称名链条，其结构是一个自我回归的圆环，而非直线。这是老子对道的运行方式的整体刻画，可与第十六章&quot;夫物芸芸，各复归其根&quot;互参。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;远&quot;为&quot;不御&quot;之谓，即无所拘系；其&quot;反&quot;则释为&quot;返&quot;，归于虚静之本，构成贵无论的循环图式。河上公从养生立说，以&quot;远&quot;为神游太虚、周历四极，而&quot;反&quot;为还归丹田，具有明显的身体修炼色彩。成玄英以重玄解&quot;远&quot;，谓&quot;远&quot;犹有迹，须遣远而归于无远不远的双遣之境。现代研究者如陈鼓应认为，&quot;反&quot;兼有&quot;相反&quot;与&quot;返回&quot;二义，是老子的辩证法核心，这一点在&quot;远曰反&quot;中最为显豁。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">反</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">走得再远也要回头，最终回到出发点，这就叫&quot;反&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;远曰反&quot;。&quot;反&quot;兼有&quot;返回&quot;与&quot;相反&quot;二义：一者循环往复、复归本根；一者物极必反、对立转化。二者在老子思想中统一于道之运行。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;反&quot;是老子哲学的核心范畴。第四十章&quot;反者道之动&quot;是其总纲；本章&quot;远曰反&quot;则从称名链条上落实此义。&quot;反&quot;既表运动的方向（复归），也表运动的机制（对待相生、物极必反）。它与&quot;周行而不殆&quot;构成同一规定：正因为&quot;反&quot;，&quot;周行&quot;才不殆，即循环而非直线，故能不已。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼释&quot;反&quot;为&quot;返&quot;，归于虚静，与&quot;归根曰静&quot;相通，其贵无论由此展开：万物由无而生，终复归于无。河上公解&quot;反&quot;为还返其身，与内丹&quot;返本还元&quot;&quot;逆则成丹&quot;之说一脉相承，道教内丹学尤重此义。郭象反对有一固定本根可返，其&quot;独化&quot;说只承认万物各安其分、无待而自化，&quot;反&quot;因而被消解为无返回的当下自足。成玄英则双遣&quot;往&quot;与&quot;返&quot;，谓有返有归犹是二边。佛学中观以缘起性空论循环，不承认有实体的回归，与老子&quot;复归其根&quot;的实在论意味形成对照。王夫之以屈伸相感言反，谓&quot;反&quot;是气化之必然节律，非有一寂然之本为其归宿。现代研究中，刘笑敢强调&quot;反&quot;的&quot;相反&quot;义与&quot;返回&quot;义在中国哲学史上常被混同，需依文脉分别。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">四大</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">宇宙之中有四种&quot;大&quot;：道、天、地，还有作为人君的王。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;故道大，天大，地大，王亦大。域中有四大，而王居其一焉。&quot;老子将人与道、天、地并列为宇宙中的四种&quot;大&quot;，彰显人在宇宙中的位阶。通行本作&quot;王亦大&quot;，傅奕本、范应元本作&quot;人亦大&quot;，一字之异牵涉解释分歧。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;域中&quot;即&quot;宇宙之内&quot;，与&quot;道&quot;之先天地生形成层次区分：四大皆在&quot;域中&quot;，而道作为&quot;先天地生&quot;者又在域中为最大，此中隐含道与四大关系的张力。&quot;王亦大&quot;与后文&quot;人法地&quot;相承，构成&quot;道—天—地—王（人）&quot;的四重结构。王弼注本作&quot;王亦大&quot;，并释&quot;王&quot;为&quot;人之主&quot;，与河上公本、傅奕本&quot;人亦大&quot;形成版本脉络之争。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼本作&quot;王亦大&quot;而注&quot;天地之性人为贵&quot;，把&quot;王&quot;解为&quot;人之主&quot;，实以&quot;人&quot;为归，其贵无论在此章突出&quot;道&quot;为四大之首而&quot;法自然&quot;。河上公本从治身治国立说，以&quot;王&quot;为君人南面之术的承担者，四大并列为政治秩序的宇宙论根据。唐代李约、宋代范应元等主&quot;人亦大&quot;，认为老子重人，不当专指王者，此说为现代多数学者如陈鼓应所取。郭象不立本体，对此四大的层级结构自有保留，其&quot;独化&quot;论更强调万物各当其分，不以道为统摄者。现代学者葛兆光指出，四大说体现了中国古代&quot;宇宙—政治—身体&quot;同构的思维模式，道、天、地、王的并置本身就是一种秩序想象。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">自然</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">道之上没有更高的东西，它以自己的样子为法，这叫&quot;道法自然&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;人法地，地法天，天法道，道法自然。&quot;此处&quot;自然&quot;非今日&quot;自然界&quot;之义，而是&quot;自己如此&quot;&quot;自然而然&quot;，即自本自根、无所效法于外。全句构成层层效法的递进，最终归于&quot;自然&quot;，说明道以自身为法，别无更高者。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;自然&quot;在《老子》中凡五见（第十七、二十三、二十五、五十一、六十四章），皆作&quot;自己如此&quot;的状词，而非名词性的实体。&quot;道法自然&quot;不是说道之上另有一&quot;自然&quot;为其所法，而是说道之运行即是自然而然，无所勉强。此句在文法上为&quot;道—法—自然&quot;，实则&quot;自然&quot;是&quot;道&quot;的同位语或状述，非更高的本原。王弼注&quot;道不违自然，乃得其性，法自然者，在方而法方，在圆而法圆，于自然无所违也&quot;，可为定解。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;在方而法方，在圆而法圆&quot;释&quot;法自然&quot;，谓道无别法，唯不违其性，与其贵无论&quot;以无为用&quot;贯通：正是因为道&quot;无&quot;所执，故能顺万物之自然。河上公以&quot;自然&quot;为&quot;道性自然，无所法也&quot;，偏于治身，谓人当效道之无为而全其生。郭象注庄&quot;自然&quot;为&quot;自尔&quot;&quot;块然自生&quot;，彻底取消一切外在效法关系，其&quot;独化&quot;论与老子层层相法之说有根本分歧。成玄英以重玄双遣解&quot;法自然&quot;，谓&quot;自然&quot;亦不可执，遣之又遣方为至道。苏辙以&quot;自然而然&quot;为道之极致，谓圣人法道正在于不设法。王夫之从气化立论，谓自然者&quot;气之自化&quot;之条理，反对以&quot;自然&quot;为悬空之名。现代研究中，刘笑敢指出老子之&quot;自然&quot;是&quot;人文自然&quot;，其对立面是人为造作而非自然界；陈鼓应强调&quot;道法自然&quot;表明老子并未设定一个超越性的创世者，道之本身即是最终依据。西方语境中，海德格尔晚年与《老子》对话，以&quot;letting-be&quot;（让存在）比附&quot;自然&quot;，认为其反对技术性强制，但海氏之&quot;存在&quot;与老子之&quot;道&quot;仍有开显与生成之别；维特根斯坦论语言界限，谓不可说者只能显示，与老子&quot;强名&quot;&quot;字之&quot;的语言自觉可相对照，然一重逻辑分析，一重体道实践，旨趣不同。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 25 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 25 章]
+
+有物混成，先天地生。寂兮寥兮，独立而不改，周行而不殆，可以为天下母。吾不知其名，字之曰道，强为之名曰大。大曰逝，逝曰远，远曰反。故道大，天大，地大，王亦大。域中有四大，而王居其一焉。人法地，地法天，天法道，道法自然。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_25_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 8 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 8/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_07/site/index.html" title="第 7 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_09/site/index.html" title="第 9 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 8 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>上善若水。水善利万物而不争，处众人之所恶，故几于道。居善地，心善渊，与善仁，言善信，正善治，事善能，动善时。夫唯不争，故无尤。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 8 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章把抽象的“道”化为水的形象：水滋养万物，却不争功劳，还甘愿流入众人嫌弃的低洼之处，因此最接近“道”。老子由此引申出人应效法的“七善”——居处、心境、交往、言语、为政、做事、行动七个方面如何像水一样。最有趣的收获是：柔弱和低调是一种主动的选择，并非无能；因为“不争”，所以“无尤”，这是全书处世哲学的一个关键起点。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>如果“利万物”却“不争功”成为你的行事默认值，你的工作与人际关系会发生什么变化？</blockquote>
+<p>&gt;</p>
+<blockquote>如果刻意选择“处众人之所恶”的低位，这是谦卑，还是另一种更深远的策略？</blockquote>
+<p>&gt;</p>
+<blockquote>如果“动善时”要求你像水一样因势而动，你现在的“不动”是等待时机，还是逃避？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote><strong>荀子</strong>：主张“制天命而用之”，强调人应以礼义和能动作为改造自然，与老子被动顺水之势形成对照，人物不是水，而应筑堤导流。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>韩非</strong>：从法家角度看，水“不争”不足以治众；他更看重赏罚与势位，认为为政不能只靠品格感化，还需要制度约束。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>王阳明</strong>：讲“知行合一”，会追问“七善”究竟是外在模仿水之形，还是心体自然流露；若心未诚，则“善信”“善仁”容易变成表演。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>维特根斯坦</strong>：会提醒“上善”“不争”这类词的意义在于其在生活形式中的用法，若不看具体语境，这些词容易被抽象化而失去可操作性。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>福柯</strong>：可能质疑“处众人之所恶”是否也内含一种权力技术，即通过自我低位化来获得道德优势与影响力。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<p><strong>（1）第一遍（速览）</strong>：先抓三个关注点：一是“水善利万物而不争”这一核心比喻；二是“处众人之所恶，故几于道”这一反常识的判断；三是“七善”的排比结构，把它当作一张可对照自身的行为清单。</p>
+<br/>
+<p><strong>（2）第二遍（细抠）</strong>：必看两处论证。第一处是“水—不争—几于道”的类比链条，注意老子不是赞美水的柔弱本身，而是赞美“利他而不争”的运行方式；第二处是“七善”如何从居处、心境、交往、言语、为政、做事、行动七个方向把水德落地，尤其“正善治”把个人修养与为政连在一起。</p>
+<br/>
+<p><strong>（3）第三遍（思辨）</strong>：追问一个开放问题：“夫唯不争，故无尤”是否意味着完全不争就能免于过失？在不公正的情境中，“不争”是智慧，还是对责任的回避？</p>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+Laozi["老子"]
+Shui["概念：水"]
+P1["命题：上善若水，利万物而不争"]
+P2["命题：处众人之所恶，故几于道"]
+P3["命题：居处、心境、交往、言语、为政、做事、行动七方面效法水"]
+P4["命题：夫唯不争，故无尤"]
+C_shuishang["概念：上善若水"]
+C_jidao["概念：几于道"]
+C_buzheng["概念：不争"]
+C_chuzhong["概念：处众人之所恶"]
+C_qishan["概念：七善"]
+C_wuyou["概念：无尤"]
+C_judi["概念：居善地"]
+C_xinyuan["概念：心善渊"]
+C_yuren["概念：与善仁"]
+C_yanxin["概念：言善信"]
+C_zhengzhi["概念：正善治"]
+C_shineng["概念：事善能"]
+C_dongshi["概念：动善时"]
+Laozi -->|introduces| C_shuishang
+Shui -->|relates_to| C_shuishang
+C_shuishang -->|supports| P1
+C_buzheng -->|supports| P1
+Shui -->|supports| P1
+C_chuzhong -->|supports| P2
+C_jidao -->|supports| P2
+P1 -->|supports| P2
+C_qishan -->|supports| P3
+C_judi -->|relates_to| C_qishan
+C_xinyuan -->|relates_to| C_qishan
+C_yuren -->|relates_to| C_qishan
+C_yanxin -->|relates_to| C_qishan
+C_zhengzhi -->|relates_to| C_qishan
+C_shineng -->|relates_to| C_qishan
+C_dongshi -->|relates_to| C_qishan
+C_buzheng -->|supports| P4
+C_wuyou -->|supports| P4
+P3 -->|supports| P4
+P1 -->|supports| P4
+C_qishan -->|relates_to| C_buzheng
+C_chuzhong -->|relates_to| C_buzheng
+C_dongshi -->|relates_to| C_jidao
+P2 -->|relates_to| P4
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章以水为喻，将抽象的「道」落实为可实践的处世与为政品格；通过「七善」展开水德的具体面向，并以「不争故无尤」收束，奠定柔弱、利他、不争的行为原则。</div>
+<h3>📌 核心命题</h3><ol>
+<li>最高的善像水一样：水滋养万物却不与万物相争。</li>
+<li>水甘愿停留在众人所厌恶的低处，因此最接近「道」。</li>
+<li>人应当在居处、心境、交往、言语、为政、做事、行动七个方面效法水的品格。</li>
+<li>正因为不与人争，所以不会招致过失与怨咎。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>「上善若水。水善利万物而不争，处众人之所恶，故几于道。」</li>
+<li>「居善地，心善渊，与善仁，言善信，正善治，事善能，动善时。」</li>
+<li>「夫唯不争，故无尤。」</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>上善若水</strong></summary><div class="case-body">最高的善就像水一样，以柔顺、利他、不争为特征。</div></details>
+<details><summary><strong>几于道</strong></summary><div class="case-body">接近于「道」，指水的品性最贴近万物本源的运行方式。</div></details>
+<details><summary><strong>不争</strong></summary><div class="case-body">不与万物争夺，付出而不与人争胜。</div></details>
+<details><summary><strong>处众人之所恶</strong></summary><div class="case-body">安身于众人厌弃的低洼之处，不挑高位。</div></details>
+<details><summary><strong>七善</strong></summary><div class="case-body">居善地、心善渊、与善仁、言善信、正善治、事善能、动善时，是效法水的七种具体做法。</div></details>
+<details><summary><strong>无尤</strong></summary><div class="case-body">没有过失，也不会招来怨咎。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>「不争」与「无尤」的主旨，可能在后续讨论处世与为政的章节（如第9章及其后）继续展开。</li>
+<li>「动善时」所体现的因时而动，可能与后文论「时」与「柔弱胜刚强」的章节相呼应。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《理想国》第 8 章（卷八）。我试着复述一下这章的主线，请你帮我做&quot;主线提取 + 关键概念检查&quot;：</p>
+<br/>
+<p>我的复述是：{我的复述}</p>
+<br/>
+<p>请按以下格式反馈：</p>
+<ol>
+<li>1. 我复述中抓住的主线是否与本章实际论证顺序一致？指出我漏掉的环节。</li>
+<li>2. 本章出现的以下关键概念，请逐一检查我是否用对（若我没提到，也请指出）：{我提到的关键概念}</li>
+<li>3. 本章讨论的政体序列是什么？苏格拉底给出各政体&quot;败坏&quot;的动因分别是什么？请对照我的复述指出偏差。</li>
+<li>4. 我有没有把本章的论点混淆成别的对话卷次的论点？</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>请扮演最强的反方，反驳我对《理想国》第 8 章的接受态度。</p>
+<br/>
+<p>我的立场是：{我对本章的立场}</p>
+<br/>
+<p>要求：</p>
+<ol>
+<li>1. 先复述我的立场，确认你理解准确（不超过 3 句）。</li>
+<li>2. 然后从至少三个不同角度给出最强反驳，例如：本章关于政体衰变的内在逻辑是否成立、其前提（如灵魂三分与政体同构）是否可被质疑、经验证据是否支持这种&quot;从最优到最坏&quot;的序列。</li>
+<li>3. 每条反驳都要指向本章的具体论证，而非泛泛批评柏拉图。</li>
+<li>4. 最后给出：如果我仍坚持原立场，我最需要补的论证是什么。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《理想国》第 8 章（卷八）。请帮我把它连接到现实。</p>
+<br/>
+<p>这是我给的 3 个真实场景：</p>
+<ol>
+<li>1. {场景一}</li>
+<li>2. {场景二}</li>
+<li>3. {场景三}</li>
+</ul>
+<br/>
+<p>对每个场景，请分别说明：</p>
+<ul>
+<li>- 本章的哪个论点或概念适用于它（引用本章的具体论证，不要泛泛谈&quot;理想国&quot;）；</li>
+<li>- 若用本章视角看，这个场景里&quot;败坏&quot;的机制可能是什么；</li>
+<li>- 本章视角在这个场景中的解释力边界在哪里（哪里套不上）。</li>
+</ul>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>《理想国》第 8 章里最让我兴奋的一句话是：</p>
+<br/>
+<p>&quot;{原文句子}&quot;</p>
+<br/>
+<p>请围绕这句话展开&quot;那这样推下去还有什么？&quot;：</p>
+<br/>
+<ol>
+<li>1. 先把这句话放回它所在的具体论证段落，说明它在原语境中承担什么功能。</li>
+<li>2. 如果接受这句话为真，会推出哪些作者本人没明说的下一步结论？</li>
+<li>3. 这些推论中，哪些在柏拉图其他对话或后世思想中被真正接过去了？哪些没有？</li>
+<li>4. 反过来问：这句话若要成立，必须预设什么？这些预设中哪一个最脆弱？</li>
+</ol>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题</h2>
+<br/>
+<ul>
+<li>- 第 8 章里苏格拉底说的几种政体，按顺序分别是哪几种？——先只看&quot;名单和顺序&quot;，不急着懂论证。</li>
+<li>- 为什么这章要讲政体，而不是继续讲灵魂？——抓住本章最核心的&quot;灵魂与城邦同构&quot;设定。</li>
+<li>- 从最好的政体到最坏的政体，中间每一步&quot;坏下去&quot;的原因分别是什么？——用&quot;因为……所以变成……&quot;的句式自己串一遍。</li>
+<li>- 本章说的&quot;民主人&quot;是什么样的人？——把政体类型当成人的性格类型来读，会更好懂。</li>
+<li>- 为什么柏拉图把民主制排在僭主制之前，而不是之后？——这是本章最反直觉的判断，值得先起疑。</li>
+<li>- 苏格拉底说政体败坏源于统治阶级内部的分裂，这个说法能解释所有政体变迁吗？——开始从&quot;复述&quot;转向&quot;检验前提&quot;。</li>
+<li>- 如果灵魂三分与政体五种的对应只是一种类比，本章的论证还剩多少力量？——适合已能梳理全章结构、想评估论证有效性的读者。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>上善若水</td><td>最好的善就像水一样：柔软、往低处走、帮了别人也不争功。</td><td>出自《老子》第八章。老子以水为喻，说明最高的德行具有柔弱、处下、利万物而不争的品格。水滋养万物却不自恃有功，居于卑下之地而安然自适，因此成为&quot;道&quot;在日常伦理中的形象化表达。</td><td>&quot;上善&quot;即至善、最高的善；&quot;若&quot;为比拟而非等同，水是&quot;道&quot;的取象而非道本身。&quot;善&quot;在此兼具伦理义与存在论义：既是人的德性，也是万物自然成其所是的运作方式。&quot;水&quot;在先秦常与&quot;柔&quot;&quot;顺&quot;&quot;不争&quot;构成语义场，老子借以翻转世俗以刚强、高位、争胜为善的价值序列。</td><td>王弼以&quot;无&quot;为本，注此章时强调水&quot;唯不争，故天下莫能与之争&quot;，把水之善收归于&quot;无为而无不为&quot;的本体层面，善不是刻意行善，而是自然无为的显现。河上公则从养生与治身角度读之，谓水&quot;去高就下，不逆万物&quot;，重在修身者的谦下自养。苏辙《老子解》以&quot;水之性无定&quot;说其&quot;几于道&quot;，强调不执著于一方。现代学者陈鼓应认为此章集中体现了老子&quot;柔弱胜刚强&quot;的处世哲学，是中国式&quot;谦下伦理&quot;的经典表述。</td></tr>
+<tr><td>几于道</td><td>差不多就是&quot;道&quot;的样子了，最接近万物运转的根本方式。</td><td>&quot;几&quot;是接近、几乎之意。老子认为水的品性最接近&quot;道&quot;，但水仍属有形之物，故只说&quot;几于&quot;，不说&quot;即是&quot;。这一措辞体现了老子对语言与比喻之限度的自觉。</td><td>&quot;几&quot;在先秦有&quot;微&quot;&quot;近&quot;二义，《易·系辞》&quot;几者动之微&quot;可参。老子用&quot;几于&quot;而非&quot;等于&quot;，保留了道与具体存在者之间的层级差异：道是&quot;无状之状&quot;，水是有状之物，故只能&quot;近似&quot;。这构成老子比喻策略的方法论自觉——取象而不落象。</td><td>王弼主张&quot;道&quot;不可名，水只是&quot;近之&quot;之辞，若执水为道则失之更远，体现其&quot;得意忘言&quot;的解经路向。成玄英重玄学则借此发挥&quot;非有非无&quot;：水之近道，正在于它既不自有其性，又不全无其用，双遣双非。海德格尔在讨论&quot;道&quot;（Tao）时曾与&quot;道路&quot;（Weg）互训，认为老子之道不是最高存在者而是&quot;一切道路的道路&quot;，可与&quot;几于&quot;的保留态度相参照——两者都拒绝把本源对象化。</td></tr>
+<tr><td>不争</td><td>不去跟别人抢、争高低，只是付出，不争输赢。</td><td>老子核心主张之一。指不与人争夺名利胜负，以退让、柔弱、处下为姿态，最终&quot;夫唯不争，故天下莫能与之争&quot;。&quot;不争&quot;不是消极避世，而是一种以退为进、以柔克刚的处世智慧。</td><td>&quot;争&quot;在春秋战国语境中与礼崩乐坏、诸侯争霸直接相关，老子之&quot;不争&quot;是对当时&quot;争&quot;的秩序的整体性批判。&quot;不争&quot;在文本中与&quot;无为&quot;&quot;知足&quot;&quot;柔弱&quot;构成概念群，其逻辑不是放弃行动，而是放弃&quot;占有性&quot;&quot;对抗性&quot;的行动方式，即&quot;为而不恃，功成而不居&quot;。</td><td>王弼训&quot;不争&quot;为&quot;顺而不违&quot;，以为圣人&quot;应物而不累于物&quot;，不争是本体之无在事上的自然发用。韩非《解老》《喻老》则从法家角度把&quot;不争&quot;读作君主不与人臣争能、争功的统治术，强调&quot;不争&quot;是上位者的权力节制。庄子《齐物论》更进一步，以&quot;无辩&quot;消解争的根据，认为是非之争本身起于成心。刘笑敢指出老子&quot;不争&quot;常被误读为消极，实为一种&quot;反向的&quot;行为策略，与儒家&quot;当仁不让&quot;的进取伦理形成对照。</td></tr>
+<tr><td>处众人之所恶</td><td>甘愿待在大家都嫌弃的低下地方，不往高处挤。</td><td>指水总是流向低洼污下之处，而人却喜好高洁显要。老子以此说明有德者应安于卑下、不与人争高位。此语与&quot;上善若水&quot;互为注脚，是&quot;谦下&quot;伦理的空间化表达。</td><td>&quot;恶&quot;在此读作厌恶、嫌弃，非善恶之恶。&quot;众人之所恶&quot;指低位、卑湿、垢下，在社会象征层面即卑贱、无名、被弃置的位置。老子将&quot;下&quot;由空间范畴转为价值范畴，颠覆了&quot;高—贵—善&quot;的世俗等级。这一&quot;处下&quot;逻辑贯穿全书，与六十六章&quot;江海所以能为百谷王者，以其善下之&quot;同构。</td><td>河上公从治身养生解之，谓&quot;众人恶卑湿垢浊，水独安之&quot;，喻修道者当去高慢之心、自处卑下以养其神。王弼则强调&quot;人恶卑下，水独安之&quot;，圣人法水，故能不与人争而众归之，是&quot;以无为用&quot;。郭象注《庄》虽非注老，但其&quot;各安其分&quot;的思路可与&quot;处下&quot;互参：位置无高下，安于所当安即自然。现代学者葛兆光指出，这种&quot;处下&quot;观念在后世深刻塑造了中国人&quot;以退为进&quot;&quot;藏锋守拙&quot;的处世心理与政治智慧。</td></tr>
+<tr><td>七善</td><td>具体照水的样子做七件事：选好地方、心要深沉、待人要仁、说话要守信、治理要有序、做事要有本领、行动要合时机。</td><td>老子提出的七项效法水的具体德目：居善地、心善渊、与善仁、言善信、正善治、事善能、动善时。分别就居处、心志、交往、言语、为政、任事、行动七个方面立说，是&quot;上善若水&quot;的展开与落实。</td><td>七善句式统一为&quot;X 善 Y&quot;，&quot;善&quot;在此作&quot;善于&quot;&quot;以……为善&quot;解，兼含&quot;得当&quot;&quot;合宜&quot;义，非道德善恶之善。七项覆盖身（居）、心（渊）、人伦（与、言）、政治（正）、事功（事）、时变（动），构成一个从内在心性到外在事功的完整实践框架。&quot;渊&quot;取水深静不测之象，&quot;时&quot;则接续老子&quot;动善时&quot;与《易》&quot;与时偕行&quot;的时间智慧。</td><td>王弼以&quot;无&quot;贯之，认为七善皆非刻意为之，而是&quot;不争&quot;的自然发用，&quot;言善信&quot;者信不由言，故&quot;善言无瑕谪&quot;。河上公则逐条配以治身之术，如&quot;居善地&quot;谓&quot;养神安身&quot;，&quot;心善渊&quot;谓&quot;心当深静&quot;，将七善养生学化。苏辙以&quot;七善&quot;皆水之自然，非勉强仿效，重在&quot;无心而合&quot;。陈鼓应认为七善是老子对理想人格的具体规定，与儒家&quot;温良恭俭让&quot;诸德可作对照，但老子的落点在&quot;因势&quot;&quot;顺时&quot;而非&quot;克己&quot;。</td></tr>
+<tr><td>无尤</td><td>不会出差错，也不会招来别人的埋怨。</td><td>&quot;尤&quot;为过失、怨咎之意。&quot;夫唯不争，故无尤&quot;，指因为不与人争，所以既无过失可指，也不会招致他人的怨恨责难。此句为第八章的收束，点明&quot;不争&quot;的效验。</td><td>&quot;尤&quot;在先秦兼有&quot;过&quot;&quot;怨&quot;&quot;责&quot;三义，&quot;无尤&quot;因而可双解：一是无过失（对己），二是不招怨（对人）。老子将二者因果化：正因为不争（不与人争位、争功），所以既无过，也无人怨。这体现了老子&quot;果而勿矜&quot;的效验逻辑——德行的回报不是外在奖赏，而是免于祸咎。</td><td>王弼以&quot;无&quot;释之，谓&quot;不争&quot;则&quot;物无所尤&quot;，因为争本身即&quot;有&quot;，有则有对、有对则有咎，唯无所得故无所失。河上公则从养生福报角度解&quot;尤&quot;为病患灾殃，谓不争者&quot;身无患害&quot;。王夫之《老子衍》以气化流行言，认为&quot;尤&quot;生于&quot;争&quot;所激起的偏滞之气，不争则气顺而无所怨。现代学者楼宇烈提示，&quot;无尤&quot;不宜读作功利性的&quot;好结果&quot;，而是老子对&quot;不争&quot;之存在方式的描述：在不争的境域中，怨咎根本无从生起。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">上善若水</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">最好的善就像水一样：柔软、往低处走、帮了别人也不争功。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">出自《老子》第八章。老子以水为喻，说明最高的德行具有柔弱、处下、利万物而不争的品格。水滋养万物却不自恃有功，居于卑下之地而安然自适，因此成为&quot;道&quot;在日常伦理中的形象化表达。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;上善&quot;即至善、最高的善；&quot;若&quot;为比拟而非等同，水是&quot;道&quot;的取象而非道本身。&quot;善&quot;在此兼具伦理义与存在论义：既是人的德性，也是万物自然成其所是的运作方式。&quot;水&quot;在先秦常与&quot;柔&quot;&quot;顺&quot;&quot;不争&quot;构成语义场，老子借以翻转世俗以刚强、高位、争胜为善的价值序列。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，注此章时强调水&quot;唯不争，故天下莫能与之争&quot;，把水之善收归于&quot;无为而无不为&quot;的本体层面，善不是刻意行善，而是自然无为的显现。河上公则从养生与治身角度读之，谓水&quot;去高就下，不逆万物&quot;，重在修身者的谦下自养。苏辙《老子解》以&quot;水之性无定&quot;说其&quot;几于道&quot;，强调不执著于一方。现代学者陈鼓应认为此章集中体现了老子&quot;柔弱胜刚强&quot;的处世哲学，是中国式&quot;谦下伦理&quot;的经典表述。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">几于道</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">差不多就是&quot;道&quot;的样子了，最接近万物运转的根本方式。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;几&quot;是接近、几乎之意。老子认为水的品性最接近&quot;道&quot;，但水仍属有形之物，故只说&quot;几于&quot;，不说&quot;即是&quot;。这一措辞体现了老子对语言与比喻之限度的自觉。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;几&quot;在先秦有&quot;微&quot;&quot;近&quot;二义，《易·系辞》&quot;几者动之微&quot;可参。老子用&quot;几于&quot;而非&quot;等于&quot;，保留了道与具体存在者之间的层级差异：道是&quot;无状之状&quot;，水是有状之物，故只能&quot;近似&quot;。这构成老子比喻策略的方法论自觉——取象而不落象。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼主张&quot;道&quot;不可名，水只是&quot;近之&quot;之辞，若执水为道则失之更远，体现其&quot;得意忘言&quot;的解经路向。成玄英重玄学则借此发挥&quot;非有非无&quot;：水之近道，正在于它既不自有其性，又不全无其用，双遣双非。海德格尔在讨论&quot;道&quot;（Tao）时曾与&quot;道路&quot;（Weg）互训，认为老子之道不是最高存在者而是&quot;一切道路的道路&quot;，可与&quot;几于&quot;的保留态度相参照——两者都拒绝把本源对象化。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">不争</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不去跟别人抢、争高低，只是付出，不争输赢。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子核心主张之一。指不与人争夺名利胜负，以退让、柔弱、处下为姿态，最终&quot;夫唯不争，故天下莫能与之争&quot;。&quot;不争&quot;不是消极避世，而是一种以退为进、以柔克刚的处世智慧。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;争&quot;在春秋战国语境中与礼崩乐坏、诸侯争霸直接相关，老子之&quot;不争&quot;是对当时&quot;争&quot;的秩序的整体性批判。&quot;不争&quot;在文本中与&quot;无为&quot;&quot;知足&quot;&quot;柔弱&quot;构成概念群，其逻辑不是放弃行动，而是放弃&quot;占有性&quot;&quot;对抗性&quot;的行动方式，即&quot;为而不恃，功成而不居&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼训&quot;不争&quot;为&quot;顺而不违&quot;，以为圣人&quot;应物而不累于物&quot;，不争是本体之无在事上的自然发用。韩非《解老》《喻老》则从法家角度把&quot;不争&quot;读作君主不与人臣争能、争功的统治术，强调&quot;不争&quot;是上位者的权力节制。庄子《齐物论》更进一步，以&quot;无辩&quot;消解争的根据，认为是非之争本身起于成心。刘笑敢指出老子&quot;不争&quot;常被误读为消极，实为一种&quot;反向的&quot;行为策略，与儒家&quot;当仁不让&quot;的进取伦理形成对照。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">处众人之所恶</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">甘愿待在大家都嫌弃的低下地方，不往高处挤。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指水总是流向低洼污下之处，而人却喜好高洁显要。老子以此说明有德者应安于卑下、不与人争高位。此语与&quot;上善若水&quot;互为注脚，是&quot;谦下&quot;伦理的空间化表达。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;恶&quot;在此读作厌恶、嫌弃，非善恶之恶。&quot;众人之所恶&quot;指低位、卑湿、垢下，在社会象征层面即卑贱、无名、被弃置的位置。老子将&quot;下&quot;由空间范畴转为价值范畴，颠覆了&quot;高—贵—善&quot;的世俗等级。这一&quot;处下&quot;逻辑贯穿全书，与六十六章&quot;江海所以能为百谷王者，以其善下之&quot;同构。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公从治身养生解之，谓&quot;众人恶卑湿垢浊，水独安之&quot;，喻修道者当去高慢之心、自处卑下以养其神。王弼则强调&quot;人恶卑下，水独安之&quot;，圣人法水，故能不与人争而众归之，是&quot;以无为用&quot;。郭象注《庄》虽非注老，但其&quot;各安其分&quot;的思路可与&quot;处下&quot;互参：位置无高下，安于所当安即自然。现代学者葛兆光指出，这种&quot;处下&quot;观念在后世深刻塑造了中国人&quot;以退为进&quot;&quot;藏锋守拙&quot;的处世心理与政治智慧。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">七善</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">具体照水的样子做七件事：选好地方、心要深沉、待人要仁、说话要守信、治理要有序、做事要有本领、行动要合时机。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子提出的七项效法水的具体德目：居善地、心善渊、与善仁、言善信、正善治、事善能、动善时。分别就居处、心志、交往、言语、为政、任事、行动七个方面立说，是&quot;上善若水&quot;的展开与落实。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">七善句式统一为&quot;X 善 Y&quot;，&quot;善&quot;在此作&quot;善于&quot;&quot;以……为善&quot;解，兼含&quot;得当&quot;&quot;合宜&quot;义，非道德善恶之善。七项覆盖身（居）、心（渊）、人伦（与、言）、政治（正）、事功（事）、时变（动），构成一个从内在心性到外在事功的完整实践框架。&quot;渊&quot;取水深静不测之象，&quot;时&quot;则接续老子&quot;动善时&quot;与《易》&quot;与时偕行&quot;的时间智慧。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;贯之，认为七善皆非刻意为之，而是&quot;不争&quot;的自然发用，&quot;言善信&quot;者信不由言，故&quot;善言无瑕谪&quot;。河上公则逐条配以治身之术，如&quot;居善地&quot;谓&quot;养神安身&quot;，&quot;心善渊&quot;谓&quot;心当深静&quot;，将七善养生学化。苏辙以&quot;七善&quot;皆水之自然，非勉强仿效，重在&quot;无心而合&quot;。陈鼓应认为七善是老子对理想人格的具体规定，与儒家&quot;温良恭俭让&quot;诸德可作对照，但老子的落点在&quot;因势&quot;&quot;顺时&quot;而非&quot;克己&quot;。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">无尤</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不会出差错，也不会招来别人的埋怨。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">&quot;尤&quot;为过失、怨咎之意。&quot;夫唯不争，故无尤&quot;，指因为不与人争，所以既无过失可指，也不会招致他人的怨恨责难。此句为第八章的收束，点明&quot;不争&quot;的效验。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;尤&quot;在先秦兼有&quot;过&quot;&quot;怨&quot;&quot;责&quot;三义，&quot;无尤&quot;因而可双解：一是无过失（对己），二是不招怨（对人）。老子将二者因果化：正因为不争（不与人争位、争功），所以既无过，也无人怨。这体现了老子&quot;果而勿矜&quot;的效验逻辑——德行的回报不是外在奖赏，而是免于祸咎。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;释之，谓&quot;不争&quot;则&quot;物无所尤&quot;，因为争本身即&quot;有&quot;，有则有对、有对则有咎，唯无所得故无所失。河上公则从养生福报角度解&quot;尤&quot;为病患灾殃，谓不争者&quot;身无患害&quot;。王夫之《老子衍》以气化流行言，认为&quot;尤&quot;生于&quot;争&quot;所激起的偏滞之气，不争则气顺而无所怨。现代学者楼宇烈提示，&quot;无尤&quot;不宜读作功利性的&quot;好结果&quot;，而是老子对&quot;不争&quot;之存在方式的描述：在不争的境域中，怨咎根本无从生起。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 8 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 8 章]
+
+上善若水。水善利万物而不争，处众人之所恶，故几于道。居善地，心善渊，与善仁，言善信，正善治，事善能，动善时。夫唯不争，故无尤。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_08_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

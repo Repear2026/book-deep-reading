@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 19 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 19/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_18/site/index.html" title="第 18 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_20/site/index.html" title="第 20 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 19 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>绝圣弃智，民利百倍；绝仁弃义，民复孝慈；绝巧弃利，盗贼无有。此三者以为文不足，故令有所属：见素抱朴，少私寡欲。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 19 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>这一章是老子少见的“正面开方子”：前三句连着三个“绝…弃…”，把圣智、仁义、巧利这三样当时最受推崇的东西一口气推翻，还说推翻之后民众反而得利百倍、复归孝慈、盗贼消失。更有意思的是，老子自己也意识到光“破”不够——“此三者以为文不足”，于是给出归宿：见素抱朴，少私寡欲。最重要的收获是：老子批判的其实不是仁义本身，而是这些东西被当成名目标榜之后带来的虚伪和异化。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>如果一个人人都在朋友圈晒“行善”的社会，善还剩下几分真？你会怎么判断？</blockquote>
+<p>&gt;</p>
+<blockquote>如果一个组织把“聪明”“机巧”当成最高考核标准，成员之间会变成什么关系？</blockquote>
+<p>&gt;</p>
+<blockquote>如果你把对名声、利益、攀比的欲望砍掉一半，你的生活会变简单还是变空？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote><strong>荀子</strong>：恰恰相反，荀子主张“化性起伪”，认为礼义文理正是对人性的必要修饰与塑造；老子眼中的“文不足”，在荀子看来反而是文明的根本。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>韩非</strong>：同样警惕仁义名目的失效，但韩非的解法是“法术势”的客观制度，而老子主张回到素朴，两者都把儒家式道德感化当作失效的工具。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>维特根斯坦</strong>：可作呼应——许多哲学混乱源于语言离开实际使用后的空转；老子对“名目”的不信任，与之气质相近，都在提醒不要被词语本身牵着走。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>卢梭</strong>：与老子高度同调，他在《论科学与艺术》中批判文明进步伴随道德腐化，同样把“回到朴素”当作对文饰社会的解药。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>福柯</strong>：会追问一个老子没有问的问题——“素朴”本身是否也是一种被建构的话语？谁有权力定义什么是“自然”和“少欲”？</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：关注三个点——三个“绝弃”句式排比的节奏感；每组“绝弃”后面紧跟的正面效果（民利百倍 / 民复孝慈 / 盗贼无有）；最后一句从“破”转向“立”的转折词“故令有所属”。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（2）第二遍（细抠）</strong>：必看两处论证。一是“绝仁弃义，民复孝慈”——注意老子没说不要孝慈，而是说标举仁义的名目反而让人远离了孝慈本身，这是一个“手段异化为目的”的论证。二是“此三者以为文不足”——承认单纯否定不够，必须有正面归宿，这使全章从批判转为建构，是全章结构的枢纽。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>（3）第三遍（思辨）</strong>：追问一个问题——“少私寡欲”的“少”由谁来定？如果由治理者替民众定义什么是“正当的欲望”，这与老子自己批判的“圣智”标榜是否构成矛盾？老子的素朴理想，究竟是解放，还是另一种更隐蔽的规训？</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+A1["绝圣弃智，民利百倍；绝仁弃义，民复孝慈；绝巧弃利，盗贼无有"]
+A2["此三者以为文不足，故令有所属：见素抱朴，少私寡欲"]
+P1["弃绝圣智，民众反而能获得百倍的利益"]
+P2["弃绝仁义，民众反而能恢复孝慈"]
+P3["弃绝巧利，盗贼就不会出现"]
+P4["圣智、仁义、巧利三者作为文饰不足以治理，因此要使人有所归属"]
+P5["治理的归宿是见素抱朴、少私寡欲"]
+C1["绝圣弃智"]
+C2["绝仁弃义"]
+C3["绝巧弃利"]
+C4["见素抱朴"]
+C5["少私寡欲"]
+X18["第18章：大道废，有仁义"]
+X38["第38章：失道而后德"]
+X3["第3章：不尚贤"]
+
+A1 --> P1
+A1 --> P2
+A1 --> P3
+A2 --> P4
+A2 --> P5
+P1 --> P4
+P2 --> P4
+P3 --> P4
+P4 --> P5
+C1 --> P1
+C2 --> P2
+C3 --> P3
+C4 --> P5
+C5 --> P5
+X18 --> P2
+X38 --> P4
+X3 --> P3
+X3 --> P5
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章承接前文对仁义、圣智、巧利等文饰化治理的批判，正面提出回归素朴、少私寡欲的治理归宿，是“道法自然”在政治伦理与个人修养上的集中落实。</div>
+<h3>📌 核心命题</h3><ol>
+<li>弃绝圣智，民众反而能获得百倍的利益。</li>
+<li>弃绝仁义，民众反而能恢复孝慈。</li>
+<li>弃绝巧利，盗贼就不会出现。</li>
+<li>圣智、仁义、巧利三者作为文饰不足以治理，因此要使人有所归属。</li>
+<li>治理的归宿是见素抱朴、少私寡欲。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>绝圣弃智，民利百倍；绝仁弃义，民复孝慈；绝巧弃利，盗贼无有。</li>
+<li>此三者以为文不足，故令有所属：见素抱朴，少私寡欲。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>绝圣弃智</strong></summary><div class="case-body">白话解释：抛弃标榜圣明与智巧的做法。</div></details>
+<details><summary><strong>绝仁弃义</strong></summary><div class="case-body">白话解释：不再刻意标举仁义的名目。</div></details>
+<details><summary><strong>绝巧弃利</strong></summary><div class="case-body">白话解释：摒弃机巧与利益的追逐。</div></details>
+<details><summary><strong>见素抱朴</strong></summary><div class="case-body">白话解释：显现本来的素净，持守未加雕琢的质朴。</div></details>
+<details><summary><strong>少私寡欲</strong></summary><div class="case-body">白话解释：减少私心，降低欲望。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>可与第18章“大道废，有仁义”相呼应，理解本章对仁义名目的批判。</li>
+<li>可与第38章“失道而后德”等对礼文形式化的反思相参照。</li>
+<li>可与第3章“不尚贤”等治理主张对照，把握去巧尚朴的治理思路。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 19 章。下面是我自己对这一章主线的一句话概括：</p>
+<br/>
+<p>「{我的一句话概括}」</p>
+<br/>
+<p>请你做两件事：</p>
+<ol>
+<li>1. 主线提取：用 3–5 个要点复述本章的论证主线（谁在反驳谁、从什么前提推到什么结论），并标出我这句话漏掉了哪一环。</li>
+<li>2. 关键概念检查：列出本章 3–5 个不可跳过的关键概念（{本章关键概念}），针对每个概念追问我一个判断题或辨析题，看我是否真的分清了它和邻近概念的差别。</li>
+</ol>
+<p>不要替我总结全文，先用问题考我，等我回答后再给判断和修正。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>你现在扮演本章立场的最强反方，不是挑语病，而是从根子上不接受这一章。</p>
+<br/>
+<p>本章的核心主张我读成了：「{我认为本章的核心主张}」</p>
+<p>我接受它的主要理由是：「{我接受的理由}」</p>
+<br/>
+<p>请你：</p>
+<ol>
+<li>1. 找出这个主张所依赖的、但本章没有真正辩护的那个前提，并说明为什么它可疑；</li>
+<li>2. 给出一个最强版本的对立立场（不是稻草人），说明它会如何反击；</li>
+<li>3. 指出我上面那条「接受理由」犯了什么推理错误。</li>
+</ol>
+<p>最后再切换回中立口吻，告诉我：本章作者可能有哪些现成资源来回应你，哪一处回应是薄弱环节。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 19 章，想把它从纸面拉到现实。下面是我所在的场景：</p>
+<br/>
+<p>场景 A：{工作/学习场景，如一次团队决策分歧}</p>
+<p>场景 B：{日常生活场景，如一次关于&quot;该不该相信某条信息&quot;的争论}</p>
+<p>场景 C：{人际关系或自我处境场景}</p>
+<br/>
+<p>请针对每个场景说明：</p>
+<ol>
+<li>1. 本章的哪个概念在这里真正起作用（指名道姓，不要泛泛说&quot;辩证看待&quot;）；</li>
+<li>2. 套用本章思路后，我的判断会发生什么具体改变；</li>
+<li>3. 本章思路在这个场景里明显不够用的地方是什么。</li>
+</ol>
+<p>三个场景分开写，每个不超过 200 字。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 19 章里最让我兴奋的一句话是：</p>
+<br/>
+<p>「{原文或我转述的那句话}」</p>
+<br/>
+<p>请围绕这句话做四步推演：</p>
+<ol>
+<li>1. 这句话严格讲是什么意思？把其中每个关键词的边界划清楚；</li>
+<li>2. 如果它成立，那么顺着推下去，必然还要接受什么？（给出 2–3 个连带命题，标出哪个是作者明确承认的、哪个是我自己推的）</li>
+<li>3. 推到哪一步会撞上一个反直觉甚至荒谬的结论？那就是这条思路的承重墙在哪里；</li>
+<li>4. 本章之外，思想史上有谁沿着类似方向推得更远或推崩了？（请注明是谁、哪本书或哪个学派，不确定就说明不确定）</li>
+</ol>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅入深）</h2>
+<br/>
+<ol>
+<li>1. 用一句大白话说，第 19 章想解决的到底是什么问题？——先别管术语，答不上来就说明这章还没读进去。</li>
+<li>2. 这一章里出现了哪些你以前没见过的词？把每个词圈出来，试着用生活语言解释一遍。——术语是路障，不是装饰。</li>
+<li>3. 作者在这一章主要在跟谁较劲——是某个具体的人、某种流行看法，还是常识？——找到对手，论证主线就浮出来了。</li>
+<li>4. 本章的结论是从哪几个前提推出来的？把前提一条条列出来。——如果某条前提你没被说服，那么结论对你来说就还没成立。</li>
+<li>5. 这一章里作者有没有偷偷跳过某一步，或者把需要论证的东西当成理所当然？——学会找&quot;没被辩护的前提&quot;，比记住结论有用得多。</li>
+<li>6. 如果让一个聪明但完全不同意的人来反驳，他最可能从哪一句下手？作者能接得住吗？——能自己造出反方，才算真读懂。</li>
+<li>7. 这一章的立场和你读过的其他章节（或别的思想家）是继承、修正还是对立？放在整本书的脉络里，它是哪一步棋？——到这一层，你已经不是在读一章，而是在读一个论证传统。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>绝圣弃智</td><td>别再把“圣明”“聪明”当招牌到处挂，那样反而让人学会装。</td><td>语出《老子》第十九章，主张弃绝世俗所标榜的圣明与智巧。老子认为标举“圣智”会引出伪善与竞争，使人离自然本性越来越远，故主张回到不假分别的自然状态。</td><td>帛书乙本作“绝圣弃知”；王弼本作“绝圣弃智”。“圣”指世俗推崇的睿智之名，“智”指分别、机巧之心。与第十八章“大道废，有仁义；智慧出，有大伪”构成因果关系：正因为“智”出，才有“大伪”。</td><td>王弼以“无”为本，认为圣智之名属“有为之迹”，绝之方能返本；河上公从养生立论，解“圣”为“治身”之神，主张弃外智以安神；郭象注《庄》主“独化”，不以圣智为可绝之物，反谓“绝之”亦是迹；韩非《解老》则从法家立场读作“去智巧而任法”，将“智”解为臣下欺君之私智。陈鼓应认为此章是老子对“文明异化”的批判，而非反文化本身。</td></tr>
+<tr><td>绝仁弃义</td><td>别再拿“仁义”当口号标榜，越是标榜，越显得人与人之间已经不再自然相亲。</td><td>语出第十九章，主张弃绝刻意标举的仁义名目。老子并非否定仁义本身的价值，而是反对将其工具化、名目化；一旦仁义沦为外在标签，便失去其本真。</td><td>竹简本作“绝仁弃义”，帛书本同；有学者据郭店简《老子》丙组“绝伪弃诈”异文，认为“绝仁弃义”或为后起改造。与第十八章“六亲不和，有孝慈”互文：孝慈之名恰起于亲不和之时。</td><td>王弼认为仁义是“下德”之目，失道而后德，故绝弃名迹方能复归于道；苏辙《老子解》谓仁义本于人心，特患在其“名”立而“争”起，故所绝者是“名”非“实”；庄子《齐物论》以“大仁不仁”为说，主张超越仁义之对待；与此相对，孟子举“仁义内在”，荀子言“仁义之统”，儒家正统明确反对此章字面读法，朱熹即斥老子“弃仁义”为“灭理”。刘笑敢指出此章体现老子“反者道之动”式的“正言若反”修辞策略。</td></tr>
+<tr><td>绝巧弃利</td><td>别再把投机取巧和唯利是图当本事，盗贼和纷争多半就是这么来的。</td><td>语出第十九章，主张摒弃机巧与货利的追逐。老子认为“巧”生“奇物”、“利”起“盗心”，二者是社会失序与人心骚动的根源之一。</td><td>“巧”指工艺机变之智，“利”指货财之欲。王弼注：“巧利，国之贼也。”与第三章“不贵难得之货，使民不为盗”一脉相承，属老子“无欲”政治经济学的一部分。</td><td>河上公以养生解“巧”为“利身之巧”、“利”为“财贿之利”，主张去之以保精气；韩非《喻老》以“巧”为“智巧之臣”，从治国技术角度解读为防范臣下之奸；郭象则谓巧利非可“绝”，唯当“任其自能”而不累于心；王夫之《老子衍》从“气化”立论，认为巧利是“气之动而滞者”，绝之即令气化流通。现代学者陈鼓应强调此句的批判对象是战国时期“工商之利”引发的社会问题。</td></tr>
+<tr><td>见素抱朴</td><td>把自己还原成一块没染色的白布、一根没雕过的原木，不装、不饰。</td><td>语出第十九章，意为显现本来的素净，持守未加雕琢的质朴。“素”指未染之丝，“朴”指未雕之木，皆喻人未受人为文饰污染的本然状态。</td><td>王弼注：“见素，谓无所见也；抱朴，谓无所执也。”河上公注：“见素者，当抱素守真，不尚文饰也。”“素”“朴”在《老子》中屡见（如第二十八章“复归于朴”、第三十七章“无名之朴”），共同构成道家“返朴归真”的核心语汇。</td><td>王弼以“无”释“素朴”，谓素朴即“无为之本”，见素抱朴即“不以名教自累”；成玄英以重玄学解之，谓“素”与“朴”亦属“迹”，须“遣之又遣”方契重玄；庄子《马蹄》篇以“素朴”为“民性之本”，痛斥伯乐治马式的“文饰”；郭象则调和名教与自然，认为“素朴”不必废礼，唯在“任其性”；海德格尔的“本真状态”（Eigentlichkeit）可与“见素”相参，但其“本真”是在时间性中“向死存在”的决断，非老子的静态返本。</td></tr>
+<tr><td>少私寡欲</td><td>把自己的小心思和贪念调小一点，别什么都想要。</td><td>语出第十九章，意为减少私心、降低欲望。老子视“私”与“欲”为扰乱人心、引发争夺的内在根源，主张节制而非彻底灭绝。</td><td>“私”指为己之偏，“欲”指逐物之求。与第三章“不见可欲，使民心不乱”、第四十六章“祸莫大于不知足，咎莫大于欲得”互为注脚。王弼注：“私欲，人之所不能无也，少之寡之而已。”</td><td>河上公从养生解“少私”为“少为己私”、“寡欲”为“去情欲以安精神”，与道教内丹“炼己”工夫相通；王弼主张“少”“寡”是“损之又损”的渐次工夫，非一刀断绝；郭象谓“欲”本于性，“寡欲”非绝欲，而在“各当其分”；宋儒朱熹批评老子“寡欲”只是“克去”而不知“天理”所在，不如孟子“寡欲”说之“有主”；陈鼓应认为此句反映老子对“个体心性修养”与“社会秩序”的双重关切，是“内圣”与“外治”的接合点。楼宇烈指出王弼注本此章将“少私寡欲”与“崇本息末”的玄学纲领打通。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">绝圣弃智</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">别再把“圣明”“聪明”当招牌到处挂，那样反而让人学会装。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第十九章，主张弃绝世俗所标榜的圣明与智巧。老子认为标举“圣智”会引出伪善与竞争，使人离自然本性越来越远，故主张回到不假分别的自然状态。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">帛书乙本作“绝圣弃知”；王弼本作“绝圣弃智”。“圣”指世俗推崇的睿智之名，“智”指分别、机巧之心。与第十八章“大道废，有仁义；智慧出，有大伪”构成因果关系：正因为“智”出，才有“大伪”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，认为圣智之名属“有为之迹”，绝之方能返本；河上公从养生立论，解“圣”为“治身”之神，主张弃外智以安神；郭象注《庄》主“独化”，不以圣智为可绝之物，反谓“绝之”亦是迹；韩非《解老》则从法家立场读作“去智巧而任法”，将“智”解为臣下欺君之私智。陈鼓应认为此章是老子对“文明异化”的批判，而非反文化本身。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">绝仁弃义</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">别再拿“仁义”当口号标榜，越是标榜，越显得人与人之间已经不再自然相亲。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出第十九章，主张弃绝刻意标举的仁义名目。老子并非否定仁义本身的价值，而是反对将其工具化、名目化；一旦仁义沦为外在标签，便失去其本真。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">竹简本作“绝仁弃义”，帛书本同；有学者据郭店简《老子》丙组“绝伪弃诈”异文，认为“绝仁弃义”或为后起改造。与第十八章“六亲不和，有孝慈”互文：孝慈之名恰起于亲不和之时。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼认为仁义是“下德”之目，失道而后德，故绝弃名迹方能复归于道；苏辙《老子解》谓仁义本于人心，特患在其“名”立而“争”起，故所绝者是“名”非“实”；庄子《齐物论》以“大仁不仁”为说，主张超越仁义之对待；与此相对，孟子举“仁义内在”，荀子言“仁义之统”，儒家正统明确反对此章字面读法，朱熹即斥老子“弃仁义”为“灭理”。刘笑敢指出此章体现老子“反者道之动”式的“正言若反”修辞策略。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">绝巧弃利</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">别再把投机取巧和唯利是图当本事，盗贼和纷争多半就是这么来的。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出第十九章，主张摒弃机巧与货利的追逐。老子认为“巧”生“奇物”、“利”起“盗心”，二者是社会失序与人心骚动的根源之一。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">“巧”指工艺机变之智，“利”指货财之欲。王弼注：“巧利，国之贼也。”与第三章“不贵难得之货，使民不为盗”一脉相承，属老子“无欲”政治经济学的一部分。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以养生解“巧”为“利身之巧”、“利”为“财贿之利”，主张去之以保精气；韩非《喻老》以“巧”为“智巧之臣”，从治国技术角度解读为防范臣下之奸；郭象则谓巧利非可“绝”，唯当“任其自能”而不累于心；王夫之《老子衍》从“气化”立论，认为巧利是“气之动而滞者”，绝之即令气化流通。现代学者陈鼓应强调此句的批判对象是战国时期“工商之利”引发的社会问题。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">见素抱朴</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">把自己还原成一块没染色的白布、一根没雕过的原木，不装、不饰。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出第十九章，意为显现本来的素净，持守未加雕琢的质朴。“素”指未染之丝，“朴”指未雕之木，皆喻人未受人为文饰污染的本然状态。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“见素，谓无所见也；抱朴，谓无所执也。”河上公注：“见素者，当抱素守真，不尚文饰也。”“素”“朴”在《老子》中屡见（如第二十八章“复归于朴”、第三十七章“无名之朴”），共同构成道家“返朴归真”的核心语汇。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”释“素朴”，谓素朴即“无为之本”，见素抱朴即“不以名教自累”；成玄英以重玄学解之，谓“素”与“朴”亦属“迹”，须“遣之又遣”方契重玄；庄子《马蹄》篇以“素朴”为“民性之本”，痛斥伯乐治马式的“文饰”；郭象则调和名教与自然，认为“素朴”不必废礼，唯在“任其性”；海德格尔的“本真状态”（Eigentlichkeit）可与“见素”相参，但其“本真”是在时间性中“向死存在”的决断，非老子的静态返本。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">少私寡欲</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">把自己的小心思和贪念调小一点，别什么都想要。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出第十九章，意为减少私心、降低欲望。老子视“私”与“欲”为扰乱人心、引发争夺的内在根源，主张节制而非彻底灭绝。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">“私”指为己之偏，“欲”指逐物之求。与第三章“不见可欲，使民心不乱”、第四十六章“祸莫大于不知足，咎莫大于欲得”互为注脚。王弼注：“私欲，人之所不能无也，少之寡之而已。”</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公从养生解“少私”为“少为己私”、“寡欲”为“去情欲以安精神”，与道教内丹“炼己”工夫相通；王弼主张“少”“寡”是“损之又损”的渐次工夫，非一刀断绝；郭象谓“欲”本于性，“寡欲”非绝欲，而在“各当其分”；宋儒朱熹批评老子“寡欲”只是“克去”而不知“天理”所在，不如孟子“寡欲”说之“有主”；陈鼓应认为此句反映老子对“个体心性修养”与“社会秩序”的双重关切，是“内圣”与“外治”的接合点。楼宇烈指出王弼注本此章将“少私寡欲”与“崇本息末”的玄学纲领打通。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 19 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 19 章]
+
+绝圣弃智，民利百倍；绝仁弃义，民复孝慈；绝巧弃利，盗贼无有。此三者以为文不足，故令有所属：见素抱朴，少私寡欲。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_19_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

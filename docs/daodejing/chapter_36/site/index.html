@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 36 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 36/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_35/site/index.html" title="第 35 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_37/site/index.html" title="第 37 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 36 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>将欲歙之，必固张之；将欲弱之，必固强之；将欲废之，必固兴之；将欲夺之，必固与之。是谓微明。柔弱胜刚强。鱼不可脱于渊，国之利器不可以示人。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 36 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<br/>
+<blockquote>本章是《道德经》辩证思维最浓缩的一章。用“将欲歙之，必固张之”等四组排比，揭示一条规律：事物走向极致，必向对立面转化。由此引出两条准则——柔弱胜刚强，国器不可示人。有趣之处在于：它既像对自然的冷静观察，又像对权谋的暗中指点，历代兵家、法家、政治家反复借用。你最大的收获是“微明”二字：在转化发生之前，看出那些细微的征兆。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<br/>
+<blockquote>1. 如果你想让某样东西收缩，为什么反而要先让它扩张到极致？</blockquote>
+<blockquote>2. 如果你手中握着真正的权柄，你会展示给人看，还是深藏不露？</blockquote>
+<blockquote>3. 当你身处的局面正“兴”到顶点，你如何预判它下一步会往哪走？</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<br/>
+<blockquote><strong>韩非</strong>：《韩非子·喻老》逐句疏解本章，把“将欲歙之，必固张之”读作君主驾驭臣下的刑德之术——赏与罚、予与夺的交替运用。但韩非将其彻底工具化为“术”，而老子原文更侧重描述事物转化的自然节律，二者之间有微妙的偏移。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>福柯</strong>：《规训与惩罚》分析“全景敞视监狱”的可见性机制——权力通过让人被看见来运作。这与老子“国之利器不可以示人”恰成对照：福柯笔下现代权力靠展示维持，老子眼中的有效权柄恰恰靠隐藏生效。</blockquote>
+<p>&gt;</p>
+<blockquote><strong>罗素</strong>：《权力论》把权力欲视为人类行为的主要动力之一，分析权力如何通过奖惩来行使。但罗素侧重权力的直接追求，老子强调的却是“将欲夺之，必固与之”这种迂回路径——给予本身是夺取的前置操作，手段与目的之间存在时间差。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<br/>
+<blockquote><strong>（1）第一遍（速览）：三个关注点</strong></blockquote>
+<blockquote>- 四组“将欲……必固……”排比，注意它们共享同一个逻辑骨架：想要 A，先放任非 A 走到极端。</blockquote>
+<blockquote>- “微明”这个词：老子不叫它“明”，偏叫“微明”——为什么智慧要带一个“微”字？</blockquote>
+<blockquote>- 最后两句从自然观察陡然跳到“国之利器”，留意这个转折：前面的“予夺张歙”如何收束到权柄问题上。</blockquote>
+<br/>
+<blockquote><strong>（2）第二遍（细抠）：两个必看的论证</strong></blockquote>
+<blockquote>- “将欲夺之，必固与之”——盯住“必”字：这是逻辑上的必然，还是经验上的策略？老子说的是规律还是手段？这个字的重量决定了全章读法。</blockquote>
+<blockquote>- “柔弱胜刚强”——结合前四组排比来理解：柔弱之所以能胜，不是因为软本身有多强，而是因为刚强已走到“必固强之”的顶点，即将向反面翻转。胜在时机，不在质地。</blockquote>
+<br/>
+<blockquote><strong>（3）第三遍（思辨）：一个该追问的开放问题</strong></blockquote>
+<blockquote>- 如果“将欲歙之，必固张之”是一条普遍规律，那么老子究竟是在描述世界本来如此，还是在建议人应该逆向操作？如果是前者，人只能观察和顺应；如果是后者，这就变成一套可操作的策略——而策略一旦被识破，是否也会反过来失效？本章最值得追问的，正是这种“规律”与“权谋”之间的二重性。</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+Y1["将欲歙之，必固张之"] -->|supports| P1["想要收敛事物，必先让它扩张"]
+Y2["将欲弱之，必固强之"] -->|supports| P2["想要削弱事物，必先让它增强"]
+Y3["将欲废之，必固兴之"] -->|supports| P3["想要废除事物，必先让它兴举"]
+Y4["将欲夺之，必固与之"] -->|supports| P4["想要夺取事物，必先给予它"]
+Y5["是谓微明"] -->|supports| P5["这叫做微明：见转化之几微"]
+Y6["柔弱胜刚强"] -->|supports| P6["柔弱胜过刚强"]
+Y7["鱼不可脱于渊"] -->|supports| P7["鱼不可以离开深渊"]
+Y8["国之利器不可以示人"] -->|supports| P8["国家的利器不可以展示给人看"]
+P1 -->|relates_to| C1["物极必反：事物向反面转化"]
+P2 -->|relates_to| C1
+P3 -->|relates_to| C1
+P4 -->|relates_to| C1
+P5 -->|relates_to| C1
+P7 -->|relates_to| P8
+P6 -->|relates_to| X40["第40章：反者道之动，弱者道之用"]
+P6 -->|relates_to| X28["第28章：知其雄，守其雌"]
+P8 -->|relates_to| X28
+P1 -->|relates_to| X58["第58章：祸兮福之所倚，福兮祸之所伏"]
+P2 -->|relates_to| X58
+P6 -->|relates_to| X66["第66章：江海善下，故能为百谷王"]
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章阐述物极必反、以柔克刚与深藏不露的辩证智慧，揭示事物向反面转化的规律，并引申出处世与治国应守柔、藏锋、不炫权柄的原则。</div>
+<h3>📌 核心命题</h3><ol>
+<li>想要收敛事物，必先让它扩张。</li>
+<li>想要削弱事物，必先让它增强。</li>
+<li>想要废除事物，必先让它兴举。</li>
+<li>想要夺取事物，必先给予它。</li>
+<li>这叫做微明。</li>
+<li>柔弱胜过刚强。</li>
+<li>鱼不可以离开深渊。</li>
+<li>国家的利器不可以展示给人看。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>将欲歙之，必固张之。</li>
+<li>将欲弱之，必固强之。</li>
+<li>将欲废之，必固兴之。</li>
+<li>将欲夺之，必固与之。</li>
+<li>是谓微明。</li>
+<li>柔弱胜刚强。</li>
+<li>鱼不可脱于渊。</li>
+<li>国之利器不可以示人。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>微明</strong></summary><div class="case-body">在事物转化前看出细微征兆的智慧。</div></details>
+<details><summary><strong>柔弱胜刚强</strong></summary><div class="case-body">柔弱能够战胜刚强。</div></details>
+<details><summary><strong>国之利器</strong></summary><div class="case-body">国家赖以治理的权柄和利器。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>与第40章“反者道之动，弱者道之用”相呼应，说明事物向反面转化是道的运动，柔弱是道的作用方式。</li>
+<li>与第28章“知其雄，守其雌”相呼应，体现守柔处下、不露锋芒的处世原则。</li>
+<li>与第58章“祸兮福之所倚，福兮祸之所伏”相呼应，体现祸福、强弱、兴废之间的相互转化。</li>
+<li>与第66章“江海所以能为百谷王者，以其善下之”相呼应，体现柔弱谦下反而能成就主导地位。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我正在读《{书名}》第 36 章（{本章标题}）。下面是我读完以后自己写的一段复述，请你做两件事：</p>
+<br/>
+<p>【我的复述】</p>
+<p>{我的陈述}</p>
+<br/>
+<p>【任务一：主线提取】</p>
+<p>用 3–5 步把这一章的论证主线还原出来（不是复述我的话，而是按书中实际推进的顺序：从什么问题出发 → 引入了什么区分/概念 → 如何推进 → 落在什么结论或悬而未决处）。如果我的复述遗漏了主线中的某一环，请明确指出缺的是哪一环。</p>
+<br/>
+<p>【任务二：关键概念检查】</p>
+<p>从本章中挑出 3–5 个关键概念（作者专门做了界定、或与日常用法不同的词），逐个检查我的复述是否用对了：</p>
+<ul>
+<li>- 概念名 + 书中给出的界定（尽量贴近原文措辞）</li>
+<li>- 我的复述里对应的说法</li>
+<li>- 判定：用对了 / 用偏了 / 完全没提到，并说明偏在哪</li>
+</ul>
+<br/>
+<p>最后给一句总评：我这版复述最大的问题是「漏」还是「歪」。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>你现在的任务不是帮我理解《{书名}》第 36 章（{本章标题}），而是扮演这一章最强的反方。</p>
+<br/>
+<p>【我在这一章接受下来的核心主张】</p>
+<p>{我接受的主张}</p>
+<br/>
+<p>【要求】</p>
+<ol>
+<li>1. 先复述一遍你将要攻击的靶子，确认你打的确实是我接受的那个主张，而不是稻草人。</li>
+<li>2. 给出最强版本的反驳（不是最容易反驳的版本）：可以来自与作者对立的理论阵营、来自作者自己前提的进一步推演、来自反例、或来自对该论证形式的逻辑质疑。至少给 2 条彼此独立的攻击线。</li>
+<li>3. 每条攻击线要说清：它攻击的是前提、推理、还是结论的范围。</li>
+<li>4. 然后切换回中立裁判视角：作者可能如何回应？这些回应里哪一条最有力、哪一条最勉强？</li>
+<li>5. 最后给我一个判断：如果我读完这一章仍然全盘接受，我最可能是忽略了什么？</li>
+</ul>
+<br/>
+<p>不要为了平衡而稀释反驳的力度；反驳阶段请把火力开到最大。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完《{书名}》第 36 章（{本章标题}），想检验自己是不是真的会用，而不是只会复述。</p>
+<br/>
+<p>以下是三个我真实遇到的场景：</p>
+<ol>
+<li>1. {场景一}</li>
+<li>2. {场景二}</li>
+<li>3. {场景三}</li>
+</ul>
+<br/>
+<p>请对每个场景做三步：</p>
+<p>（a）用本章的哪个概念/区分来切这个场景？先把这个概念在本章中的确切含义说清楚（不要泛泛而谈&quot;这体现了辩证法&quot;之类的空话）。</p>
+<p>（b）套用之后，这个场景里原本模糊的地方变得清晰了吗？具体清晰在哪一句判断上？</p>
+<p>（c）诚实地指出：这个场景有哪一部分是本章框架覆盖不到的？如果强行套用会扭曲什么？</p>
+<br/>
+<p>如果某个场景其实和本章关系不大，请直接说&quot;关系不大&quot;，不要硬凑。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>《{书名}》第 36 章里，最让我兴奋的一句话是：</p>
+<br/>
+<p>「{我的一句话}」</p>
+<br/>
+<p>请围绕这句话做「推下去」的展开，分四层：</p>
+<br/>
+<ol>
+<li>1. 【这句话在章内的位置】它在论证中承担什么功能？是前提、转折、还是结论？删掉它，这一章还成立吗？</li>
+<li>2. 【字面推演】如果这句话字面为真，那么紧接着必须接受的下一步是什么？再下一步呢？一路推到出现明显反直觉或自相矛盾的地方为止——那个地方恰恰是最有意思的。</li>
+<li>3. 【作者会不会认账】上面推出来的链条里，哪几步是作者本人会认的，哪几步是作者可能拒绝的？他若拒绝，会搬出本章哪个别的论点来挡？</li>
+<li>4. 【往章外推】这句话如果成立，它会连带影响书中其他章节的哪些论点？有没有哪一处会因此变得紧张？</li>
+</ul>
+<br/>
+<p>最后用一句话告诉我：这句话真正的重量在哪里，我最初的兴奋是不是兴奋错了地方。</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（从零基础到 5 年爱好者）</h2>
+<br/>
+<ol>
+<li>1. 这一章作者到底在跟谁吵架？——先别管论证，只找出&quot;他不同意的那个人/那种说法&quot;是谁，读哲学最省力的入口就是找对手。</li>
+<li>2. 用一个日常生活的例子说说这一章在讲什么？——如果举不出例子，说明还没读懂；让 AI 举三个，你挑最像的那个。</li>
+<li>3. 这一章里哪个词是作者自己造出来、或者故意改了意思的？——术语是哲学家的武器，先认出武器再谈招式。</li>
+<li>4. 作者的结论是&quot;描述世界是这样&quot;还是&quot;我们应当这样&quot;？——分清描述性与规范性，能挡掉一大半误读。</li>
+<li>5. 这一章的核心论证，前提是什么？如果前提不成立，结论还站得住吗？——开始做论证结构分析，从&quot;他说了什么&quot;转向&quot;他凭什么这么说&quot;。</li>
+<li>6. 同一件事，本章的对立学派会怎么反驳？作者有没有预埋回应？——进入学派对话层面，理解哲学是论辩场而非独白。</li>
+<li>7. 这一章的论证如果成立，会连带改写哪些你原本以为理所当然的东西？——最高阶的读法：不问&quot;对不对&quot;，先问&quot;接受它的代价是什么&quot;。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>微明</td><td>事情还没大变样，就能从蛛丝马迹里看出苗头，这种眼力叫微明。</td><td>出自《道德经》第三十六章&quot;是谓微明&quot;。指事物尚未显露显著变化时，就能洞察其向反面转化的几微征兆。&quot;微&quot;指征兆隐微，&quot;明&quot;指洞见明察。老子在&quot;将欲歙之，必固张之&quot;四句之后点出此语，把对&quot;物极必反&quot;之势的先觉称为微明。</td><td>王弼注：&quot;此四事，其道相对，其理至微，故曰微明。&quot;河上公以养生解，谓修身者当察气机之先兆。陈鼓应《老子今注今译》释为&quot;能察见到细微的征兆，叫做微明&quot;。此概念与&quot;反者道之动&quot;相贯通，属对事物转化之几的先在把握，是老子认识论的关键环节。</td><td>王弼以&quot;无&quot;为本，把微明理解为对道之几微的洞见，体现&quot;崇本息末&quot;的认识方式；河上公从养生家立场，视微明为察气机先兆、防病于未然的能力；韩非《喻老》则以权术解之，认为微明是君主在事端萌芽阶段即加控制的&quot;术&quot;；苏辙以佛理解老，训微明为&quot;知几&quot;。海德格尔的&quot;先行决断&quot;（Vorlaufen）也指向对可能性的先在把握，但老子之微明落在&quot;反&quot;的辩证结构上，此在的本真筹划则无此循环往复的宇宙论背景。</td></tr>
+<tr><td>柔弱胜刚强</td><td>看着软软弱弱的东西，反倒能赢过又硬又强的东西。</td><td>出自《道德经》第三十六章，亦与第七十八章&quot;弱之胜强，柔之胜刚&quot;、第四十三章&quot;天下之至柔，驰骋天下之至坚&quot;相呼应。老子以水为喻，主张守柔处下，认为柔弱之道终能胜刚强之力，是&quot;弱者道之用&quot;的具体展开。</td><td>王弼注：&quot;柔弱同通，不可穷极。&quot;河上公以水释之，谓柔弱者生之徒。陈鼓应强调老子之&quot;柔弱&quot;非懦弱，而含&quot;坚韧不拔的内在意涵&quot;。刘笑敢指出这是老子&quot;正向思考与逆向思考&quot;相结合的典型命题。此说构成老子贵柔、守雌、不争之道的方法论核心。</td><td>王弼以&quot;无&quot;为本，认为柔弱是道之德的显现，唯其不争故能全；河上公从养生立场把柔弱解为和气、刚强解为死气，牵向保身长生；庄子《天下》篇评老子&quot;以濡弱谦下为表，以空虚不毁万物为实&quot;，将其纳入自己的齐物框架；韩非《喻老》则把柔弱转读为君主驾驭群臣的南面之术。西方可参照尼采的&quot;权力意志&quot;——他视柔弱优先为奴隶道德的反转，与老子恰成对立；而怀特海过程哲学强调关系性与柔和力，其&quot; persuasive power&quot;与老子之柔有可比较处，但缺乏&quot;反&quot;的循环结构。</td></tr>
+<tr><td>国之利器</td><td>国家手里最要紧的那套权柄和工具，不能随便亮出来给人看。</td><td>出自《道德经》第三十六章&quot;鱼不可脱于渊，国之利器不可以示人&quot;。指国家赖以治理的权柄、赏罚之具与根本法则，不可轻易炫耀示人。与&quot;鱼不可脱于渊&quot;并置，喻君主治国当深藏其器、不失常道。</td><td>王弼注：&quot;利器，利国之器也。唯因物之性，不假刑以理物。器不可睹，而物各得其所，则国之利器也。&quot;河上公以权柄释利器，谓不可示于人。韩非《喻老》以赏罚二柄当之。陈鼓应译为&quot;国家的利器不可以随便拿出来给人看&quot;。刘笑敢将其置于老子&quot;无为而治&quot;的治道脉络中理解。</td><td>王弼以&quot;无&quot;为本，主张利器非刑名法术，而是&quot;因物之性&quot;的无为之治，器不可睹而物各得其所；韩非《喻老》明确以赏、罚二柄为利器，认为君主当藏之于心、不示于臣下，走向法家的术治；河上公从养生角度把利器解为精气，不可轻泄；苏辙以佛理解之，谓利器即道本身。西方可参照马基雅维利《君主论》论君主须善藏意图、不可示人以底牌，与韩非的术治更为接近；福柯论权力的可见性与不可见性之交织，则提示&quot;示&quot;与&quot;不示&quot;本身即是权力运作的机制，与老子&quot;不可以示人&quot;构成另一种对话。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">微明</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">事情还没大变样，就能从蛛丝马迹里看出苗头，这种眼力叫微明。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">出自《道德经》第三十六章&quot;是谓微明&quot;。指事物尚未显露显著变化时，就能洞察其向反面转化的几微征兆。&quot;微&quot;指征兆隐微，&quot;明&quot;指洞见明察。老子在&quot;将欲歙之，必固张之&quot;四句之后点出此语，把对&quot;物极必反&quot;之势的先觉称为微明。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;此四事，其道相对，其理至微，故曰微明。&quot;河上公以养生解，谓修身者当察气机之先兆。陈鼓应《老子今注今译》释为&quot;能察见到细微的征兆，叫做微明&quot;。此概念与&quot;反者道之动&quot;相贯通，属对事物转化之几的先在把握，是老子认识论的关键环节。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，把微明理解为对道之几微的洞见，体现&quot;崇本息末&quot;的认识方式；河上公从养生家立场，视微明为察气机先兆、防病于未然的能力；韩非《喻老》则以权术解之，认为微明是君主在事端萌芽阶段即加控制的&quot;术&quot;；苏辙以佛理解老，训微明为&quot;知几&quot;。海德格尔的&quot;先行决断&quot;（Vorlaufen）也指向对可能性的先在把握，但老子之微明落在&quot;反&quot;的辩证结构上，此在的本真筹划则无此循环往复的宇宙论背景。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">柔弱胜刚强</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">看着软软弱弱的东西，反倒能赢过又硬又强的东西。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">出自《道德经》第三十六章，亦与第七十八章&quot;弱之胜强，柔之胜刚&quot;、第四十三章&quot;天下之至柔，驰骋天下之至坚&quot;相呼应。老子以水为喻，主张守柔处下，认为柔弱之道终能胜刚强之力，是&quot;弱者道之用&quot;的具体展开。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;柔弱同通，不可穷极。&quot;河上公以水释之，谓柔弱者生之徒。陈鼓应强调老子之&quot;柔弱&quot;非懦弱，而含&quot;坚韧不拔的内在意涵&quot;。刘笑敢指出这是老子&quot;正向思考与逆向思考&quot;相结合的典型命题。此说构成老子贵柔、守雌、不争之道的方法论核心。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，认为柔弱是道之德的显现，唯其不争故能全；河上公从养生立场把柔弱解为和气、刚强解为死气，牵向保身长生；庄子《天下》篇评老子&quot;以濡弱谦下为表，以空虚不毁万物为实&quot;，将其纳入自己的齐物框架；韩非《喻老》则把柔弱转读为君主驾驭群臣的南面之术。西方可参照尼采的&quot;权力意志&quot;——他视柔弱优先为奴隶道德的反转，与老子恰成对立；而怀特海过程哲学强调关系性与柔和力，其&quot; persuasive power&quot;与老子之柔有可比较处，但缺乏&quot;反&quot;的循环结构。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">国之利器</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">国家手里最要紧的那套权柄和工具，不能随便亮出来给人看。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">出自《道德经》第三十六章&quot;鱼不可脱于渊，国之利器不可以示人&quot;。指国家赖以治理的权柄、赏罚之具与根本法则，不可轻易炫耀示人。与&quot;鱼不可脱于渊&quot;并置，喻君主治国当深藏其器、不失常道。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;利器，利国之器也。唯因物之性，不假刑以理物。器不可睹，而物各得其所，则国之利器也。&quot;河上公以权柄释利器，谓不可示于人。韩非《喻老》以赏罚二柄当之。陈鼓应译为&quot;国家的利器不可以随便拿出来给人看&quot;。刘笑敢将其置于老子&quot;无为而治&quot;的治道脉络中理解。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，主张利器非刑名法术，而是&quot;因物之性&quot;的无为之治，器不可睹而物各得其所；韩非《喻老》明确以赏、罚二柄为利器，认为君主当藏之于心、不示于臣下，走向法家的术治；河上公从养生角度把利器解为精气，不可轻泄；苏辙以佛理解之，谓利器即道本身。西方可参照马基雅维利《君主论》论君主须善藏意图、不可示人以底牌，与韩非的术治更为接近；福柯论权力的可见性与不可见性之交织，则提示&quot;示&quot;与&quot;不示&quot;本身即是权力运作的机制，与老子&quot;不可以示人&quot;构成另一种对话。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 36 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 36 章]
+
+将欲歙之，必固张之；将欲弱之，必固强之；将欲废之，必固兴之；将欲夺之，必固与之。是谓微明。柔弱胜刚强。鱼不可脱于渊，国之利器不可以示人。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_36_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

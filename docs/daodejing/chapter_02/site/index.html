@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 2 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 2/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_01/site/index.html" title="第 1 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_03/site/index.html" title="第 3 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 2 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>天下皆知美之为美，斯恶已。皆知善之为善，斯不善已。故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随。是以圣人处无为之事，行不言之教；万物作焉而不辞，生而不有，为而不恃，功成而弗居。夫唯弗居，是以弗去。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 2 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<p>本章从“天下皆知美之为美，斯恶已”切入，说明美与恶、善与不善不是孤立存在的属性，而是在相互对照中才被规定出来。接着以有无、难易、长短、高下、音声、前后六组关系，揭示一切概念都处在相生相成、相较相倾、相和相随的依存之中。由此引出圣人的处世方式：处无为之事，行不言之教，生而不有，为而不恃，功成而弗居。最重要的收获是：价值判断与概念规定具有相对性，不居功反而功不去。</p>
+<br/>
+<h2>②多问题意识关联</h2>
+<ol>
+<li>1. 如果天下人都一致认定某样东西是“美”，会发生什么？老子说“斯恶已”——美的标准一旦确立，丑就同时被对照出来了。</li>
+<li>2. 如果“有”与“无”、“难”与“易”都只能互相依赖才成立，那我们能孤立地给其中任何一方下定义吗？</li>
+<li>3. 如果一个人成就了功业却不去占有、不自恃、不居功，他的功绩反而不会失去——这个说法你能接受吗？</li>
+</ul>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<ol>
+<li>1. 维特根斯坦：概念的意义来自语言游戏中的用法与对比，而非固定本质。“美”与“恶”不是先有定义再使用，而是在区分中才获得规定——与本章“相生相成”的思路相通。</li>
+<li>2. 福柯：话语实践通过区分正常与异常来确立标准，标准的确立同时生产出被排除者。“皆知善之为善”正是一种区分机制：善的标准越明确，不善的范畴越清晰。</li>
+<li>3. 荀子：善是人为建构（“伪”）的结果，需要礼义师法来矫正人性。但荀子主张积极建立标准，与老子对“标举价值引发争竞”的警惕形成对照。</li>
+<li>4. 韩非：法家强调“名”与“形”的参验，标准必须客观明确、可操作。这与老子对概念相对性的强调构成张力：一个要固定名实，一个要揭示名实的依存与流动。</li>
+</ul>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<br/>
+<p>（1）第一遍（速览）：三个关注点</p>
+<ul>
+<li>- 美与恶、善与不善为什么“皆知”之后就出问题？“斯恶已”“斯不善已”两个“斯”字是关键。</li>
+<li>- 六组对立分别用什么动词描述其关系——相生、相成、相较、相倾、相和、相随，注意每组动词的细微差异。</li>
+<li>- 圣人做了哪些“不”：不辞、不有、不恃、弗居，把这些“不”列出来看它们之间的连续关系。</li>
+</ul>
+<br/>
+<p>（2）第二遍（细抠）：两个必看的论证</p>
+<ul>
+<li>- “天下皆知美之为美，斯恶已”——价值判断的相对性：美不是孤立属性，其确立同时带出恶，善与不善同理。</li>
+<li>- “夫唯弗居，是以弗去”——不居功反而功不去：放弃占有与保全之间有一种辩证关联，不是消极退让，而是对“占有—失去”逻辑的翻转。</li>
+</ul>
+<br/>
+<p>（3）第三遍（思辨）：一个该追问的开放问题</p>
+<ul>
+<li>- “夫唯弗居，是以弗去”——这个“弗去”是对谁而言的？是客观效果上功绩被保全，还是主观上根本不挂怀得失？如果圣人根本不在意功绩去留，“弗去”还构成一个值得追求的结果吗？</li>
+</ul>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+    P1["命题：美恶相依存，知美则恶显"]
+    P2["命题：善不善相依存，知善则不善显"]
+    P3["命题：有无难易等对立相生相成"]
+    P4["命题：圣人处无为之事，行不言之教"]
+    P5["命题：生而不有、为而不恃、功成弗居"]
+    P6["命题：唯弗居，是以弗去"]
+
+    C1["概念：美之为美，斯恶已"]
+    C2["概念：善之为善，斯不善已"]
+    C3["概念：有无相生"]
+    C4["概念：难易相成"]
+    C5["概念：长短相较"]
+    C6["概念：高下相倾"]
+    C7["概念：音声相和"]
+    C8["概念：前后相随"]
+    C9["概念：无为之事"]
+    C10["概念：不言之教"]
+    C11["概念：生而不有"]
+    C12["概念：为而不恃"]
+    C13["概念：功成而弗居"]
+    C14["概念：弗居，是以弗去"]
+
+    A1["论据：天下皆知美之为美，斯恶已"]
+    A2["论据：皆知善之为善，斯不善已"]
+    A3["论据：有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随"]
+    A4["论据：圣人处无为之事，行不言之教"]
+    A5["论据：万物作焉而不辞，生而不有，为而不恃，功成而弗居"]
+    A6["论据：夫唯弗居，是以弗去"]
+
+    A1 -->|supports| P1
+    A2 -->|supports| P2
+    A3 -->|supports| P3
+    A4 -->|supports| P4
+    A5 -->|supports| P5
+    A6 -->|supports| P6
+
+    C1 -->|instance_of| P1
+    C2 -->|instance_of| P2
+    C3 -->|instance_of| P3
+    C4 -->|instance_of| P3
+    C5 -->|instance_of| P3
+    C6 -->|instance_of| P3
+    C7 -->|instance_of| P3
+    C8 -->|instance_of| P3
+    C9 -->|instance_of| P4
+    C10 -->|instance_of| P4
+    C11 -->|instance_of| P5
+    C12 -->|instance_of| P5
+    C13 -->|instance_of| P5
+    C14 -->|instance_of| P6
+
+    P1 -->|relates_to| P2
+    P2 -->|relates_to| P3
+    P3 -->|relates_to| P4
+    P4 -->|relates_to| P5
+    P5 -->|relates_to| P6
+
+    C1 -->|relates_to| C2
+    C3 -->|relates_to| C4
+    C5 -->|relates_to| C6
+    C7 -->|relates_to| C8
+    C9 -->|relates_to| C10
+    C11 -->|relates_to| C12
+    C13 -->|relates_to| C14
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章处于全书立义之后的展开位置，借美恶、善不善及有无难易等对立关系的相互依存，说明价值判断与概念规定的相对性，并由此引出圣人“处无为之事，行不言之教”的处世方式，以及“生而不有、为而不恃、功成而弗居”的政治与人生原则。</div>
+<h3>📌 核心命题</h3><ol>
+<li>美与恶相互依存，天下皆知美之为美时恶已随之显现。</li>
+<li>善与不善相互依存，天下皆知善之为善时不善已随之显现。</li>
+<li>有与无、难与易、长与短、高与下、音与声、前与后都处在相生相成、相较相倾、相和相随的关系中。</li>
+<li>圣人以无为的方式处事，以不言的方式施教。</li>
+<li>圣人让万物兴起而不加干预，生养而不占有，作为而不自恃，功成而不居功。</li>
+<li>正因为不居功，功绩才不会失去。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>天下皆知美之为美，斯恶已。</li>
+<li>皆知善之为善，斯不善已。</li>
+<li>故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随。</li>
+<li>是以圣人处无为之事，行不言之教；</li>
+<li>万物作焉而不辞，生而不有，为而不恃，功成而弗居。</li>
+<li>夫唯弗居，是以弗去。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>美之为美，斯恶已</strong></summary><div class="case-body">当天下人都知道什么是美时，丑恶也就随之被对照出来。</div></details>
+<details><summary><strong>善之为善，斯不善已</strong></summary><div class="case-body">当天下人都知道什么是善时，不善也就随之被对照出来。</div></details>
+<details><summary><strong>有无相生</strong></summary><div class="case-body">有和无不是孤立存在，而是在相互对照中生成和显现。</div></details>
+<details><summary><strong>难易相成</strong></summary><div class="case-body">难和易相互依存，通过彼此对照而成其为难易。</div></details>
+<details><summary><strong>长短相较</strong></summary><div class="case-body">长和短通过相互比较才显出各自的规定。</div></details>
+<details><summary><strong>高下相倾</strong></summary><div class="case-body">高和下相互依存、相互倾斜对照而成立。</div></details>
+<details><summary><strong>音声相和</strong></summary><div class="case-body">音和声相互应和，才形成可辨的声响关系。</div></details>
+<details><summary><strong>前后相随</strong></summary><div class="case-body">前和后相互跟随，在次序中彼此规定。</div></details>
+<details><summary><strong>无为之事</strong></summary><div class="case-body">圣人不是强行造作，而是顺应事物本身来处理事务。</div></details>
+<details><summary><strong>不言之教</strong></summary><div class="case-body">圣人不用言说训诫，而以自身行事来示范教化。</div></details>
+<details><summary><strong>生而不有</strong></summary><div class="case-body">生养万物却不把万物占为己有。</div></details>
+<details><summary><strong>为而不恃</strong></summary><div class="case-body">有所作为却不自恃有功、不依赖功劳自夸。</div></details>
+<details><summary><strong>功成而弗居</strong></summary><div class="case-body">事情成功了却不把功劳据为己有。</div></details>
+<details><summary><strong>弗居，是以弗去</strong></summary><div class="case-body">正因为不居功，功绩反而不会失去。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>可与第1章“道可道，非常道；名可名，非常名”相参，理解概念规定与言说表达的相对性。</li>
+<li>可与第3章“不尚贤，使民不争”等无为而治的主张相参，理解圣人如何避免由价值标举引发争竞。</li>
+<li>可与第64章“无为故无败，无执故无失”相参，理解不强行造作与不居功之间的连续关系。</li>
+<li>可与第22章“夫唯不争，故天下莫能与之争”相参，理解不居功、不占有如何转化为长久保全。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板（每类 1 个）</h2>
+<br/>
+<h3>理解检查</h3>
+<p>```text</p>
+<p>以下是我对第 2 章的一段陈述：{我的陈述}</p>
+<br/>
+<p>请只依据我提供的{章节笔记JSON}，做两件事：</p>
+<ol>
+<li>1. 主线提取：用 {主线句数} 句话概括我这段陈述所对应的章节主线，并标出我遗漏或混淆的主线环节。</li>
+<li>2. 关键概念检查：列出我陈述中涉及的 {关键概念数量} 个关键概念，逐一检查我是否用对；对我用错或未定义的概念，只指出问题，不展开替我说完。</li>
+</ul>
+<br/>
+<p>然后向我提出 {关键点问题数量} 个问题，让我自己给出这段陈述的关键点；不要直接替我回答。</p>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<p>```text</p>
+<p>我读完第 2 章，目前对该章的接受度是：{接受度}。我目前的立场/接受点是：{我的立场或接受点}</p>
+<br/>
+<p>请只依据我提供的{章节笔记JSON}，扮演最强反方，从相反视角挑战我对该章的接受度：</p>
+<ol>
+<li>1. 给出 {反驳数量} 条最强反驳；</li>
+<li>2. 指出我立场中最脆弱的假设；</li>
+<li>3. 给出一个我必须回应的追问。</li>
+</ul>
+<br/>
+<p>不要调和，不要替作者辩护，不要补充笔记外内容。</p>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<p>```text</p>
+<p>我读完第 2 章。请只依据我提供的{章节笔记JSON}，解释该章思想如何应用到我给出的 3 个真实生活/工作场景：</p>
+<ol>
+<li>1. {场景1}</li>
+<li>2. {场景2}</li>
+<li>3. {场景3}</li>
+</ul>
+<br/>
+<p>对每个场景说明：对应章节中的哪个思想/概念、如何应用、可能误用或边界。不要补充笔记外内容。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<p>```text</p>
+<p>第 2 章最让我兴奋的一句话是：“{句子}”</p>
+<br/>
+<p>请只依据我提供的{章节笔记JSON}，围绕这句话做“那这样推下去还有什么”的追问：</p>
+<ol>
+<li>1. 这句话成立需要什么前提？</li>
+<li>2. 按这个方向继续推，会得出什么进一步结论？</li>
+<li>3. 会遭遇什么反例或边界？</li>
+<li>4. 如果我要继续读/思考，下一个该追问的问题是什么？</li>
+</ul>
+<br/>
+<p>不要补充笔记外内容。</p>
+<p>```</p>
+<br/>
+<h2>2）5-7 个新手引导问题（按“小白友好”程度排序）</h2>
+<br/>
+<ol>
+<li>1. 第 2 章开头或标题让你最先想到什么问题？  </li>
+</ol>
+<p>   提示：先用自己的话复述，不急着判断对错。</p>
+<br/>
+<ol>
+<li>2. 第 2 章里你最能读懂的一个段落是哪一段？  </li>
+</ol>
+<p>   提示：标出其中反复出现的关键词。</p>
+<br/>
+<ol>
+<li>3. 作者在第 2 章想解决的核心问题是什么？  </li>
+</ol>
+<p>   提示：尝试用一句话写出来，再检查是否包含“问题”和“回应”。</p>
+<br/>
+<ol>
+<li>4. 第 2 章中哪个概念你最不确定？  </li>
+</ol>
+<p>   提示：写下你目前的理解，并补一个自己想到的例子。</p>
+<br/>
+<ol>
+<li>5. 如果要把第 2 章主线讲给朋友听，你会怎么说？  </li>
+</ol>
+<p>   提示：限制在三句话内，先讲问题，再讲推进，最后讲结论。</p>
+<br/>
+<ol>
+<li>6. 第 2 章哪个观点你最想反驳？  </li>
+</ol>
+<p>   提示：先写你接受它的理由，再写你最想挑战的那一点。</p>
+<br/>
+<ol>
+<li>7. 第 2 章的一个思想能解释你生活/工作中的什么现象？  </li>
+</ol>
+<p>   提示：举一个具体场景，并说明这个解释可能失效的边界。</p>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>美之为美，斯恶已</td><td>大家都认定什么算美，丑也就跟着被比出来了。</td><td>老子指出美与丑不是孤立存在的绝对标准，一旦人为标举&quot;美&quot;的名目，相对的&quot;恶（丑）&quot;便同时成立，这是价值判断的相对性与对待性。</td><td>以&quot;有无相生&quot;式的对待关系理解价值：美之名因恶之名而立，二者&quot;相倾&quot;而成，非有独立自性；即后世所谓&quot;对待之辞&quot;。</td><td>王弼以&quot;无&quot;为本，认为美恶之名皆由&quot;有&quot;所生之分别，崇本则息末；郭象则主张&quot;独化&quot;，谓美恶各当其分、不必统摄于一个更高的本原；庄子《齐物论》更进一步，以&quot;天下皆知美之为美&quot;式的分别是&quot;成心&quot;所致，主张&quot;是不是，然不然&quot;。</td></tr>
+<tr><td>善之为善，斯不善已</td><td>一旦立下&quot;善&quot;的标准，不善的事也就同时被界定了。</td><td>与&quot;美之为美&quot;并列，说明善恶之名相互对待而生，人为树立善的名目反而使不善凸显，老子由此警示名教标准化的局限。</td><td>善不善为&quot;相成&quot;之名，非实体；名言成立之处即分别成立之处，属老子&quot;正言若反&quot;的名言批判脉络。</td><td>儒家孔子讲&quot;正名&quot;，认为名分端正则秩序可立，与老子对名目的警惕形成对照；王弼以&quot;无&quot;为本，谓善名亦末；成玄英以重玄之道双遣善恶之名，主张善恶两忘而玄亦遣。</td></tr>
+<tr><td>有无相生</td><td>有和无不是各管各的，是互相对照才显出来的。</td><td>老子认为&quot;有&quot;与&quot;无&quot;相互依存、相互生成，不能脱离对方独立成立，是《道德经》对待范畴系列的第一条。</td><td>&quot;有无相生&quot;即对待而成：无因有显，有因无立；王弼注以&quot;无&quot;为万物之本，谓&quot;有之所始，以无为本&quot;，将此句推向本体论。</td><td>王弼&quot;贵无&quot;，以无为本、有为末，主张&quot;崇本息末&quot;；郭象反对贵无，主张&quot;独化&quot;，谓有无各自独化、不须以无为本；河上公则从养生解，以&quot;有&quot;为形、&quot;无&quot;为神，重在有無相养以全生；海德格尔以&quot;无&quot;为存在之遮蔽（das Nichts），与王弼的本体之无旨趣不同。</td></tr>
+<tr><td>难易相成</td><td>难和易是比出来的，没有易就无所谓难。</td><td>难与易相互依存，通过彼此对照才各自成立，属于老子列举的六对对待范畴之一。</td><td>&quot;相成&quot;谓对待而成其规定：事之难因易而显，易因难而立；即关系性的规定而非实体属性。</td><td>韩非《解老》以&quot;理&quot;解老，将难易归于事物的&quot;定理&quot;，强调因理而动、不待人为分别；王弼以无为宗，谓难易之名皆生于有为分别；陈鼓应等现代研究者将此六对句读作老子&quot;相反相成&quot;的辩证思维之典型表述。</td></tr>
+<tr><td>长短相较</td><td>长和短要放在一起比才说得清。</td><td>长与短通过比较才显出各自的规定，无比较则长短之名无从成立。</td><td>&quot;相较&quot;即相比较而形：长短非物自身之绝对量，而是关系中的规定；可与&quot;高下相倾&quot;互训。</td><td>庄子《齐物论》以&quot;莛与楹、厉与西施&quot;为&quot;道通为一&quot;，认为长短之别起于观察立场；王弼谓长短之名因有所&quot;有&quot;而起，崇本则其名自息；苏辙《老子解》以&quot;本无长短&quot;解之，谓分别出于人心而非物性。</td></tr>
+<tr><td>高下相倾</td><td>没有低处，也说不上高处，两者互相靠着才成立。</td><td>高与下相互依存、相互倾斜对照而成立，是老子对待范畴中的空间性一对。</td><td>&quot;相倾&quot;谓相倚而形：高必因下而显，下必因高而名；倾有倚、依之义，强调对待双方的依赖关系。</td><td>王弼以&quot;无&quot;为本，谓高下之名皆生于有所&quot;有&quot;；郭象以&quot;独化&quot;解，谓高下各安其分而无待于相因；佛学中观以缘起性空解此对待，谓高下皆待缘而有、无自性，与老子&quot;相倾&quot;之说可相参照。</td></tr>
+<tr><td>音声相和</td><td>单音和回声要互相应和，才听得出个调子来。</td><td>音与声相互应和才形成可辨的声响关系，是老子对待范畴中的听觉性一对。</td><td>&quot;相和&quot;谓应和而成：单音为&quot;声&quot;，成文为&quot;音&quot;，二者相依以成乐；即《乐记》所谓&quot;声成文谓之音&quot;的对照关系。</td><td>王弼注以&quot;音声相和&quot;明对待之理，谓和由分别而后有；河上公从养生解，以音声喻神气之和，重在调和以养身；成英以重玄解，谓音声俱空、和亦不存，双遣而后得重玄。</td></tr>
+<tr><td>前后相随</td><td>前和后是跟着彼此才有的，离开次序就无所谓前后。</td><td>前与后相互跟随，在次序中彼此规定，是老子对待范畴中的时间性一对。</td><td>&quot;相随&quot;谓相从而立：前因后而有，后因前而名；即次序中的关系性规定。</td><td>王弼谓前后之名生于有为分别，崇本则息；郭象以&quot;独化&quot;谓前后各适其时而不相待；僧肇《物不迁论》谓&quot;求向物于向，于向未尝无&quot;，以动静不二解前后相随，与老子之对待说可互相发明。</td></tr>
+<tr><td>无为之事</td><td>不硬来，顺着事情本身的路子去做。</td><td>圣人治理不以私意强作妄为，而顺应事物的本然来处理事务，是老子政治与修养论的核心主张。</td><td>&quot;无为&quot;非不作为，而是&quot;不妄作&quot;：不以己意造作，任万物自正；王弼注谓&quot;自然已足，为则败也&quot;。</td><td>王弼以&quot;无&quot;为本，谓无为即&quot;崇本息末&quot;、任自然而不造作；郭象以&quot;独化&quot;释无为，谓各任其性、自为而相因，非有一个在上者不为；韩非《解老》以&quot;理&quot;释无为，谓&quot;不先物为&quot;、因理而动，将无为纳入法家治术；黄老学派则以&quot;无为而无不为&quot;为君术，主张君逸臣劳。</td></tr>
+<tr><td>不言之教</td><td>不用嘴教，用自己怎么做来带人。</td><td>圣人不用言语训诫，而以自身行事示范，使人自化，是老子对教化方式的独特规定。</td><td>&quot;不言&quot;非缄默，而是不以名言强加于人，即&quot;行不言之教&quot;；与&quot;无为之事&quot;对举，构成圣人治世的两种方式。</td><td>王弼谓&quot;不言之教&quot;即任自然、不以名教绳人；儒家孔子则以&quot;正名&quot;与&quot;言教&quot;为教化之本，与老子形成鲜明对照；禅宗以&quot;不立文字、直指人心&quot;与之呼应，然禅宗重在顿悟心性，老子重在任物自化，旨趣有别。</td></tr>
+<tr><td>生而不有</td><td>养活万物，却不把万物当成自己的东西。</td><td>圣人（道）生养万物却不据为己有，是老子描述&quot;玄德&quot;的三句之一。</td><td>&quot;生&quot;谓长养成就，&quot;不有&quot;谓不以为己私；即不以生成之功据物为己有，与&quot;为而不恃&quot;&quot;功成弗居&quot;并列。</td><td>王弼以&quot;无&quot;为本，谓生而不有即&quot;不塞其原&quot;、任物自成；河上公从养生解，以&quot;生&quot;为养神、&quot;不有&quot;为不贪，重在不以物累身；西方怀特海的过程哲学以&quot;创造性进展&quot;言生成，然其生成不涉&quot;不有&quot;的德性意涵。</td></tr>
+<tr><td>为而不恃</td><td>做了事，但不拿功劳当靠山、到处显摆。</td><td>圣人有所作为却不自恃有功，不依仗自己的作为自夸，是老子&quot;玄德&quot;三句之一。</td><td>&quot;为&quot;谓施为成就，&quot;不恃&quot;谓不恃其功以为己能；即作为而不据为可恃之资。</td><td>王弼谓&quot;为&quot;出于自然，故&quot;不恃&quot;其功；郭象以&quot;独化&quot;解，谓各为其性分所当为，本无可恃；儒家《周易》&quot;劳谦君子&quot;亦言有功不伐，然儒家之不伐以礼义为归，老子之不恃以自然为归。</td></tr>
+<tr><td>功成而弗居</td><td>事情办成了，不把功劳算在自己头上。</td><td>事成而不把功劳据为己有，是老子&quot;玄德&quot;三句的收束，并由此引出&quot;弗居，是以弗去&quot;的结论。</td><td>&quot;功成&quot;谓事遂，&quot;弗居&quot;谓不处其功；即不以功自处、不居其名。</td><td>王弼以&quot;无&quot;为本，谓功成而弗居即不居其成、任其自成；韩非《解老》以&quot;理&quot;解之，谓功成而弗居则人不忌，合于治术；苏辙以&quot;本无&quot;解之，谓功非我有，安所居之。</td></tr>
+<tr><td>弗居，是以弗去</td><td>正因为不把功劳往自己身上揽，功劳反而丢不掉。</td><td>正因不居功，功绩反而不会被剥夺，是老子对&quot;相反相成&quot;之理在事功层面的收束。</td><td>&quot;弗居&quot;与&quot;弗去&quot;构成对待关系：不居其功则功自存，居之则反失；即老子&quot;正言若反&quot;的表述方式。</td><td>王弼谓不居其功而功自归，即&quot;崇本则末存&quot;；郭象以&quot;独化&quot;谓功自各成、非居之所能存；《周易·谦卦》亦有&quot;谦尊而光&quot;之说，儒家以谦德致功、老子以不居全功，二者路径不同而结论相近。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">美之为美，斯恶已</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">大家都认定什么算美，丑也就跟着被比出来了。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子指出美与丑不是孤立存在的绝对标准，一旦人为标举&quot;美&quot;的名目，相对的&quot;恶（丑）&quot;便同时成立，这是价值判断的相对性与对待性。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">以&quot;有无相生&quot;式的对待关系理解价值：美之名因恶之名而立，二者&quot;相倾&quot;而成，非有独立自性；即后世所谓&quot;对待之辞&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，认为美恶之名皆由&quot;有&quot;所生之分别，崇本则息末；郭象则主张&quot;独化&quot;，谓美恶各当其分、不必统摄于一个更高的本原；庄子《齐物论》更进一步，以&quot;天下皆知美之为美&quot;式的分别是&quot;成心&quot;所致，主张&quot;是不是，然不然&quot;。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">善之为善，斯不善已</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">一旦立下&quot;善&quot;的标准，不善的事也就同时被界定了。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">与&quot;美之为美&quot;并列，说明善恶之名相互对待而生，人为树立善的名目反而使不善凸显，老子由此警示名教标准化的局限。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">善不善为&quot;相成&quot;之名，非实体；名言成立之处即分别成立之处，属老子&quot;正言若反&quot;的名言批判脉络。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">儒家孔子讲&quot;正名&quot;，认为名分端正则秩序可立，与老子对名目的警惕形成对照；王弼以&quot;无&quot;为本，谓善名亦末；成玄英以重玄之道双遣善恶之名，主张善恶两忘而玄亦遣。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">有无相生</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">有和无不是各管各的，是互相对照才显出来的。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">老子认为&quot;有&quot;与&quot;无&quot;相互依存、相互生成，不能脱离对方独立成立，是《道德经》对待范畴系列的第一条。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;有无相生&quot;即对待而成：无因有显，有因无立；王弼注以&quot;无&quot;为万物之本，谓&quot;有之所始，以无为本&quot;，将此句推向本体论。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼&quot;贵无&quot;，以无为本、有为末，主张&quot;崇本息末&quot;；郭象反对贵无，主张&quot;独化&quot;，谓有无各自独化、不须以无为本；河上公则从养生解，以&quot;有&quot;为形、&quot;无&quot;为神，重在有無相养以全生；海德格尔以&quot;无&quot;为存在之遮蔽（das Nichts），与王弼的本体之无旨趣不同。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">难易相成</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">难和易是比出来的，没有易就无所谓难。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">难与易相互依存，通过彼此对照才各自成立，属于老子列举的六对对待范畴之一。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;相成&quot;谓对待而成其规定：事之难因易而显，易因难而立；即关系性的规定而非实体属性。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">韩非《解老》以&quot;理&quot;解老，将难易归于事物的&quot;定理&quot;，强调因理而动、不待人为分别；王弼以无为宗，谓难易之名皆生于有为分别；陈鼓应等现代研究者将此六对句读作老子&quot;相反相成&quot;的辩证思维之典型表述。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">长短相较</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">长和短要放在一起比才说得清。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">长与短通过比较才显出各自的规定，无比较则长短之名无从成立。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;相较&quot;即相比较而形：长短非物自身之绝对量，而是关系中的规定；可与&quot;高下相倾&quot;互训。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">庄子《齐物论》以&quot;莛与楹、厉与西施&quot;为&quot;道通为一&quot;，认为长短之别起于观察立场；王弼谓长短之名因有所&quot;有&quot;而起，崇本则其名自息；苏辙《老子解》以&quot;本无长短&quot;解之，谓分别出于人心而非物性。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">高下相倾</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">没有低处，也说不上高处，两者互相靠着才成立。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">高与下相互依存、相互倾斜对照而成立，是老子对待范畴中的空间性一对。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;相倾&quot;谓相倚而形：高必因下而显，下必因高而名；倾有倚、依之义，强调对待双方的依赖关系。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，谓高下之名皆生于有所&quot;有&quot;；郭象以&quot;独化&quot;解，谓高下各安其分而无待于相因；佛学中观以缘起性空解此对待，谓高下皆待缘而有、无自性，与老子&quot;相倾&quot;之说可相参照。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">音声相和</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">单音和回声要互相应和，才听得出个调子来。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">音与声相互应和才形成可辨的声响关系，是老子对待范畴中的听觉性一对。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;相和&quot;谓应和而成：单音为&quot;声&quot;，成文为&quot;音&quot;，二者相依以成乐；即《乐记》所谓&quot;声成文谓之音&quot;的对照关系。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼注以&quot;音声相和&quot;明对待之理，谓和由分别而后有；河上公从养生解，以音声喻神气之和，重在调和以养身；成英以重玄解，谓音声俱空、和亦不存，双遣而后得重玄。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">前后相随</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">前和后是跟着彼此才有的，离开次序就无所谓前后。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">前与后相互跟随，在次序中彼此规定，是老子对待范畴中的时间性一对。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;相随&quot;谓相从而立：前因后而有，后因前而名；即次序中的关系性规定。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼谓前后之名生于有为分别，崇本则息；郭象以&quot;独化&quot;谓前后各适其时而不相待；僧肇《物不迁论》谓&quot;求向物于向，于向未尝无&quot;，以动静不二解前后相随，与老子之对待说可互相发明。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">无为之事</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不硬来，顺着事情本身的路子去做。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">圣人治理不以私意强作妄为，而顺应事物的本然来处理事务，是老子政治与修养论的核心主张。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;无为&quot;非不作为，而是&quot;不妄作&quot;：不以己意造作，任万物自正；王弼注谓&quot;自然已足，为则败也&quot;。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，谓无为即&quot;崇本息末&quot;、任自然而不造作；郭象以&quot;独化&quot;释无为，谓各任其性、自为而相因，非有一个在上者不为；韩非《解老》以&quot;理&quot;释无为，谓&quot;不先物为&quot;、因理而动，将无为纳入法家治术；黄老学派则以&quot;无为而无不为&quot;为君术，主张君逸臣劳。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">不言之教</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">不用嘴教，用自己怎么做来带人。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">圣人不用言语训诫，而以自身行事示范，使人自化，是老子对教化方式的独特规定。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;不言&quot;非缄默，而是不以名言强加于人，即&quot;行不言之教&quot;；与&quot;无为之事&quot;对举，构成圣人治世的两种方式。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼谓&quot;不言之教&quot;即任自然、不以名教绳人；儒家孔子则以&quot;正名&quot;与&quot;言教&quot;为教化之本，与老子形成鲜明对照；禅宗以&quot;不立文字、直指人心&quot;与之呼应，然禅宗重在顿悟心性，老子重在任物自化，旨趣有别。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">生而不有</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">养活万物，却不把万物当成自己的东西。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">圣人（道）生养万物却不据为己有，是老子描述&quot;玄德&quot;的三句之一。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;生&quot;谓长养成就，&quot;不有&quot;谓不以为己私；即不以生成之功据物为己有，与&quot;为而不恃&quot;&quot;功成弗居&quot;并列。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，谓生而不有即&quot;不塞其原&quot;、任物自成；河上公从养生解，以&quot;生&quot;为养神、&quot;不有&quot;为不贪，重在不以物累身；西方怀特海的过程哲学以&quot;创造性进展&quot;言生成，然其生成不涉&quot;不有&quot;的德性意涵。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">为而不恃</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">做了事，但不拿功劳当靠山、到处显摆。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">圣人有所作为却不自恃有功，不依仗自己的作为自夸，是老子&quot;玄德&quot;三句之一。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;为&quot;谓施为成就，&quot;不恃&quot;谓不恃其功以为己能；即作为而不据为可恃之资。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼谓&quot;为&quot;出于自然，故&quot;不恃&quot;其功；郭象以&quot;独化&quot;解，谓各为其性分所当为，本无可恃；儒家《周易》&quot;劳谦君子&quot;亦言有功不伐，然儒家之不伐以礼义为归，老子之不恃以自然为归。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">功成而弗居</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">事情办成了，不把功劳算在自己头上。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">事成而不把功劳据为己有，是老子&quot;玄德&quot;三句的收束，并由此引出&quot;弗居，是以弗去&quot;的结论。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;功成&quot;谓事遂，&quot;弗居&quot;谓不处其功；即不以功自处、不居其名。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;无&quot;为本，谓功成而弗居即不居其成、任其自成；韩非《解老》以&quot;理&quot;解之，谓功成而弗居则人不忌，合于治术；苏辙以&quot;本无&quot;解之，谓功非我有，安所居之。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">弗居，是以弗去</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">正因为不把功劳往自己身上揽，功劳反而丢不掉。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">正因不居功，功绩反而不会被剥夺，是老子对&quot;相反相成&quot;之理在事功层面的收束。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">&quot;弗居&quot;与&quot;弗去&quot;构成对待关系：不居其功则功自存，居之则反失；即老子&quot;正言若反&quot;的表述方式。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼谓不居其功而功自归，即&quot;崇本则末存&quot;；郭象以&quot;独化&quot;谓功自各成、非居之所能存；《周易·谦卦》亦有&quot;谦尊而光&quot;之说，儒家以谦德致功、老子以不居全功，二者路径不同而结论相近。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 2 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 2 章]
+
+天下皆知美之为美，斯恶已。皆知善之为善，斯不善已。故有无相生，难易相成，长短相较，高下相倾，音声相和，前后相随。是以圣人处无为之事，行不言之教；万物作焉而不辞，生而不有，为而不恃，功成而弗居。夫唯弗居，是以弗去。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_02_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

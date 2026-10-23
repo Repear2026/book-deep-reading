@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 26 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 26/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_25/site/index.html" title="第 25 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_27/site/index.html" title="第 27 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 26 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>重为轻根，静为躁君。是以圣人终日行不离辎重。虽有荣观，燕处超然。奈何万乘之主，而以身轻天下？轻则失本，躁则失君。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 26 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<blockquote>本章用“重与轻、静与躁”的对举，说明重是轻的根本、静是躁的主宰。圣人终日行走却不离辎重，面对荣观仍能燕处超然；万乘之主更不可轻率待天下，因为轻则失本、躁则失君。有趣之处在于：它把日常行事姿态与治国责任连在一起。最重要收获是：越位高事繁，越要守住根本与主宰，不因外物和冲动失位。</blockquote>
+<br/>
+<h2>②多问题意识关联</h2>
+<blockquote>如果你终日奔波却从不带“辎重”，把根本丢在原地，会怎样？——提醒行事不离根本。  </blockquote>
+<blockquote>如果你面对“荣观”就心神摇动，还能“燕处超然”吗？——检验“静”能否做主。  </blockquote>
+<blockquote>如果你手握“万乘”之权却“以身轻天下”，会失去什么？——追问轻率与躁动的代价。</blockquote>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<blockquote>韩非《喻老》把“辎重”解为君主的权位与邦国，强调“不离位”才是重与静，可与本章修身义互看。  </blockquote>
+<blockquote>王弼《老子注》说“重必为轻根，静必为躁君”，以“不行者使行，不动者制动”解释根本对万物的统摄。  </blockquote>
+<blockquote>荀子《解蔽》讲“虚壹而静”，把“静”视为心能认识秩序的条件，可与“静为躁君”对照，但荀子更重认知秩序。  </blockquote>
+<blockquote>王阳明《传习录》辨“主一”不是逐物，强调心要有主宰，可与“躁则失君”互证。</blockquote>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<blockquote><strong>（1）第一遍（速览）</strong>：抓住三个关注点——开头的“重/轻、静/躁”对举；圣人“终日行不离辎重”；结尾对“万乘之主”的反问与“轻则失本，躁则失君”的警示。  </blockquote>
+<blockquote><strong>（2）第二遍（细抠）</strong>：必看两个论证——从“重为轻根，静为躁君”推到“轻则失本，躁则失君”的因果链；用“圣人终日行不离辎重”与“虽有荣观，燕处超然”说明不离根本、不为外物所动。  </blockquote>
+<blockquote><strong>（3）第三遍（思辨）</strong>：追问一个开放问题——在现代高流动、高刺激生活中，“重”和“静”若被理解为守根本，如何区别于固执僵化？我们怎样判断自己是在“守本”还是在“失君”？</blockquote>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+P1["重是轻的根本，静是躁的主宰"]
+P2["圣人终日行不离辎重，行事不离根本"]
+P3["虽有荣观，燕处超然，不为外物所动"]
+P4["万乘之主不应以自身轻率对待天下"]
+P5["轻则失本，躁则失君"]
+Czhong["重为轻根"]
+Cjing["静为躁君"]
+Czizhong["辎重"]
+Crongguan["荣观"]
+Cyanchu["燕处超然"]
+Cwansheng["万乘之主"]
+Cqing["轻则失本"]
+Czao["躁则失君"]
+Czhong -->|supports| P1
+Cjing -->|supports| P1
+Czizhong -->|supports| P2
+Crongguan -->|supports| P3
+Cyanchu -->|supports| P3
+Cwansheng -->|supports| P4
+Cqing -->|supports| P5
+Czao -->|supports| P5
+P1 -->|supports| P2
+P1 -->|supports| P5
+P2 -->|relates_to| P3
+P3 -->|relates_to| P4
+P4 -->|supports| P5
+Czhong -->|relates_to| Cjing
+Cqing -->|relates_to| Czao
+Czizhong -->|relates_to| Crongguan
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章从重与轻、静与躁的对举出发，阐明修身与治国应以重、静为根本，警示轻率躁动会导致失本失君。</div>
+<h3>📌 核心命题</h3><ol>
+<li>重是轻的根本，静是躁的主宰。</li>
+<li>圣人终日行走而不离开载重车辆，表明行事不离根本。</li>
+<li>虽有华美景观，圣人仍能安居超然，不为外物所动。</li>
+<li>万乘之主不应以自身轻率对待天下。</li>
+<li>轻率会失去根本，躁动会失去主宰。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>重为轻根，静为躁君。</li>
+<li>是以圣人终日行不离辎重。</li>
+<li>虽有荣观，燕处超然。</li>
+<li>奈何万乘之主，而以身轻天下？</li>
+<li>轻则失本，躁则失君。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>重为轻根</strong></summary><div class="case-body">重是轻的基础和根本。</div></details>
+<details><summary><strong>静为躁君</strong></summary><div class="case-body">静是躁动的主宰。</div></details>
+<details><summary><strong>辎重</strong></summary><div class="case-body">出行时携带的载重物资或行李。</div></details>
+<details><summary><strong>荣观</strong></summary><div class="case-body">华美的景观或繁华景象。</div></details>
+<details><summary><strong>燕处超然</strong></summary><div class="case-body">安居闲处而超脱物外。</div></details>
+<details><summary><strong>万乘之主</strong></summary><div class="case-body">拥有万辆兵车的大国君主。</div></details>
+<details><summary><strong>轻则失本</strong></summary><div class="case-body">轻率就会失去根本。</div></details>
+<details><summary><strong>躁则失君</strong></summary><div class="case-body">躁动就会失去主宰。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>重与轻、静与躁的对举关系，可能在后续章节继续展开。</li>
+<li>圣人“终日行不离辎重”的处世原则，可能在后文继续讨论。</li>
+<li>“轻则失本，躁则失君”的治国教训，可能在其他章节继续出现，具体章号需对照目录。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>理解检查</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 26 章。下面是我自己写的一段复述，请你做两件事：</p>
+<br/>
+<p>【我的复述】</p>
+<p>{我的复述}</p>
+<br/>
+<p>【任务】</p>
+<ol>
+<li>1. 主线提取：用 3–5 句话概括这一章的核心论证线索（从什么问题出发 → 经过什么关键步骤 → 落到什么结论），并标出我复述里漏掉或错置的环节。</li>
+<li>2. 关键概念检查：列出本章必须掌握的 {N} 个关键概念/术语，逐个问我&quot;这个词在本章里具体指什么、和它容易混淆的说法差在哪&quot;，等我回答后再给出本章原文依据的纠正。</li>
+<li>3. 最后给我一个 1–10 的&quot;主线掌握度&quot;评分和一句最该补的地方。</li>
+</ol>
+<p>```</p>
+<br/>
+<h3>强反驳</h3>
+<br/>
+<p>```</p>
+<p>你现在扮演第 26 章最强硬的反方。要求：</p>
+<br/>
+<ul>
+<li>- 立场：{我打算接受的那个核心主张}</li>
+<li>- 你的任务：不是泛泛质疑，而是从该章论证最薄弱的前提、被默认跳过的一步、或它无法处理的 {反例类型} 出发，构造一个&quot;如果我是作者最怕听到的&quot;反驳。</li>
+<li>- 反驳分三层递进：(1) 指出该章某个关键推论依赖一个未经辩护的假设；(2) 给出一个该章框架下难以消化的具体反例；(3) 说明即使作者修补 (1)，(2) 依然成立。</li>
+<li>- 全程不要说&quot;我理解你的观点&quot;之类的缓冲语。直接进攻。</li>
+<li>- 最后列出：如果我仍想守住这个立场，作者原文里哪 2–3 处可以当作防守资源。</li>
+</ul>
+<p>```</p>
+<br/>
+<h3>连现实</h3>
+<br/>
+<p>```</p>
+<p>我刚读完第 26 章。请把这一章的思想用到下面 3 个真实场景里：</p>
+<br/>
+<p>场景 1：{场景 1}</p>
+<p>场景 2：{场景 2}</p>
+<p>场景 3：{场景 3}</p>
+<br/>
+<p>对每个场景，回答：</p>
+<ol>
+<li>1. 本章的哪个概念/区分能直接套上去？套上去之后，原本模糊的地方变清楚了什么？</li>
+<li>2. 套用会失败或过度延伸的地方在哪里？（本章思想的适用边界）</li>
+<li>3. 如果我按本章思路行动，最可能犯的一个错是什么？</li>
+</ul>
+<br/>
+<p>三个场景的回答不要互相重复同一个概念。</p>
+<p>```</p>
+<br/>
+<h3>深挖</h3>
+<br/>
+<p>```</p>
+<p>第 26 章里最让我兴奋的一句话是：</p>
+<br/>
+<p>「{原文句子}」</p>
+<br/>
+<p>请围绕这句话做&quot;那这样推下去还有什么&quot;：</p>
+<br/>
+<ol>
+<li>1. 这句话在原文语境里承担什么功能？（它是在回应谁、反驳什么、引出什么）</li>
+<li>2. 如果把这句里的 {关键词 A} 换成 {关键词 B}，论证会怎样变形？作者会接受这个变形吗？</li>
+<li>3. 顺着这句话的逻辑推到极限，会得到哪 2 个本章没明说但隐含的结论？其中一个是否会和本章别处的说法冲突？</li>
+<li>4. 这句话在思想史上被谁接过去、往哪个方向推了？（如有，注明是谁；没有就说没有）</li>
+</ol>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题</h2>
+<br/>
+<ol>
+<li>1. 这一章开头第一句在说什么？用你自己的话讲一遍，讲错也没关系。 → 提示：先别翻笔记，凭记忆说，说完再对照。</li>
+<li>2. 本章里哪个词出现次数最多、或者作者反复解释？把它圈出来。 → 提示：重复出现的术语通常就是本章的&quot;承重墙&quot;。</li>
+<li>3. 作者在这一章主要是在&quot;立一个说法&quot;还是在&quot;驳一个说法&quot;？你从哪句话看出来的？ → 提示：找&quot;但是&quot;&quot;并非&quot;&quot;有人会说&quot;这类转折词。</li>
+<li>4. 如果只能向朋友转述本章的一个区分（A 与 B 的不同），你会选哪个区分？为什么这个区分重要？ → 提示：好的区分能让人&quot;原来我一直混着用&quot;。</li>
+<li>5. 本章有没有一个例子或类比让你觉得&quot;这例子不太对劲&quot;？作者想用它说明什么，你觉得它真的说明了吗？ → 提示：对例子不满，往往就是对论证不满的入口。</li>
+<li>6. 作者在本章默认了哪些东西、没有论证就拿来用？这些默认如果被抽掉，本章还站得住吗？ → 提示：找&quot;当然&quot;&quot;显然&quot;&quot;我们都知道&quot;后面的内容。</li>
+<li>7. 这一章的结论和前一章、后一章是什么关系？它是铺垫、是转折、还是收束？ → 提示：读完后回头扫一眼上下章的首尾段，定位本章在全书论证链中的功能。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>重为轻根</td><td>沉得住、稳得住，才不会被轻飘的东西带跑。</td><td>语出《老子》第二十六章：&quot;重为轻根，静为躁君。&quot;意为厚重是轻浮的根基，稳重是轻率的根本，二者是相辅相成的关系。老子以此说明治国修身都须以厚重为本。</td><td>帛书本作&quot;重为轻根，静为躁君&quot;，王弼注：&quot;凡物，轻不能载重，小不能镇大。不行者使行，不动者制动，是以重必为轻根，静必为躁君也。&quot;以&quot;不行&quot;&quot;不动&quot;释重静之本源地位。</td><td>王弼以&quot;崇本息末&quot;解此句，把重、静推向&quot;无&quot;为本体的地位，认为轻、躁是末而非本；河上公则从养生立论，谓&quot;人君不重则失其位，治身不重则失其神&quot;，把&quot;重&quot;落实为持身保神的工夫；苏辙以&quot;重&quot;喻性之定、&quot;轻&quot;喻情之动，认为定性能制情。三家路径不同：一为本体论，一为养生论，一为心性论。</td></tr>
+<tr><td>静为躁君</td><td>心不慌、不躁动，才能做自己情绪的主人。</td><td>语出《老子》第二十六章。静指虚静、宁静，躁指躁动、浮躁；君指主宰。全句谓虚静是躁动的主宰，强调以静制动、以静养动。</td><td>王弼注：&quot;静必为躁君。&quot;又云&quot;静者，动之本也&quot;。成玄英疏以重玄双遣解之，谓静躁两忘方为真静，不落动静二边。</td><td>成玄英重玄学把&quot;静为躁君&quot;再遣一层：执静为君仍是二边之见，须静躁俱遣、非静非躁才是重玄之道；郭象注《庄》则主张&quot;独化&quot;，反对以静为本、以动为末的层级预设，认为动静各自当理，无待于一个更高的&quot;君&quot;；佛家中观以缘起说动静，认为静不异动、动不异静，与老子以静为主的思路形成对照。</td></tr>
+<tr><td>辎重</td><td>出门远行时带的行李、粮草和装备。</td><td>辎重原指行军时携带的器械、粮草、被服等物资，后泛指行旅所携物资。此处喻指人不能须臾离弃的根本与凭借。</td><td>《老子》第二十六章：&quot;是以圣人终日行不离辎重。&quot;王弼注：&quot;辎重者，重也。&quot;以辎重释&quot;重&quot;，将行军物资转为喻体，指圣人终日行道而不离其本。</td><td>河上公以治身解之，谓&quot;辎重&quot;喻精气神，圣人终日行而不离其精气，是养生家言；王夫之以气化论解《老》，认为&quot;辎重&quot;是圣人所以持载万物之实体，非虚悬之本；今人陈鼓应释为&quot;行李粮草&quot;，强调这是比喻圣人行事不离根本依据，取通行训诂立场。</td></tr>
+<tr><td>荣观</td><td>漂亮热闹、让人眼花缭乱的排场景象。</td><td>语出《老子》第二十六章：&quot;虽有荣观，燕处超然。&quot;荣观指华美的宫阙景观，引申为繁华富贵的境遇。河上公注：&quot;荣观，谓宫阙。&quot;</td><td>王弼注：&quot;不以经心也。&quot;谓圣人虽处荣观而心不为之动。苏辙解&quot;荣观&quot;为&quot;荣华之观&quot;，以&quot;燕处超然&quot;为心不为境转。</td><td>河上公从治身出发，谓荣观是&quot;荣华之色&quot;，戒人勿为耳目所诱，近于养生家的节欲说；王弼从崇本息末出发，认为荣观属&quot;末&quot;，圣人&quot;不以经心&quot;正是不滞于末；王夫之则批评后世解老者将此句导向出世逃世，主张圣人处荣观而超然，是&quot;即物而不迁&quot;而非&quot;绝物&quot;，与佛教的离世倾向相区别。</td></tr>
+<tr><td>燕处超然</td><td>处在热闹里，心里却能闲下来、不被牵走。</td><td>语出《老子》第二十六章。&quot;燕处&quot;即安居闲处，&quot;超然&quot;谓超脱而不沉溺。全句谓虽有繁华之境，仍能安闲自处、不为所动。</td><td>王弼注：&quot;不以经心也。&quot;河上公注：&quot;燕处，安也。超然，不以为乐也。&quot;成玄英疏以重玄义释之，谓处而不染，即染而净。</td><td>河上公以&quot;不以为乐&quot;释超然，是节情养生一路；王弼以&quot;不以经心&quot;解，是&quot;圣人体无&quot;一路，强调心不滞境；成玄英的重玄学则进一步说，若执&quot;超然&quot;为高，则仍是取舍之见，须超然亦不立，方契重玄；禅宗&quot;无心于万物&quot;之说与此相近，但禅宗归趣在明心见性，老子归趣在守本持重，落点不同。</td></tr>
+<tr><td>万乘之主</td><td>拥有一万辆兵车的大国君主。</td><td>万乘指万辆兵车，古代以兵车数量衡量国力，万乘为大国之谓。语出《老子》第二十六章：&quot;奈何万乘之主，而以身轻天下。&quot;</td><td>王弼注：&quot;王者至尊，而以身轻之，则将失其位。&quot;河上公注以&quot;万乘之主&quot;为&quot;天子&quot;，谓人君当自重其身以重天下。</td><td>韩非《喻老》以此章说人主之势，谓&quot;主不重则失其威&quot;，把重轻问题转为法术势的权势论，与老子修身义相去渐远；河上公则把&quot;万乘之主&quot;解为治身者之喻，谓身即国、神即君，轻重之戒即是保身之戒；陈鼓应指出此句是老子对当时诸侯轻身逐利的批评，有具体政治语境，不宜全作形上解。</td></tr>
+<tr><td>轻则失根</td><td>太轻率，就会把自己的根基弄丢。</td><td>语出《老子》第二十六章：&quot;轻则失根，躁则失君。&quot;（通行本作&quot;轻则失臣，躁则失君&quot;，帛书本作&quot;轻则失本，躁则失君&quot;。）谓轻率妄动就会丧失根本。</td><td>王弼本作&quot;轻则失本&quot;，注：&quot;轻则不重，故失本也。&quot;以本末关系解之，轻者失其重之根。</td><td>王弼以本末释，失本即失其所以为本者，是本体论的解读；河上公作&quot;轻则失臣&quot;，从治身治国立说，谓轻率则失其辅佐；王夫之则从气化流行立论，认为&quot;根&quot;是阴阳相涵之实，失根即失其生生之实，不在本末虚义上立说。三家训释文本已不同，义理亦分流。</td></tr>
+<tr><td>躁则失君</td><td>太浮躁，就会丧失自己的主宰。</td><td>语出《老子》第二十六章。躁指躁动、浮躁，君指主宰。全句谓躁动妄为就会丧失主宰自身的能力。</td><td>王弼注：&quot;躁则不静，故失君也。&quot;以&quot;静为躁君&quot;为前提，躁动则君位失。成玄英疏谓躁静俱遣，方不落失君之过。</td><td>王弼以&quot;静为君&quot;的层级秩序解之，躁动即违此秩序而失其主；成玄英重玄学则指出，若执&quot;不失君&quot;为得，仍是以静为君的二边之见，须君相俱泯方为究竟；郭象&quot;独化&quot;义下本无君躁之对立，万物各适其性即无待于君，故此句在郭象系统中难以安立，正见玄学与重玄的分野。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">重为轻根</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">沉得住、稳得住，才不会被轻飘的东西带跑。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第二十六章：&quot;重为轻根，静为躁君。&quot;意为厚重是轻浮的根基，稳重是轻率的根本，二者是相辅相成的关系。老子以此说明治国修身都须以厚重为本。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">帛书本作&quot;重为轻根，静为躁君&quot;，王弼注：&quot;凡物，轻不能载重，小不能镇大。不行者使行，不动者制动，是以重必为轻根，静必为躁君也。&quot;以&quot;不行&quot;&quot;不动&quot;释重静之本源地位。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;崇本息末&quot;解此句，把重、静推向&quot;无&quot;为本体的地位，认为轻、躁是末而非本；河上公则从养生立论，谓&quot;人君不重则失其位，治身不重则失其神&quot;，把&quot;重&quot;落实为持身保神的工夫；苏辙以&quot;重&quot;喻性之定、&quot;轻&quot;喻情之动，认为定性能制情。三家路径不同：一为本体论，一为养生论，一为心性论。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">静为躁君</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">心不慌、不躁动，才能做自己情绪的主人。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第二十六章。静指虚静、宁静，躁指躁动、浮躁；君指主宰。全句谓虚静是躁动的主宰，强调以静制动、以静养动。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;静必为躁君。&quot;又云&quot;静者，动之本也&quot;。成玄英疏以重玄双遣解之，谓静躁两忘方为真静，不落动静二边。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">成玄英重玄学把&quot;静为躁君&quot;再遣一层：执静为君仍是二边之见，须静躁俱遣、非静非躁才是重玄之道；郭象注《庄》则主张&quot;独化&quot;，反对以静为本、以动为末的层级预设，认为动静各自当理，无待于一个更高的&quot;君&quot;；佛家中观以缘起说动静，认为静不异动、动不异静，与老子以静为主的思路形成对照。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">辎重</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">出门远行时带的行李、粮草和装备。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">辎重原指行军时携带的器械、粮草、被服等物资，后泛指行旅所携物资。此处喻指人不能须臾离弃的根本与凭借。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">《老子》第二十六章：&quot;是以圣人终日行不离辎重。&quot;王弼注：&quot;辎重者，重也。&quot;以辎重释&quot;重&quot;，将行军物资转为喻体，指圣人终日行道而不离其本。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以治身解之，谓&quot;辎重&quot;喻精气神，圣人终日行而不离其精气，是养生家言；王夫之以气化论解《老》，认为&quot;辎重&quot;是圣人所以持载万物之实体，非虚悬之本；今人陈鼓应释为&quot;行李粮草&quot;，强调这是比喻圣人行事不离根本依据，取通行训诂立场。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">荣观</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">漂亮热闹、让人眼花缭乱的排场景象。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第二十六章：&quot;虽有荣观，燕处超然。&quot;荣观指华美的宫阙景观，引申为繁华富贵的境遇。河上公注：&quot;荣观，谓宫阙。&quot;</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;不以经心也。&quot;谓圣人虽处荣观而心不为之动。苏辙解&quot;荣观&quot;为&quot;荣华之观&quot;，以&quot;燕处超然&quot;为心不为境转。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公从治身出发，谓荣观是&quot;荣华之色&quot;，戒人勿为耳目所诱，近于养生家的节欲说；王弼从崇本息末出发，认为荣观属&quot;末&quot;，圣人&quot;不以经心&quot;正是不滞于末；王夫之则批评后世解老者将此句导向出世逃世，主张圣人处荣观而超然，是&quot;即物而不迁&quot;而非&quot;绝物&quot;，与佛教的离世倾向相区别。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">燕处超然</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">处在热闹里，心里却能闲下来、不被牵走。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第二十六章。&quot;燕处&quot;即安居闲处，&quot;超然&quot;谓超脱而不沉溺。全句谓虽有繁华之境，仍能安闲自处、不为所动。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;不以经心也。&quot;河上公注：&quot;燕处，安也。超然，不以为乐也。&quot;成玄英疏以重玄义释之，谓处而不染，即染而净。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">河上公以&quot;不以为乐&quot;释超然，是节情养生一路；王弼以&quot;不以经心&quot;解，是&quot;圣人体无&quot;一路，强调心不滞境；成玄英的重玄学则进一步说，若执&quot;超然&quot;为高，则仍是取舍之见，须超然亦不立，方契重玄；禅宗&quot;无心于万物&quot;之说与此相近，但禅宗归趣在明心见性，老子归趣在守本持重，落点不同。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">万乘之主</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">拥有一万辆兵车的大国君主。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">万乘指万辆兵车，古代以兵车数量衡量国力，万乘为大国之谓。语出《老子》第二十六章：&quot;奈何万乘之主，而以身轻天下。&quot;</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;王者至尊，而以身轻之，则将失其位。&quot;河上公注以&quot;万乘之主&quot;为&quot;天子&quot;，谓人君当自重其身以重天下。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">韩非《喻老》以此章说人主之势，谓&quot;主不重则失其威&quot;，把重轻问题转为法术势的权势论，与老子修身义相去渐远；河上公则把&quot;万乘之主&quot;解为治身者之喻，谓身即国、神即君，轻重之戒即是保身之戒；陈鼓应指出此句是老子对当时诸侯轻身逐利的批评，有具体政治语境，不宜全作形上解。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">轻则失根</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">太轻率，就会把自己的根基弄丢。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第二十六章：&quot;轻则失根，躁则失君。&quot;（通行本作&quot;轻则失臣，躁则失君&quot;，帛书本作&quot;轻则失本，躁则失君&quot;。）谓轻率妄动就会丧失根本。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼本作&quot;轻则失本&quot;，注：&quot;轻则不重，故失本也。&quot;以本末关系解之，轻者失其重之根。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以本末释，失本即失其所以为本者，是本体论的解读；河上公作&quot;轻则失臣&quot;，从治身治国立说，谓轻率则失其辅佐；王夫之则从气化流行立论，认为&quot;根&quot;是阴阳相涵之实，失根即失其生生之实，不在本末虚义上立说。三家训释文本已不同，义理亦分流。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">躁则失君</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">太浮躁，就会丧失自己的主宰。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">语出《老子》第二十六章。躁指躁动、浮躁，君指主宰。全句谓躁动妄为就会丧失主宰自身的能力。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：&quot;躁则不静，故失君也。&quot;以&quot;静为躁君&quot;为前提，躁动则君位失。成玄英疏谓躁静俱遣，方不落失君之过。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以&quot;静为君&quot;的层级秩序解之，躁动即违此秩序而失其主；成玄英重玄学则指出，若执&quot;不失君&quot;为得，仍是以静为君的二边之见，须君相俱泯方为究竟；郭象&quot;独化&quot;义下本无君躁之对立，万物各适其性即无待于君，故此句在郭象系统中难以安立，正见玄学与重玄的分野。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 26 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 26 章]
+
+重为轻根，静为躁君。是以圣人终日行不离辎重。虽有荣观，燕处超然。奈何万乘之主，而以身轻天下？轻则失本，躁则失君。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_26_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>

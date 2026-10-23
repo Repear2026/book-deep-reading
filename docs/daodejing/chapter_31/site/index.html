@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>《道德经》第 31 章 · 伴读</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad: true, theme: 'default', securityLevel: 'loose'});</script>
+<style>
+  :root {
+    --fg: #1f2937;
+    --bg: #fdfbf6;
+    --accent: #b08c4e;
+    --card: #fff8e7;
+    --border: #e5d8b6;
+    --muted: #6b7280;
+  }
+  body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.7; color: var(--fg); background: var(--bg); margin: 0;
+    max-width: 880px; margin: 0 auto; padding: 24px 18px 80px; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 20px; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 17px; margin-top: 24px; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
+  .hook { font-size: 18px; color: var(--accent); font-style: italic; border-left: 4px solid var(--accent); padding: 8px 14px; margin: 18px 0; background: var(--card); }
+  .callout { background: var(--card); padding: 12px 16px; border-left: 4px solid var(--accent); margin: 14px 0; border-radius: 6px; }
+  details { background: #fff; border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; margin: 6px 0; }
+  summary { cursor: pointer; padding: 4px 0; }
+  .case-body { padding: 8px 0; color: #444; }
+  ol, ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  table.tbl { border-collapse: collapse; width: 100%; font-size: 14px; }
+  table.tbl th, table.tbl td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.tbl th { background: var(--card); }
+  blockquote { border-left: 3px solid var(--border); padding: 4px 12px; color: #555; margin: 10px 0; }
+  hr { border: none; border-top: 1px dashed var(--border); margin: 28px 0; }
+  .nav { position: sticky; top: 0; background: var(--bg); padding: 8px 0; margin: -24px -18px 12px; padding: 8px 18px; border-bottom: 1px solid var(--border); z-index: 10; }
+  .nav a { margin-right: 12px; color: var(--accent); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .figures { display: flex; flex-wrap: wrap; gap: 8px; }
+  .figures img { max-width: 180px; max-height: 180px; border: 1px solid var(--border); border-radius: 4px; }
+  .prompt-card { background: #f7f4eb; padding: 12px 14px; border-radius: 6px; margin: 8px 0; }
+  .prompt-card pre { white-space: pre-wrap; word-break: break-word; background: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
+  .copy-btn { background: var(--accent); color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 13px; }
+  .copy-btn:hover { background: #96764e; }
+  .wrong-mark { margin-left: 8px; padding: 2px 8px; font-size: 12px; background: #f0e6d2; border: none; border-radius: 3px; cursor: pointer; }
+  .wrong-list { background: #fff7e0; padding: 10px; border-left: 3px solid #d49a3d; margin: 8px 0; }
+  .wrong-list li { font-size: 14px; }
+  .graph-wrap { background: #fff; padding: 16px; border-radius: 6px; overflow: auto; border: 1px solid var(--border); }
+  .mermaid { text-align: center; }
+
+  /* ===== 阅读导航条（固定顶部） ===== */
+  .readbar {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(253,251,246,.96); backdrop-filter: blur(8px);
+    margin: -24px -18px 18px; padding: 10px 18px;
+    border-bottom: 1px solid var(--border); font-size: 14px;
+  }
+  .readbar a, .readbar .nav-btn {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border); border-radius: 6px; background: #fff;
+    white-space: nowrap; transition: .15s;
+  }
+  .readbar a:hover { background: var(--card); }
+  .readbar .nav-btn.disabled { color: #c8c2b4; background: transparent; border-color: transparent; cursor: default; }
+  .readbar .nav-home { font-weight: 500; }
+  .readbar .nav-pos { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .readbar .nav-spacer { flex: 1; }
+
+  /* ===== 原文置顶区 ===== */
+  .raw-section {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px 24px; margin: 0 0 28px;
+  }
+  .raw-title { font-size: 15px; color: var(--accent); margin: 0 0 14px; font-weight: 500;
+    letter-spacing: .08em; border: none; padding: 0; }
+  .raw-body {
+    font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+    font-size: 19px; line-height: 2.05; color: #2b2823; letter-spacing: .04em;
+  }
+  .raw-body p { margin: 0 0 12px; text-indent: 0; }
+  .raw-body p:last-child { margin-bottom: 0; }
+
+  /* ===== 术语表：桌面表格 / 手机卡片 ===== */
+  .glossary-wrap .tbl { font-size: 14px; }
+  .glossary-card { display: none; }
+
+  @media (max-width: 720px) {
+    body { padding: 14px 12px 70px; }
+    h1 { font-size: 22px; }
+    .figures img { max-width: 120px; }
+    .readbar { margin: -14px -12px 16px; padding: 9px 12px; gap: 6px; font-size: 13px; }
+    .readbar a, .readbar .nav-btn { padding: 4px 8px; font-size: 12.5px; }
+    .readbar .nav-pos { display: none; }
+    .raw-section { padding: 16px 16px; margin-bottom: 22px; }
+    .raw-body { font-size: 17.5px; line-height: 1.95; letter-spacing: .02em; }
+
+    /* 术语表：表格隐藏，改卡片 */
+    .glossary-wrap .tbl { display: none; }
+    .glossary-card { display: block; margin-bottom: 14px; }
+    .gcard-term {
+      font-family: "Songti SC", "STSong", serif; font-size: 17px;
+      color: var(--accent); margin: 0 0 8px; padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .gcard-row { display: flex; gap: 8px; margin: 6px 0; font-size: 13.5px; line-height: 1.75; }
+    .gcard-k {
+      flex: 0 0 30px; font-weight: 600; color: var(--muted);
+      font-size: 11.5px; letter-spacing: .04em; padding-top: 3px;
+    }
+    .gcard-v { flex: 1; color: #3a352c; }
+    .gcard-row.l0 .gcard-v { color: #1f2937; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="readbar">
+  <a class="nav-home" href="../../index.html">☰ 目录</a>
+  <span class="nav-pos">第 31/81 章</span>
+  <span class="nav-spacer"></span>
+  <a class="nav-btn" href="../chapter_30/site/index.html" title="第 30 章">← 上一章</a>
+  <a class="nav-btn" href="../chapter_32/site/index.html" title="第 32 章">下一章 →</a>
+</nav>
+
+<h1>《道德经》</h1>
+<div class="meta">
+  老子 著 · 老子五千言 · 第 31 章
+</div>
+<div class="hook">“”</div>
+
+<section id="raw" class="raw-section">
+  <h2 class="raw-title">📜 原文</h2>
+  <div class="raw-body"><p>夫佳兵者，不祥之器，物或恶之，故有道者不处。君子居则贵左，用兵则贵右。兵者不祥之器，非君子之器，不得已而用之，恬淡为上。胜而不美，而美之者，是乐杀人。夫乐杀人者，则不可以得志于天下矣。吉事尚左，凶事尚右。偏将军居左，上将军居右，言以丧礼处之。杀人之众，以哀悲泣之，战胜，以丧礼处之。</p></div>
+</section>
+
+<div class="nav">
+  <a href="#overview">📖 四步导读</a>
+  <a href="#graph">🕸 知识图谱</a>
+  <a href="#notes">📝 笔记</a>
+  <a href="#socrates">🗣 苏格拉底</a>
+  <a href="#glossary">📚 术语表</a>
+  <a href="#wrongs">❓ 错题</a>
+  <a href="#figures">🖼 插图</a>
+</div>
+
+<h2 id="overview">📖 四步导读</h2>
+<h1>《第 31 章》四步导读</h1>
+<br/>
+<h2>①书概览（5 分钟，建立全貌）</h2>
+<br/>
+<p>本章是《道德经》中最集中、最直白的反战宣言。老子把精良的兵器与战争手段称为“不祥之器”，指出有道者对其保持距离；即便不得已用兵，也须“恬淡为上”，不可热衷。最尖锐的判断是：把战胜当作美事、沾沾自喜的人，本质上是“乐杀人”，而乐杀人者不可能得志于天下。最后老子给出一个极具仪式感的结论：打仗杀人，应以哀悲哭泣；打了胜仗，应以丧礼来处置。一句话：老子不是教人怎么打胜仗，而是在教人怎么在不得不打之后，不变成嗜血的怪物。</p>
+<br/>
+<h2>②多问题意识关联</h2>
+<br/>
+<ul>
+<li>- 如果你是战场上的指挥官，明明赢了却要手下以丧礼的规格善后，你的士兵和上级会服气吗？这套逻辑在现实中行得通吗？</li>
+<li>- 如果一个国家被迫自卫、付出巨大牺牲才赢得战争，“胜而不美”是否过于苛刻？对牺牲者的哀悼和对胜利的庆祝，真的不能并存吗？</li>
+<li>- 老子说“乐杀人者不可以得志于天下”，但历史上嗜杀而暂时得志的人并不少——这句话到底是经验判断，还是道德信念，或者是一种长时段的赌注？</li>
+</ul>
+<br/>
+<h2>③其他作者观点碰撞</h2>
+<br/>
+<ul>
+<li>- <strong>荀子</strong>在《议兵》篇中主张“兵者，所以禁暴除害也”，区分正义与非正义之战，认为仁义之师可以存在。这跟老子一概以“不祥之器”视兵形成微妙对立：荀子认可“不得已”之下仍有道义正当性，老子则连正当性都不愿正面赋予，只留“不得已”三字。</li>
+<li>- <strong>韩非</strong>则从完全相反的方向回应：他重实力、重赏罚，认为“力多则人朝，力寡则朝于人”，国家不尚兵强则危。老子“不以兵强天下”的告诫，在韩非看来近乎自弱之道——两种思路代表了先秦对“力”与“道”的根本分歧。</li>
+<li>- <strong>罗素</strong>作为二十世纪和平主义者，对一战与核战争的批判与老子有强烈的气质共鸣：强调战争使人麻木、把杀戮审美化。但罗素的理由更多来自人道主义的个体苦难计算，老子则基于“道”的自然无为与对“乐杀人”之心在统治者身上失控的警觉。</li>
+<li>- <strong>涂尔干</strong>在讨论仪式与集体情感时指出，丧礼的核心功能是通过哀悼表达来调节集体情感、防止共同体陷入混乱。老子的“战胜以丧礼处之”，可以看作一种自觉的仪式化安排——用哀伤仪式对冲胜利带来的集体亢奋，防止“乐杀人”的心态在群体中扎根蔓延。</li>
+</ul>
+<br/>
+<h2>④精读推荐（小白怎么读这章）</h2>
+<br/>
+<p><strong>（1）第一遍（速览）：</strong> 关注三个关键词。第一是“不祥之器”，看老子如何给兵器定性——不是道德中立的工具，而是自带灾祸属性的东西。第二是“不得已而用之”，注意“不得已”的分量，它意味着老子不否认有些仗非打不可，但把标准提到极苛刻的程度。第三是“丧礼处之”，看老子如何把战争胜利从“庆功”翻转为“治丧”，一个简单的仪式安排背后是整套价值颠倒。</p>
+<br/>
+<p><strong>（2）第二遍（细抠）：</strong> 必看两个论证。第一，从“胜而不美”到“乐杀人”再到“不可以得志于天下”这条逻辑链——老子凭什么说把胜利当美事的人就是嗜杀者？这个跳跃有没有道理？第二，“吉事尚左、凶事尚右”的礼制对照——老子借用当时通行的礼仪方位常识（左为吉、右为凶）来给“用兵”定位，说明这不仅仅是修辞，而是有当时礼制共识作为语境支撑的。</p>
+<br/>
+<p><strong>（3）第三遍（思辨）：</strong> 该追问的开放问题是：老子这套“不得已才用兵、赢了还要办丧礼”的战争伦理，是否在道德上过于严苛，以至于在现实中无法操作，反而可能在实际战争中让国家陷入要么放弃武力、要么虚伪对待胜利的两难？“哀兵必胜”这类后来被反复打磨的兵学原则，与老子的态度是同一回事还是貌合神离？</p>
+
+<h2 id="graph">🕸 知识图谱</h2>
+<p class="meta">鼠标拖动可看全图；点节点查看详情。</p>
+<div class="graph-wrap">
+<pre class="mermaid">
+flowchart LR
+    a1["夫佳兵者，不祥之器，物或恶之，故有道者不处"]
+    a2["兵者不祥之器，非君子之器，不得已而用之，恬淡为上"]
+    a3["胜而不美，而美之者，是乐杀人"]
+    a4["夫乐杀人者，则不可以得志于天下矣"]
+    a5["杀人之众，以哀悲泣之，战胜，以丧礼处之"]
+
+    p1["战争是不祥的工具，有道者不轻易使用"]
+    p2["君子平时以左为贵，用兵时以右为贵"]
+    p3["用兵是不得已而为之，最好淡然处之"]
+    p4["战胜不应自鸣得意，否则就是乐于杀人"]
+    p5["乐于杀人者不能得志于天下"]
+    p6["吉事尚左、凶事尚右，用兵应以丧礼对待"]
+    p7["杀人多应以哀悲哭泣，战胜也应以丧礼处理"]
+
+    c1["佳兵：精良兵器，代指战争手段"]
+    c2["不祥之器：带来灾祸、令人厌恶之物"]
+    c3["恬淡为上：用兵以淡然不热衷为最高原则"]
+    c4["乐杀人：把杀人取胜当作美事而自得"]
+    c5["丧礼处之：以丧事哀伤态度处理战争胜利"]
+
+    a1 -->|supports| p1
+    a2 -->|supports| p1
+    a2 -->|supports| p3
+    a3 -->|supports| p4
+    a4 -->|supports| p5
+    a5 -->|supports| p6
+    a5 -->|supports| p7
+
+    c1 -->|relates_to| p1
+    c2 -->|relates_to| p1
+    c3 -->|relates_to| p3
+    c4 -->|relates_to| p4
+    c4 -->|relates_to| p5
+    c5 -->|relates_to| p6
+    c5 -->|relates_to| p7
+
+    p1 -->|relates_to| p3
+    p2 -->|relates_to| p6
+    p4 -->|relates_to| p5
+    p6 -->|relates_to| p7
+</pre>
+</div>
+
+<h2 id="notes">📝 结构化笔记</h2>
+<div class="callout"><strong>章节主旨：</strong>本章集中呈现老子的战争观与反战伦理，承接“道”的自然无为原则，将用兵置于不得已的非常手段，并以丧礼态度消解胜利的荣耀化，警示统治者不可因兵强而乐杀人、逞志天下。</div>
+<h3>📌 核心命题</h3><ol>
+<li>战争是不祥的工具，有道者不轻易使用。</li>
+<li>君子平时以左为贵，用兵时以右为贵。</li>
+<li>用兵是不得已而为之，最好淡然处之。</li>
+<li>战胜不应自鸣得意，否则就是乐于杀人。</li>
+<li>乐于杀人者不能得志于天下。</li>
+<li>吉事尚左、凶事尚右，用兵应以丧礼对待。</li>
+<li>杀人多应以哀悲哭泣，战胜也应以丧礼处理。</li>
+</ol>
+<h3>🔑 关键论据</h3><ol>
+<li>夫佳兵者，不祥之器，物或恶之，故有道者不处。</li>
+<li>兵者不祥之器，非君子之器，不得已而用之，恬淡为上。</li>
+<li>胜而不美，而美之者，是乐杀人。</li>
+<li>夫乐杀人者，则不可以得志于天下矣。</li>
+<li>杀人之众，以哀悲泣之，战胜，以丧礼处之。</li>
+</ol>
+<h3>💡 新概念</h3>
+<details><summary><strong>佳兵</strong></summary><div class="case-body">指精良的兵器，也代指战争手段。</div></details>
+<details><summary><strong>不祥之器</strong></summary><div class="case-body">带来灾祸、令人厌恶的东西。</div></details>
+<details><summary><strong>恬淡为上</strong></summary><div class="case-body">用兵时以淡然、不热衷为最高原则。</div></details>
+<details><summary><strong>乐杀人</strong></summary><div class="case-body">把杀人取胜当作美事而沾沾自喜。</div></details>
+<details><summary><strong>丧礼处之</strong></summary><div class="case-body">用对待丧事的哀伤态度来处理战争胜利。</div></details>
+<h3>🔗 跨章链接</h3><ul>
+<li>可与第30章“以道佐人主者，不以兵强天下”对读，理解老子对武力逞强的批判。</li>
+<li>可与第46章“却走马以粪”及第57章“以正治国，以奇用兵”对读，区分治国常态与用兵非常之道。</li>
+<li>可与第69章“用兵有言：吾不敢为主而为客”对读，把握老子以退守、不得已为用的军事伦理。</li>
+<li>可与第80章小国寡民、不尚争战的社会理想相参照，理解反战主张的治世指向。</li>
+</ul>
+
+<h2 id="socrates">🗣 苏格拉底对话（章末）</h2>
+<p class="meta">复制 prompt → 粘到任意对话 AI（workbuddy 也行）。你试完后点 "<b>这个我没答好</b>" 自动入错题本。</p>
+<div id="socrates-list">
+<h2>1）4 个固定 prompt 模板</h2>
+<br/>
+<h3>模板 A｜理解检查（主线提取 + 关键概念检查）</h3>
+<br/>
+<p>```text</p>
+<p>你是我在第 31 章上的深度伴读导师。我刚刚读完这一章，下面是我自己写的一段复述：</p>
+<br/>
+<p>【我的复述】</p>
+<p>{我的复述原文}</p>
+<br/>
+<p>请你做两件事，不要替我补全、不要美化：</p>
+<br/>
+<p>1）主线提取：用 3—5 句话还原这一章作者真正想推进的那条论证主线（谁在反驳谁、从哪一步到哪一步、结论落在哪里）。然后把我的复述和这条主线对照，指出我【漏掉的环节】、【顺序颠倒的地方】、【把作者的话和作者引述的他人观点混为一谈的地方】。</p>
+<br/>
+<p>2）关键概念检查：从这一章里挑出 {3-5} 个核心概念（作者自己下定义或改写过含义的那些），逐个问我：</p>
+<ul>
+<li>   - 这个概念在本章中用来反对什么、替代什么？</li>
+<li>   - 它成立的边界条件是什么？</li>
+<li>   - 用一个本章之外的小例子能不能说清它？</li>
+</ul>
+<p>先不要给答案，只出题。等我回答后，你再逐条判定我答得对、半对、还是错，并引用本章的表述说明依据。</p>
+<br/>
+<p>要求：所有判断必须落回本章文本，凡是你的推测请显式标注&quot;（这是我的推断，非本章原文）&quot;。</p>
+<p>```</p>
+<br/>
+<h3>模板 B｜强反驳（最强反方）</h3>
+<br/>
+<p>```text</p>
+<p>你现在的任务不是帮我理解第 31 章，而是当这一章最强的反方。</p>
+<br/>
+<p>【我的立场】我读完第 31 章后，基本接受它的如下主张：</p>
+<p>{我接受的核心主张}</p>
+<br/>
+<p>请按这个顺序攻击我：</p>
+<br/>
+<p>1）先重构：用比作者更锋利的话，把这一章的核心论证重述一遍（我要确认你打的不是稻草人）。</p>
+<p>2）找出这一章最脆弱的一环：是某个未加论证的前提？某个被悄悄排除的反例？某个概念的滑动（同一词在两处含义不同）？还是论证只在一个特定语境下成立，却被推广成普遍结论？</p>
+<p>3）给出最强反驳：不要给我&quot;也有学者不同意&quot;这种软话，要给我一个具体的思想立场或流派会怎么打——说清它从哪一步切入、凭什么不接受那个前提。如果你引用的是某位哲学家、某个学派或某项研究的代表性观点，请写明是谁的、出自哪类著作或传统；不确定就说不确定，不要编造书名。</p>
+<p>4）逼我防守：最后给我 {2-3} 个我必须回答才能保住这一章立场的问题，并告诉我：如果哪一个我答不上来，我就该把接受度降级。</p>
+<br/>
+<p>全程保持敌意，不要在中途安慰我。</p>
+<p>```</p>
+<br/>
+<h3>模板 C｜连现实（三个场景落地）</h3>
+<br/>
+<p>```text</p>
+<p>我刚读完第 31 章。请你把这章的思想用到现实里，但不要讲空泛的&quot;启示&quot;，要具体到能看出对错。</p>
+<br/>
+<p>【我的现实处境领域】{我的职业/生活领域，例如：产品决策、团队管理、教学、医患沟通、法律实务、内容创作、家庭争论}</p>
+<br/>
+<p>请给我 3 个场景，难度递进：</p>
+<br/>
+<ul>
+<li>- 场景 1（日常小规模）：一个我本周就可能遇到的具体情境，其中这一章的概念能帮我识别出&quot;我原本会误判的地方&quot;。要写出：情境描述 → 用本章的哪个概念/区分介入 → 介入后我的做法具体变成什么样（做什么、不做什么）。</li>
+<li>- 场景 2（有对抗性）：一个我和别人意见冲突的情境，这一章能帮我把争论从&quot;立场之争&quot;转成&quot;可检验的分歧点&quot;。请写出转换的具体话术。</li>
+<li>- 场景 3（结构性/高风险）：一个涉及制度、规则或长期后果的情境，这一章在这里可能失效或被误用。请说清：它在什么条件下不再适用，误用会导致什么后果。</li>
+</ul>
+<br/>
+<p>每个场景都要标注：这是本章思想的【直接应用】还是【我的延伸类比】。如果是延伸类比，请说明类比在哪一点上会断掉。</p>
+<p>```</p>
+<br/>
+<h3>模板 D｜深挖（顺着一句话推到底）</h3>
+<br/>
+<p>```text</p>
+<p>第 31 章里最让我兴奋的一句话是：</p>
+<br/>
+<p>【那句话】&quot;{原句}&quot;</p>
+<p>【我为什么被它击中】{一句话说明}</p>
+<br/>
+<p>请不要停在解释这句话。按下面四步往下推：</p>
+<br/>
+<p>1）定位：这句话在本章论证结构中处于什么位置？它是作者的前提、推论，还是一句被作者本人限定过范围的断言？请引用上下文，说明作者给它加了哪些限定。</p>
+<p>2）拆解：这句话至少隐含了 {2-3} 个未明说的前提。逐个列出来，并告诉我哪一个是作者在别处论证过的、哪一个是他默认的。</p>
+<p>3）推到底：如果这句话为真，那么&quot;再往前推一步&quot;会得到什么？请给出 3 条推论，按&quot;作者本人会接受 / 作者可能抗拒但难以拒绝 / 明显超出作者意图&quot;三类排列，并说明每条推论的代价是什么——接受它要放弃什么别的信念。</p>
+<p>4）找对手：有谁会认为这句话虽然动听但根本不能这样推？请指出具体的思想立场或流派，以及它会在第 3 步的哪一条推论上踩刹车。</p>
+<br/>
+<p>最后给我 {1-2} 个我接下来最该去读的方向（问题、领域或对立立场），说明为什么是这个而不是别的。</p>
+<p>```</p>
+<br/>
+<h2>2）新手引导问题（由浅到深）</h2>
+<br/>
+<ol>
+<li>1. 这一章作者主要在跟谁&quot;吵架&quot;？他想让人放弃什么看法？—— 先别管论证细节，能说出&quot;对手是谁&quot;就已经抓住一半。</li>
+<li>2. 用你自己的话，把这一章从头到尾讲给一个没读过的人听，三句话讲完。—— 讲不顺的地方，就是你没读透的地方。</li>
+<li>3. 这一章里出现了哪几个反复出现的词？作者用它们时，和我们日常用法一样吗？—— 哲学家改词义的地方，通常就是论证发力的地方。</li>
+<li>4. 作者在这一章里，哪一步是没有证明就直接用的？你能接受这一步吗？—— 学会找&quot;未加论证的前提&quot;，比记住结论有用得多。</li>
+<li>5. 如果这一章的结论是错的，世界会有什么不同？这个不同能被观察到或检验吗？—— 用来判断这章是经验主张还是概念主张。</li>
+<li>6. 这一章和上一章的关系是什么？是延续、修补，还是掉头？—— 放在整本书的链条里看，单章的意思才清楚。</li>
+<li>7. 你会怎么反驳这一章？试着给出一个作者必须认真对待的反例。—— 能构造出&quot;不好打发&quot;的反驳，才算真正读懂了它强在哪。</li>
+</ul>
+</div>
+<div id="wrongs-section">
+  <h2 id="wrongs">❓ 我的错题本</h2>
+  <ul id="wrongs-list"></ul>
+</div>
+
+<h2 id="glossary">📚 术语表（L0-L3）</h2>
+<p class="meta">L0 一句话 / L1 教材级 / L2 学术级 / L3 哲学反思</p>
+<div class="glossary-wrap"><table class="tbl"><thead><tr>
+<th>术语</th><th>L0 一句话（普通人能懂）</th><th>L1 教材级别（中文百科）</th><th>L2 学术级别（引用原学术语）</th><th>L3 哲学/思想史反思（不同流派怎么理解）</th>
+</tr></thead><tbody>
+<tr><td>佳兵</td><td>就是精良的武器，也泛指打仗这件事。</td><td>指精良的兵器，也代指战争手段。“佳”为美好、精良之意，“兵”本指兵器，引申为战争、军事。老子在此以“佳兵”为反讽对象，指出即便兵器精良、战法高明，其本质仍属“不祥”。</td><td>王弼注：“佳，美也。”以“佳兵”为“以兵为美”之谓，即对战争手段的肯定与赞美。河上公注训“佳”为“善”，谓“佳兵”犹“利兵革”，强调其杀伤之用。陈鼓应释“佳兵”为“精美的兵器”，并指出老子并非一概否定战争，而是反对以兵为美、以战为能的黩武态度。</td><td>王弼以“贵无”为本，认为“佳兵”之“美”只是“有为之迹”，非“无”之本然，故虽美而“不祥”；河上公从养生立场出发，谓“佳兵”伤和气、害生命，与长生久视之道相悖；孟子从儒家仁政出发，称“善战者服上刑”，根本否定“佳兵”的价值；韩非则从法家功利角度视兵为“国之大事”，与老子“不祥”之判构成鲜明对照。</td></tr>
+<tr><td>不祥之器</td><td>带来灾祸、让人讨厌的东西。</td><td>指带来灾祸、令人厌恶的事物，此处特指兵器与战争。老子将兵器归为“不祥之器”，与“君子之器”相对，强调其违背天道好生之德，非有道者所宜常用。</td><td>王弼注：“兵者，不祥之器，非君子之器。”以“祥”为善、为吉，“不祥”即凶、即恶，兵器以其杀伤之用而被归入凶器之列。河上公注以“祥”为“善”，谓兵器“伤害人物”，故“不祥”。成玄英以重玄学释“不祥”为“非善非恶”之双遣，谓兵器既非可尚之美器，亦非可执之恶物，乃“不得已而用之”之“非有非无”之境。</td><td>王弼以“无”为本，认为兵器之“不祥”在于其出于“有为之伪”，与“无”之自然相违；河上公以养生解“不祥”，谓兵器惊精神、浊和气，与“治身”之道相悖；苏辙从“道”的普遍生养出发，谓兵器“杀伤”之用逆“道”之“生”德，故为“不祥”；佛学中观则以“缘起性空”判之，谓兵器无自性，其“祥”与“不祥”皆待缘而起，旨在破执而不落两边。</td></tr>
+<tr><td>恬淡为上</td><td>用兵时以淡然、不热衷为最高原则。</td><td>用兵时以淡然、不热衷为最高原则。“恬淡”指安静、淡然、不热衷，“为上”即以此为最上、最高准则。老子主张即便不得已而用兵，也应以恬淡处之，不可逞强好战、以杀为乐。</td><td>王弼注：“恬淡为上，故不美也。”以“恬淡”为“不以兵强天下”之心境，即“无为”之用。河上公注：“恬淡，安静也。”从治身角度解为“不以兵革为乐”。郭象以“独化”释“恬淡”为“任自然”而不假外求，谓用兵当“各安其性”而不以杀伤逞快。成玄英以重玄双遣释“恬淡”，谓“恬淡”亦不可执，执恬淡则成“有”，故须“非恬非淡”而“玄会”其理。</td><td>王弼以“无”为本，谓“恬淡”即“无”之用，用兵而心不存兵，方合“以无为本”之旨；河上公从养生出发，以“恬淡”为“安静养神”之要，用兵亦当“不以兵革为乐”；庄子在《齐物论》中主张“和之以是非而休乎天钧”，与“恬淡”相通，但庄子更进一步消解“恬淡”与“不恬淡”的对立；儒家荀子论兵以“仁义”为本，谓“桓文之节制”不如“汤武之仁义”，与老子“恬淡”说形成“以德服人”与“以道化兵”的对照。</td></tr>
+<tr><td>乐杀人</td><td>把杀人取胜当作美事而沾沾自喜。</td><td>把杀人取胜当作美事而沾沾自喜。“乐”读作“le”，喜好、以之为乐；“杀人”指战争中杀伤敌人。老子指出，以杀人为乐者，不可能在天下实现其志向，因其心已违天地好生之德。</td><td>王弼注：“乐杀人者，则不可得志于天下矣。”以“乐杀人”为“有为之极”，与“无”之本性相悖。河上公注：“乐杀人者，杀意满胸，故不可得志于天下。”从治身角度释为“伤和气”。孟子谓“杀一不辜而得天下，不为也”，从性善论出发与老子“乐杀人”之戒相呼应。荀子论兵以“禁暴除害”为旨，谓“以仁义之兵行于天下”，反对以杀为乐。刘笑敢指出老子“乐杀人”之戒体现了“人文自然”的价值取向，即以“不争”为自然，反对暴力之“乐”。</td><td>王弼以“贵无”判“乐杀人”为“有为之极”，远离“无”之自然；河上公从养生与治身角度，谓“乐杀人”者“和气尽、凶气盛”，故不可得志；孟子从性善论出发，以“不忍人之心”判“乐杀人”为“非人”，与老子共同构成对暴力的道德否定，但孟子诉诸“仁义”，老子诉诸“天道”；韩非则从法家“以刑去刑”立场出发，对“杀人”有不同层次的肯定，与老子“乐杀人”之戒形成根本分歧。</td></tr>
+<tr><td>丧礼处之</td><td>用对待丧事的哀伤态度来处理战争胜利。</td><td>用对待丧事的哀伤态度来处理战争胜利。“丧礼”指居丧之礼，以哀戚为主；“处之”即对待、处置。老子主张，即便战争获胜，也不应以胜利为喜，而应以丧礼的哀伤态度来对待，因为战争本身意味着众多生命的丧失。</td><td>王弼注：“战胜以丧礼处之。”以“丧”为“哀戚”之谓，谓胜利亦属“有为之迹”，当以“不居其功”之心处之。河上公注：“虽有战必胜，当以丧礼处之，不喜之也。”从治身角度释为“悲哀”而不庆胜。苏辙从“道”的普遍生养出发，谓“杀人”虽不得已，然“道”以生为德，故当以“丧”处之，体现“道”之慈悲。成玄英以重玄双遣释“丧礼”，谓“丧”亦不可执，须“非丧非不丧”而“玄同”于道。</td><td>王弼以“无”为本，谓“丧礼处之”即“不居其功”之意，胜利亦“有为之迹”，当以“无”处之；河上公从养生与治身出发，以“悲哀”处胜，谓“不喜”则“和气不伤”；苏辙以“道”之“生”德为判，谓战争虽胜而“杀人”已多，当以“丧”处之，体现“道”的慈悲；儒家以“军礼”庆功，与老子“以丧礼处战”形成鲜明对照，儒家重“礼”之别，老子重“哀”之同，二者对战争胜利的态度判然有别。</td></tr>
+</tbody></table><div class="glossary-card"><div class="gcard">
+  <h4 class="gcard-term">佳兵</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">就是精良的武器，也泛指打仗这件事。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指精良的兵器，也代指战争手段。“佳”为美好、精良之意，“兵”本指兵器，引申为战争、军事。老子在此以“佳兵”为反讽对象，指出即便兵器精良、战法高明，其本质仍属“不祥”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“佳，美也。”以“佳兵”为“以兵为美”之谓，即对战争手段的肯定与赞美。河上公注训“佳”为“善”，谓“佳兵”犹“利兵革”，强调其杀伤之用。陈鼓应释“佳兵”为“精美的兵器”，并指出老子并非一概否定战争，而是反对以兵为美、以战为能的黩武态度。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“贵无”为本，认为“佳兵”之“美”只是“有为之迹”，非“无”之本然，故虽美而“不祥”；河上公从养生立场出发，谓“佳兵”伤和气、害生命，与长生久视之道相悖；孟子从儒家仁政出发，称“善战者服上刑”，根本否定“佳兵”的价值；韩非则从法家功利角度视兵为“国之大事”，与老子“不祥”之判构成鲜明对照。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">不祥之器</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">带来灾祸、让人讨厌的东西。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">指带来灾祸、令人厌恶的事物，此处特指兵器与战争。老子将兵器归为“不祥之器”，与“君子之器”相对，强调其违背天道好生之德，非有道者所宜常用。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“兵者，不祥之器，非君子之器。”以“祥”为善、为吉，“不祥”即凶、即恶，兵器以其杀伤之用而被归入凶器之列。河上公注以“祥”为“善”，谓兵器“伤害人物”，故“不祥”。成玄英以重玄学释“不祥”为“非善非恶”之双遣，谓兵器既非可尚之美器，亦非可执之恶物，乃“不得已而用之”之“非有非无”之境。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，认为兵器之“不祥”在于其出于“有为之伪”，与“无”之自然相违；河上公以养生解“不祥”，谓兵器惊精神、浊和气，与“治身”之道相悖；苏辙从“道”的普遍生养出发，谓兵器“杀伤”之用逆“道”之“生”德，故为“不祥”；佛学中观则以“缘起性空”判之，谓兵器无自性，其“祥”与“不祥”皆待缘而起，旨在破执而不落两边。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">恬淡为上</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">用兵时以淡然、不热衷为最高原则。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">用兵时以淡然、不热衷为最高原则。“恬淡”指安静、淡然、不热衷，“为上”即以此为最上、最高准则。老子主张即便不得已而用兵，也应以恬淡处之，不可逞强好战、以杀为乐。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“恬淡为上，故不美也。”以“恬淡”为“不以兵强天下”之心境，即“无为”之用。河上公注：“恬淡，安静也。”从治身角度解为“不以兵革为乐”。郭象以“独化”释“恬淡”为“任自然”而不假外求，谓用兵当“各安其性”而不以杀伤逞快。成玄英以重玄双遣释“恬淡”，谓“恬淡”亦不可执，执恬淡则成“有”，故须“非恬非淡”而“玄会”其理。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，谓“恬淡”即“无”之用，用兵而心不存兵，方合“以无为本”之旨；河上公从养生出发，以“恬淡”为“安静养神”之要，用兵亦当“不以兵革为乐”；庄子在《齐物论》中主张“和之以是非而休乎天钧”，与“恬淡”相通，但庄子更进一步消解“恬淡”与“不恬淡”的对立；儒家荀子论兵以“仁义”为本，谓“桓文之节制”不如“汤武之仁义”，与老子“恬淡”说形成“以德服人”与“以道化兵”的对照。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">乐杀人</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">把杀人取胜当作美事而沾沾自喜。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">把杀人取胜当作美事而沾沾自喜。“乐”读作“le”，喜好、以之为乐；“杀人”指战争中杀伤敌人。老子指出，以杀人为乐者，不可能在天下实现其志向，因其心已违天地好生之德。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“乐杀人者，则不可得志于天下矣。”以“乐杀人”为“有为之极”，与“无”之本性相悖。河上公注：“乐杀人者，杀意满胸，故不可得志于天下。”从治身角度释为“伤和气”。孟子谓“杀一不辜而得天下，不为也”，从性善论出发与老子“乐杀人”之戒相呼应。荀子论兵以“禁暴除害”为旨，谓“以仁义之兵行于天下”，反对以杀为乐。刘笑敢指出老子“乐杀人”之戒体现了“人文自然”的价值取向，即以“不争”为自然，反对暴力之“乐”。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“贵无”判“乐杀人”为“有为之极”，远离“无”之自然；河上公从养生与治身角度，谓“乐杀人”者“和气尽、凶气盛”，故不可得志；孟子从性善论出发，以“不忍人之心”判“乐杀人”为“非人”，与老子共同构成对暴力的道德否定，但孟子诉诸“仁义”，老子诉诸“天道”；韩非则从法家“以刑去刑”立场出发，对“杀人”有不同层次的肯定，与老子“乐杀人”之戒形成根本分歧。</span></div>
+</div><div class="gcard">
+  <h4 class="gcard-term">丧礼处之</h4>
+  <div class="gcard-row l0"><span class="gcard-k">L0</span><span class="gcard-v">用对待丧事的哀伤态度来处理战争胜利。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L1</span><span class="gcard-v">用对待丧事的哀伤态度来处理战争胜利。“丧礼”指居丧之礼，以哀戚为主；“处之”即对待、处置。老子主张，即便战争获胜，也不应以胜利为喜，而应以丧礼的哀伤态度来对待，因为战争本身意味着众多生命的丧失。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L2</span><span class="gcard-v">王弼注：“战胜以丧礼处之。”以“丧”为“哀戚”之谓，谓胜利亦属“有为之迹”，当以“不居其功”之心处之。河上公注：“虽有战必胜，当以丧礼处之，不喜之也。”从治身角度释为“悲哀”而不庆胜。苏辙从“道”的普遍生养出发，谓“杀人”虽不得已，然“道”以生为德，故当以“丧”处之，体现“道”之慈悲。成玄英以重玄双遣释“丧礼”，谓“丧”亦不可执，须“非丧非不丧”而“玄同”于道。</span></div>
+  <div class="gcard-row"><span class="gcard-k">L3</span><span class="gcard-v">王弼以“无”为本，谓“丧礼处之”即“不居其功”之意，胜利亦“有为之迹”，当以“无”处之；河上公从养生与治身出发，以“悲哀”处胜，谓“不喜”则“和气不伤”；苏辙以“道”之“生”德为判，谓战争虽胜而“杀人”已多，当以“丧”处之，体现“道”的慈悲；儒家以“军礼”庆功，与老子“以丧礼处战”形成鲜明对照，儒家重“礼”之别，老子重“哀”之同，二者对战争胜利的态度判然有别。</span></div>
+</div></div></div>
+
+<h2 id="figures">🖼 插图与原书页</h2>
+
+
+<hr/>
+<details>
+<summary><strong>📄 这章原始文本（前 6000 字）</strong></summary>
+<pre style="white-space: pre-wrap; background: #fff; padding: 12px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px;"># 第 31 章
+
+_（源自《道德经》老子 著 · 王弼本（通行本））_
+
+---
+
+## [第 31 章]
+
+夫佳兵者，不祥之器，物或恶之，故有道者不处。君子居则贵左，用兵则贵右。兵者不祥之器，非君子之器，不得已而用之，恬淡为上。胜而不美，而美之者，是乐杀人。夫乐杀人者，则不可以得志于天下矣。吉事尚左，凶事尚右。偏将军居左，上将军居右，言以丧礼处之。杀人之众，以哀悲泣之，战胜，以丧礼处之。
+</pre>
+</details>
+
+<p class="meta" style="margin-top:36px;">
+生成于 WorkBuddy 伴读系统 · 模型白名单：deepseek-v4-flash（推理强）+ doubao-seed-2.1-lite + glm-5.3 + kimi-k3 + MiniMax-M3。
+禁用：任何 WorkBuddy 推荐/官方模型。
+</p>
+
+<script>
+const STORE = 'book_daodejing_chapter_31_wrongs';
+function loadWrongs() {{
+  try {{
+    return JSON.parse(localStorage.getItem(STORE) || '[]');
+  }} catch (e) {{ return []; }}
+}}
+function saveWrongs(arr) {{
+  localStorage.setItem(STORE, JSON.stringify(arr));
+  renderWrongs();
+}}
+function escapeHtml(s) {{
+  return (s+'').replace(/[&<>"']/g, c => ({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]));
+}}
+function renderWrongs() {{
+  const arr = loadWrongs();
+  const ul = document.getElementById('wrongs-list');
+  if (arr.length === 0) {{
+    ul.innerHTML = '<li style="color:#888;">还没有错题。</li>';
+    return;
+  }}
+  ul.innerHTML = arr.map((w, i) =>
+    '<li><strong>[' + (i+1) + ']</strong> ' +
+    escapeHtml(w.text.slice(0, 200)) +
+    ' <button class="copy-btn" data-i="' + i + '" style="background:#aaa;font-size:11px;padding:2px 6px;">删</button></li>'
+  ).join('');
+  ul.querySelectorAll('button[data-i]').forEach(b => {{
+    b.onclick = () => {{ const a = loadWrongs(); a.splice(parseInt(b.dataset.i), 1); saveWrongs(a); }};
+  }});
+}}
+function addWrong(text) {{
+  const arr = loadWrongs();
+  arr.push({{text: String(text).slice(0, 1000), ts: new Date().toISOString()}});
+  saveWrongs(arr);
+}}
+window.addEventListener('DOMContentLoaded', () => {{
+  renderWrongs();
+  // 给苏格拉底区每个 prompt-card 加按钮（容错：没有时不报错）
+  document.querySelectorAll('.prompt-card').forEach((card) => {{
+    if (card.dataset.btnAttached) return;
+    card.dataset.btnAttached = '1';
+    const c = document.createElement('button');
+    c.className = 'copy-btn';
+    c.textContent = '复制 prompt';
+    c.style.marginRight = '6px';
+    c.onclick = () => {{
+      const t = (card.querySelector('pre') && card.querySelector('pre').innerText) || card.innerText;
+      navigator.clipboard.writeText(t).then(() => {{
+        const old = c.textContent; c.textContent = '已复制 ✓';
+        setTimeout(() => c.textContent = old, 1500);
+      }});
+    }};
+    card.prepend(c);
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(card.innerText.replace('复制 prompt', '').trim());
+    card.appendChild(w);
+  }});
+  document.querySelectorAll('#socrates-list li').forEach((li) => {{
+    if (li.dataset.btnAttached) return;
+    li.dataset.btnAttached = '1';
+    const w = document.createElement('button');
+    w.className = 'wrong-mark';
+    w.textContent = '我没答好';
+    w.onclick = () => addWrong(li.innerText.trim());
+    li.appendChild(w);
+  }});
+}});
+</script>
+</body>
+</html>
