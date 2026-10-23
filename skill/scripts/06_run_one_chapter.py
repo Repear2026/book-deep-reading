@@ -1,7 +1,7 @@
 """06_run_one_chapter.py — 一章一键跑（D1→D5 + review）。
 
 用法:
-    python scripts/06_run_one_chapter.py --book shijie_deluoji --chapter 02 [--skip-finished]
+    python scripts/06_run_one_chapter.py --book daodejing --chapter 02 [--skip-finished]
 """
 from __future__ import annotations
 import argparse, subprocess, sys

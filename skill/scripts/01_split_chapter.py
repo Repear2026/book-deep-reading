@@ -1,7 +1,7 @@
 """D1 拆书脚本。
 
 用法：
-    python scripts/01_split_chapter.py --book shijie_deluoji --chapter 01
+    python scripts/01_split_chapter.py --book daodejing --chapter 01
 
 做什么：
     1. 读 config/books.yaml 找书 + 章节

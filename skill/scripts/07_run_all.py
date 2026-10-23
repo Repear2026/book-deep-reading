@@ -7,7 +7,7 @@
 - 最终写 aggregate_report.md 总结
 
 用法：
-    python scripts/07_run_all.py --book shijie_deluoji
+    python scripts/07_run_all.py --book daodejing
 """
 from __future__ import annotations
 import argparse, json, sys, time

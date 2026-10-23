@@ -3,7 +3,7 @@
 后 07_run_all.py 跑完后立即调用，确保聚合报告反映最新 review 状态。
 
 用法:
-    python scripts/09_reaggregate.py --book shijie_deluoji
+    python scripts/09_reaggregate.py --book daodejing
 """
 from __future__ import annotations
 import argparse, json, sys, time
@@ -53,7 +53,6 @@ def main():
     # 重写 _aggregate_report.md
     # 书名友好显示
     BOOK_DISPLAY = {
-        "shijie_deluoji": "《世界的逻辑：如何让我们生活的世界更理性、更可控》",
         "daodejing": "《道德经》（王弼本）",
     }
     title = BOOK_DISPLAY.get(args.book, f"《{args.book}》")

@@ -6,7 +6,7 @@
 - 这个脚本对指定章节顺序补齐 D5 + 重 review
 
 用法：
-    python scripts/08_fix_html.py --book shijie_deluoji --chapters 01,02,03,04,05,06,07,08,09,10,11,12,13,14
+    python scripts/08_fix_html.py --book daodejing --chapters 01,02,03
 """
 from __future__ import annotations
 import argparse, json, sys, subprocess

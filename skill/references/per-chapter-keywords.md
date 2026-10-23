@@ -14,7 +14,7 @@ CHAPTER_KEYWORDS = {
 }
 ```
 
-## 示例（马兆远《世界的逻辑》）
+## 示例（自定关键词表，按书填写）
 
 ```python
 CHAPTER_KEYWORDS = {

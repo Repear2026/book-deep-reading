@@ -78,7 +78,7 @@ agent_created: true
 3. 跑批（`06` 会自动识别 `source_type: text` 并改用 `01b_split_text_book.py`）。
 
 > **公版书是合规策略的关键**：原文过了版权保护期，注释/解析是你自己的，可以公开发布和收费。
-> 《世界的逻辑》这类在版权期内的书只能个人使用。
+> 版权期内的书（出版未满 50 年）只能个人使用，不可公开发布。开源示例请用公版书。
 
 ## 跑批
 
@@ -203,18 +203,18 @@ LLM 默认走白名单里的 `deepseek-v4-flash`（reasoning effort=low）做主
 
 ---
 
-## 跑一轮的端到端示例（《世界的逻辑》上下册）
+## 跑一轮的端到端示例（公版书《道德经》81 章）
 
 ```bash
 cd "<本 skill 目录>/scripts"
-"<venv>/Scripts/python.exe" 06_run_one_chapter.py --book shijie_deluoji --chapter 01
+"<venv>/Scripts/python.exe" 06_run_one_chapter.py --book daodejing --chapter 01
 # 验收第 1 章 OK →
-"<venv>/Scripts/python.exe" 07_run_all.py --book shijie_deluoji --start 02 --end 14
+"<venv>/Scripts/python.exe" 07_run_all.py --book daodejing --start 02 --end 81
 # 跑完后看
-open ../../outputs/shijie_deluoji/_aggregate_report.md
+open ../../outputs/daodejing/_aggregate_report.md
 ```
 
-跑出来的 `outputs/shijie_deluoji/chapter_XX/site/index.html` 都是双击即用，不需要后端，不需要联网（首次 Mermaid CDN 后可离线）。
+跑出来的 `outputs/daodejing/chapter_XX/site/index.html` 都是双击即用，不需要后端，不需要联网（首次 Mermaid CDN 后可离线）。
 
 ---
 
